@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Liscere: Action-legitimacy evaluation for industrial systems</title>
+  <meta name="description" content="Authorised is not always appropriate. Liscere evaluates whether industrial actions fit the current process state." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#030405" />
+
+  <meta property="og:title" content="Liscere: Action-legitimacy evaluation for industrial systems" />
+  <meta property="og:description" content="Authorised is not always appropriate. Liscere evaluates whether industrial actions fit the current process state." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://liscere.com" />
+
+  <link rel="canonical" href="https://liscere.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:," />
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20260615-55" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-chrome" aria-label="Site navigation">
+    <a class="site-logo" href="#top" aria-label="Liscere home">
+      <svg class="wordmark-svg" viewBox="0 0 760 150" role="img" aria-labelledby="wordmark-title-small">
+        <title id="wordmark-title-small">Liscere</title>
+        <text class="wordmark-fill" x="0" y="118">Liscere</text>
+        <text class="wordmark-trace" x="0" y="118">Liscere</text>
+      </svg>
+    </a>
+    <nav class="section-dots" aria-label="Page navigation">
+      <a href="#top" aria-label="Thesis" class="active"></a>
+      <a href="#gap" aria-label="Gap"></a>
+      <a href="#pressure" aria-label="Pressure"></a>
+      <a href="#liscere" aria-label="Decision layer"></a>
+      <a href="#how" aria-label="How it works"></a>
+      <a href="#evidence" aria-label="Evidence"></a>
+    </nav>
+  </header>
+
+  <main id="main-content" class="page-stack">
+    <section class="page hero-page active" id="top" data-page="01 / Thesis" aria-labelledby="hero-title">
+      <div class="hero-field" aria-hidden="true">
+        <svg class="hero-field-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" focusable="false">
+          <g class="hero-inputs"></g>
+          <g class="hero-outputs"></g>
+        </svg>
+      </div>
+      <div class="hero-veil" aria-hidden="true"></div>
+
+      <div class="hero-copy">
+        <p class="hero-name">Liscere</p>
+        <h1 id="hero-title">Authorised is not always appropriate.</h1>
+      </div>
+
+      <div class="hero-scrollcue" aria-hidden="true">
+        <span class="hero-scrollcue-label">Scroll</span>
+        <span class="hero-scrollcue-track"><span class="hero-scrollcue-dot"></span></span>
+      </div>
+    </section>
+
+    <section class="page gap-page" id="gap" data-page="02 / Missing question" aria-labelledby="gap-title">
+      <div class="narrative narrow">
+        <p class="kicker">The missing question</p>
+        <h2 id="gap-title">Every check can pass.</h2>
+        <p class="lead">The action can still be wrong.</p>
+      </div>
+
+      <div class="pass-gate" aria-label="Checks passing while context remains unresolved">
+        <span>Identity ✓</span>
+        <span>Access ✓</span>
+        <span>Protocol ✓</span>
+        <span>Asset ✓</span>
+        <span>Monitoring ✓</span>
+        <strong>Context ?</strong>
+      </div>
+
+      <div class="incident-carousel" aria-roledescription="carousel" aria-label="Real industrial incidents">
+        <button class="carousel-arrow prev" type="button" aria-label="Previous incident">&#8249;</button>
+
+        <div class="incident-viewport">
+          <div class="incident-track">
+
+            <!-- SLIDE 1 - Oldsmar -->
+            <article class="incident-slide incident-slide--oldsmar" aria-roledescription="slide" aria-label="1 of 3">
+              <div class="incident-overlay"></div>
+              <div class="incident-content">
+                <p class="incident-meta">Oldsmar Water Treatment <span>·</span> 2021 <span>·</span> Water</p>
+                <p class="incident-fact">
+                  An operator workstation at a water plant was accessed remotely. The sodium hydroxide
+                  setpoint was changed from 100 ppm to 11,100 ppm, over 100× the normal level.
+                </p>
+                <div class="incident-action">
+                  <span>Action</span>
+                  <strong>Set chemical dose: 100 ppm → 11,100 ppm</strong>
+                </div>
+                <p class="incident-question">The process runs at ~100 ppm. Why suddenly 11,100 ppm?</p>
+                <p class="incident-angle">
+                  The action came from a valid workstation, a valid user, a valid protocol. Every
+                  access check passed.<br />
+                  But none of them asked whether 11,100 ppm made sense for the physical process.
+                  That's the type of question Liscere is built to ask!
+                </p>
+              </div>
+            </article>
+
+            <!-- SLIDE 2 - Ukraine Power Grid -->
+            <article class="incident-slide incident-slide--ukraine" aria-roledescription="slide" aria-label="2 of 3">
+              <div class="incident-overlay"></div>
+              <div class="incident-content">
+                <p class="incident-meta">Ukraine Power Grid <span>·</span> 2015 <span>·</span> Energy</p>
+                <p class="incident-fact">
+                  Attackers used hijacked operator workstations to open breakers across 30 substations,
+                  cutting power to hundreds of thousands of people. Operators watched their own cursors
+                  move and could not stop it.
+                </p>
+                <div class="incident-action">
+                  <span>Action</span>
+                  <strong>Open breakers across ~30 substations</strong>
+                </div>
+                <p class="incident-question">Dozens of breakers, all at once, out of nowhere. Does this fit how the grid normally operates?</p>
+                <p class="incident-angle">
+                  Liscere aims to learn what "normal" looks like for a process, and judge every action
+                  against it.<br />
+                  An action this far outside the norm is exactly what should be surfaced for review the
+                  moment it happens, not after the lights go out.
+                </p>
+              </div>
+            </article>
+
+            <!-- SLIDE 3 - Stuxnet -->
+            <article class="incident-slide incident-slide--stuxnet" aria-roledescription="slide" aria-label="3 of 3">
+              <div class="incident-overlay"></div>
+              <div class="incident-content">
+                <p class="incident-meta">Stuxnet <span>·</span> 2010 <span>·</span> Nuclear enrichment</p>
+                <p class="incident-fact">
+                  Malware drove centrifuge rotor speeds far outside their normal operating range,
+                  causing gradual physical destruction, while feeding recorded "normal" data back to
+                  operator screens.
+                </p>
+                <div class="incident-action">
+                  <span>Action</span>
+                  <strong>Drive rotor RPM from ~63,000 to 84,600</strong>
+                </div>
+                <p class="incident-question">A speed the centrifuges had never run before. Why now, and why at all?</p>
+                <p class="incident-angle">
+                  Stuxnet fed operators fake "normal" readings while the centrifuges tore themselves
+                  apart.<br />
+                  That's where Liscere is going: judging actions against the real process state, not
+                  the one on the screen.
+                </p>
+              </div>
+            </article>
+
+          </div>
+        </div>
+
+        <button class="carousel-arrow next" type="button" aria-label="Next incident">&#8250;</button>
+      </div>
+    </section>
+
+    <section class="page pressure-page" id="pressure" data-page="03 / Why now" aria-labelledby="pressure-title">
+      <div class="narrative pressure-head">
+        <p class="kicker">Why this is becoming urgent</p>
+        <h2 id="pressure-title">Permission is becoming a weaker <br />signal of safety.</h2>
+        <p class="lead">The harder question is no longer who can act, but whether the action fits the moment.</p>
+      </div>
+
+      <div class="shift-track">
+        <a class="shift-step" href="https://www.sans.org/blog/sans-2025-state-ics-security-report-progress-pressure-path-resilience" target="_blank" rel="noopener">
+          <p class="shift-index">01</p>
+          <h3 class="shift-title">The door is already open.</h3>
+          <p class="shift-body">
+            Attackers increasingly arrive through legitimate access: stolen credentials, remote
+            sessions, IT/OT convergence.
+          </p>
+          <p class="shift-source">SANS, 2025</p>
+        </a>
+
+        <a class="shift-step" href="https://www.dragos.com/ot-cybersecurity-year-in-review/" target="_blank" rel="noopener">
+          <p class="shift-index">02</p>
+          <h3 class="shift-title">Attackers now act like operators.</h3>
+          <p class="shift-body">
+            They learn how the process runs and act with intent, so a malicious action looks like a
+            legitimate one.
+          </p>
+          <p class="shift-source">Dragos, 2025</p>
+        </a>
+
+        <article class="shift-step">
+          <p class="shift-index">03</p>
+          <h3 class="shift-title">The check that no longer fires.</h3>
+          <p class="shift-body">
+            When access looks valid, checking who is acting no longer reveals the attack.
+          </p>
+        </article>
+      </div>
+
+      <p class="pressure-climax">
+        As the attacker becomes indistinguishable from the operator, the only defence left is asking
+        whether the action fits the process. <strong>That is the layer Liscere is building.</strong>
+      </p>
+    </section>
+
+    <section class="page about-page" id="liscere" data-page="04 / Liscere" aria-labelledby="liscere-title">
+      <div class="about-top">
+        <p class="kicker">So, what is Liscere?</p>
+        <div class="about-grid">
+          <h2 class="about-title" id="liscere-title">Liscere is a <span class="nowrap">research-led</span> venture building the next layer of industrial cybersecurity.</h2>
+
+          <div class="about-side">
+            <p class="about-body">
+              We are building the next layer of industrial cybersecurity: one that reads the network
+              the way it already speaks, protocol by protocol, and turns that traffic into a picture of
+              what the process is doing. Against that picture, every action gets weighed. Not who sent
+              it, not whether it is permitted, but whether it still makes sense. A judgment that sits
+              beside the tools already in place, without asking you to rebuild what runs today.
+            </p>
+            <p class="about-body">
+              The attacks aimed at critical infrastructure grow sharper every year. The defences
+              guarding it have barely moved, and much of what runs the world is too old, or too
+              critical, to touch. So the gap widens: more valid ways in, and no one asking what happens
+              once an action is already inside. The name says it. From the Latin licere, to be
+              permitted, Liscere begins there and moves past it, because in a live process, permitted is
+              no longer the same as safe.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <p class="about-close">Security that understands the traffic, not just the credentials.</p>
+    </section>
+
+    <section class="page how-page" id="how" data-page="05 / How it works" aria-labelledby="how-title">
+      <div class="how-head">
+        <p class="kicker">And how does it work?</p>
+        <h2 id="how-title">From traffic to judgment.</h2>
+        <p class="how-intro">The approach we are researching, in four steps. Each one is an open problem we are working to solve.</p>
+      </div>
+
+      <ol class="how-steps">
+        <li class="how-step">
+          <span class="how-n">01</span>
+          <div class="how-step-body">
+            <h3 class="how-step-name">Observe</h3>
+            <p class="how-step-what">Read industrial protocol traffic as it flows, without sitting in the path of the process.</p>
+            <p class="how-step-hard"><span class="hard-label">The hard part:</span> extracting meaning from raw control-system communication, across protocols never designed to be read by a third party.</p>
+          </div>
+        </li>
+        <li class="how-step">
+          <span class="how-n">02</span>
+          <div class="how-step-body">
+            <h3 class="how-step-name">Reconstruct</h3>
+            <p class="how-step-what">Turn that traffic into a live picture of what the process is doing: its state, its rhythm, its normal.</p>
+            <p class="how-step-hard"><span class="hard-label">The hard part:</span> inferring physical-process context from the network alone, with no sensors and no changes to the plant.</p>
+          </div>
+        </li>
+        <li class="how-step">
+          <span class="how-n">03</span>
+          <div class="how-step-body">
+            <h3 class="how-step-name">Evaluate</h3>
+            <p class="how-step-what">Weigh each action against that picture. Does this command fit the state the process is in right now?</p>
+            <p class="how-step-hard"><span class="hard-label">The hard part:</span> judging legitimacy in context, where the same valid action can be right in one moment and harmful in the next.</p>
+          </div>
+        </li>
+        <li class="how-step">
+          <span class="how-n">04</span>
+          <div class="how-step-body">
+            <h3 class="how-step-name">Decide</h3>
+            <p class="how-step-what">Produce a verdict, and the evidence behind it.</p>
+            <p class="how-step-hard"><span class="hard-label">The hard part:</span> a verdict an operator can review, made in time to matter.</p>
+          </div>
+        </li>
+      </ol>
+
+      <p class="about-close">Each one is an open research problem. Together, they are the layer that does not exist yet.</p>
+    </section>
+
+    <section class="page evidence-page" id="evidence" data-page="06 / Evidence" aria-labelledby="evidence-title">
+      <div class="evidence-head">
+        <p class="kicker">Built on evidence</p>
+        <h2 id="evidence-title">Built from research.<br />Tested in controlled OT scenarios.</h2>
+        <p class="evidence-body">
+          Liscere originates from doctoral research, turning a rigorous academic question into a
+          practical layer of cybersecurity for industrial systems.
+        </p>
+      </div>
+
+      <div class="cta-row">
+        <!-- Research / OT Lab links to be added later (still placeholders). -->
+        <a class="primary-cta" href="mailto:hello@liscere.com">Collaborate</a>
+        <a class="secondary-cta">Research</a>
+        <a class="secondary-cta">OT Lab</a>
+        <a class="secondary-cta" href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a>
+      </div>
+
+      <p class="evidence-foot">Liscere 2026</p>
+    </section>
+  </main>
+
+  <script>
+    const pages = [...document.querySelectorAll(".page")];
+    const dots = [...document.querySelectorAll(".section-dots a")];
+    const root = document.documentElement;
+    let activeIndex = 0;
+
+    const setActivePage = (index) => {
+      activeIndex = Math.max(0, Math.min(index, pages.length - 1));
+      pages.forEach((page, pageIndex) => page.classList.toggle("active", pageIndex === activeIndex));
+      dots.forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === activeIndex));
+      root.classList.toggle("past-hero", activeIndex > 0);
+      history.replaceState(null, "", `#${pages[activeIndex].id}`);
+    };
+
+    const goToPage = (targetIndex) => {
+      if (targetIndex < 0 || targetIndex >= pages.length) return;
+      pages[targetIndex].scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    const pageObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (!visible) return;
+      const index = pages.indexOf(visible.target);
+      if (index >= 0 && index !== activeIndex) {
+        setActivePage(index);
+      }
+    }, { threshold: [0.68] });
+
+    window.addEventListener("keydown", (event) => {
+      if (["ArrowDown", "PageDown", " "].includes(event.key)) {
+        event.preventDefault();
+        goToPage(activeIndex + 1);
+      }
+
+      if (["ArrowUp", "PageUp"].includes(event.key)) {
+        event.preventDefault();
+        goToPage(activeIndex - 1);
+      }
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", (event) => {
+        event.preventDefault();
+        goToPage(index);
+      });
+    });
+
+    const carousel = document.querySelector(".incident-carousel");
+    if (carousel) {
+      const track = carousel.querySelector(".incident-track");
+      const slides = [...carousel.querySelectorAll(".incident-slide")];
+      const prevBtn = carousel.querySelector(".carousel-arrow.prev");
+      const nextBtn = carousel.querySelector(".carousel-arrow.next");
+      let slideIndex = 0;
+
+      const goToSlide = (n) => {
+        slideIndex = (n + slides.length) % slides.length;
+        track.style.transform = `translateX(-${slideIndex * 100}%)`;
+        slides.forEach((slide, i) => slide.setAttribute("aria-hidden", i !== slideIndex ? "true" : "false"));
+      };
+
+      prevBtn.addEventListener("click", () => goToSlide(slideIndex - 1));
+      nextBtn.addEventListener("click", () => goToSlide(slideIndex + 1));
+      goToSlide(0);
+    }
+
+    const initialIndex = Math.max(0, pages.findIndex((page) => `#${page.id}` === window.location.hash));
+    setActivePage(initialIndex);
+    root.style.scrollBehavior = "auto";
+    pages[initialIndex].scrollIntoView({ block: "start" });
+    root.style.scrollBehavior = "";
+    pages.forEach((page) => pageObserver.observe(page));
+
+    /* Hero (conceptual, illustrative): inputs converge into "Liscere", outputs leave as
+       evaluated actions tracing industrial-equipment icons. Not real telemetry. */
+    (function initHero() {
+      const svg = document.querySelector(".hero-field-svg");
+      if (!svg) return;
+      const inG = svg.querySelector(".hero-inputs");
+      const outG = svg.querySelector(".hero-outputs");
+      const nameEl = document.querySelector(".hero-name");
+      const SVGNS = "http://www.w3.org/2000/svg";
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const rnd = (a, b) => a + Math.random() * (b - a);
+      const NS = (t) => document.createElementNS(SVGNS, t);
+
+      // The SVG field is driven in REAL pixel coordinates so it stays aligned with the
+      // HTML title on any screen size: the viewBox tracks the element's pixel size, and
+      // every anchor (where inputs converge, where outputs emerge, the input/output
+      // barrier) is measured from the live DOM rather than hard-coded.
+      let W = 1440, H = 900;            // field size in px
+      let NL = 90, NR = 600, NT = 90, NB = 300; // "Liscere" wordmark bounds within the field
+      let TOPLIM = 110;                 // ceiling = top of the "scere" x-height (nothing above this)
+      let BAR_TX = 590, BAR_TY = 100;   // barrier top = right edge of the wordmark
+      // invisible diagonal barrier: inputs to its LEFT, outputs only to its RIGHT
+      const barrierX = (y) => BAR_TX + ((y - BAR_TY) * (W - BAR_TX)) / (H - BAR_TY);
+      const measure = () => {
+        const hr = svg.getBoundingClientRect();
+        W = Math.max(1, Math.round(hr.width));
+        H = Math.max(1, Math.round(hr.height));
+        svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+        if (nameEl) {
+          // measure the GLYPHS (a <p> block is full-column-wide; a Range hugs the text)
+          let nr;
+          try { const rg = document.createRange(); rg.selectNodeContents(nameEl); nr = rg.getBoundingClientRect(); }
+          catch (e) { nr = nameEl.getBoundingClientRect(); }
+          if (!nr || !nr.width) nr = nameEl.getBoundingClientRect();
+          NL = nr.left - hr.left; NR = nr.right - hr.left;
+          NT = nr.top - hr.top;   NB = nr.bottom - hr.top;
+          // ceiling = top of the lowercase "scere" (x-height), not the cap top of the "L".
+          // a Range rect only gives the line box, so derive the x-height from font metrics:
+          // baseline = lineTop + fontAscent; xHeightTop = baseline - lowercaseAscent.
+          TOPLIM = NT + (NB - NT) * 0.34; // sensible fallback (~x-height for this display font)
+          try {
+            const cs = window.getComputedStyle(nameEl);
+            const ctx = (measure._ctx || (measure._ctx = document.createElement("canvas").getContext("2d")));
+            ctx.font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+            ctx.textBaseline = "alphabetic";
+            const fm = ctx.measureText("Liscere");
+            const xm = ctx.measureText("e");
+            if (fm.fontBoundingBoxAscent && xm.actualBoundingBoxAscent) {
+              TOPLIM = NT + fm.fontBoundingBoxAscent - xm.actualBoundingBoxAscent;
+            }
+          } catch (e) {}
+        }
+        // barrier anchored at the wordmark's bottom-right corner, sloping to the field's
+        // bottom-right; this keeps the whole right edge of the text inside the output side
+        BAR_TX = NR - 8; BAR_TY = NB;
+      };
+      measure();
+      window.addEventListener("resize", measure);
+
+      // an industrial command flowing in toward the title (top-left). Sources: the bottom
+      // (full width) or the left edge. Lines that start on the right curve left immediately
+      // and stay low, so the upper-right and centre stay clear for the outputs.
+      const makeInput = () => {
+        let sx, sy;
+        const r = Math.random();
+        if (r < 0.45) { sx = rnd(-80, W * 0.85); sy = rnd(H + 40, H + 200); }       // bottom, full width
+        else if (r < 0.82) { sx = rnd(W * 0.46, W + 120); sy = rnd(H, H + 200); }   // bottom-right (emphasis)
+        else { sx = rnd(-W * 0.12, -20); sy = rnd(H * 0.06, H); }                   // left edge
+        // end INSIDE the wordmark, never above the "scere" x-height ceiling, so the line
+        // vanishes within the letters instead of poking out over the title
+        const ex = rnd(NL + 20, NR - 20);
+        const ey = rnd(TOPLIM + 4, NB - 6);
+        // pull the first control point toward the text (left) early and keep it low, so
+        // right-side starts bend left at once instead of crossing the open output area
+        const c1x = sx + (ex - sx) * 0.55 + rnd(-70, 50);
+        const c1y = sy + (ey - sy) * 0.12 + rnd(-40, 60);
+        const c2x = ex + rnd(-70, 130);
+        const c2y = sy + (ey - sy) * 0.72 + rnd(-60, 60);
+        const p = NS("path");
+        p.setAttribute("class", "hero-in");
+        p.setAttribute("d", `M ${sx.toFixed(0)} ${sy.toFixed(0)} C ${c1x.toFixed(0)} ${c1y.toFixed(0)}, ${c2x.toFixed(0)} ${c2y.toFixed(0)}, ${ex.toFixed(0)} ${ey.toFixed(0)}`);
+        p.setAttribute("stroke-width", rnd(0.5, 1.3).toFixed(2));
+        return p;
+      };
+
+      // OUTPUTS: a random icon (from the library) drawn each cycle, in a random colour
+      // (mostly green = coherent, some amber = attention). It appears at a random spot in
+      // the free upper / central-right area, reached by a randomly-shaped connector that
+      // emerges from BEHIND the title (the text stays in the foreground). The trail
+      // accumulates (stroke-dashoffset -> 0, dash = full length so the drawn part stays
+      // lit) until the icon is complete, holds, vanishes, pauses, then a new random icon.
+      const ICON_FILES = [
+        "gear.svg", "valve.svg", "motor.svg", "display.svg", "compressor.svg", "valve2.svg",
+        "pool.svg", "robot.svg", "signal.svg", "light.svg", "power.svg", "power2.svg",
+        "heater.svg", "geyser.svg", "fan.svg", "parking.svg", "fan2.svg", "windmil.svg",
+      ];
+      const SPEED = 520; // screen px / s while drawing (faster, agile)
+
+      const loadIcon = async (file) => {
+        const res = await fetch(`./assets/icons/${file}`);
+        const txt = await res.text();
+        const doc = new DOMParser().parseFromString(txt, "image/svg+xml");
+        const vb = (doc.querySelector("svg").getAttribute("viewBox") || "0 0 100 100").split(/[\s,]+/).map(Number);
+        const d = [...doc.querySelectorAll("path")].map((p) => p.getAttribute("d")).join(" ");
+        return { w: vb[2], h: vb[3], d };
+      };
+
+      // a single-subpath connector of a random shape (straight / quadratic / cubic).
+      // takes numbers; formats every coordinate so the arithmetic stays numeric.
+      const connectorD = (ox, oy, ax, ay) => {
+        const n = (v) => v.toFixed(0);
+        const kind = Math.floor(rnd(0, 3));
+        if (kind === 0) return `M ${n(ox)} ${n(oy)} L ${n(ax)} ${n(ay)}`;
+        if (kind === 1) {
+          const cx = ox + (ax - ox) * rnd(0.35, 0.7) + rnd(-60, 60);
+          const cy = oy + (ay - oy) * rnd(0.35, 0.7) + rnd(-70, 70);
+          return `M ${n(ox)} ${n(oy)} Q ${n(cx)} ${n(cy)} ${n(ax)} ${n(ay)}`;
+        }
+        const c1x = ox + (ax - ox) * 0.35 + rnd(-60, 60);
+        const c1y = oy + (ay - oy) * 0.35 + rnd(-70, 70);
+        const c2x = ox + (ax - ox) * 0.7 + rnd(-60, 60);
+        const c2y = oy + (ay - oy) * 0.7 + rnd(-70, 70);
+        return `M ${n(ox)} ${n(oy)} C ${n(c1x)} ${n(c1y)}, ${n(c2x)} ${n(c2y)}, ${n(ax)} ${n(ay)}`;
+      };
+
+      const drawPath = (el, dur, delay) => {
+        const L = el.getTotalLength();
+        el.style.strokeDasharray = `${L.toFixed(2)} ${L.toFixed(2)}`;
+        el.style.setProperty("--len", L.toFixed(2));
+        el.style.strokeDashoffset = L.toFixed(2);
+        el.style.animation = `heroSnakeGrow ${dur.toFixed(2)}s linear ${delay.toFixed(2)}s forwards`;
+      };
+
+      // --- geometry helpers: no output may overlap or cross another that is on screen ---
+      const boxOverlap = (a, b, pad) =>
+        a.x - pad < b.x + b.w && a.x + a.w + pad > b.x && a.y - pad < b.y + b.h && a.y + a.h + pad > b.y;
+      const ptInBox = (x, y, b, pad) =>
+        x >= b.x - pad && x <= b.x + b.w + pad && y >= b.y - pad && y <= b.y + b.h + pad;
+      const segCross = (a, b, c, d) => {
+        const ccw = (p, q, r) => (r[1] - p[1]) * (q[0] - p[0]) > (q[1] - p[1]) * (r[0] - p[0]);
+        return ccw(a, c, d) !== ccw(b, c, d) && ccw(a, b, c) !== ccw(a, b, d);
+      };
+      const samplePts = (el, n) => {
+        const L = el.getTotalLength(), out = [];
+        for (let i = 0; i <= n; i++) { const p = el.getPointAtLength((L * i) / n); out.push([p.x, p.y]); }
+        return out;
+      };
+
+      const active = []; // { box, pts } of the outputs currently on screen
+      let gradId = 0;
+
+      // build one output (connector + icon) in a spot that doesn't overlap/cross anything
+      // already on screen. returns { ok:false } when no free placement was found this turn.
+      const buildOutput = (icon, staticMode) => {
+        const PAD_BOX = 26, PAD_LINE = 16, SKIP = 4; // skip the shared (behind-title) origin cluster
+        let place = null;
+        const tries = staticMode ? 1 : 30;
+        for (let t = 0; t < tries; t++) {
+          const sc = rnd(95, 138) / Math.max(icon.w, icon.h);
+          const iw = icon.w * sc, ih = icon.h * sc;
+          const iconY = rnd(TOPLIM + 4, H * 0.52);          // never above the "scere" ceiling
+          // the icon sits right of the barrier AND clearly clear of the wordmark
+          const lo = Math.max(barrierX(iconY + ih) + 16, NR + 110), hi = W - 60 - iw;
+          if (lo >= hi) continue;
+          const iconX = rnd(lo, hi);
+          const oy = rnd(TOPLIM + 4, NB - 2);               // emerge at/below the "scere" ceiling
+          const ox = NR + rnd(-4, 14);                      // ...right at the text's right edge
+          const ax = iconX, ay = iconY + ih / 2;
+          const box = { x: iconX, y: iconY, w: iw, h: ih };
+          const d = connectorD(ox, oy, ax, ay);
+          const probe = NS("path"); probe.setAttribute("d", d); outG.appendChild(probe);
+          const pts = samplePts(probe, 18); probe.remove();
+          if (staticMode) { place = { sc, iconX, iconY, ox, oy, ax, ay, box, d, pts }; break; }
+          // the whole connector must stay right of the barrier and below the "scere" ceiling
+          let bad = pts.some(([x, y]) => x < barrierX(y) - 10 || y < TOPLIM - 4);
+          if (!bad) bad = active.some((o) => boxOverlap(box, o.box, PAD_BOX));
+          if (!bad) bad = pts.slice(SKIP).some(([x, y]) => active.some((o) => ptInBox(x, y, o.box, PAD_LINE)));
+          if (!bad) bad = active.some((o) => o.pts.slice(SKIP).some(([x, y]) => ptInBox(x, y, box, PAD_LINE)));
+          if (!bad) {
+            outer:
+            for (const o of active)
+              for (let i = SKIP; i < pts.length - 1; i++)
+                for (let j = SKIP; j < o.pts.length - 1; j++)
+                  if (segCross(pts[i], pts[i + 1], o.pts[j], o.pts[j + 1])) { bad = true; break outer; }
+          }
+          if (!bad) { place = { sc, iconX, iconY, ox, oy, ax, ay, box, d, pts }; break; }
+        }
+        if (!place) return { ok: false };
+
+        const { sc, iconX, iconY, ox, oy, ax, ay, box, d, pts } = place;
+        const amber = Math.random() < 0.3;
+        const colorClass = amber ? "hero-snake--amber" : "hero-snake--green";
+        const colorHex = amber ? "#ffc35c" : "#66f4a4";
+
+        const g = NS("g");
+        g.setAttribute("class", "hero-out-group");
+        outG.appendChild(g);
+
+        // connector stroke = gradient that fades in from faint (near the text) to full (at the icon)
+        const gid = `og${gradId++}`;
+        const grad = NS("linearGradient");
+        grad.setAttribute("id", gid);
+        grad.setAttribute("gradientUnits", "userSpaceOnUse");
+        grad.setAttribute("x1", ox.toFixed(0)); grad.setAttribute("y1", oy.toFixed(0));
+        grad.setAttribute("x2", ax.toFixed(0)); grad.setAttribute("y2", ay.toFixed(0));
+        // super faint along almost the whole connector; full colour is reserved for the icon
+        [["0", "0"], ["0.7", "0.015"], ["0.9", "0.08"], ["1", "0.38"]].forEach(([off, op]) => {
+          const s = NS("stop");
+          s.setAttribute("offset", off);
+          s.setAttribute("stop-color", colorHex);
+          s.setAttribute("stop-opacity", op);
+          grad.appendChild(s);
+        });
+        g.appendChild(grad);
+
+        const conn = NS("path");
+        conn.setAttribute("class", "hero-snake " + colorClass);
+        conn.setAttribute("d", d);
+        conn.setAttribute("stroke", `url(#${gid})`); // gradient overrides the class colour
+        conn.setAttribute("stroke-width", "1.1");
+        g.appendChild(conn);
+
+        const ig = NS("g");
+        ig.setAttribute("transform", `translate(${iconX.toFixed(1)} ${iconY.toFixed(1)}) scale(${sc.toFixed(4)})`);
+        const ip = NS("path");
+        ip.setAttribute("class", "hero-snake " + colorClass);
+        ip.setAttribute("d", icon.d);
+        ip.setAttribute("stroke-width", (1.1 / sc).toFixed(3)); // thin outline (~1.1px on screen)
+        ig.appendChild(ip);
+        g.appendChild(ig);
+
+        if (staticMode) { g.style.opacity = "0.85"; return { ok: true, total: 0 }; }
+
+        const entry = { box, pts };
+        active.push(entry);
+
+        const connDur = Math.min(Math.max(conn.getTotalLength() / SPEED, 0.5), 1.1);
+        const iconDur = rnd(2.1, 3.1);
+        drawPath(conn, connDur, 0);     // connector draws first
+        drawPath(ip, iconDur, connDur); // then the icon accumulates
+        const total = connDur + iconDur;
+        const HOLD = 0.55, FADE = 0.5;
+        window.setTimeout(() => { g.style.opacity = "0"; }, (total + HOLD) * 1000);
+        window.setTimeout(() => {
+          g.remove();
+          const i = active.indexOf(entry);
+          if (i >= 0) active.splice(i, 1);
+        }, (total + HOLD + FADE) * 1000);
+        return { ok: true, total };
+      };
+
+      // inputs (cyan), static under reduced motion or animated otherwise
+      if (reduce) {
+        for (let i = 0; i < 20; i++) {
+          const p = makeInput();
+          p.style.opacity = rnd(0.08, 0.2).toFixed(3);
+          inG.appendChild(p);
+        }
+      } else {
+        const count = window.innerWidth <= 720 ? 34 : 64;
+        for (let i = 0; i < count; i++) {
+          const p = makeInput();
+          inG.appendChild(p);
+          const len = p.getTotalLength();
+          const op = rnd(0.18, 0.5);
+          const dur = rnd(6, 12);
+          const delay = rnd(0, 5);
+          p.style.setProperty("--len", len.toFixed(1));
+          p.style.setProperty("--op", op.toFixed(3));
+          p.style.strokeDasharray = len.toFixed(1);
+          p.style.strokeDashoffset = len.toFixed(1);
+          p.style.animation = `heroDraw ${dur.toFixed(2)}s linear ${delay.toFixed(2)}s infinite`;
+        }
+      }
+
+      // load the icons, then either show one static (reduced motion) or loop the sequence
+      let icons = [];
+      let lastIdx = -1;
+      const cycleOutput = () => {
+        let idx = Math.floor(rnd(0, icons.length));
+        if (icons.length > 1 && idx === lastIdx) idx = (idx + 1) % icons.length; // avoid an immediate repeat
+        const res = buildOutput(icons[idx], false);
+        if (!res.ok) { window.setTimeout(cycleOutput, 360); return; } // no free space yet, retry soon
+        lastIdx = idx;
+        // start the NEXT output before this one finishes (overlap = agility), but only
+        // where it fits without crossing — buildOutput guards the placement.
+        const next = Math.max(res.total * 0.8, 1.4);
+        window.setTimeout(cycleOutput, next * 1000);
+      };
+
+      (async () => {
+        try {
+          icons = await Promise.all(ICON_FILES.map(loadIcon));
+        } catch (e) {
+          return; // icons unavailable: hero still shows inputs + title
+        }
+        if (!icons.length) return;
+        if (reduce) { buildOutput(icons[0], true); return; }
+        // outputs only begin once a good number of input lines have reached the title
+        window.setTimeout(cycleOutput, 7000);
+      })();
+    })();
+  </script>
+</body>
+</html>
