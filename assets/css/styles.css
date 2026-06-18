@@ -1267,16 +1267,16 @@ a.shift-step:focus-visible .shift-source {
 }
 
 @media (max-width: 720px) {
-  /* phones: content pages can be taller than the screen, so free-scroll (gentle snap)
-     instead of mandatory snap, and never leave content stuck in the dimmed reveal state */
+  /* phones: each section is trimmed to fit one screen (carousels + tightened
+     spacing below), so we can use firm one-section-per-swipe snapping */
   html {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
   }
 
   .page {
     min-height: 100svh;
     padding: 4.5rem 1rem 1.2rem;
-    scroll-snap-stop: normal;
+    scroll-snap-stop: always;
   }
 
   .js .page > *,
@@ -1324,33 +1324,24 @@ a.shift-step:focus-visible .shift-source {
     gap: 0.48rem;
   }
 
-  .pass-gate span,
-  .pass-gate strong {
-    min-height: 2.5rem;
-    padding: 0.58rem 0.66rem;
-    font-size: 0.62rem;
+  .gap-page {
+    gap: clamp(0.8rem, 2vh, 1.2rem);
   }
 
-  /* carousel: viewport on top, arrows on a row below */
+  .pass-gate span,
+  .pass-gate strong {
+    min-height: 2.1rem;
+    padding: 0.46rem 0.58rem;
+    font-size: 0.6rem;
+  }
+
+  /* carousel: full-width, change by swiping (arrows hidden on touch) */
   .incident-carousel {
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "viewport viewport"
-      "prev next";
-    gap: 0.8rem;
+    display: block;
   }
 
   .carousel-arrow {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .carousel-arrow.prev {
-    justify-self: start;
-  }
-
-  .carousel-arrow.next {
-    justify-self: end;
+    display: none;
   }
 
   .incident-slide {
@@ -1358,8 +1349,20 @@ a.shift-step:focus-visible .shift-source {
   }
 
   .incident-content {
-    gap: 0.7rem;
-    padding: 1.4rem 1.15rem;
+    gap: 0.45rem;
+    padding: 1rem 1.1rem;
+  }
+
+  .incident-fact {
+    font-size: 0.9rem;
+  }
+
+  .incident-question {
+    font-size: 0.95rem;
+  }
+
+  .incident-angle {
+    font-size: 0.86rem;
   }
 
   .pressure-page {
@@ -1371,19 +1374,103 @@ a.shift-step:focus-visible .shift-source {
     display: none;
   }
 
+  /* shift cards: horizontal swipe row so the whole section fits one screen */
   .shift-track {
-    grid-template-columns: 1fr;
+    display: flex;
+    grid-template-columns: none;
     gap: 0.7rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    /* bleed to the screen edges so the next card peeks */
+    margin-inline: -1rem;
+    padding-inline: 1rem;
+  }
+
+  .shift-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .shift-step {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
   }
 
   .pressure-climax {
     font-size: clamp(1.35rem, 6vw, 1.8rem);
   }
 
-  .cta-row,
+  /* ---- pg.04 (#liscere): pull the content together so the cyan close shows ---- */
+  .about-page {
+    justify-content: flex-start;
+    gap: clamp(1.2rem, 3.5vh, 1.8rem);
+  }
+
+  .about-side {
+    gap: 0.85rem;
+  }
+
+  .about-title {
+    line-height: 1.22;
+  }
+
+  .about-body {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  /* ---- pg.05 (#how): four steps become a horizontal swipe row of cards ---- */
+  .how-page {
+    justify-content: flex-start;
+    gap: clamp(1.4rem, 3.5vh, 2.2rem);
+  }
+
+  .how-steps {
+    flex-direction: row;
+    gap: 0.7rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin-inline: -1rem;
+    padding-inline: 1rem;
+  }
+
+  .how-steps::-webkit-scrollbar {
+    display: none;
+  }
+
+  .how-step {
+    flex: 0 0 84%;
+    scroll-snap-align: start;
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+    align-items: start;
+    padding: 1rem 1.05rem;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+  }
+
+  /* ---- pg.06 (#evidence): lift the CTAs + footer into view ---- */
+  .evidence-center {
+    margin-bottom: 0;
+  }
+
+  .evidence-page {
+    gap: clamp(0.9rem, 2.5vh, 1.4rem);
+  }
+
+  /* two buttons per row instead of four stacked */
+  .cta-row {
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
   .primary-cta,
   .secondary-cta {
-    width: 100%;
+    flex: 1 1 44%;
+    min-width: 0;
   }
 }
 
