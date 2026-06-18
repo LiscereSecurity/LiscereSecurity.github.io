@@ -31,7 +31,7 @@
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=2" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=2" />
   <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20260618-72" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20260618-75" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -474,19 +474,98 @@
       startAuto();
     }
 
-    // pg.03 / pg.05 card carousels: side arrows scroll the row by one card
-    document.querySelectorAll(".card-rail").forEach((rail) => {
-      const cardTrack = rail.querySelector(".shift-track, .how-steps");
-      const railPrev = rail.querySelector(".rail-arrow.prev");
-      const railNext = rail.querySelector(".rail-arrow.next");
-      if (!cardTrack) return;
-      const step = () => {
-        const card = cardTrack.firstElementChild;
-        return card ? card.getBoundingClientRect().width + 12 : cardTrack.clientWidth * 0.8;
+    // pg.03 / pg.05 card carousels (mobile only): one card per view, side arrows,
+    // swipe, and a seamless rightward loop — same behaviour as the pg.02 carousel.
+    // On desktop the cards stay a grid, so these are built/torn down at the breakpoint.
+    const makeCardCarousel = (rail) => {
+      const track = rail.querySelector(".shift-track, .how-steps");
+      const prevBtn = rail.querySelector(".rail-arrow.prev");
+      const nextBtn = rail.querySelector(".rail-arrow.next");
+      if (!track) return null;
+      const ac = new AbortController();
+      const { signal } = ac;
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const cards = [...track.children];
+      const count = cards.length;
+      const clone = cards[0].cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      clone.dataset.clone = "true";
+      track.appendChild(clone);
+
+      let pos = 0;
+      let animating = false;
+      const render = (withT) => {
+        track.style.transition = withT ? "" : "none";
+        track.style.transform = `translateX(-${pos * 100}%)`;
       };
-      if (railPrev) railPrev.addEventListener("click", () => cardTrack.scrollBy({ left: -step(), behavior: "smooth" }));
-      if (railNext) railNext.addEventListener("click", () => cardTrack.scrollBy({ left: step(), behavior: "smooth" }));
-    });
+      const next = () => { if (animating) return; animating = true; pos += 1; render(true); };
+      const prev = () => {
+        if (animating) return;
+        animating = true;
+        if (pos === 0) { pos = count; render(false); void track.offsetWidth; }
+        pos -= 1;
+        render(true);
+      };
+      track.addEventListener("transitionend", (e) => {
+        if (e.propertyName !== "transform") return;
+        animating = false;
+        if (pos === count) { pos = 0; render(false); }
+      }, { signal });
+
+      let timer = null;
+      const start = () => { if (reduce || timer) return; timer = window.setInterval(next, 6000); };
+      const pause = () => { window.clearInterval(timer); timer = null; };
+      const bump = () => { pause(); start(); };
+
+      if (prevBtn) prevBtn.addEventListener("click", () => { prev(); bump(); }, { signal });
+      if (nextBtn) nextBtn.addEventListener("click", () => { next(); bump(); }, { signal });
+      rail.addEventListener("pointerenter", pause, { signal });
+      rail.addEventListener("pointerleave", start, { signal });
+
+      let sx = null;
+      track.addEventListener("touchstart", (e) => { sx = e.touches[0].clientX; }, { passive: true, signal });
+      track.addEventListener("touchend", (e) => {
+        if (sx === null) return;
+        const dx = e.changedTouches[0].clientX - sx;
+        sx = null;
+        if (Math.abs(dx) < 40) return;
+        (dx < 0 ? next : prev)();
+        bump();
+      }, { passive: true, signal });
+
+      const vis = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => (entry.isIntersecting ? start() : pause()));
+      }, { threshold: 0.5 });
+      vis.observe(rail);
+
+      render(false);
+      start();
+
+      return {
+        destroy() {
+          ac.abort();
+          pause();
+          vis.disconnect();
+          clone.remove();
+          track.style.transition = "";
+          track.style.transform = "";
+        },
+      };
+    };
+
+    const cardMq = window.matchMedia("(max-width: 720px)");
+    let cardCarousels = [];
+    const syncCardCarousels = () => {
+      if (cardMq.matches && cardCarousels.length === 0) {
+        cardCarousels = [...document.querySelectorAll(".card-rail")].map(makeCardCarousel).filter(Boolean);
+      } else if (!cardMq.matches && cardCarousels.length) {
+        cardCarousels.forEach((c) => c.destroy());
+        cardCarousels = [];
+      }
+    };
+    cardMq.addEventListener("change", syncCardCarousels);
+    syncCardCarousels();
 
     const initialIndex = Math.max(0, pages.findIndex((page) => `#${page.id}` === window.location.hash));
     setActivePage(initialIndex);

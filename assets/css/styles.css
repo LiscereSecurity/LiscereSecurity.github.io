@@ -1286,10 +1286,12 @@ a.shift-step:focus-visible .shift-source {
   }
 
   .page {
-    /* dvh tracks the real visible height as the browser bar shows/hides, so
-       a section always fills the screen and the next eyebrow never peeks in */
+    /* lvh is the largest (browser-bar-hidden) height and is STATIC — it does not
+       change mid-scroll like dvh, so scroll-snap stays stable (no getting stuck
+       between sections) while still filling the screen so the next eyebrow never
+       peeks in. */
     min-height: 100svh;
-    min-height: 100dvh;
+    min-height: 100lvh;
     padding: 4.5rem 1rem 1.2rem;
     scroll-snap-stop: always;
   }
@@ -1389,29 +1391,20 @@ a.shift-step:focus-visible .shift-source {
     display: none;
   }
 
-  /* shift cards: horizontal swipe row so the whole section fits one screen */
+  /* shift cards: one-card-at-a-time carousel (transform-driven, JS handles loop) */
   .shift-track {
     display: flex;
     grid-template-columns: none;
-    gap: 0.7rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    /* bleed to the edges; 11% inline padding lets a card sit centred with the
-       neighbours peeking on both sides */
-    margin-inline: -1rem;
-    padding-inline: 11%;
-    scroll-padding-inline: 11%;
-  }
-
-  .shift-track::-webkit-scrollbar {
-    display: none;
+    gap: 0;
+    overflow: hidden;
+    transition: transform 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   .shift-step {
-    flex: 0 0 78%;
-    scroll-snap-align: center;
+    flex: 0 0 100%;
+    min-width: 0;
+    /* clear the side arrows */
+    padding-inline: 2.6rem;
   }
 
   .pressure-climax {
@@ -1445,27 +1438,19 @@ a.shift-step:focus-visible .shift-source {
 
   .how-steps {
     flex-direction: row;
-    gap: 0.7rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    margin-inline: -1rem;
-    padding-inline: 11%;
-    scroll-padding-inline: 11%;
-  }
-
-  .how-steps::-webkit-scrollbar {
-    display: none;
+    gap: 0;
+    overflow: hidden;
+    transition: transform 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
   .how-step {
-    flex: 0 0 78%;
-    scroll-snap-align: center;
+    flex: 0 0 100%;
+    min-width: 0;
     grid-template-columns: 1fr;
     gap: 0.45rem;
     align-items: start;
-    padding: 1rem 1.05rem;
+    /* extra side padding clears the arrows */
+    padding: 1rem 2.5rem;
     border: 1px solid var(--line);
     border-radius: 14px;
   }
@@ -1474,6 +1459,7 @@ a.shift-step:focus-visible .shift-source {
   .card-rail {
     display: block;
     position: relative;
+    width: 100%;
   }
 
   .rail-arrow {
