@@ -31,7 +31,7 @@
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=2" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=2" />
   <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20260618-67" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20260618-68" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -395,8 +395,32 @@
         slides.forEach((slide, i) => slide.setAttribute("aria-hidden", i !== slideIndex ? "true" : "false"));
       };
 
-      prevBtn.addEventListener("click", () => goToSlide(slideIndex - 1));
-      nextBtn.addEventListener("click", () => goToSlide(slideIndex + 1));
+      // gentle auto-advance so visitors notice there is more than one slide.
+      // runs only while the carousel is on screen, pauses on hover, and stops
+      // for good once the visitor takes control (clicks an arrow or focuses it).
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let autoTimer = null;
+      let userTookOver = false;
+
+      const startAuto = () => {
+        if (reduceMotion || userTookOver || autoTimer) return;
+        autoTimer = window.setInterval(() => goToSlide(slideIndex + 1), 5000);
+      };
+      const pauseAuto = () => { window.clearInterval(autoTimer); autoTimer = null; };
+      const stopAuto = () => { userTookOver = true; pauseAuto(); };
+
+      prevBtn.addEventListener("click", () => { stopAuto(); goToSlide(slideIndex - 1); });
+      nextBtn.addEventListener("click", () => { stopAuto(); goToSlide(slideIndex + 1); });
+      carousel.addEventListener("pointerenter", pauseAuto);
+      carousel.addEventListener("pointerleave", startAuto);
+      carousel.addEventListener("focusin", stopAuto);
+
+      // only auto-play while the carousel is actually in view
+      const autoVisObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => (entry.isIntersecting ? startAuto() : pauseAuto()));
+      }, { threshold: 0.5 });
+      autoVisObserver.observe(carousel);
+
       goToSlide(0);
     }
 
