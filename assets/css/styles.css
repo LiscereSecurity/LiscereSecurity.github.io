@@ -13,6 +13,19 @@
   --sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
+  /* ---- central typographic system (one place, inherited site-wide) ---- */
+  --font-display: "Orbitron", var(--sans); /* H1 only — one brand moment per page */
+  --font-mono: var(--mono);                /* eyebrows, data, labels */
+  --font-sans: var(--sans);                /* subtitle, body, card titles, climax */
+  /* relative scale, H1 as the reference. Orbitron is wide, so H1 stays modest. */
+  --fs-h1: clamp(1.85rem, 3.6vw, 2.95rem);
+  --fs-climax: clamp(1.1rem, 2vw, 1.6rem);      /* ~55% of H1 — secondary by SIZE, loud by COLOUR */
+  --fs-subtitle: clamp(1.05rem, 1.7vw, 1.45rem);
+  --fs-card: clamp(1rem, 1.25vw, 1.22rem);
+  --fs-body: clamp(0.98rem, 1.05vw, 1.12rem);
+  --fs-eyebrow: 0.72rem;
+  --fs-data: 0.7rem;
+
   /* shared section rhythm: pages 02 and 03 must use these identical values */
   --sec-pad-top: clamp(4rem, 7vh, 5.5rem);
   --sec-gap: clamp(0.85rem, 2.2vh, 1.5rem);
@@ -150,10 +163,10 @@ p {
 .kicker,
 .section-dots,
 .pass-gate {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.13em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -209,13 +222,13 @@ p {
 
 /* "Liscere" is the protagonist title of the hero (bigger than the wordmark on other pages) */
 .hero-name {
-  margin: 0 0 0.3rem;
+  margin: 0 0 0.55rem;
   color: var(--ink);
-  font-family: var(--sans);
-  font-weight: 800;
-  font-size: clamp(4.5rem, 11vw, 11rem);
-  letter-spacing: -0.06em;
-  line-height: 0.9;
+  font-family: var(--font-display); /* the biggest brand moment of the site */
+  font-weight: 500;
+  font-size: clamp(3rem, 8.5vw, 7.5rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
   text-shadow: 0 2px 50px rgba(2, 5, 7, 0.85);
 }
 
@@ -234,52 +247,40 @@ h1,
 h2 {
   margin-bottom: 1.2rem;
   color: var(--ink);
-  font-size: clamp(3.6rem, 8.3vw, 8.2rem);
-  font-weight: 800;
-  letter-spacing: -0.078em;
-  line-height: 0.88;
+  font-family: var(--font-display); /* Orbitron — the H1 display title of each page */
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.28;
 }
 
 .hero-page h1 {
   max-width: 26ch;
   margin-bottom: 0;
+  font-family: var(--font-sans); /* hero headline is the SUBTITLE, not Orbitron */
   font-size: clamp(1.5rem, 2.8vw, 2.6rem);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.03em;
-  line-height: 1.1;
+  line-height: 1.15;
   color: #eef3f2;
   text-shadow: 0 2px 30px rgba(2, 5, 7, 0.85);
 }
 
-/* sober fade-in: opacity + slight rise, no per-letter spring */
-.js .hero-copy {
-  opacity: 0;
-  transform: translateY(12px);
-  animation: heroRise 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s forwards;
-}
-
-@keyframes heroRise {
-  0% {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* hero copy uses the same unified section reveal (clean opacity fade) as every
+   other section; the animated SVG field is left untouched. */
 
 h2 {
-  font-size: clamp(3.1rem, 7.1vw, 7rem);
+  font-size: var(--fs-h1);
 }
 
 .lead {
   max-width: 660px;
   color: #dce7e7;
-  font-size: clamp(1.25rem, 2.2vw, 2.05rem);
-  font-weight: 500;
-  letter-spacing: -0.045em;
-  line-height: 1.28;
+  font-family: var(--font-sans);
+  font-size: var(--fs-subtitle);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
 }
 
 /* ---- Hero background: organic network routes (vanilla SVG, filled by JS) ---- */
@@ -387,9 +388,9 @@ h2 {
 }
 
 .hero-scrollcue-label {
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 0.68rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
@@ -445,11 +446,11 @@ h2 {
 
 .gap-page h2 {
   margin-bottom: 0.4rem;
-  font-size: clamp(2.6rem, 5.4vw, 4.8rem);
+  font-size: var(--fs-h1);
 }
 
 .gap-page .lead {
-  font-size: clamp(1.15rem, 1.9vw, 1.75rem);
+  font-size: var(--fs-subtitle);
 }
 
 .gap-page .pass-gate {
@@ -657,9 +658,9 @@ h2 {
 .incident-meta {
   margin: 0;
   color: var(--cyan);
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -687,9 +688,9 @@ h2 {
 
 .incident-action > span {
   color: var(--quiet);
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 0.66rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -770,10 +771,11 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* group centred in the viewport; equal gaps put the cards midway between the two texts */
-  justify-content: center;
-  gap: clamp(1.8rem, 6vh, 3.6rem);
-  padding-top: var(--sec-pad-top);
+  /* top-anchored like the other pages: eyebrow lands at the same height regardless of
+     content size, and the climax is pinned to the bottom margin (margin-top:auto below) */
+  justify-content: flex-start;
+  gap: clamp(1.6rem, 4.5vh, 3rem);
+  padding-top: calc(var(--sec-pad-top) + clamp(1.5rem, 5vh, 2.8rem));
   text-align: left;
 }
 
@@ -784,11 +786,11 @@ h2 {
 
 .pressure-page h2 {
   margin-bottom: 0.4rem;
-  font-size: clamp(2.6rem, 5.4vw, 4.8rem);
+  font-size: var(--fs-h1);
 }
 
 .pressure-page .lead {
-  font-size: clamp(1.15rem, 1.9vw, 1.75rem);
+  font-size: var(--fs-subtitle);
 }
 
 /* supporting evidence row: compact, equal, subdued. Two text tones only. */
@@ -835,19 +837,20 @@ a.shift-step:focus-visible .shift-source {
 .shift-index {
   margin: 0;
   color: var(--muted);
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: var(--fs-data);
+  font-weight: 500;
   letter-spacing: 0.18em;
 }
 
 .shift-title {
   margin: 0;
   color: var(--ink);
-  font-size: clamp(1.05rem, 1.35vw, 1.32rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-family: var(--font-sans);
+  font-size: var(--fs-card);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 .shift-body {
@@ -860,9 +863,9 @@ a.shift-step:focus-visible .shift-source {
 .shift-source {
   margin: 0.2rem 0 0;
   color: var(--muted);
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 0.64rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -871,13 +874,15 @@ a.shift-step:focus-visible .shift-source {
 .pressure-climax {
   max-width: var(--text-wide);
   margin: 0;
+  margin-top: auto; /* pin the closing line to the bottom margin, like the other pages */
   padding-left: clamp(1rem, 1.8vw, 1.6rem);
   border-left: 3px solid var(--cyan);
   color: var(--ink);
-  font-size: clamp(1.45rem, 2.5vw, 2.2rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  font-family: var(--font-sans);
+  font-size: var(--fs-climax); /* ~55% of H1 — secondary by size, the cyan carries the weight */
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
 }
 
 .pressure-climax strong {
@@ -934,7 +939,9 @@ a.shift-step:focus-visible .shift-source {
 
 .about-title {
   margin: 0;
-  font-size: clamp(2.6rem, 5.4vw, 4.8rem);
+  /* same H1 size as every other page, even though it's long (wraps to more lines) */
+  font-size: var(--fs-h1);
+  line-height: 1.3;
 }
 
 .about-side {
@@ -956,10 +963,11 @@ a.shift-step:focus-visible .shift-source {
   padding-left: clamp(1rem, 1.5vw, 1.4rem);
   border-left: 3px solid var(--cyan);
   color: var(--cyan);
-  font-size: clamp(1.25rem, 1.9vw, 1.7rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
+  font-family: var(--font-sans);
+  font-size: var(--fs-climax); /* ~55% of H1, sans 500 */
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
 }
 
 /* ---- Page 05: how it works (shares the section system) ---- */
@@ -980,7 +988,7 @@ a.shift-step:focus-visible .shift-source {
 
 .how-page h2 {
   margin-bottom: 0.4rem;
-  font-size: clamp(2.6rem, 5.4vw, 4.8rem);
+  font-size: var(--fs-h1);
 }
 
 .how-intro {
@@ -1013,9 +1021,9 @@ a.shift-step:focus-visible .shift-source {
 
 .how-n {
   color: var(--cyan);
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: clamp(1.4rem, 2vw, 1.9rem);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: 0.02em;
 }
@@ -1029,9 +1037,10 @@ a.shift-step:focus-visible .shift-source {
 .how-step-name {
   margin: 0;
   color: var(--ink);
-  font-size: clamp(1.1rem, 1.4vw, 1.35rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-family: var(--font-sans);
+  font-size: var(--fs-card);
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .how-step-what {
@@ -1052,40 +1061,48 @@ a.shift-step:focus-visible .shift-source {
 .hard-label {
   color: var(--cyan);
   font-style: normal;
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 0.78em;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 /* ---- Page 06: closing page (shares the section system: eyebrow top-left, left-aligned) ---- */
+/* "poster finale" layout: section tag at the top, title + subtitle optically
+   centred, CTA row anchored at the bottom. Three grid bands. */
 .evidence-page {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  /* small base gap; the CTA group is pushed down with margin-top:auto to sit just above the footer */
-  gap: clamp(0.9rem, 2vh, 1.4rem);
-  /* same top boost as pages 02-05 so the eyebrow lands at the same height */
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  justify-items: start;
+  gap: clamp(1rem, 2.4vh, 1.6rem);
+  /* same top boost as pages 02-05 so the eyebrow lands at the standard height */
   padding-top: calc(var(--sec-pad-top) + clamp(1.2rem, 4.7vh, 3rem));
   text-align: left;
 }
 
-.evidence-head {
+/* eyebrow keeps the standard section-tag position (top-left) */
+.evidence-page > .kicker {
+  margin-bottom: 0;
+}
+
+/* title + subtitle: horizontally and vertically centred poster block */
+.evidence-center {
+  justify-self: center;
+  align-self: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: clamp(1rem, 2.4vh, 1.6rem);
+  max-width: min(900px, 100%);
+  text-align: center;
+  /* sit slightly above the true centre for optical balance (~4-6%) */
+  margin-bottom: clamp(2rem, 6vh, 4rem);
 }
 
-.evidence-head .kicker {
-  margin-bottom: 0;
-}
-
-.evidence-head h2 {
-  margin-bottom: 0;
-  /* same size as the sibling content pages (04/05) */
-  font-size: clamp(2.6rem, 5.4vw, 4.8rem);
-  line-height: 1.02;
+.evidence-center h2 {
+  margin: 0;
+  /* font-size + line-height inherited from the central h1 system */
 }
 
 .evidence-body {
@@ -1097,22 +1114,24 @@ a.shift-step:focus-visible .shift-source {
 }
 
 /* discreet closing footer at the bottom margin (space-between handles placement) */
+/* discreet closing footer, anchored bottom-left (last grid band) */
 .evidence-foot {
   margin: 0;
+  justify-self: start;
   color: var(--quiet);
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.08em;
 }
 
+/* CTA row anchored at the section foot, centred across the standard margins */
 .cta-row {
+  justify-self: stretch;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: clamp(1rem, 1.6vw, 1.7rem);
-  /* push the buttons down so they sit just above the footer */
-  margin-top: auto;
 }
 
 .primary-cta,
@@ -1124,9 +1143,9 @@ a.shift-step:focus-visible .shift-source {
   min-height: 3rem;
   padding: 0.82rem 1.05rem;
   border-radius: 999px;
-  font-family: var(--mono);
+  font-family: var(--font-mono);
   font-size: 0.74rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -1144,23 +1163,17 @@ a.shift-step:focus-visible .shift-source {
   color: #cbd8da;
 }
 
+/* Unified section reveal: one clean opacity fade, no transform, fired once when
+   a section first enters the viewport (.revealed is added by revealObserver in
+   index.html and never removed, so sections do not re-animate on revisit).
+   This single definition is reused by every scroll-snap section. */
 .js .page > * {
-  opacity: 0.28;
-  transform: translateY(14px);
-  transition: opacity 620ms ease, transform 620ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  opacity: 0;
+  transition: opacity 450ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.js .page.active > * {
+.js .page.revealed > * {
   opacity: 1;
-  transform: translateY(0);
-}
-
-.js .page.active > *:nth-child(2) {
-  transition-delay: 80ms;
-}
-
-.js .page.active > *:nth-child(3) {
-  transition-delay: 140ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1224,9 +1237,21 @@ a.shift-step:focus-visible .shift-source {
 }
 
 @media (max-width: 720px) {
+  /* phones: content pages can be taller than the screen, so free-scroll (gentle snap)
+     instead of mandatory snap, and never leave content stuck in the dimmed reveal state */
+  html {
+    scroll-snap-type: y proximity;
+  }
+
   .page {
     min-height: 100svh;
     padding: 4.5rem 1rem 1.2rem;
+    scroll-snap-stop: normal;
+  }
+
+  .js .page > *,
+  .js .page.revealed > * {
+    opacity: 1;
   }
 
   .site-logo {
@@ -1341,6 +1366,58 @@ a.shift-step:focus-visible .shift-source {
 
   h1,
   h2 {
-    font-size: clamp(3.1rem, 6.4vw, 6.2rem);
+    font-size: var(--fs-h1);
   }
+}
+
+/* =====================================================================
+   /research — standalone page, same visual system as the rest of the site
+   ===================================================================== */
+.research-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  padding: clamp(4.5rem, 8vh, 6.8rem) clamp(1.2rem, 6vw, 5.5rem);
+  padding-top: calc(var(--sec-pad-top) + clamp(1.5rem, 5vh, 2.8rem));
+  gap: clamp(1rem, 2.4vh, 1.6rem);
+  text-align: left;
+}
+
+.research-back {
+  position: fixed;
+  top: 1.15rem;
+  right: clamp(1.2rem, 6vw, 5.5rem);
+  z-index: 44;
+  font-family: var(--font-mono);
+  font-size: var(--fs-data);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 180ms ease;
+}
+
+.research-back:hover,
+.research-back:focus-visible {
+  color: var(--cyan);
+  outline: none;
+}
+
+.research-lead {
+  max-width: 56ch;
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: var(--fs-subtitle);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.research-foot {
+  margin: auto 0 0;
+  color: var(--quiet);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
 }

@@ -4,22 +4,34 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Liscere: Action-legitimacy evaluation for industrial systems</title>
-  <meta name="description" content="Authorised is not always appropriate. Liscere evaluates whether industrial actions fit the current process state." />
+  <meta name="description" content="Liscere is building the next layer of industrial cybersecurity: asking whether an action belongs, not just whether it is permitted." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#030405" />
 
-  <meta property="og:title" content="Liscere: Action-legitimacy evaluation for industrial systems" />
-  <meta property="og:description" content="Authorised is not always appropriate. Liscere evaluates whether industrial actions fit the current process state." />
+  <meta property="og:title" content="Liscere" />
+  <meta property="og:description" content="Liscere is building the next layer of industrial cybersecurity: asking whether an action belongs, not just whether it is permitted." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://liscere.com" />
+  <meta property="og:image" content="https://lisceresecurity.github.io/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Liscere" />
+  <meta name="twitter:description" content="Liscere is building the next layer of industrial cybersecurity: asking whether an action belongs, not just whether it is permitted." />
+  <meta name="twitter:image" content="https://lisceresecurity.github.io/assets/og-image.png" />
 
   <link rel="canonical" href="https://liscere.com" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="icon" href="data:," />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg?v=2" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png?v=2" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16.png?v=2" />
+  <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=2" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=2" />
   <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20260615-55" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20260618-67" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -91,8 +103,9 @@
               <div class="incident-content">
                 <p class="incident-meta">Oldsmar Water Treatment <span>·</span> 2021 <span>·</span> Water</p>
                 <p class="incident-fact">
-                  An operator workstation at a water plant was accessed remotely. The sodium hydroxide
-                  setpoint was changed from 100 ppm to 11,100 ppm, over 100× the normal level.
+                  At a water plant, the sodium hydroxide setpoint jumped from 100 ppm to 11,100 ppm,
+                  over 100× the normal level. Whether by intruder or by mistake, the change reached the
+                  process and nothing questioned the value itself.
                 </p>
                 <div class="incident-action">
                   <span>Action</span>
@@ -100,10 +113,10 @@
                 </div>
                 <p class="incident-question">The process runs at ~100 ppm. Why suddenly 11,100 ppm?</p>
                 <p class="incident-angle">
-                  The action came from a valid workstation, a valid user, a valid protocol. Every
-                  access check passed.<br />
-                  But none of them asked whether 11,100 ppm made sense for the physical process.
-                  That's the type of question Liscere is built to ask!
+                  A valid workstation. A valid user. A valid protocol. Every check that runs today would
+                  have passed.<br />
+                  None of them asked whether 11,100 ppm made sense for the physical process. That is the
+                  question Liscere is built to ask.
                 </p>
               </div>
             </article>
@@ -281,8 +294,9 @@
     </section>
 
     <section class="page evidence-page" id="evidence" data-page="06 / Evidence" aria-labelledby="evidence-title">
-      <div class="evidence-head">
-        <p class="kicker">Built on evidence</p>
+      <p class="kicker">Built on evidence</p>
+
+      <div class="evidence-center">
         <h2 id="evidence-title">Built from research.<br />Tested in controlled OT scenarios.</h2>
         <p class="evidence-body">
           Liscere originates from doctoral research, turning a rigorous academic question into a
@@ -291,11 +305,10 @@
       </div>
 
       <div class="cta-row">
-        <!-- Research / OT Lab links to be added later (still placeholders). -->
-        <a class="primary-cta" href="mailto:hello@liscere.com">Collaborate</a>
-        <a class="secondary-cta">Research</a>
-        <a class="secondary-cta">OT Lab</a>
-        <a class="secondary-cta" href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a>
+        <a class="primary-cta" href="mailto:hello@liscere.com?subject=Collaboration%20with%20Liscere">Collaborate</a>
+        <a class="secondary-cta" href="./research.html">Research</a>
+        <a class="secondary-cta" href="https://github.com/LiscereSecurity/OT-Lab" target="_blank" rel="noopener noreferrer">OT Lab</a>
+        <a class="secondary-cta" href="https://github.com/LiscereSecurity" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
 
       <p class="evidence-foot">Liscere 2026</p>
@@ -321,6 +334,10 @@
       pages[targetIndex].scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
+    // on phones, content pages can be taller than the screen, so they never reach 0.68
+    // visibility — use a lower threshold there so each page still activates (and its
+    // entrance animations run). Desktop keeps the original 0.68.
+    const pageTh = window.matchMedia("(max-width: 720px)").matches ? 0.3 : 0.68;
     const pageObserver = new IntersectionObserver((entries) => {
       const visible = entries
         .filter((entry) => entry.isIntersecting)
@@ -331,7 +348,19 @@
       if (index >= 0 && index !== activeIndex) {
         setActivePage(index);
       }
-    }, { threshold: [0.68] });
+    }, { threshold: [pageTh] });
+
+    // Section reveal: a single clean opacity fade (see .js .page.revealed in CSS),
+    // fired once when a section first enters the viewport and never reverted, so
+    // sections do not re-animate when revisited.
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
 
     window.addEventListener("keydown", (event) => {
       if (["ArrowDown", "PageDown", " "].includes(event.key)) {
@@ -377,6 +406,7 @@
     pages[initialIndex].scrollIntoView({ block: "start" });
     root.style.scrollBehavior = "";
     pages.forEach((page) => pageObserver.observe(page));
+    pages.forEach((page) => revealObserver.observe(page));
 
     /* Hero (conceptual, illustrative): inputs converge into "Liscere", outputs leave as
        evaluated actions tracing industrial-equipment icons. Not real telemetry. */
@@ -401,6 +431,7 @@
       let BAR_TX = 590, BAR_TY = 100;   // barrier top = right edge of the wordmark
       // invisible diagonal barrier: inputs to its LEFT, outputs only to its RIGHT
       const barrierX = (y) => BAR_TX + ((y - BAR_TY) * (W - BAR_TX)) / (H - BAR_TY);
+      const isMobile = () => W <= 720;
       const measure = () => {
         const hr = svg.getBoundingClientRect();
         W = Math.max(1, Math.round(hr.width));
@@ -536,23 +567,35 @@
         let place = null;
         const tries = staticMode ? 1 : 30;
         for (let t = 0; t < tries; t++) {
-          const sc = rnd(95, 138) / Math.max(icon.w, icon.h);
+          const mob = isMobile();
+          const sc = (mob ? rnd(80, 118) : rnd(95, 138)) / Math.max(icon.w, icon.h);
           const iw = icon.w * sc, ih = icon.h * sc;
-          const iconY = rnd(TOPLIM + 4, H * 0.52);          // never above the "scere" ceiling
-          // the icon sits right of the barrier AND clearly clear of the wordmark
-          const lo = Math.max(barrierX(iconY + ih) + 16, NR + 110), hi = W - 60 - iw;
-          if (lo >= hi) continue;
-          const iconX = rnd(lo, hi);
-          const oy = rnd(TOPLIM + 4, NB - 2);               // emerge at/below the "scere" ceiling
-          const ox = NR + rnd(-4, 14);                      // ...right at the text's right edge
-          const ax = iconX, ay = iconY + ih / 2;
+          let iconX, iconY, ox, oy, ax, ay;
+          if (mob) {
+            // narrow screens: outputs play in the open vertical space BELOW the wordmark
+            const yhi = Math.max(NB + 70, H * 0.84 - ih);
+            iconY = rnd(NB + 56, yhi);
+            iconX = rnd(W * 0.05, Math.max(W * 0.05, W - iw - W * 0.05));
+            ox = rnd(NL + (NR - NL) * 0.45, NR);            // emerge from the wordmark
+            oy = NB - rnd(0, 8);                            // just under the baseline
+            ax = iconX + iw / 2; ay = iconY;                // connector meets the icon's top
+          } else {
+            iconY = rnd(TOPLIM + 4, H * 0.52);              // never above the "scere" ceiling
+            // the icon sits right of the barrier AND clearly clear of the wordmark
+            const lo = Math.max(barrierX(iconY + ih) + 16, NR + 110), hi = W - 60 - iw;
+            if (lo >= hi) continue;
+            iconX = rnd(lo, hi);
+            oy = rnd(TOPLIM + 4, NB - 2);                   // emerge at/below the "scere" ceiling
+            ox = NR + rnd(-4, 14);                          // ...right at the text's right edge
+            ax = iconX; ay = iconY + ih / 2;
+          }
           const box = { x: iconX, y: iconY, w: iw, h: ih };
           const d = connectorD(ox, oy, ax, ay);
           const probe = NS("path"); probe.setAttribute("d", d); outG.appendChild(probe);
           const pts = samplePts(probe, 18); probe.remove();
           if (staticMode) { place = { sc, iconX, iconY, ox, oy, ax, ay, box, d, pts }; break; }
-          // the whole connector must stay right of the barrier and below the "scere" ceiling
-          let bad = pts.some(([x, y]) => x < barrierX(y) - 10 || y < TOPLIM - 4);
+          // desktop keeps the diagonal barrier + x-height ceiling; mobile only avoids overlaps
+          let bad = mob ? false : pts.some(([x, y]) => x < barrierX(y) - 10 || y < TOPLIM - 4);
           if (!bad) bad = active.some((o) => boxOverlap(box, o.box, PAD_BOX));
           if (!bad) bad = pts.slice(SKIP).some(([x, y]) => active.some((o) => ptInBox(x, y, o.box, PAD_LINE)));
           if (!bad) bad = active.some((o) => o.pts.slice(SKIP).some(([x, y]) => ptInBox(x, y, box, PAD_LINE)));
@@ -629,15 +672,17 @@
         return { ok: true, total };
       };
 
-      // inputs (cyan), static under reduced motion or animated otherwise
-      if (reduce) {
-        for (let i = 0; i < 20; i++) {
-          const p = makeInput();
-          p.style.opacity = rnd(0.08, 0.2).toFixed(3);
-          inG.appendChild(p);
+      // build the cyan input lines (deferred until the layout is correctly measured)
+      const buildInputs = () => {
+        if (reduce) {
+          for (let i = 0; i < 20; i++) {
+            const p = makeInput();
+            p.style.opacity = rnd(0.08, 0.2).toFixed(3);
+            inG.appendChild(p);
+          }
+          return;
         }
-      } else {
-        const count = window.innerWidth <= 720 ? 34 : 64;
+        const count = W <= 720 ? 34 : 64;
         for (let i = 0; i < count; i++) {
           const p = makeInput();
           inG.appendChild(p);
@@ -651,9 +696,8 @@
           p.style.strokeDashoffset = len.toFixed(1);
           p.style.animation = `heroDraw ${dur.toFixed(2)}s linear ${delay.toFixed(2)}s infinite`;
         }
-      }
+      };
 
-      // load the icons, then either show one static (reduced motion) or loop the sequence
       let icons = [];
       let lastIdx = -1;
       const cycleOutput = () => {
@@ -668,17 +712,27 @@
         window.setTimeout(cycleOutput, next * 1000);
       };
 
-      (async () => {
-        try {
-          icons = await Promise.all(ICON_FILES.map(loadIcon));
-        } catch (e) {
-          return; // icons unavailable: hero still shows inputs + title
-        }
-        if (!icons.length) return;
-        if (reduce) { buildOutput(icons[0], true); return; }
-        // outputs only begin once a good number of input lines have reached the title
-        window.setTimeout(cycleOutput, 7000);
-      })();
+      // kick off only once the layout (and webfont) have settled, so the field is measured
+      // at its REAL size — an early/wrong measure was breaking the coordinates on mobile.
+      let started = false;
+      const start = () => {
+        if (started) return;
+        started = true;
+        measure();
+        buildInputs();
+        (async () => {
+          try { icons = await Promise.all(ICON_FILES.map(loadIcon)); }
+          catch (e) { return; } // icons unavailable: hero still shows inputs + title
+          if (!icons.length) return;
+          if (reduce) { buildOutput(icons[0], true); return; }
+          // outputs only begin once a good number of input lines have reached the title
+          window.setTimeout(cycleOutput, 7000);
+        })();
+      };
+      window.addEventListener("orientationchange", measure);
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(start); }
+      window.addEventListener("load", () => { measure(); start(); });
+      window.setTimeout(start, 1500); // safety net if fonts.ready / load are slow
     })();
   </script>
 </body>
