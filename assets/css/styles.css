@@ -1382,86 +1382,106 @@ a.shift-step:focus-visible .shift-source {
     font-size: 0.86rem;
   }
 
-  .pressure-page {
-    justify-content: center;
-    gap: clamp(1.4rem, 5vh, 2.4rem);
+  /* ---- one consistent mobile rhythm across every content section ----
+     eyebrow pinned to the top, cyan closing line pinned to the bottom, and the
+     middle content (cards / carousel / prose) flexes to fill the space between.
+     Same padding-top everywhere so the eyebrow lands at the same height. */
+  .gap-page,
+  .pressure-page,
+  .about-page,
+  .how-page {
+    justify-content: flex-start;
+    gap: clamp(0.85rem, 2vh, 1.3rem);
+    padding-top: 4.6rem;
   }
 
   .pressure-page h2 br {
     display: none;
   }
 
-  /* shift cards: one-card-at-a-time carousel (transform-driven, JS handles loop) */
-  .shift-track {
-    display: flex;
-    grid-template-columns: none;
-    gap: 0;
-    overflow: hidden;
-    transition: transform 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-
-  .shift-step {
-    flex: 0 0 100%;
-    min-width: 0;
-    /* clear the side arrows */
-    padding-inline: 2.6rem;
+  /* cyan closing lines sit at the same bottom position on every page */
+  .pressure-climax,
+  .about-close {
+    margin-top: auto;
   }
 
   .pressure-climax {
     font-size: clamp(1.35rem, 6vw, 1.8rem);
   }
 
-  /* ---- pg.04 (#liscere): pull the content together so the cyan close shows ---- */
-  .about-page {
-    justify-content: flex-start;
-    gap: clamp(1.2rem, 3.5vh, 1.8rem);
+  /* pg.02 carousel fills the middle of its section */
+  .incident-carousel {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    min-height: 0;
   }
 
-  .about-side {
-    gap: 0.85rem;
+  .incident-viewport {
+    flex: 1 1 auto;
+    min-height: 0;
   }
 
-  .about-title {
-    line-height: 1.22;
+  .incident-track,
+  .incident-slide {
+    height: 100%;
   }
 
-  .about-body {
-    font-size: 0.95rem;
-    line-height: 1.45;
+  .incident-content {
+    justify-content: center;
   }
 
-  /* ---- pg.05 (#how): four steps become a horizontal swipe row of cards ---- */
-  .how-page {
-    justify-content: flex-start;
-    gap: clamp(1.4rem, 3.5vh, 2.2rem);
+  /* pg.03 / pg.05 card rail fills the middle so the single card is tall */
+  .card-rail {
+    position: relative;
+    width: 100%;
+    flex: 1 1 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
   }
 
+  /* one card at a time (transform-driven; JS handles the seamless loop) */
+  .shift-track,
   .how-steps {
-    flex-direction: row;
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 0;
     gap: 0;
     overflow: hidden;
     transition: transform 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
 
+  .shift-track {
+    grid-template-columns: none;
+  }
+
+  .how-steps {
+    flex-direction: row;
+  }
+
+  .shift-step,
   .how-step {
     flex: 0 0 100%;
     min-width: 0;
+  }
+
+  /* card content vertically centred inside the now-tall card */
+  .shift-step {
+    justify-content: center;
+    padding-inline: 2.6rem; /* clear the side arrows */
+  }
+
+  .how-step {
     grid-template-columns: 1fr;
-    gap: 0.45rem;
-    align-items: start;
-    /* extra side padding clears the arrows */
-    padding: 1rem 2.5rem;
+    align-content: center;
+    gap: 0.5rem;
+    padding: 1.2rem 2.5rem; /* extra side padding clears the arrows */
     border: 1px solid var(--line);
     border-radius: 14px;
   }
 
-  /* card carousel rail becomes a positioned wrapper with side arrows */
-  .card-rail {
-    display: block;
-    position: relative;
-    width: 100%;
-  }
-
+  /* side arrows, vertically centred on the tall card */
   .rail-arrow {
     display: grid;
     place-items: center;
@@ -1486,6 +1506,20 @@ a.shift-step:focus-visible .shift-source {
 
   .rail-arrow.next {
     right: -0.2rem;
+  }
+
+  /* liscere: tighten the prose (eyebrow top / cyan close bottom handled above) */
+  .about-side {
+    gap: 0.85rem;
+  }
+
+  .about-title {
+    line-height: 1.22;
+  }
+
+  .about-body {
+    font-size: 0.95rem;
+    line-height: 1.45;
   }
 
   /* ---- pg.06 (#evidence): lift the CTAs + footer into view ---- */

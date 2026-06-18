@@ -31,7 +31,7 @@
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=2" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=2" />
   <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20260618-75" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20260618-77" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -412,11 +412,22 @@
         realSlides.forEach((s, i) => s.setAttribute("aria-hidden", i !== (pos % count) ? "true" : "false"));
       };
 
+      // settle after the slide animation via a timer (robust even if a
+      // transitionend never fires, which would otherwise lock the carousel)
+      const SETTLE = 580;
+      const settle = () => {
+        animating = false;
+        if (pos === count) { // landed on the clone -> snap back to the real first
+          pos = 0;
+          render(false);
+        }
+      };
       const next = () => {
         if (animating) return;
         animating = true;
         pos += 1;
         render(true);
+        window.setTimeout(settle, SETTLE);
       };
 
       const prev = () => {
@@ -429,16 +440,8 @@
         }
         pos -= 1;
         render(true);
+        window.setTimeout(settle, SETTLE);
       };
-
-      track.addEventListener("transitionend", (e) => {
-        if (e.propertyName !== "transform") return;
-        animating = false;
-        if (pos === count) { // landed on the clone -> snap back to the real first
-          pos = 0;
-          render(false);
-        }
-      });
 
       // auto-advance (always rightward, seamless loop); pause on hover / off-screen
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -499,19 +502,20 @@
         track.style.transition = withT ? "" : "none";
         track.style.transform = `translateX(-${pos * 100}%)`;
       };
-      const next = () => { if (animating) return; animating = true; pos += 1; render(true); };
+      const SETTLE = 540;
+      const settle = () => {
+        animating = false;
+        if (pos === count) { pos = 0; render(false); }
+      };
+      const next = () => { if (animating) return; animating = true; pos += 1; render(true); window.setTimeout(settle, SETTLE); };
       const prev = () => {
         if (animating) return;
         animating = true;
         if (pos === 0) { pos = count; render(false); void track.offsetWidth; }
         pos -= 1;
         render(true);
+        window.setTimeout(settle, SETTLE);
       };
-      track.addEventListener("transitionend", (e) => {
-        if (e.propertyName !== "transform") return;
-        animating = false;
-        if (pos === count) { pos = 0; render(false); }
-      }, { signal });
 
       let timer = null;
       const start = () => { if (reduce || timer) return; timer = window.setInterval(next, 6000); };
