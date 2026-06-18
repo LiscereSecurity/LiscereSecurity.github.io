@@ -31,7 +31,7 @@
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=2" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=2" />
   <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20260618-71" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20260618-72" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -183,6 +183,8 @@
         <p class="lead">The harder question is no longer who can act, but whether the action fits the moment.</p>
       </div>
 
+      <div class="card-rail">
+      <button class="rail-arrow prev" type="button" aria-label="Previous card">&#8249;</button>
       <div class="shift-track">
         <a class="shift-step" href="https://www.sans.org/blog/sans-2025-state-ics-security-report-progress-pressure-path-resilience" target="_blank" rel="noopener">
           <p class="shift-index">01</p>
@@ -211,6 +213,8 @@
             When access looks valid, checking who is acting no longer reveals the attack.
           </p>
         </article>
+      </div>
+      <button class="rail-arrow next" type="button" aria-label="Next card">&#8250;</button>
       </div>
 
       <p class="pressure-climax">
@@ -255,6 +259,8 @@
         <p class="how-intro">The approach we are researching, in four steps. Each one is an open problem we are working to solve.</p>
       </div>
 
+      <div class="card-rail">
+      <button class="rail-arrow prev" type="button" aria-label="Previous step">&#8249;</button>
       <ol class="how-steps">
         <li class="how-step">
           <span class="how-n">01</span>
@@ -289,6 +295,8 @@
           </div>
         </li>
       </ol>
+      <button class="rail-arrow next" type="button" aria-label="Next step">&#8250;</button>
+      </div>
 
       <p class="about-close">Each one is an open research problem. Together, they are the layer that does not exist yet.</p>
     </section>
@@ -384,44 +392,72 @@
     const carousel = document.querySelector(".incident-carousel");
     if (carousel) {
       const track = carousel.querySelector(".incident-track");
-      const slides = [...carousel.querySelectorAll(".incident-slide")];
+      const realSlides = [...carousel.querySelectorAll(".incident-slide")];
       const prevBtn = carousel.querySelector(".carousel-arrow.prev");
       const nextBtn = carousel.querySelector(".carousel-arrow.next");
-      let slideIndex = 0;
+      const count = realSlides.length;
 
-      const goToSlide = (n) => {
-        slideIndex = (n + slides.length) % slides.length;
-        track.style.transform = `translateX(-${slideIndex * 100}%)`;
-        slides.forEach((slide, i) => slide.setAttribute("aria-hidden", i !== slideIndex ? "true" : "false"));
+      // clone slide 1 at the end so advancing past the last wraps to the first
+      // seamlessly, moving rightward every time (no leftward rewind).
+      const clone = realSlides[0].cloneNode(true);
+      clone.setAttribute("aria-hidden", "true");
+      track.appendChild(clone);
+
+      let pos = 0; // 0..count ; position `count` is the clone (looks like slide 1)
+      let animating = false;
+
+      const render = (withTransition) => {
+        track.style.transition = withTransition ? "" : "none";
+        track.style.transform = `translateX(-${pos * 100}%)`;
+        realSlides.forEach((s, i) => s.setAttribute("aria-hidden", i !== (pos % count) ? "true" : "false"));
       };
 
-      // gentle auto-advance so visitors notice there is more than one slide.
-      // runs only while the carousel is on screen, pauses on hover, and stops
-      // for good once the visitor takes control (clicks an arrow or focuses it).
+      const next = () => {
+        if (animating) return;
+        animating = true;
+        pos += 1;
+        render(true);
+      };
+
+      const prev = () => {
+        if (animating) return;
+        animating = true;
+        if (pos === 0) {
+          pos = count; // jump to the clone (visually slide 1) with no transition...
+          render(false);
+          void track.offsetWidth; // ...force reflow, then animate left to the last
+        }
+        pos -= 1;
+        render(true);
+      };
+
+      track.addEventListener("transitionend", (e) => {
+        if (e.propertyName !== "transform") return;
+        animating = false;
+        if (pos === count) { // landed on the clone -> snap back to the real first
+          pos = 0;
+          render(false);
+        }
+      });
+
+      // auto-advance (always rightward, seamless loop); pause on hover / off-screen
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       let autoTimer = null;
-      let userTookOver = false;
-
-      const startAuto = () => {
-        if (reduceMotion || userTookOver || autoTimer) return;
-        autoTimer = window.setInterval(() => goToSlide(slideIndex + 1), 5000);
-      };
+      const startAuto = () => { if (reduceMotion || autoTimer) return; autoTimer = window.setInterval(next, 5000); };
       const pauseAuto = () => { window.clearInterval(autoTimer); autoTimer = null; };
-      const stopAuto = () => { userTookOver = true; pauseAuto(); };
+      const bump = () => { pauseAuto(); startAuto(); }; // restart timer after manual input
 
-      prevBtn.addEventListener("click", () => { stopAuto(); goToSlide(slideIndex - 1); });
-      nextBtn.addEventListener("click", () => { stopAuto(); goToSlide(slideIndex + 1); });
+      if (prevBtn) prevBtn.addEventListener("click", () => { prev(); bump(); });
+      if (nextBtn) nextBtn.addEventListener("click", () => { next(); bump(); });
       carousel.addEventListener("pointerenter", pauseAuto);
       carousel.addEventListener("pointerleave", startAuto);
-      carousel.addEventListener("focusin", stopAuto);
 
-      // only auto-play while the carousel is actually in view
       const autoVisObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry) => (entry.isIntersecting ? startAuto() : pauseAuto()));
       }, { threshold: 0.5 });
       autoVisObserver.observe(carousel);
 
-      // touch swipe (mobile has no arrows): a horizontal drag changes slide
+      // touch swipe (mobile has no arrows): horizontal drag changes slide, keeps looping
       const viewport = carousel.querySelector(".incident-viewport");
       let touchStartX = null;
       viewport.addEventListener("touchstart", (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
@@ -430,12 +466,27 @@
         const dx = e.changedTouches[0].clientX - touchStartX;
         touchStartX = null;
         if (Math.abs(dx) < 40) return;
-        stopAuto();
-        goToSlide(slideIndex + (dx < 0 ? 1 : -1));
+        (dx < 0 ? next : prev)();
+        bump();
       }, { passive: true });
 
-      goToSlide(0);
+      render(false);
+      startAuto();
     }
+
+    // pg.03 / pg.05 card carousels: side arrows scroll the row by one card
+    document.querySelectorAll(".card-rail").forEach((rail) => {
+      const cardTrack = rail.querySelector(".shift-track, .how-steps");
+      const railPrev = rail.querySelector(".rail-arrow.prev");
+      const railNext = rail.querySelector(".rail-arrow.next");
+      if (!cardTrack) return;
+      const step = () => {
+        const card = cardTrack.firstElementChild;
+        return card ? card.getBoundingClientRect().width + 12 : cardTrack.clientWidth * 0.8;
+      };
+      if (railPrev) railPrev.addEventListener("click", () => cardTrack.scrollBy({ left: -step(), behavior: "smooth" }));
+      if (railNext) railNext.addEventListener("click", () => cardTrack.scrollBy({ left: step(), behavior: "smooth" }));
+    });
 
     const initialIndex = Math.max(0, pages.findIndex((page) => `#${page.id}` === window.location.hash));
     setActivePage(initialIndex);
