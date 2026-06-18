@@ -1148,19 +1148,47 @@ a.shift-step:focus-visible .shift-source {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  transition: transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 200ms ease, border-color 200ms ease,
+    box-shadow 200ms ease, color 200ms ease;
 }
 
+/* primary: solid cyan (no green), with a cyan glow that lifts on hover */
 .primary-cta {
-  border: 1px solid rgba(207, 242, 245, 0.48);
-  background: linear-gradient(135deg, #d4faff, #72f0a8);
+  border: 1px solid rgba(142, 237, 255, 0.55);
+  background: var(--cyan);
   color: #03100b;
-  box-shadow: 0 0 28px rgba(142, 237, 255, 0.35);
+  box-shadow: 0 0 24px rgba(142, 237, 255, 0.28);
+}
+
+.primary-cta:hover {
+  transform: translateY(-2px);
+  background: #a8f1ff;
+  box-shadow: 0 6px 32px rgba(142, 237, 255, 0.55);
 }
 
 .secondary-cta {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.035);
   color: #cbd8da;
+}
+
+.secondary-cta:hover {
+  transform: translateY(-2px);
+  border-color: rgba(142, 237, 255, 0.5);
+  background: rgba(142, 237, 255, 0.08);
+  color: var(--ink);
+}
+
+.primary-cta:active,
+.secondary-cta:active {
+  transform: translateY(0);
+}
+
+.primary-cta:focus-visible,
+.secondary-cta:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
 }
 
 /* Unified section reveal: one clean opacity fade, no transform, fired once when
