@@ -624,6 +624,8 @@ h2 {
      TODO: drop the image at  site/assets/img/incidents/ukraine-energy.jpg  */
   background-color: #0a1016;
   background-image: url("../img/incidents/ukraine-energy.jpg");
+  /* show the lower part of this image instead of the centre */
+  background-position: center bottom;
 }
 
 .incident-slide--stuxnet {
