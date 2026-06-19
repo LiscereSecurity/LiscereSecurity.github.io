@@ -1444,76 +1444,73 @@ a.shift-step:focus-visible .shift-source {
     padding: 0.5rem 0.7rem;
   }
 
-  /* pg.03 / pg.05 card carousel: full-width track on top, arrows in a centred
-     row BELOW the card (no overlap). One card per view, AUTO height. */
+  /* pg.03 / pg.05 card carousel: ONE card per view (transform-driven, JS loop).
+     The track is exactly one card wide so translateX(-pos*100%) shifts by exactly
+     one card; the rail clips the overflow. The rail grows to fill the section,
+     the card fills the rail with its content vertically centred, and the arrows
+     sit on the sides. */
   .card-rail {
     position: relative;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 0.85rem;
-  }
-
-  .shift-track,
-  .how-steps {
-    flex: 0 0 100%;
-    max-width: 100%;
-    order: 0;
-    display: flex;
-    gap: 0;
     overflow: hidden;
-    transition: transform 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
   }
 
-  .shift-track {
-    grid-template-columns: none;
-  }
-
-  .how-steps {
+  .card-rail .shift-track,
+  .card-rail .how-steps {
+    display: flex;
     flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 0;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .shift-step,
-  .how-step {
+  .card-rail .shift-step,
+  .card-rail .how-step {
     flex: 0 0 100%;
+    width: 100%;
     min-width: 0;
-    max-width: 100%;
     box-sizing: border-box;
+    /* reset the desktop grid and centre the content in the tall card */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-template-columns: none;
+    /* generous side padding so text clears the side arrows */
+    padding: 1.6rem 56px;
   }
 
-  /* content aligned to the TOP with modest padding (no floating in a tall box) */
-  .shift-step {
-    justify-content: flex-start;
-    padding: 1.2rem;
-  }
-
-  .how-step {
-    grid-template-columns: 1fr;
-    align-content: start;
-    gap: 0.5rem;
-    padding: 1.2rem;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-  }
-
-  /* arrows below the card, in normal flow, >= 44px touch target, no overlap */
-  .rail-arrow {
-    position: static;
-    order: 1;
-    transform: none;
+  /* side arrows over the card, vertically centred, 44px touch target */
+  .card-rail .rail-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
     display: grid;
     place-items: center;
-    width: 2.75rem;
-    height: 2.75rem;
     border: 1px solid var(--line-strong);
-    border-radius: 999px;
-    background: rgba(2, 7, 9, 0.85);
+    background: rgba(2, 7, 9, 0.72);
     color: var(--ink);
     font-size: 1.25rem;
     line-height: 1;
     cursor: pointer;
+  }
+
+  .card-rail .rail-arrow.prev {
+    left: 6px;
+  }
+
+  .card-rail .rail-arrow.next {
+    right: 6px;
   }
 
   /* liscere: tighten the prose (eyebrow top / cyan close bottom handled above) */
