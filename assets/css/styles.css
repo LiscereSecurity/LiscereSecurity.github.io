@@ -1477,13 +1477,32 @@ a.shift-step:focus-visible .shift-source {
     width: 100%;
     min-width: 0;
     box-sizing: border-box;
-    /* reset the desktop grid and centre the content in the tall card */
+    /* reset the desktop grid; centre the content vertically, align it left */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: stretch;
     grid-template-columns: none;
+    gap: 0.5rem;
     /* generous side padding so text clears the side arrows */
     padding: 1.6rem 56px;
+    text-align: left;
+    /* identical card box on both (#pressure and #how); the full border also
+       replaces the lone border-top divider .how-step carries on desktop */
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: rgba(2, 7, 9, 0.4);
+  }
+
+  .card-rail .shift-index,
+  .card-rail .shift-title,
+  .card-rail .shift-body,
+  .card-rail .shift-source,
+  .card-rail .how-n,
+  .card-rail .how-step-name,
+  .card-rail .how-step-what,
+  .card-rail .how-step-hard {
+    text-align: left;
   }
 
   /* side arrows over the card, vertically centred, 44px touch target */
