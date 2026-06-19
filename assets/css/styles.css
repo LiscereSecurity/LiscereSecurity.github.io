@@ -1409,44 +1409,59 @@ a.shift-step:focus-visible .shift-source {
     font-size: clamp(1.35rem, 6vw, 1.8rem);
   }
 
-  /* pg.02 carousel fills the middle of its section */
-  .incident-carousel {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 0;
-    min-height: 0;
-  }
-
-  .incident-viewport {
-    flex: 1 1 auto;
-    min-height: 0;
-  }
-
+  /* pg.02 incident carousel: full width, auto height, no horizontal overflow */
+  .incident-viewport,
   .incident-track,
   .incident-slide {
-    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .incident-slide {
+    height: auto;
   }
 
   .incident-content {
-    justify-content: center;
+    justify-content: flex-start;
+    max-width: 100%;
+    padding: 1.1rem 1.15rem;
   }
 
-  /* pg.03 / pg.05 card rail fills the middle so the single card is tall */
+  /* the long mono "Set chemical dose..." line must wrap, never overflow */
+  .incident-action {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .incident-action strong {
+    display: block;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.7rem;
+  }
+
+  /* pg.03 / pg.05 card carousel: full-width track on top, arrows in a centred
+     row BELOW the card (no overlap). One card per view, AUTO height. */
   .card-rail {
     position: relative;
     width: 100%;
-    flex: 1 1 0;
-    min-height: 0;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.85rem;
   }
 
-  /* one card at a time (transform-driven; JS handles the seamless loop) */
   .shift-track,
   .how-steps {
+    flex: 0 0 100%;
+    max-width: 100%;
+    order: 0;
     display: flex;
-    flex: 1 1 auto;
-    min-height: 0;
     gap: 0;
     overflow: hidden;
     transition: transform 480ms cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -1464,33 +1479,34 @@ a.shift-step:focus-visible .shift-source {
   .how-step {
     flex: 0 0 100%;
     min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
-  /* card content vertically centred inside the now-tall card */
+  /* content aligned to the TOP with modest padding (no floating in a tall box) */
   .shift-step {
-    justify-content: center;
-    padding-inline: 2.6rem; /* clear the side arrows */
+    justify-content: flex-start;
+    padding: 1.2rem;
   }
 
   .how-step {
     grid-template-columns: 1fr;
-    align-content: center;
+    align-content: start;
     gap: 0.5rem;
-    padding: 1.2rem 2.5rem; /* extra side padding clears the arrows */
+    padding: 1.2rem;
     border: 1px solid var(--line);
     border-radius: 14px;
   }
 
-  /* side arrows, vertically centred on the tall card */
+  /* arrows below the card, in normal flow, >= 44px touch target, no overlap */
   .rail-arrow {
+    position: static;
+    order: 1;
+    transform: none;
     display: grid;
     place-items: center;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 3;
-    width: 2.3rem;
-    height: 2.3rem;
+    width: 2.75rem;
+    height: 2.75rem;
     border: 1px solid var(--line-strong);
     border-radius: 999px;
     background: rgba(2, 7, 9, 0.85);
@@ -1498,14 +1514,6 @@ a.shift-step:focus-visible .shift-source {
     font-size: 1.25rem;
     line-height: 1;
     cursor: pointer;
-  }
-
-  .rail-arrow.prev {
-    left: -0.2rem;
-  }
-
-  .rail-arrow.next {
-    right: -0.2rem;
   }
 
   /* liscere: tighten the prose (eyebrow top / cyan close bottom handled above) */
