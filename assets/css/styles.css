@@ -1454,6 +1454,11 @@ a.shift-step:focus-visible .shift-source {
   .card-rail {
     position: relative;
     width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .card-rail .rail-arrow {
