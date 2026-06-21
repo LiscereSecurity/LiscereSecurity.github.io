@@ -780,6 +780,10 @@ h2 {
   display: none;
 }
 
+.card-dots {
+  display: none;
+}
+
 /* ---- Page 03: the shifting attack surface ---- */
 .pressure-page {
   display: flex;
@@ -1279,11 +1283,10 @@ a.shift-step:focus-visible .shift-source {
 }
 
 @media (max-width: 720px) {
-  /* phones: card sections now STACK their cards (taller than one screen), so the
-     snap is softened to proximity: it still settles near a section boundary, but
-     lets you scroll freely through the taller sections instead of getting stuck. */
+  /* phones: every section is one vertical screen again (card sections use a
+     horizontal carousel), so restore firm one-section-per-swipe vertical snap. */
   html {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
   }
 
   .page {
@@ -1294,7 +1297,7 @@ a.shift-step:focus-visible .shift-source {
     min-height: 100svh;
     min-height: 100lvh;
     padding: 4.5rem 1rem 1.2rem;
-    scroll-snap-stop: normal;
+    scroll-snap-stop: always;
   }
 
   .js .page > *,
@@ -1445,12 +1448,12 @@ a.shift-step:focus-visible .shift-source {
     padding: 0.5rem 0.7rem;
   }
 
-  /* pg.03 / pg.05: on phones the cards STACK vertically (no carousel) and are all
-     visible at once. .card-rail collapses (display: contents) so the track is a
-     direct child of the section; the track is a single column. Arrows hidden, and
-     the JS carousel is not built on mobile. */
+  /* pg.03 / pg.05: native horizontal scroll-snap carousel with a PEEK of the next
+     card. The section stays one vertical screen; cards scroll/snap horizontally.
+     Peek + dots signal swipeability. No JS transform — native scroll handles it. */
   .card-rail {
-    display: contents;
+    position: relative;
+    width: 100%;
   }
 
   .card-rail .rail-arrow {
@@ -1460,26 +1463,38 @@ a.shift-step:focus-visible .shift-source {
   .shift-track,
   .how-steps {
     display: flex;
-    flex-direction: column;
-    gap: 0.85rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0.7rem;
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0 14% 0 0; /* trailing gutter so the last card can left-align */
     list-style: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
-  /* one shared card on both #pressure and #how: same box, content stacked and
-     left-aligned. The full border replaces the lone border-top .how-step uses on
-     desktop. */
+  .shift-track::-webkit-scrollbar,
+  .how-steps::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* card ~86% wide → the next card peeks ~14% at the right edge */
   .shift-step,
   .how-step {
+    flex: 0 0 86%;
+    width: 86%;
+    min-width: 0;
+    box-sizing: border-box;
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.4rem;
-    width: 100%;
-    min-width: 0;
-    padding: 1.15rem 1.25rem;
+    padding: 1.2rem 1.25rem;
     border: 1px solid var(--line);
     border-radius: 14px;
     background: rgba(2, 7, 9, 0.4);
@@ -1498,12 +1513,33 @@ a.shift-step:focus-visible .shift-source {
     text-align: left;
   }
 
-  /* cards are always visible on mobile (no staggered reveal that could leave them
-     hidden when stacked) */
   .js .pressure-page .shift-step {
     opacity: 1;
     transform: none;
     animation: none;
+  }
+
+  .card-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.9rem;
+  }
+
+  .card-dots button {
+    width: 0.5rem;
+    height: 0.5rem;
+    padding: 0;
+    border: 1px solid rgba(207, 242, 245, 0.3);
+    border-radius: 999px;
+    background: rgba(207, 242, 245, 0.12);
+    cursor: pointer;
+    transition: background 180ms ease, transform 180ms ease;
+  }
+
+  .card-dots button.active {
+    background: var(--cyan);
+    transform: scale(1.3);
   }
 
   /* liscere: tighten the prose (eyebrow top / cyan close bottom handled above) */
