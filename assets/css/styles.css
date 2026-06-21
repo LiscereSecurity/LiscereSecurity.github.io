@@ -1279,10 +1279,11 @@ a.shift-step:focus-visible .shift-source {
 }
 
 @media (max-width: 720px) {
-  /* phones: each section is trimmed to fit one screen (carousels + tightened
-     spacing below), so we can use firm one-section-per-swipe snapping */
+  /* phones: card sections now STACK their cards (taller than one screen), so the
+     snap is softened to proximity: it still settles near a section boundary, but
+     lets you scroll freely through the taller sections instead of getting stuck. */
   html {
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
   }
 
   .page {
@@ -1293,7 +1294,7 @@ a.shift-step:focus-visible .shift-source {
     min-height: 100svh;
     min-height: 100lvh;
     padding: 4.5rem 1rem 1.2rem;
-    scroll-snap-stop: always;
+    scroll-snap-stop: normal;
   }
 
   .js .page > *,
@@ -1444,95 +1445,65 @@ a.shift-step:focus-visible .shift-source {
     padding: 0.5rem 0.7rem;
   }
 
-  /* pg.03 / pg.05 card carousel: ONE card per view (transform-driven, JS loop).
-     The track is exactly one card wide so translateX(-pos*100%) shifts by exactly
-     one card; the rail clips the overflow. The rail grows to fill the section and
-     CENTRES the (content-sized) card in that space, so the breathing room is
-     AROUND the card, not inside it. Arrows sit on the sides. */
+  /* pg.03 / pg.05: on phones the cards STACK vertically (no carousel) and are all
+     visible at once. .card-rail collapses (display: contents) so the track is a
+     direct child of the section; the track is a single column. Arrows hidden, and
+     the JS carousel is not built on mobile. */
   .card-rail {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    flex: 1 1 auto;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: contents;
   }
 
-  .card-rail .shift-track,
-  .card-rail .how-steps {
+  .card-rail .rail-arrow {
+    display: none;
+  }
+
+  .shift-track,
+  .how-steps {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: 0.85rem;
     width: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
-    gap: 0;
-    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  .card-rail .shift-step,
-  .card-rail .how-step {
-    flex: 0 0 100%;
-    width: 100%;
-    min-width: 0;
-    box-sizing: border-box;
-    /* reset the desktop grid; content flows from the top, aligned left. The card
-       is content-sized (no stretch); the rail centres it. align-items: stretch
-       keeps every slide of a carousel the height of its tallest card. */
+  /* one shared card on both #pressure and #how: same box, content stacked and
+     left-aligned. The full border replaces the lone border-top .how-step uses on
+     desktop. */
+  .shift-step,
+  .how-step {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    grid-template-columns: none;
-    gap: 0.5rem;
-    /* comfortable padding; 56px sides keep text clear of the arrows */
-    padding: 1.4rem 56px;
-    text-align: left;
-    /* identical card box on both (#pressure and #how); the full border also
-       replaces the lone border-top divider .how-step carries on desktop */
+    align-items: flex-start;
+    gap: 0.4rem;
+    width: 100%;
+    min-width: 0;
+    padding: 1.15rem 1.25rem;
     border: 1px solid var(--line);
     border-radius: 14px;
     background: rgba(2, 7, 9, 0.4);
+    text-align: left;
+    grid-template-columns: none;
   }
 
-  .card-rail .shift-index,
-  .card-rail .shift-title,
-  .card-rail .shift-body,
-  .card-rail .shift-source,
-  .card-rail .how-n,
-  .card-rail .how-step-name,
-  .card-rail .how-step-what,
-  .card-rail .how-step-hard {
+  .shift-index,
+  .shift-title,
+  .shift-body,
+  .shift-source,
+  .how-n,
+  .how-step-name,
+  .how-step-what,
+  .how-step-hard {
     text-align: left;
   }
 
-  /* side arrows over the card, vertically centred, 44px touch target */
-  .card-rail .rail-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 3;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    border: 1px solid var(--line-strong);
-    background: rgba(2, 7, 9, 0.72);
-    color: var(--ink);
-    font-size: 1.25rem;
-    line-height: 1;
-    cursor: pointer;
-  }
-
-  .card-rail .rail-arrow.prev {
-    left: 6px;
-  }
-
-  .card-rail .rail-arrow.next {
-    right: 6px;
+  /* cards are always visible on mobile (no staggered reveal that could leave them
+     hidden when stacked) */
+  .js .pressure-page .shift-step {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 
   /* liscere: tighten the prose (eyebrow top / cyan close bottom handled above) */
