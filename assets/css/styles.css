@@ -1446,9 +1446,9 @@ a.shift-step:focus-visible .shift-source {
 
   /* pg.03 / pg.05 card carousel: ONE card per view (transform-driven, JS loop).
      The track is exactly one card wide so translateX(-pos*100%) shifts by exactly
-     one card; the rail clips the overflow. The rail grows to fill the section,
-     the card fills the rail with its content vertically centred, and the arrows
-     sit on the sides. */
+     one card; the rail clips the overflow. The rail grows to fill the section and
+     CENTRES the (content-sized) card in that space, so the breathing room is
+     AROUND the card, not inside it. Arrows sit on the sides. */
   .card-rail {
     position: relative;
     overflow: hidden;
@@ -1456,6 +1456,8 @@ a.shift-step:focus-visible .shift-source {
     flex: 1 1 auto;
     min-height: 0;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .card-rail .shift-track,
@@ -1477,15 +1479,16 @@ a.shift-step:focus-visible .shift-source {
     width: 100%;
     min-width: 0;
     box-sizing: border-box;
-    /* reset the desktop grid; centre the content vertically, align it left */
+    /* reset the desktop grid; content flows from the top, aligned left. The card
+       is content-sized (no stretch); the rail centres it. align-items: stretch
+       keeps every slide of a carousel the height of its tallest card. */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: stretch;
     grid-template-columns: none;
     gap: 0.5rem;
-    /* generous side padding so text clears the side arrows */
-    padding: 1.6rem 56px;
+    /* comfortable padding; 56px sides keep text clear of the arrows */
+    padding: 1.4rem 56px;
     text-align: left;
     /* identical card box on both (#pressure and #how); the full border also
        replaces the lone border-top divider .how-step carries on desktop */
