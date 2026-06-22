@@ -95,6 +95,10 @@ p {
   padding: 0.7rem 0.9rem;
   border-radius: 999px;
   transform: translateY(-150%);
+  /* stay invisible even when Safari's rubber-band overscroll momentarily shifts
+     fixed elements into view; only appears on keyboard focus */
+  opacity: 0;
+  pointer-events: none;
   background: var(--green);
   color: #04100b;
   font-weight: 800;
@@ -102,6 +106,8 @@ p {
 
 .skip-link:focus {
   transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .site-chrome {
