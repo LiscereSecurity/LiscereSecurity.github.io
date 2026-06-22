@@ -31,7 +31,7 @@
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=2" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=2" />
   <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20260618-88" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20260618-89" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -798,8 +798,8 @@
           inG.appendChild(p);
           const len = p.getTotalLength();
           const op = rnd(0.18, 0.5);
-          const dur = rnd(5, 10);
-          const delay = rnd(0, 0.8);
+          const dur = rnd(4, 8.5);
+          const delay = rnd(0, 0.3);
           p.style.setProperty("--len", len.toFixed(1));
           p.style.setProperty("--op", op.toFixed(3));
           p.style.strokeDasharray = len.toFixed(1);
@@ -837,7 +837,7 @@
           if (reduce) { buildOutput(icons[0], true); return; }
           // outputs begin as the first (now faster) input lines reach the title — keeps
           // the original input→output relationship, just earlier overall
-          window.setTimeout(cycleOutput, 5000);
+          window.setTimeout(cycleOutput, 4000);
         })();
       };
       window.addEventListener("orientationchange", measure);
