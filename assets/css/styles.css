@@ -1657,12 +1657,51 @@ a.shift-step:focus-visible .shift-source {
 }
 
 /* /research — paper-style card library */
+/* /research — group filter (mono cyan eyebrow aesthetic) */
+.research-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.7rem, 1.6vw, 1.3rem);
+  margin: clamp(0.4rem, 1.4vh, 1rem) 0 0;
+}
+
+.research-filter-btn {
+  padding: 0.3rem 0;
+  border: 0;
+  border-bottom: 1.5px solid transparent;
+  background: none;
+  cursor: pointer;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-data);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.research-filter-btn:hover,
+.research-filter-btn:focus-visible {
+  color: var(--ink);
+  outline: none;
+}
+
+.research-filter-btn.is-active {
+  color: var(--cyan);
+  border-bottom-color: var(--cyan);
+}
+
 .research-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(0.9rem, 1.8vw, 1.5rem);
   width: 100%;
   margin: clamp(0.6rem, 1.6vh, 1.2rem) 0 0;
+}
+
+/* filtered-out cards: hidden attribute must beat .paper-card's display:flex */
+.research-cards .paper-card[hidden] {
+  display: none;
 }
 
 .paper-card {

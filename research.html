@@ -34,7 +34,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16.png?v=2" />
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=2" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=2" />
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20260623-2" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20260623-3" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -54,28 +54,34 @@
     <p class="kicker">Research</p>
     <h1 id="research-title">Research</h1>
 
+    <div class="research-filter" role="group" aria-label="Filter research outputs">
+      <button type="button" class="research-filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="research-filter-btn" data-filter="research" aria-pressed="false">Research</button>
+      <button type="button" class="research-filter-btn" data-filter="landscape" aria-pressed="false">Landscape</button>
+    </div>
+
     <div class="research-cards">
-      <a class="paper-card" href="./assets/papers/liscere-framework.pdf" target="_blank" rel="noopener">
+      <a class="paper-card" data-group="research" href="./assets/papers/liscere-framework.pdf" target="_blank" rel="noopener">
         <p class="paper-eyebrow">01 · Technical report · PDF</p>
         <h2 class="paper-title">Framework</h2>
         <p class="paper-body">
           A protocol-agnostic chain for evaluating an industrial action across four dimensions:
           protocol operation, automation artefact, operational context, and policy constraint.
         </p>
-        <span class="paper-cta">Read paper <span class="paper-arrow" aria-hidden="true">&#8594;</span></span>
+        <span class="paper-cta">Read report <span class="paper-arrow" aria-hidden="true">&#8594;</span></span>
       </a>
 
-      <a class="paper-card" href="./assets/papers/liscere-evaluation-modbus-tcp.pdf" target="_blank" rel="noopener">
+      <a class="paper-card" data-group="research" href="./assets/papers/liscere-evaluation-modbus-tcp.pdf" target="_blank" rel="noopener">
         <p class="paper-eyebrow">02 · Technical report · PDF</p>
         <h2 class="paper-title">Evaluation</h2>
         <p class="paper-body">
           A Modbus/TCP control pair in which the same sensitive write returns an alert in production
           and an allow during a declared maintenance window.
         </p>
-        <span class="paper-cta">Read paper <span class="paper-arrow" aria-hidden="true">&#8594;</span></span>
+        <span class="paper-cta">Read report <span class="paper-arrow" aria-hidden="true">&#8594;</span></span>
       </a>
 
-      <article class="paper-card is-soon">
+      <article class="paper-card is-soon" data-group="research">
         <p class="paper-eyebrow">03 · OT Lab</p>
         <h2 class="paper-title">Platform</h2>
         <p class="paper-body">
@@ -85,18 +91,40 @@
         <p class="paper-soon">In preparation</p>
       </article>
 
-      <a class="paper-card" href="./assets/papers/liscere-ot-threat-landscape.pdf" target="_blank" rel="noopener">
+      <a class="paper-card" data-group="landscape" href="./assets/papers/liscere-ot-threat-landscape.pdf" target="_blank" rel="noopener">
         <p class="paper-eyebrow">04 · Briefing · PDF</p>
         <h2 class="paper-title">OT Threat Landscape</h2>
         <p class="paper-body">
           A briefing on why the centre of gravity in OT attacks has moved from gaining access to
           issuing valid commands, and the gap that leaves for defenders.
         </p>
-        <span class="paper-cta">Read paper <span class="paper-arrow" aria-hidden="true">&#8594;</span></span>
+        <span class="paper-cta">Read briefing <span class="paper-arrow" aria-hidden="true">&#8594;</span></span>
       </a>
     </div>
 
     <p class="research-foot">Liscere 2026</p>
   </main>
+
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('.research-filter-btn');
+      var cards = document.querySelectorAll('.research-cards .paper-card');
+      function apply(filter) {
+        cards.forEach(function (card) {
+          card.hidden = !(filter === 'all' || card.getAttribute('data-group') === filter);
+        });
+      }
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          buttons.forEach(function (b) {
+            var active = b === btn;
+            b.classList.toggle('is-active', active);
+            b.setAttribute('aria-pressed', active ? 'true' : 'false');
+          });
+          apply(btn.getAttribute('data-filter'));
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
