@@ -238,6 +238,17 @@ p {
   text-shadow: 0 2px 50px rgba(2, 5, 7, 0.85);
 }
 
+/* hero subline: readable secondary text under the H1 (sans, muted, not Orbitron, not the eyebrow) */
+.hero-sub {
+  max-width: 42ch;
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: var(--fs-subtitle);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 .narrative {
   position: relative;
   z-index: 2;
