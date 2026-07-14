@@ -194,6 +194,19 @@
         });
       });
     })();
+
+    // Research page only: the fixed "Liscere" wordmark overlaps the cards once
+    // scrolled. Its visibility is driven by the .past-hero class on <html> (the
+    // only thing .past-hero controls: .past-hero .site-logo { opacity: 1 }). Keep
+    // past-hero at the very top so the wordmark shows, and drop it while scrolled
+    // so the wordmark returns to its default opacity: 0. The 320ms opacity
+    // transition on .site-logo makes it fade in/out.
+    (function () {
+      var root = document.documentElement;
+      function sync() { root.classList.toggle('past-hero', window.scrollY <= 16); }
+      sync();
+      window.addEventListener('scroll', sync, { passive: true });
+    })();
   </script>
 </body>
 </html>
