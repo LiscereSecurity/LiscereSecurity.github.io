@@ -141,15 +141,9 @@ p {
   overflow: visible;
 }
 
-/* Brand book (02 · Logo system): the wordmark is ALWAYS Orbitron 500, tracking -0.02em,
-   Liscere White, one solid colour — never another typeface/weight, never outline/glow. */
-.wordmark-fill {
-  font-family: var(--font-display);
-  font-size: 108px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  fill: #f4f6f4;
-}
+/* Brand book (02 · Logo system): the header wordmark is the official brand-kit art
+   (assets/liscere-wordmark-dark.svg — Orbitron 500 in curves, Liscere White), used as an
+   <img> so it never depends on the Orbitron web font (no fallback to another typeface). */
 
 .kicker,
 .section-dots,
