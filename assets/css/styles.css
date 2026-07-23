@@ -6,7 +6,7 @@
   --quiet: #465257;
   --line: rgba(207, 242, 245, 0.13);
   --line-strong: rgba(207, 242, 245, 0.28);
-  --cyan: #8eedff;
+  --cyan: #00d9ff;
   --green: #66f4a4;
   --amber: #ffc35c;
   --red: #ff656d;
@@ -177,7 +177,7 @@ p {
 
 .section-dots a.active {
   background: var(--cyan);
-  box-shadow: 0 0 20px rgba(142, 237, 255, 0.55);
+  box-shadow: 0 0 20px rgba(0, 217, 255, 0.55);
   transform: scale(1.45);
 }
 
@@ -296,7 +296,7 @@ h2 {
 /* INPUTS: industrial commands flowing in toward the title (white-cyan, low opacity) */
 .hero-in {
   fill: none;
-  stroke: rgb(150, 230, 246);
+  stroke: #4de6ff;
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
   opacity: 0;
@@ -701,7 +701,7 @@ h2 {
   padding: 0.58rem 0.9rem;
   border: 1px solid var(--line-strong);
   border-radius: 12px;
-  background: rgba(142, 237, 255, 0.07);
+  background: rgba(0, 217, 255, 0.07);
   color: var(--ink);
   font-family: var(--mono);
   font-size: clamp(0.9rem, 1.35vw, 1.12rem);
@@ -759,7 +759,7 @@ h2 {
 
 .carousel-arrow:hover {
   border-color: var(--cyan);
-  background: rgba(142, 237, 255, 0.12);
+  background: rgba(0, 217, 255, 0.12);
 }
 
 .carousel-arrow:active {
@@ -837,9 +837,9 @@ a.shift-step {
 
 a.shift-step:hover,
 a.shift-step:focus-visible {
-  border-color: rgba(142, 237, 255, 0.45);
-  background: rgba(142, 237, 255, 0.06);
-  box-shadow: 0 0 40px rgba(142, 237, 255, 0.08);
+  border-color: rgba(0, 217, 255, 0.45);
+  background: rgba(0, 217, 255, 0.06);
+  box-shadow: 0 0 40px rgba(0, 217, 255, 0.08);
   outline: none;
 }
 
@@ -1170,16 +1170,16 @@ a.shift-step:focus-visible .shift-source {
 
 /* primary: solid cyan (no green), with a cyan glow that lifts on hover */
 .primary-cta {
-  border: 1px solid rgba(142, 237, 255, 0.55);
+  border: 1px solid rgba(0, 217, 255, 0.55);
   background: var(--cyan);
   color: #03100b;
-  box-shadow: 0 0 24px rgba(142, 237, 255, 0.28);
+  box-shadow: 0 0 24px rgba(0, 217, 255, 0.28);
 }
 
 .primary-cta:hover {
   transform: translateY(-2px);
-  background: #a8f1ff;
-  box-shadow: 0 6px 32px rgba(142, 237, 255, 0.55);
+  background: #4de6ff;
+  box-shadow: 0 6px 32px rgba(0, 217, 255, 0.55);
 }
 
 .secondary-cta {
@@ -1190,8 +1190,8 @@ a.shift-step:focus-visible .shift-source {
 
 .secondary-cta:hover {
   transform: translateY(-2px);
-  border-color: rgba(142, 237, 255, 0.5);
-  background: rgba(142, 237, 255, 0.08);
+  border-color: rgba(0, 217, 255, 0.5);
+  background: rgba(0, 217, 255, 0.08);
   color: var(--ink);
 }
 
@@ -1721,9 +1721,9 @@ a.paper-card {
 a.paper-card:hover,
 a.paper-card:focus-visible {
   transform: translateY(-4px);
-  border-color: rgba(142, 237, 255, 0.5);
-  background: rgba(142, 237, 255, 0.06);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35), 0 0 40px rgba(142, 237, 255, 0.08);
+  border-color: rgba(0, 217, 255, 0.5);
+  background: rgba(0, 217, 255, 0.06);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35), 0 0 40px rgba(0, 217, 255, 0.08);
   outline: none;
 }
 
