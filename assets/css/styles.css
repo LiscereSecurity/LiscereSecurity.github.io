@@ -141,29 +141,14 @@ p {
   overflow: visible;
 }
 
-.wordmark-fill,
-.wordmark-trace {
-  font-family: var(--sans);
-  font-size: 142px;
-  font-weight: 800;
-  letter-spacing: -0.085em;
-}
-
+/* Brand book (02 · Logo system): the wordmark is ALWAYS Orbitron 500, tracking -0.02em,
+   Liscere White, one solid colour — never another typeface/weight, never outline/glow. */
 .wordmark-fill {
-  fill: #eef3f1;
-}
-
-.wordmark-trace {
-  fill: none;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  pointer-events: none;
-}
-
-.wordmark-trace {
-  opacity: 0.18;
-  stroke: rgba(207, 242, 245, 0.38);
-  stroke-width: 1.2;
+  font-family: var(--font-display);
+  font-size: 108px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  fill: #f4f6f4;
 }
 
 .kicker,
@@ -245,7 +230,7 @@ p {
   color: var(--muted);
   font-family: var(--font-sans);
   font-size: var(--fs-subtitle);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
 }
 
@@ -267,7 +252,7 @@ h2 {
   font-family: var(--font-display); /* Orbitron — the H1 display title of each page */
   font-size: var(--fs-h1);
   font-weight: 500;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em; /* brand book: Orbitron display tracking is -0.02em */
   line-height: 1.28;
 }
 
@@ -279,7 +264,7 @@ h2 {
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 1.15;
-  color: #eef3f2;
+  color: #f4f6f4; /* brand book: Liscere White #F4F6F4 */
   text-shadow: 0 2px 30px rgba(2, 5, 7, 0.85);
 }
 
@@ -295,7 +280,7 @@ h2 {
   color: #dce7e7;
   font-family: var(--font-sans);
   font-size: var(--fs-subtitle);
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.4;
 }
@@ -847,7 +832,7 @@ h2 {
   padding: clamp(0.9rem, 1.3vw, 1.2rem) clamp(0.95rem, 1.4vw, 1.3rem);
   border: 1px solid var(--line);
   border-radius: 14px;
-  background: rgba(2, 7, 9, 0.4);
+  background: rgba(2, 7, 9, 0.56);
   text-align: center;
 }
 
@@ -1340,7 +1325,7 @@ a.shift-step:focus-visible .shift-source {
   h1,
   h2 {
     font-size: clamp(2.8rem, 13.4vw, 4.6rem);
-    letter-spacing: -0.07em;
+    letter-spacing: -0.02em; /* brand book: Orbitron display tracking is -0.02em (kept on mobile too) */
   }
 
   .hero-name {
@@ -1520,7 +1505,7 @@ a.shift-step:focus-visible .shift-source {
     padding: 1.2rem 1.25rem;
     border: 1px solid var(--line);
     border-radius: 14px;
-    background: rgba(2, 7, 9, 0.4);
+    background: rgba(2, 7, 9, 0.56);
     text-align: left;
     grid-template-columns: none;
   }
@@ -1654,7 +1639,7 @@ a.shift-step:focus-visible .shift-source {
   color: var(--muted);
   font-family: var(--font-sans);
   font-size: var(--fs-subtitle);
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
 }
 
@@ -1728,7 +1713,7 @@ a.shift-step:focus-visible .shift-source {
   padding: clamp(1.3rem, 1.9vw, 1.7rem);
   border: 1px solid var(--line);
   border-radius: 16px;
-  background: rgba(2, 7, 9, 0.4);
+  background: rgba(2, 7, 9, 0.56);
   text-align: left;
 }
 
