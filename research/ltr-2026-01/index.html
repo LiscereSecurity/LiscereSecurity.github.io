@@ -60,7 +60,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260724-split2" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260724-split3" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -136,6 +136,15 @@
       function sync() { root.classList.toggle('past-hero', window.scrollY <= 16); }
       sync();
       window.addEventListener('scroll', sync, { passive: true });
+    })();
+
+    // On mobile the abstract is shown expanded by default (it stays collapsed on
+    // desktop, where the interactive preview carries the page).
+    (function () {
+      if (window.matchMedia('(max-width: 900px)').matches) {
+        var d = document.querySelector('.doc-abstract-toggle');
+        if (d) d.open = true;
+      }
     })();
   </script>
 </body>

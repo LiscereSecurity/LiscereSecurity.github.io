@@ -2007,7 +2007,6 @@ a.paper-card:focus-visible .paper-arrow {
 /* Desktop shows the interactive preview; this button is the mobile-only way in. */
 .doc-open-mobile {
   display: none;
-  align-self: start;
 }
 
 @media (max-width: 900px) {
@@ -2024,6 +2023,7 @@ a.paper-card:focus-visible .paper-arrow {
 
   .doc-open-mobile {
     display: inline-flex;
+    align-self: stretch; /* full-width tap target on mobile */
   }
 }
 
