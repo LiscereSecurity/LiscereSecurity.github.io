@@ -1910,6 +1910,11 @@ a.paper-card:focus-visible .paper-arrow {
   margin-top: 0.85rem;
 }
 
+/* spacing between paragraphs of a multi-paragraph abstract */
+.doc-abstract + .doc-abstract {
+  margin-top: 0.9rem;
+}
+
 .doc-cta-row {
   display: flex;
   flex-wrap: wrap;

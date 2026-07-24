@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" class="past-hero">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contextual Evaluation of Industrial Control Actions: Hardware Validation and Learned Operational Grammar | Liscere LTR-2026-03</title>
+  <meta name="description" content="Industrial control protocols authenticate neither the sender nor the appropriateness of a command; conventional defences add identity, access, and" />
+  <meta name="author" content="Liscere" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#030405" />
+
+  <meta property="og:title" content="Contextual Evaluation of Industrial Control Actions: Hardware Validation and Learned Operational Grammar" />
+  <meta property="og:description" content="Industrial control protocols authenticate neither the sender nor the appropriateness of a command; conventional defences add identity, access, and" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://liscere.com/research/ltr-2026-03/" />
+  <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Liscere: OT Cybersecurity" />
+  <meta property="og:site_name" content="Liscere" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contextual Evaluation of Industrial Control Actions: Hardware Validation and Learned Operational Grammar" />
+  <meta name="twitter:description" content="Industrial control protocols authenticate neither the sender nor the appropriateness of a command; conventional defences add identity, access, and" />
+  <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
+
+  <link rel="canonical" href="https://liscere.com/research/ltr-2026-03/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Contextual Evaluation of Industrial Control Actions: Hardware Validation and Learned Operational Grammar",
+    "name": "Contextual Evaluation of Industrial Control Actions: Hardware Validation and Learned Operational Grammar",
+    "author": {
+      "@type": "Person",
+      "name": "Bruno Salmazo"
+    },
+    "datePublished": "2026-07",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Liscere",
+      "url": "https://liscere.com/"
+    },
+    "url": "https://liscere.com/research/ltr-2026-03/",
+    "encoding": {
+      "@type": "MediaObject",
+      "contentUrl": "https://liscere.com/assets/papers/liscere-evaluation-hardware.pdf",
+      "encodingFormat": "application/pdf"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg?v=4" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=4" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260724-r1" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-chrome" aria-label="Site navigation">
+    <a class="site-logo" href="../../index.html" aria-label="Liscere home">
+      <img class="wordmark-svg" src="../../assets/liscere-wordmark-dark.svg?v=3" alt="Liscere" width="1040" height="216" />
+    </a>
+    <a class="research-back" href="../../research.html">&#8592; Research</a>
+  </header>
+
+  <main id="main-content" class="research-page">
+    <article class="doc-split">
+      <div class="doc-col">
+        <p class="paper-eyebrow">LTR-2026-03 · Technical Report · July 2026</p>
+        <h1 class="doc-title">Contextual Evaluation of Industrial Control Actions: Hardware Validation and Learned Operational Grammar</h1>
+
+        <details class="doc-abstract-toggle">
+          <summary>Abstract</summary>
+          <p class="doc-abstract">Industrial control protocols authenticate neither the sender nor the appropriateness of a command; conventional defences add identity, access, and protocol validation, all of which answer whether an actor is permitted to act. That question is a weakening signal of safety, because a competent adversary arriving through legitimate means issues commands that are individually valid, authorised, and within range, and so indistinguishable, action by action, from a legitimate operator. This report develops and validates a contextual evaluation layer, Liscere, that judges not whether an action is permitted but whether it is appropriate: whether a given write, to a given control artefact, is coherent with the operational phase the process is currently in. The approach is passive and external, recovering process context from observed network traffic without modifying the plant, and it is structural rather than value-based, which distinguishes it from anomaly detection, from process interlocks, and from formal preventive enforcement.</p>
+          <p class="doc-abstract">The framework is validated on a physical testbed, a Siemens S7-1200 controlling a tank process over Modbus/TCP, with a strictly passive observer receiving only mirrored traffic, in three increments. The first shows that an identical protocol-valid write receives opposite verdicts, allowed or alerted, according to an operational phase the evaluator infers from observed process state rather than being told. The second makes that phase inference robust to the noise, pauses, and transitions of continuous operation, attaching to each verdict a confidence that separates an action incoherent with a known phase from one whose context is genuinely unsettled. The third replaces the hand-declared artefact-to-phase grammar with one learned from observation, and shows the learning to be genuine and artefact-specific: two control artefacts taught opposite grammars produce mirror-image verdicts, judged through graded rather than binary evaluation. Every result is backed by a decision log and a packet capture, published alongside this report.</p>
+          <p class="doc-abstract">The contribution is a validated proposition rather than a finished system. Its bounds are stated explicitly: the evaluator is still told which signal carries process state, learning assumes a clean and representative baseline, the inferred context is not resistant to an adversary who forges the observed telemetry, and validation rests on a single cyclic process, protocol, and controller. Within those bounds, the work establishes that contextual, structural evaluation of control actions is possible, that it occupies a gap left by existing approaches, and that its central dependencies, the operational context and the grammar of legitimate action, can both be lifted from human declaration toward autonomous observation.</p>
+        </details>
+
+        <a class="primary-cta doc-open-mobile" href="../../assets/papers/liscere-evaluation-hardware.pdf" target="_blank" rel="noopener">Open the PDF &#8599;</a>
+
+        <h2 class="doc-section-head">Cite this report</h2>
+        <pre class="doc-cite">@techreport{salmazo_hardware_2026,
+  author      = {Bruno Salmazo},
+  title       = {Contextual Evaluation of Industrial Control Actions: Hardware Validation and Learned Operational Grammar},
+  institution = {Liscere},
+  year        = {2026},
+  month       = jul,
+  number      = {LTR-2026-03},
+  type        = {Technical Report},
+  url         = {https://liscere.com/research/ltr-2026-03/}
+}</pre>
+      </div>
+
+      <div class="doc-preview-col">
+        <div class="doc-preview">
+          <object class="doc-preview-pdf" data="../../assets/papers/liscere-evaluation-hardware.pdf#view=FitH" type="application/pdf" aria-label="Interactive preview of the report; scroll to read, or open the full PDF">
+            <p class="doc-pdf-fallback">Preview unavailable on this device. <a href="../../assets/papers/liscere-evaluation-hardware.pdf" target="_blank" rel="noopener">Open the full PDF.</a></p>
+          </object>
+          <a class="doc-preview-open" href="../../assets/papers/liscere-evaluation-hardware.pdf" target="_blank" rel="noopener">Open full PDF &#8599;</a>
+        </div>
+      </div>
+    </article>
+
+    <p class="research-foot">Liscere 2026</p>
+  </main>
+
+  <script>
+    // Shared with research.html: the fixed wordmark (opacity driven by .past-hero
+    // on <html>) shows at the top and fades once scrolled, so it never overlaps
+    // the document body. Keep past-hero near the top, drop it while scrolled.
+    (function () {
+      var root = document.documentElement;
+      function sync() { root.classList.toggle('past-hero', window.scrollY <= 16); }
+      sync();
+      window.addEventListener('scroll', sync, { passive: true });
+    })();
+
+    // On mobile the abstract is shown expanded by default (it stays collapsed on
+    // desktop, where the interactive preview carries the page).
+    (function () {
+      if (window.matchMedia('(max-width: 900px)').matches) {
+        var d = document.querySelector('.doc-abstract-toggle');
+        if (d) d.open = true;
+      }
+    })();
+  </script>
+</body>
+</html>

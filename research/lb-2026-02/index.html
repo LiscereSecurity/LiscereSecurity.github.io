@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" class="past-hero">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Encryption of Operational Technology: A Protocol Landscape | Liscere LB-2026-02</title>
+  <meta name="description" content="The preceding Liscere Technical Report established, in hardware, that strong transport encryption changes the observation vantage available to a" />
+  <meta name="author" content="Liscere" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#030405" />
+
+  <meta property="og:title" content="The Encryption of Operational Technology: A Protocol Landscape" />
+  <meta property="og:description" content="The preceding Liscere Technical Report established, in hardware, that strong transport encryption changes the observation vantage available to a" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://liscere.com/research/lb-2026-02/" />
+  <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Liscere: OT Cybersecurity" />
+  <meta property="og:site_name" content="Liscere" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Encryption of Operational Technology: A Protocol Landscape" />
+  <meta name="twitter:description" content="The preceding Liscere Technical Report established, in hardware, that strong transport encryption changes the observation vantage available to a" />
+  <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
+
+  <link rel="canonical" href="https://liscere.com/research/lb-2026-02/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "The Encryption of Operational Technology: A Protocol Landscape",
+    "name": "The Encryption of Operational Technology: A Protocol Landscape",
+    "author": {
+      "@type": "Person",
+      "name": "Bruno Salmazo"
+    },
+    "datePublished": "2026-07",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Liscere",
+      "url": "https://liscere.com/"
+    },
+    "url": "https://liscere.com/research/lb-2026-02/",
+    "encoding": {
+      "@type": "MediaObject",
+      "contentUrl": "https://liscere.com/assets/papers/liscere-protocol-landscape.pdf",
+      "encodingFormat": "application/pdf"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg?v=4" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=4" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260724-r1" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-chrome" aria-label="Site navigation">
+    <a class="site-logo" href="../../index.html" aria-label="Liscere home">
+      <img class="wordmark-svg" src="../../assets/liscere-wordmark-dark.svg?v=3" alt="Liscere" width="1040" height="216" />
+    </a>
+    <a class="research-back" href="../../research.html">&#8592; Research</a>
+  </header>
+
+  <main id="main-content" class="research-page">
+    <article class="doc-split">
+      <div class="doc-col">
+        <p class="paper-eyebrow">LB-2026-02 · Landscape Briefing · July 2026</p>
+        <h1 class="doc-title">The Encryption of Operational Technology: A Protocol Landscape</h1>
+
+        <details class="doc-abstract-toggle">
+          <summary>Executive Summary</summary>
+          <p class="doc-abstract">The preceding Liscere Technical Report established, in hardware, that strong transport encryption changes the observation vantage available to a contextual evaluator of industrial control actions, not the evaluation core itself. It named, as its first research front, an empirical question: how much of operational technology is encrypted, by what mechanism, and with what trajectory. This briefing answers that question from the published evidence.</p>
+          <p class="doc-abstract">We survey the dominant OT protocol classes: the field-level real-time protocols that carry the majority of new factory-automation nodes, the supervisory layer around OPC UA, the energy-sector telecontrol and substation stack, vendor management channels, and the IIoT broker layer. For each class we document the standardised security mechanism, its treatment of confidentiality, and the measured state of adoption, labelling every claim by the strength of its evidence.</p>
+          <p class="doc-abstract">Three findings organise the landscape. First, encryption capability and encryption activation are different quantities, and the gap between them is large, persistent, and measured: internet-wide scans place TLS adoption on industrial protocols in single-digit percentages, and the misconfiguration pattern documented for OPC UA in 2020 is intact in 2025. Second, where OT security standards do land, they deliberately prioritise integrity and authenticity over confidentiality for real-time control data; in the substation domain this preference is codified, with the applicable standard stipulating that time-critical protection traffic is not to be encrypted. Third, encryption arrives stratified by functional plane: vendor management channels first, vertical supervisory links slowly, the real-time protection plane last or never. The consequence for observation is stated as a vantage matrix: the case of an opaque channel with no natural point of legitimate access is confined to a single protocol class, and even there, secondary evidence sources exist.</p>
+        </details>
+
+        <a class="primary-cta doc-open-mobile" href="../../assets/papers/liscere-protocol-landscape.pdf" target="_blank" rel="noopener">Open the PDF &#8599;</a>
+
+        <h2 class="doc-section-head">Cite this report</h2>
+        <pre class="doc-cite">@techreport{salmazo_protocollandscape_2026,
+  author      = {Bruno Salmazo},
+  title       = {The Encryption of Operational Technology: A Protocol Landscape},
+  institution = {Liscere},
+  year        = {2026},
+  month       = jul,
+  number      = {LB-2026-02},
+  type        = {Landscape Briefing},
+  url         = {https://liscere.com/research/lb-2026-02/}
+}</pre>
+      </div>
+
+      <div class="doc-preview-col">
+        <div class="doc-preview">
+          <object class="doc-preview-pdf" data="../../assets/papers/liscere-protocol-landscape.pdf#view=FitH" type="application/pdf" aria-label="Interactive preview of the report; scroll to read, or open the full PDF">
+            <p class="doc-pdf-fallback">Preview unavailable on this device. <a href="../../assets/papers/liscere-protocol-landscape.pdf" target="_blank" rel="noopener">Open the full PDF.</a></p>
+          </object>
+          <a class="doc-preview-open" href="../../assets/papers/liscere-protocol-landscape.pdf" target="_blank" rel="noopener">Open full PDF &#8599;</a>
+        </div>
+      </div>
+    </article>
+
+    <p class="research-foot">Liscere 2026</p>
+  </main>
+
+  <script>
+    // Shared with research.html: the fixed wordmark (opacity driven by .past-hero
+    // on <html>) shows at the top and fades once scrolled, so it never overlaps
+    // the document body. Keep past-hero near the top, drop it while scrolled.
+    (function () {
+      var root = document.documentElement;
+      function sync() { root.classList.toggle('past-hero', window.scrollY <= 16); }
+      sync();
+      window.addEventListener('scroll', sync, { passive: true });
+    })();
+
+    // On mobile the abstract is shown expanded by default (it stays collapsed on
+    // desktop, where the interactive preview carries the page).
+    (function () {
+      if (window.matchMedia('(max-width: 900px)').matches) {
+        var d = document.querySelector('.doc-abstract-toggle');
+        if (d) d.open = true;
+      }
+    })();
+  </script>
+</body>
+</html>
