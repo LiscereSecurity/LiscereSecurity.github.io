@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en" class="past-hero">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab | Liscere LTR-2026-01</title>
+  <meta name="description" content="Industrial control protocols such as Modbus/TCP were designed for reliability in trusted networks and carry no native notion of authorisation." />
+  <meta name="author" content="Liscere" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#030405" />
+
+  <meta property="og:title" content="Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab" />
+  <meta property="og:description" content="Industrial control protocols such as Modbus/TCP were designed for reliability in trusted networks and carry no native notion of authorisation." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://liscere.com/research/ltr-2026-01/" />
+  <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Liscere: OT Cybersecurity" />
+  <meta property="og:site_name" content="Liscere" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab" />
+  <meta name="twitter:description" content="Industrial control protocols such as Modbus/TCP were designed for reliability in trusted networks and carry no native notion of authorisation." />
+  <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
+
+  <link rel="canonical" href="https://liscere.com/research/ltr-2026-01/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab",
+    "name": "Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab",
+    "author": {
+      "@type": "Person",
+      "name": "Bruno Salmazo"
+    },
+    "datePublished": "2026-06",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Liscere",
+      "url": "https://liscere.com/"
+    },
+    "url": "https://liscere.com/research/ltr-2026-01/",
+    "encoding": {
+      "@type": "MediaObject",
+      "contentUrl": "https://liscere.com/assets/papers/liscere-evaluation-modbus-tcp.pdf",
+      "encodingFormat": "application/pdf"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg?v=4" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=4" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260724-docs" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-chrome" aria-label="Site navigation">
+    <a class="site-logo" href="../../index.html" aria-label="Liscere home">
+      <img class="wordmark-svg" src="../../assets/liscere-wordmark-dark.svg?v=3" alt="Liscere" width="1040" height="216" />
+    </a>
+    <a class="research-back" href="../../research.html">&#8592; Research</a>
+  </header>
+
+  <main id="main-content" class="research-page">
+    <article class="doc">
+      <p class="paper-eyebrow">LTR-2026-01 · Technical Report · June 2026</p>
+      <h1 class="doc-title">Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab</h1>
+
+      <details class="doc-abstract-toggle">
+        <summary>Abstract</summary>
+        <p class="doc-abstract">
+          Industrial control protocols such as Modbus/TCP were designed for reliability in trusted
+          networks and carry no native notion of authorisation or operational appropriateness. An
+          action can therefore be valid at the protocol level, and issued over an authorised channel,
+          yet still be inappropriate for the operational state of the plant. This report introduces the
+          Liscere action-evaluation chain, a protocol-agnostic method that assesses an industrial action
+          along four dimensions: protocol operation, automation artefact, operational context, and
+          policy constraint. We instantiate the chain for Modbus/TCP over a controlled process model in
+          the OT Lab and report an initial feasibility demonstration. Using a control pair that holds the
+          protocol operation, target artefact, and written value constant and varies only a declared
+          maintenance window, we show that the same sensitive configuration write yields an alert in
+          production and an allow during maintenance. Two negative controls confirm that the maintenance
+          window is not a blanket alert suppressor; all four constructed scenarios returned their
+          expected decision and evidence record. We are explicit about what the baseline does not yet
+          measure: detection performance, robustness, and generality across context dimensions and
+          protocols.
+        </p>
+      </details>
+
+      <a class="doc-preview" href="../../assets/papers/liscere-evaluation-modbus-tcp.pdf" target="_blank" rel="noopener" aria-label="Open the full PDF in a new tab: Context-Aware Evaluation of Industrial Control Actions">
+        <object class="doc-preview-pdf" data="../../assets/papers/liscere-evaluation-modbus-tcp.pdf#view=FitH&amp;toolbar=0" type="application/pdf">
+          <span class="doc-pdf-fallback">Preview unavailable on this device. Tap to open the full PDF.</span>
+        </object>
+        <span class="doc-preview-hint">Open full PDF &#8599;</span>
+      </a>
+
+      <h2 class="doc-section-head">Cite this report</h2>
+      <pre class="doc-cite">@techreport{salmazo_modbus_2026,
+  author      = {Bruno Salmazo},
+  title       = {Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab},
+  institution = {Liscere},
+  year        = {2026},
+  month       = jun,
+  number      = {LTR-2026-01},
+  type        = {Technical Report},
+  url         = {https://liscere.com/research/ltr-2026-01/}
+}</pre>
+    </article>
+
+    <p class="research-foot">Liscere 2026</p>
+  </main>
+
+  <script>
+    // Shared with research.html: the fixed wordmark (opacity driven by .past-hero
+    // on <html>) shows at the top and fades once scrolled, so it never overlaps
+    // the document body. Keep past-hero near the top, drop it while scrolled.
+    (function () {
+      var root = document.documentElement;
+      function sync() { root.classList.toggle('past-hero', window.scrollY <= 16); }
+      sync();
+      window.addEventListener('scroll', sync, { passive: true });
+    })();
+  </script>
+</body>
+</html>
