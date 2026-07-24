@@ -60,7 +60,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260724-docs" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260724-split" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -73,40 +73,34 @@
   </header>
 
   <main id="main-content" class="research-page">
-    <article class="doc">
-      <p class="paper-eyebrow">LTR-2026-01 · Technical Report · June 2026</p>
-      <h1 class="doc-title">Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab</h1>
+    <article class="doc-split">
+      <div class="doc-col">
+        <p class="paper-eyebrow">LTR-2026-01 · Technical Report · June 2026</p>
+        <h1 class="doc-title">Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab</h1>
 
-      <details class="doc-abstract-toggle">
-        <summary>Abstract</summary>
-        <p class="doc-abstract">
-          Industrial control protocols such as Modbus/TCP were designed for reliability in trusted
-          networks and carry no native notion of authorisation or operational appropriateness. An
-          action can therefore be valid at the protocol level, and issued over an authorised channel,
-          yet still be inappropriate for the operational state of the plant. This report introduces the
-          Liscere action-evaluation chain, a protocol-agnostic method that assesses an industrial action
-          along four dimensions: protocol operation, automation artefact, operational context, and
-          policy constraint. We instantiate the chain for Modbus/TCP over a controlled process model in
-          the OT Lab and report an initial feasibility demonstration. Using a control pair that holds the
-          protocol operation, target artefact, and written value constant and varies only a declared
-          maintenance window, we show that the same sensitive configuration write yields an alert in
-          production and an allow during maintenance. Two negative controls confirm that the maintenance
-          window is not a blanket alert suppressor; all four constructed scenarios returned their
-          expected decision and evidence record. We are explicit about what the baseline does not yet
-          measure: detection performance, robustness, and generality across context dimensions and
-          protocols.
-        </p>
-      </details>
+        <details class="doc-abstract-toggle">
+          <summary>Abstract</summary>
+          <p class="doc-abstract">
+            Industrial control protocols such as Modbus/TCP were designed for reliability in trusted
+            networks and carry no native notion of authorisation or operational appropriateness. An
+            action can therefore be valid at the protocol level, and issued over an authorised channel,
+            yet still be inappropriate for the operational state of the plant. This report introduces the
+            Liscere action-evaluation chain, a protocol-agnostic method that assesses an industrial action
+            along four dimensions: protocol operation, automation artefact, operational context, and
+            policy constraint. We instantiate the chain for Modbus/TCP over a controlled process model in
+            the OT Lab and report an initial feasibility demonstration. Using a control pair that holds the
+            protocol operation, target artefact, and written value constant and varies only a declared
+            maintenance window, we show that the same sensitive configuration write yields an alert in
+            production and an allow during maintenance. Two negative controls confirm that the maintenance
+            window is not a blanket alert suppressor; all four constructed scenarios returned their
+            expected decision and evidence record. We are explicit about what the baseline does not yet
+            measure: detection performance, robustness, and generality across context dimensions and
+            protocols.
+          </p>
+        </details>
 
-      <a class="doc-preview" href="../../assets/papers/liscere-evaluation-modbus-tcp.pdf" target="_blank" rel="noopener" aria-label="Open the full PDF in a new tab: Context-Aware Evaluation of Industrial Control Actions">
-        <object class="doc-preview-pdf" data="../../assets/papers/liscere-evaluation-modbus-tcp.pdf#view=FitH&amp;toolbar=0" type="application/pdf">
-          <span class="doc-pdf-fallback">Preview unavailable on this device. Tap to open the full PDF.</span>
-        </object>
-        <span class="doc-preview-hint">Open full PDF &#8599;</span>
-      </a>
-
-      <h2 class="doc-section-head">Cite this report</h2>
-      <pre class="doc-cite">@techreport{salmazo_modbus_2026,
+        <h2 class="doc-section-head">Cite this report</h2>
+        <pre class="doc-cite">@techreport{salmazo_modbus_2026,
   author      = {Bruno Salmazo},
   title       = {Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab},
   institution = {Liscere},
@@ -116,6 +110,16 @@
   type        = {Technical Report},
   url         = {https://liscere.com/research/ltr-2026-01/}
 }</pre>
+      </div>
+
+      <div class="doc-preview-col">
+        <div class="doc-preview">
+          <object class="doc-preview-pdf" data="../../assets/papers/liscere-evaluation-modbus-tcp.pdf#view=FitH" type="application/pdf" aria-label="Interactive preview of the report; scroll to read, or open the full PDF">
+            <p class="doc-pdf-fallback">Preview unavailable on this device. <a href="../../assets/papers/liscere-evaluation-modbus-tcp.pdf" target="_blank" rel="noopener">Open the full PDF.</a></p>
+          </object>
+          <a class="doc-preview-open" href="../../assets/papers/liscere-evaluation-modbus-tcp.pdf" target="_blank" rel="noopener">Open full PDF &#8599;</a>
+        </div>
+      </div>
     </article>
 
     <p class="research-foot">Liscere 2026</p>

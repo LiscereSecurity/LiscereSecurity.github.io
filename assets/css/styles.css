@@ -1933,29 +1933,42 @@ a.paper-card:focus-visible .paper-arrow {
   white-space: pre;
 }
 
-/* Clickable PDF preview: the whole frame is a link to the full PDF (new tab).
-   The <object> shows the native preview but is pointer-events:none, so the
-   click falls through to the wrapping <a>. Where inline PDF is unsupported
-   (notably iOS Safari) the .doc-pdf-fallback shows and the tap still opens
-   the PDF. No JS library involved. */
+/* Two-column document layout: text (title, abstract, citation) on the left,
+   an interactive scrollable PDF preview on the right. Stacks to one column on
+   narrow viewports. */
+.doc-split {
+  width: 100%;
+  max-width: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(1.6rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.doc-col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.9rem, 2vh, 1.4rem);
+  min-width: 0; /* let the BibTeX <pre> scroll instead of stretching the grid */
+}
+
+.doc-preview-col {
+  min-width: 0;
+}
+
+/* Interactive preview: the native PDF viewer scrolls inside the frame (read the
+   whole report in place); the corner link opens the full PDF in a new tab.
+   <object> keeps a graceful fallback where inline PDF is unsupported (iOS). */
 .doc-preview {
-  position: relative;
+  position: sticky;
+  top: calc(var(--sec-pad-top) + 0.5rem);
   display: block;
   width: 100%;
-  height: clamp(460px, 84vh, 940px);
+  height: min(82vh, 900px);
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: rgba(2, 7, 9, 0.56);
-  cursor: pointer;
-  transition: border-color 200ms ease, box-shadow 200ms ease;
-}
-
-.doc-preview:hover,
-.doc-preview:focus-visible {
-  border-color: rgba(0, 217, 255, 0.5);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35), 0 0 40px rgba(0, 217, 255, 0.12);
-  outline: none;
 }
 
 .doc-preview-pdf {
@@ -1964,24 +1977,49 @@ a.paper-card:focus-visible .paper-arrow {
   width: 100%;
   height: 100%;
   border: 0;
-  pointer-events: none; /* clicks fall through to the wrapping <a> */
 }
 
-.doc-preview-hint {
+.doc-preview-open {
   position: absolute;
   top: 0.8rem;
   right: 0.8rem;
   z-index: 2;
-  padding: 0.4rem 0.7rem;
+  padding: 0.45rem 0.75rem;
   border-radius: 999px;
   border: 1px solid rgba(0, 217, 255, 0.45);
-  background: rgba(3, 16, 11, 0.72);
+  background: rgba(3, 16, 11, 0.82);
   color: var(--cyan);
   font-family: var(--font-mono);
   font-size: var(--fs-data);
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.doc-preview-open:hover,
+.doc-preview-open:focus-visible {
+  background: rgba(0, 217, 255, 0.16);
+  border-color: rgba(0, 217, 255, 0.8);
+  outline: none;
+}
+
+@media (max-width: 900px) {
+  .doc-split {
+    grid-template-columns: 1fr;
+    gap: clamp(1.2rem, 3vh, 1.9rem);
+  }
+
+  .doc-preview {
+    position: static;
+    height: min(78vh, 760px);
+  }
+
+  /* clear of the fixed "Research" back-link when the frame scrolls up */
+  .doc-preview-open {
+    top: auto;
+    bottom: 0.8rem;
+  }
 }
 
 .doc-pdf-fallback {
@@ -1997,4 +2035,8 @@ a.paper-card:focus-visible .paper-arrow {
   font-family: var(--font-sans);
   font-size: var(--fs-body);
   line-height: 1.6;
+}
+
+.doc-pdf-fallback a {
+  color: var(--cyan);
 }
