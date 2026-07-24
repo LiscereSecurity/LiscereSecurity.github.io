@@ -2004,21 +2004,26 @@ a.paper-card:focus-visible .paper-arrow {
   outline: none;
 }
 
+/* Desktop shows the interactive preview; this button is the mobile-only way in. */
+.doc-open-mobile {
+  display: none;
+  align-self: start;
+}
+
 @media (max-width: 900px) {
   .doc-split {
     grid-template-columns: 1fr;
     gap: clamp(1.2rem, 3vh, 1.9rem);
   }
 
-  .doc-preview {
-    position: static;
-    height: min(78vh, 760px);
+  /* Mobile browsers render embedded PDFs poorly, so the interactive preview is
+     desktop-only. Mobile gets a clean text-first stack with an open-PDF button. */
+  .doc-preview-col {
+    display: none;
   }
 
-  /* clear of the fixed "Research" back-link when the frame scrolls up */
-  .doc-preview-open {
-    top: auto;
-    bottom: 0.8rem;
+  .doc-open-mobile {
+    display: inline-flex;
   }
 }
 
