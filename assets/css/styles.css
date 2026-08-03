@@ -1149,6 +1149,12 @@ a.shift-step:focus-visible .shift-source {
   gap: clamp(1rem, 1.6vw, 1.7rem);
 }
 
+/* Lift the CTA row off the footer so it sits centred in the space below the poster
+   block, rather than crowding the closing line. */
+.evidence-page .cta-row {
+  margin-bottom: clamp(3rem, 11vh, 8rem);
+}
+
 .primary-cta,
 .secondary-cta {
   display: inline-flex;
@@ -1646,12 +1652,11 @@ a.shift-step:focus-visible .shift-source {
   letter-spacing: 0.08em;
 }
 
-/* Footer entity/social links (LinkedIn, GitHub): legible but quiet, cyan on hover. */
+/* Footer entity/social links (LinkedIn, GitHub): brighter than the quiet copyright
+   text so they read as links, cyan on hover. No underline (matches the site's style). */
 .research-foot a,
 .evidence-foot a {
   color: var(--muted);
-  text-decoration: underline;
-  text-underline-offset: 2px;
   transition: color 160ms ease;
 }
 
