@@ -1646,6 +1646,22 @@ a.shift-step:focus-visible .shift-source {
   letter-spacing: 0.08em;
 }
 
+/* Footer entity/social links (LinkedIn, GitHub): legible but quiet, cyan on hover. */
+.research-foot a,
+.evidence-foot a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 160ms ease;
+}
+
+.research-foot a:hover,
+.research-foot a:focus-visible,
+.evidence-foot a:hover,
+.evidence-foot a:focus-visible {
+  color: var(--cyan);
+}
+
 /* /research — paper-style card library */
 /* /research — group filter (mono cyan eyebrow aesthetic) */
 .research-filter {
