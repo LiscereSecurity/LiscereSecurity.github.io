@@ -2071,3 +2071,78 @@ a.paper-card:focus-visible .paper-arrow {
 .doc-pdf-fallback a {
   color: var(--cyan);
 }
+
+/* ============================================================
+   "See it working" demo video modal (home). Plain CSS; the
+   markup + open/close JS live inline in index.html. Brand:
+   Void backdrop, Signal Cyan accents, site fonts.
+   ============================================================ */
+.demo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+}
+
+/* the [hidden] attribute must beat display:flex above */
+.demo-modal[hidden] {
+  display: none;
+}
+
+.demo-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 4, 5, 0.86);   /* Void, semi-transparent */
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.demo-modal-panel {
+  position: relative;
+  width: min(1100px, 100%);
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #030405;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 217, 255, 0.12);
+}
+
+.demo-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 82vh;      /* keep the whole video within the viewport on any screen */
+  background: #000;
+}
+
+.demo-modal-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 2;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 217, 255, 0.45);
+  background: rgba(3, 16, 11, 0.72);
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.demo-modal-close:hover,
+.demo-modal-close:focus-visible {
+  background: rgba(0, 217, 255, 0.16);
+  border-color: rgba(0, 217, 255, 0.8);
+  outline: none;
+}

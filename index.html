@@ -339,7 +339,7 @@
       <div class="cta-row">
         <a class="primary-cta" href="mailto:hello@liscere.com?subject=Collaboration%20with%20Liscere">Collaborate</a>
         <a class="secondary-cta" href="./research.html">Read the research</a>
-        <!-- Temporarily hidden (restore later): <a class="secondary-cta" href="https://github.com/LiscereSecurity/OT-Lab" target="_blank" rel="noopener noreferrer">Explore OT Lab</a> -->
+        <button type="button" class="secondary-cta" id="demo-open" aria-haspopup="dialog">See it working</button>
         <a class="secondary-cta" href="https://github.com/LiscereSecurity" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
 
@@ -868,6 +868,63 @@
       if (document.fonts && document.fonts.ready) { document.fonts.ready.then(start); }
       window.addEventListener("load", () => { measure(); start(); });
       window.setTimeout(start, 1500); // safety net if fonts.ready / load are slow
+    })();
+  </script>
+  <!-- Demo video modal, opened by the "See it working" CTA. No autoplay on page load
+       (preload="none" so the ~24 MB file is not fetched until the modal opens). -->
+  <div class="demo-modal" id="demo-modal" role="dialog" aria-modal="true" aria-label="Liscere demo video" hidden>
+    <div class="demo-modal-backdrop" data-demo-close></div>
+    <div class="demo-modal-panel">
+      <button type="button" class="demo-modal-close" aria-label="Close video" data-demo-close>&times;</button>
+      <video class="demo-video" controls playsinline preload="none">
+        <source src="./assets/video/liscere-demo.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+
+  <script>
+    // "See it working" demo modal: plain JS, no libraries. Opens on the button and plays the local
+    // MP4 with audio (the click is a user gesture, so playback is allowed; if a browser still blocks
+    // it, fall back to muted and let the controls unmute). Closes on the X, a backdrop click, or Esc,
+    // pausing and rewinding on close and returning focus to the trigger.
+    (function () {
+      var modal = document.getElementById("demo-modal");
+      var openBtn = document.getElementById("demo-open");
+      if (!modal || !openBtn) return;
+      var video = modal.querySelector(".demo-video");
+      var closeBtn = modal.querySelector(".demo-modal-close");
+
+      function open() {
+        modal.hidden = false;
+        document.documentElement.style.overflow = "hidden"; // lock the background scroll
+        closeBtn.focus();
+        try { video.currentTime = 0; } catch (e) {}
+        var p = video.play();
+        if (p && p.catch) {
+          p.catch(function () { video.muted = true; var q = video.play(); if (q && q.catch) q.catch(function () {}); });
+        }
+      }
+      function close() {
+        video.pause();
+        modal.hidden = true;
+        document.documentElement.style.overflow = "";
+        openBtn.focus(); // return focus to the trigger (the only opener)
+      }
+
+      openBtn.addEventListener("click", open);
+      modal.addEventListener("click", function (e) {
+        if (e.target.hasAttribute("data-demo-close")) close();
+      });
+      document.addEventListener("keydown", function (e) {
+        if (!modal.hidden && (e.key === "Escape" || e.key === "Esc")) close();
+      });
+      // Minimal focus containment: keep Tab within the dialog (close button <-> video controls).
+      modal.addEventListener("keydown", function (e) {
+        if (e.key !== "Tab" || modal.hidden) return;
+        if (e.shiftKey && document.activeElement === closeBtn) { e.preventDefault(); video.focus(); }
+        else if (!e.shiftKey && document.activeElement === video) { e.preventDefault(); closeBtn.focus(); }
+      });
     })();
   </script>
 </body>
