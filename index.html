@@ -17,7 +17,7 @@
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Liscere — OT Cybersecurity" />
+  <meta property="og:image:alt" content="Liscere: OT Cybersecurity" />
   <meta property="og:site_name" content="Liscere" />
 
   <meta name="twitter:card" content="summary_large_image" />
@@ -32,11 +32,28 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Liscere",
-    "legalName": "Liscere sp. z o.o.",
+    "legalName": "LISCERE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
     "url": "https://liscere.com/",
     "logo": "https://liscere.com/assets/apple-touch-icon.png",
-    "description": "Research-driven OT cybersecurity: asking whether an action belongs, not just whether it is permitted.",
+    "description": "Liscere is an industrial cybersecurity research company based in Łódź, Poland, developing contextual evaluation of industrial control actions: passively observing OT networks to judge whether supervisory commands are appropriate for the current state of the physical process.",
     "email": "hello@liscere.com",
+    "foundingDate": "2026-07-27",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ul. Prezydenta Gabriela Narutowicza 40/1",
+      "postalCode": "90-135",
+      "addressLocality": "Łódź",
+      "addressCountry": "PL"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Bruno Salmazo"
+    },
+    "identifier": [
+      { "@type": "PropertyValue", "propertyID": "KRS", "value": "0001256054" },
+      { "@type": "PropertyValue", "propertyID": "NIP", "value": "7252369168" },
+      { "@type": "PropertyValue", "propertyID": "REGON", "value": "545329293" }
+    ],
     "sameAs": [
       "https://www.linkedin.com/company/liscere",
       "https://github.com/LiscereSecurity"
@@ -49,7 +66,12 @@
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Liscere",
-    "url": "https://liscere.com/"
+    "url": "https://liscere.com/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Liscere",
+      "url": "https://liscere.com/"
+    }
   }
   </script>
 
@@ -343,7 +365,8 @@
         <a class="secondary-cta" href="https://github.com/LiscereSecurity" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
 
-      <p class="evidence-foot">© 2026 Liscere sp. z o.o. · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a></p>
+      <p class="evidence-foot"><a href="./about.html">About</a> · <a href="./faq.html">FAQ</a> · <a href="./research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a></p>
+      <p class="evidence-foot">© 2026 Liscere sp. z o.o.</p>
     </section>
   </main>
 
@@ -367,7 +390,7 @@
     };
 
     // on phones, content pages can be taller than the screen, so they never reach 0.68
-    // visibility — use a lower threshold there so each page still activates (and its
+    // visibility - use a lower threshold there so each page still activates (and its
     // entrance animations run). Desktop keeps the original 0.68.
     const pageTh = window.matchMedia("(max-width: 720px)").matches ? 0.3 : 0.68;
     const pageObserver = new IntersectionObserver((entries) => {
@@ -841,13 +864,13 @@
         if (!res.ok) { window.setTimeout(cycleOutput, 360); return; } // no free space yet, retry soon
         lastIdx = idx;
         // start the NEXT output before this one finishes (overlap = agility), but only
-        // where it fits without crossing — buildOutput guards the placement.
+        // where it fits without crossing - buildOutput guards the placement.
         const next = Math.max(res.total * 0.8, 1.4);
         window.setTimeout(cycleOutput, next * 1000);
       };
 
       // kick off only once the layout (and webfont) have settled, so the field is measured
-      // at its REAL size — an early/wrong measure was breaking the coordinates on mobile.
+      // at its REAL size - an early/wrong measure was breaking the coordinates on mobile.
       let started = false;
       const start = () => {
         if (started) return;
@@ -859,7 +882,7 @@
           catch (e) { return; } // icons unavailable: hero still shows inputs + title
           if (!icons.length) return;
           if (reduce) { buildOutput(icons[0], true); return; }
-          // outputs begin as the first (now faster) input lines reach the title — keeps
+          // outputs begin as the first (now faster) input lines reach the title - keeps
           // the original input→output relationship, just earlier overall
           window.setTimeout(cycleOutput, 4000);
         })();

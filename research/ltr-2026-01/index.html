@@ -34,10 +34,12 @@
     "headline": "Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab",
     "name": "Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab",
     "author": {
-      "@type": "Person",
-      "name": "Bruno Salmazo"
+      "@type": "Organization",
+      "name": "Liscere",
+      "url": "https://liscere.com/"
     },
     "datePublished": "2026-06",
+    "abstract": "Industrial control protocols such as Modbus/TCP were designed for reliability in trusted networks and carry no native notion of authorisation or operational appropriateness. An action can therefore be valid at the protocol level, and issued over an authorised channel, yet still be inappropriate for the operational state of the plant. This report introduces the Liscere action-evaluation chain, a protocol-agnostic method that assesses an industrial action along four dimensions: protocol operation, automation artefact, operational context, and policy constraint. We instantiate the chain for Modbus/TCP over a controlled process model in the OT Lab and report an initial feasibility demonstration. Using a control pair that holds the protocol operation, target artefact, and written value constant and varies only a declared maintenance window, we show that the same sensitive configuration write yields an alert in production and an allow during maintenance. Two negative controls confirm that the maintenance window is not a blanket alert suppressor; all four constructed scenarios returned their expected decision and evidence record. We are explicit about what the baseline does not yet measure: detection performance, robustness, and generality across context dimensions and protocols.",
     "publisher": {
       "@type": "Organization",
       "name": "Liscere",
@@ -124,7 +126,7 @@
       </div>
     </article>
 
-    <p class="research-foot">© 2026 Liscere sp. z o.o. · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a></p>
+    <p class="research-foot"><a href="../../index.html">Home</a> · <a href="../../about.html">About</a> · <a href="../../faq.html">FAQ</a> · <a href="../../research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a><br />© 2026 Liscere sp. z o.o.</p>
   </main>
 
   <script>

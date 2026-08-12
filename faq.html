@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en" class="past-hero">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ | Liscere</title>
+  <meta name="description" content="Direct answers about Liscere: how contextual evaluation of control actions works, why it is not an intrusion detection system, and how it is validated." />
+  <meta name="author" content="Liscere" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#030405" />
+
+  <meta property="og:title" content="FAQ | Liscere" />
+  <meta property="og:description" content="Direct answers about Liscere: how contextual evaluation of control actions works, why it is not an intrusion detection system, and how it is validated." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://liscere.com/faq.html" />
+  <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Liscere: OT Cybersecurity" />
+  <meta property="og:site_name" content="Liscere" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FAQ | Liscere" />
+  <meta name="twitter:description" content="Direct answers about Liscere: how contextual evaluation of control actions works, why it is not an intrusion detection system, and how it is validated." />
+  <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
+
+  <link rel="canonical" href="https://liscere.com/faq.html" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Liscere",
+    "legalName": "LISCERE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+    "url": "https://liscere.com/",
+    "logo": "https://liscere.com/assets/apple-touch-icon.png",
+    "description": "Liscere is an industrial cybersecurity research company based in Łódź, Poland, developing contextual evaluation of industrial control actions: passively observing OT networks to judge whether supervisory commands are appropriate for the current state of the physical process.",
+    "email": "hello@liscere.com",
+    "foundingDate": "2026-07-27",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ul. Prezydenta Gabriela Narutowicza 40/1",
+      "postalCode": "90-135",
+      "addressLocality": "Łódź",
+      "addressCountry": "PL"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Bruno Salmazo"
+    },
+    "identifier": [
+      { "@type": "PropertyValue", "propertyID": "KRS", "value": "0001256054" },
+      { "@type": "PropertyValue", "propertyID": "NIP", "value": "7252369168" },
+      { "@type": "PropertyValue", "propertyID": "REGON", "value": "545329293" }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/liscere",
+      "https://github.com/LiscereSecurity"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What does contextual evaluation of industrial control actions mean?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It means judging an action not only by whether it is permitted, but by whether it fits the operational context of the process at that moment. An action can be authorised, protocol-conformant and within valid ranges and still be inappropriate for the current operational phase. Liscere infers that phase from the observed traffic and judges whether the action is appropriate or inappropriate for it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is Liscere different from an intrusion detection system?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An intrusion detection system inspects the traffic; Liscere inspects the process. Signature-based and anomaly-based sensors decide over network features and look for traffic that is malformed, unauthorised or unusual. Liscere instead reconstructs the operational state of the plant from the observed process variables and evaluates each action against that state. The events it surfaces are well-formed, permitted and statistically ordinary, which is why traffic-level sensors have no reason to flag them. It is a semantic layer over the process, not another detection rule over the packets."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Liscere sit in the control path?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Liscere is a passive external observer. It connects to a switch mirror port, receives a copy of the traffic and injects nothing; it cannot send, block or alter any command and is electrically incapable of reaching the control path."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Liscere depend on a specific vendor or protocol?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Being vendor and protocol agnostic is a design objective. Liscere evaluates the process rather than any one manufacturer's implementation, so it is not bound to a particular controller, fieldbus or SCADA stack. Because it only observes a copy of the traffic, it deploys alongside existing systems without touching them: nothing is installed on the controllers, nothing is reconfigured, and no new path is opened into the control network."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is Liscere validated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Liscere is validated on real industrial hardware, under realistic conditions, and across a growing range of processes and protocols. The work runs on the controllers used in industry, the Siemens S7 family, with real engineering configurations, over protocols including Modbus/TCP and OPC UA, and every result is exercised across many operational variants rather than a single case. Validation is research-led, continuous and expanding, with new processes, process types and protocols brought into the testbed as the framework matures."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Liscere working on?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The hardest questions in contextual evaluation do not have settled answers yet, and those are the ones Liscere works on: how much can be inferred about a physical process from the outside, how little a system needs to see to judge an action soundly, and where passive observation truly reaches. Part of the work is published and part is not yet. The direction is set and the results keep coming."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where can I read Liscere's research?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In the research section at https://liscere.com/research.html, which indexes Liscere's technical reports (LTR series) and landscape briefings (LB series). Each report has its own page with an abstract and a link to the full PDF."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg?v=4" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png?v=4" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16.png?v=4" />
+  <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=4" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=4" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20260812-aeo" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-chrome" aria-label="Site navigation">
+    <a class="site-logo" href="./index.html" aria-label="Liscere home">
+      <img class="wordmark-svg" src="./assets/liscere-wordmark-dark.svg?v=3" alt="Liscere" width="1040" height="216" />
+    </a>
+    <a class="research-back" href="./index.html">&#8592; Home</a>
+  </header>
+
+  <main id="main-content" class="research-page">
+    <article class="aeo-doc">
+      <h1 class="doc-title">Frequently asked questions</h1>
+
+      <div class="faq-item">
+        <h2 class="faq-q">What does "contextual evaluation of industrial control actions" mean?</h2>
+        <p class="faq-a">It means judging an action not only by whether it is permitted, but by whether it fits the operational context of the process at that moment. An action can be authorised, protocol-conformant and within valid ranges and still be inappropriate for the current operational phase. Liscere infers that phase from the observed traffic and judges whether the action is appropriate or inappropriate for it.</p>
+      </div>
+
+      <div class="faq-item">
+        <h2 class="faq-q">How is Liscere different from an intrusion detection system?</h2>
+        <p class="faq-a">An intrusion detection system inspects the traffic; Liscere inspects the process. A signature-based IDS matches packets against patterns of known attacks, and an anomaly-based IDS flags protocol violations or statistical deviations from a network baseline. Both decide over network features, and both are looking for traffic that is malformed, unauthorised or unusual.</p>
+        <p class="faq-a">Liscere instead reconstructs the operational state of the plant from the observed process variables and evaluates each action against that state. The events it surfaces are well-formed, permitted and statistically ordinary, which is precisely why signature and anomaly sensors have no reason to flag them. It is a semantic layer over the process, not another detection rule over the packets.</p>
+      </div>
+
+      <div class="faq-item">
+        <h2 class="faq-q">Does Liscere sit in the control path?</h2>
+        <p class="faq-a">No. Liscere is a passive external observer. It connects to a switch mirror port, receives a copy of the traffic and injects nothing; it cannot send, block or alter any command, and it is electrically incapable of reaching the control path.</p>
+      </div>
+
+      <div class="faq-item">
+        <h2 class="faq-q">Does Liscere depend on a specific vendor or protocol?</h2>
+        <p class="faq-a">No. Being vendor and protocol agnostic is a design objective, not an afterthought. Liscere evaluates the process rather than any one manufacturer's implementation, so it is not bound to a particular controller, fieldbus or SCADA stack. And because it only observes a copy of the traffic, it deploys alongside existing systems without touching them: nothing is installed on the controllers, nothing is reconfigured, and no new path is opened into the control network.</p>
+      </div>
+
+      <div class="faq-item">
+        <h2 class="faq-q">How is Liscere validated?</h2>
+        <p class="faq-a">Liscere is validated on real industrial hardware, under realistic conditions, and across a growing range of processes and protocols. The work runs on the controllers used in industry, the Siemens S7 family, with real engineering configurations, over protocols including Modbus/TCP and OPC UA, and every result is exercised across many operational variants rather than a single case. Validation is research-led, continuous and expanding, with new processes, process types and protocols brought into the testbed as the framework matures.</p>
+      </div>
+
+      <div class="faq-item">
+        <h2 class="faq-q">What is Liscere working on?</h2>
+        <p class="faq-a">The hardest questions in this field do not have settled answers yet, and those are the ones we choose to work on. How much can be inferred about a physical process from the outside, how little a system needs to see to judge an action soundly, where passive observation truly reaches: this is a young frontier, and we are deliberately working at its edge. Part of that work is <a href="./research.html">published</a>; part of it is not, yet. The direction is set, and the results keep coming.</p>
+      </div>
+
+      <div class="faq-item">
+        <h2 class="faq-q">Where can I read Liscere's research?</h2>
+        <p class="faq-a">In the <a href="./research.html">research section</a>, which indexes Liscere's technical reports (the LTR series) and landscape briefings (the LB series). Each report has its own page with an abstract and a link to the full PDF.</p>
+      </div>
+
+      <p>Read more on the <a href="./about.html">About page</a>.</p>
+    </article>
+
+    <p class="research-foot"><a href="./index.html">Home</a> · <a href="./about.html">About</a> · <a href="./research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a><br />© 2026 Liscere sp. z o.o.</p>
+  </main>
+
+  <script>
+    // Shared with the research pages: the fixed wordmark (opacity driven by .past-hero on <html>)
+    // shows at the top and fades once scrolled, so it never overlaps the document body.
+    (function () {
+      var root = document.documentElement;
+      function sync() { root.classList.toggle('past-hero', window.scrollY <= 16); }
+      sync();
+      window.addEventListener('scroll', sync, { passive: true });
+    })();
+  </script>
+</body>
+</html>

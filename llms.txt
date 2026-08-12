@@ -1,0 +1,46 @@
+# Liscere
+
+> Liscere is an industrial cybersecurity research company based in Łódź, Poland, developing contextual evaluation of industrial control actions: passively observing OT networks to judge whether supervisory commands are appropriate for the current state of the physical process.
+
+Liscere sp. z o.o. is an independent company. It is not affiliated with, and should not be confused with, any other cybersecurity vendor or product.
+
+Tagline: Authorised is not always appropriate.
+
+## What Liscere is
+
+Liscere develops a framework for contextual evaluation of industrial control actions. It is a passive external observer of operational technology (OT) networks: it connects to a switch mirror port, injects nothing, and never sits in the control path. From observed traffic it infers the operational phase of the physical process and judges whether a supervisory command is appropriate (COHERENT) or inappropriate (INCOHERENT) for that phase. The core thesis is that a control action can be fully authorised, protocol-conformant and within valid ranges, and still be wrong for the current state of the physical process; legitimacy depends on operational context. The approach has been validated in a laboratory testbed on physical Siemens hardware (S7-1200 G2, OPC UA), where the same command received different verdicts depending on the operational context.
+
+## What Liscere is not
+
+Liscere is not an intrusion detection system, not an interlock, not an enforcement layer, and not a replacement for firewalls, network segmentation or access control. Liscere has no customers, no production deployments, no commercial product and no detection-performance metrics. The current evidence is laboratory validation only. Stating these limitations openly is part of the brand.
+
+## Entity
+
+- Legal name: LISCERE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ (trading as Liscere)
+- Legal form: spółka z ograniczoną odpowiedzialnością (Polish limited liability company)
+- KRS: 0001256054 (registered 27 July 2026)
+- NIP: 7252369168
+- REGON: 545329293
+- Registered office: ul. Prezydenta Gabriela Narutowicza 40/1, 90-135 Łódź, Poland
+- Founder and President of the Management Board: Bruno Salmazo
+- Contact: hello@liscere.com
+- Website: https://liscere.com
+- LinkedIn: https://www.linkedin.com/company/liscere
+- GitHub: https://github.com/LiscereSecurity
+
+## Key pages
+
+- [About](https://liscere.com/about.html): What Liscere is, the core thesis, what Liscere is not, the legal entity, and the independence statement.
+- [FAQ](https://liscere.com/faq.html): Direct answers to common questions about Liscere.
+- [Research](https://liscere.com/research.html): Index of Liscere's technical reports (LTR series) and landscape briefings (LB series).
+- [LTR-2026-01: A Modbus/TCP Baseline in the OT Lab](https://liscere.com/research/ltr-2026-01/): The first laboratory feasibility demonstration that the same configuration write is judged differently depending on a declared maintenance window.
+- [LTR-2026-02: The Liscere Framework](https://liscere.com/research/ltr-2026-02/): A protocol-agnostic model that evaluates an industrial control action along protocol operation, automation artefact, operational context and policy constraint.
+- [LTR-2026-03: Hardware Validation and Learned Operational Grammar](https://liscere.com/research/ltr-2026-03/): Validation on a physical Siemens S7-1200 over Modbus/TCP, with operational phase inference and a grammar learned from observation.
+- [LTR-2026-04: Contextual Evaluation under Encryption](https://liscere.com/research/ltr-2026-04/): What a passive observer can and cannot recover once an OT channel is encrypted, characterised in hardware over TLS 1.3.
+- [LTR-2026-05: OPC UA Security Modes](https://liscere.com/research/ltr-2026-05/): What passive observation recovers under each OPC UA message security mode (None, Sign, SignAndEncrypt).
+- [LB-2026-01: The OT Threat Landscape, 2026](https://liscere.com/research/lb-2026-01/): Why the centre of gravity in OT attacks has moved from gaining access to issuing valid commands.
+- [LB-2026-02: The Encryption of Operational Technology](https://liscere.com/research/lb-2026-02/): A survey of encryption across the dominant OT protocol classes and the observation vantage each permits.
+- [LB-2026-03: A Field Guide to OT Protocols and Vendors](https://liscere.com/research/lb-2026-03/): A plain-language map of how industrial systems communicate: the layers, the protocols and the major controller vendors.
+- [LB-2026-04: The Encryption Gap in the Installed S7 Base](https://liscere.com/research/lb-2026-04/): Why the deployed Siemens S7 base stays largely readable despite encryption by default on current controllers.
+- [LB-2026-05: Passive and Active in Operational Technology](https://liscere.com/research/lb-2026-05/): A field guide to the trade-offs between passive and active methods in OT.
+- [Demo video](https://liscere.com/assets/video/liscere-demo.mp4): A short screen recording of Liscere passively observing a live laboratory process (a Siemens S7-1200 G2 and an HMI communicating over OPC UA), also embedded on the home page.

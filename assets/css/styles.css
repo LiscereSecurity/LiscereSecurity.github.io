@@ -14,12 +14,12 @@
   --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /* ---- central typographic system (one place, inherited site-wide) ---- */
-  --font-display: "Orbitron", var(--sans); /* H1 only — one brand moment per page */
+  --font-display: "Orbitron", var(--sans); /* H1 only - one brand moment per page */
   --font-mono: var(--mono);                /* eyebrows, data, labels */
   --font-sans: var(--sans);                /* subtitle, body, card titles, climax */
   /* relative scale, H1 as the reference. Orbitron is wide, so H1 stays modest. */
   --fs-h1: clamp(1.85rem, 3.6vw, 2.95rem);
-  --fs-climax: clamp(1.1rem, 2vw, 1.6rem);      /* ~55% of H1 — secondary by SIZE, loud by COLOUR */
+  --fs-climax: clamp(1.1rem, 2vw, 1.6rem);      /* ~55% of H1 - secondary by SIZE, loud by COLOUR */
   --fs-subtitle: clamp(1.05rem, 1.7vw, 1.45rem);
   --fs-card: clamp(1rem, 1.25vw, 1.22rem);
   --fs-body: clamp(0.98rem, 1.05vw, 1.12rem);
@@ -142,7 +142,7 @@ p {
 }
 
 /* Brand book (02 · Logo system): the header wordmark is the official brand-kit art
-   (assets/liscere-wordmark-dark.svg — Orbitron 500 in curves, Liscere White), used as an
+   (assets/liscere-wordmark-dark.svg - Orbitron 500 in curves, Liscere White), used as an
    <img> so it never depends on the Orbitron web font (no fallback to another typeface). */
 
 .kicker,
@@ -243,7 +243,7 @@ h1,
 h2 {
   margin-bottom: 1.2rem;
   color: var(--ink);
-  font-family: var(--font-display); /* Orbitron — the H1 display title of each page */
+  font-family: var(--font-display); /* Orbitron - the H1 display title of each page */
   font-size: var(--fs-h1);
   font-weight: 500;
   letter-spacing: -0.02em; /* brand book: Orbitron display tracking is -0.02em */
@@ -894,7 +894,7 @@ a.shift-step:focus-visible .shift-source {
   border-left: 3px solid var(--cyan);
   color: var(--ink);
   font-family: var(--font-sans);
-  font-size: var(--fs-climax); /* ~55% of H1 — secondary by size, the cyan carries the weight */
+  font-size: var(--fs-climax); /* ~55% of H1 - secondary by size, the cyan carries the weight */
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.4;
@@ -1293,7 +1293,7 @@ a.shift-step:focus-visible .shift-source {
   }
 
   .page {
-    /* lvh is the largest (browser-bar-hidden) height and is STATIC — it does not
+    /* lvh is the largest (browser-bar-hidden) height and is STATIC - it does not
        change mid-scroll like dvh, so scroll-snap stays stable (no getting stuck
        between sections) while still filling the screen so the next eyebrow never
        peeks in. */
@@ -1453,7 +1453,7 @@ a.shift-step:focus-visible .shift-source {
 
   /* pg.03 / pg.05: native horizontal scroll-snap carousel with a PEEK of the next
      card. The section stays one vertical screen; cards scroll/snap horizontally.
-     Peek + dots signal swipeability. No JS transform — native scroll handles it. */
+     Peek + dots signal swipeability. No JS transform - native scroll handles it. */
   .card-rail {
     position: relative;
     width: 100%;
@@ -1600,7 +1600,7 @@ a.shift-step:focus-visible .shift-source {
 }
 
 /* =====================================================================
-   /research — standalone page, same visual system as the rest of the site
+   /research - standalone page, same visual system as the rest of the site
    ===================================================================== */
 .research-page {
   display: flex;
@@ -1667,8 +1667,8 @@ a.shift-step:focus-visible .shift-source {
   color: var(--cyan);
 }
 
-/* /research — paper-style card library */
-/* /research — group filter (mono cyan eyebrow aesthetic) */
+/* /research - paper-style card library */
+/* /research - group filter (mono cyan eyebrow aesthetic) */
 .research-filter {
   display: flex;
   flex-wrap: wrap;
@@ -1723,7 +1723,7 @@ a.shift-step:focus-visible .shift-source {
   /* Equal-height cards come from the grid's default align-items: stretch, which
      sizes each card to its row track. A percentage min-height here (min-height:
      100%) resolves against that auto-sized row and makes WebKit grow the card on
-     every relayout — so toggling the filters repeatedly inflated the gap between
+     every relayout - so toggling the filters repeatedly inflated the gap between
      the body and the margin-top:auto CTA. Rely on grid stretch instead. */
   padding: clamp(1.3rem, 1.9vw, 1.7rem);
   border: 1px solid var(--line);
@@ -1841,7 +1841,7 @@ a.paper-card:focus-visible .paper-arrow {
 }
 
 /* ============================================================
-   /research/<id>/ — per-document landing pages (SEO Phase 2)
+   /research/<id>/ - per-document landing pages (SEO Phase 2)
    Reuses site tokens and mirrors the card aesthetic: mono cyan
    eyebrow + Space Grotesk title + readable abstract. Page layout
    inherits .research-page (padding, min-height, left align); the
@@ -2145,4 +2145,114 @@ a.paper-card:focus-visible .paper-arrow {
   background: rgba(0, 217, 255, 0.16);
   border-color: rgba(0, 217, 255, 0.8);
   outline: none;
+}
+
+/* =====================================================================
+   AEO content pages (About, FAQ)
+   Prose-first pages that reuse the research-page chrome. Selectors are
+   scoped to .aeo-doc so they never touch the paper/report layouts.
+   ===================================================================== */
+.aeo-doc {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.85rem, 2vh, 1.25rem);
+}
+
+.aeo-doc > p {
+  margin: 0;
+  max-width: 68ch;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.65;
+  color: #dce7e7;
+}
+
+.aeo-doc > p a,
+.aeo-list a,
+.faq-a a {
+  color: var(--cyan);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 217, 255, 0.35);
+}
+.aeo-doc > p a:hover,
+.aeo-list a:hover,
+.faq-a a:hover {
+  border-bottom-color: var(--cyan);
+}
+
+.aeo-doc > p.aeo-lead {
+  max-width: 72ch;
+  font-size: clamp(1.08rem, 1.7vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.aeo-doc > h2 {
+  margin: clamp(0.9rem, 2.4vh, 1.7rem) 0 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-data);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.aeo-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 68ch;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  color: var(--muted);
+}
+.aeo-list strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.aeo-doc > p.aeo-note {
+  max-width: 72ch;
+  padding: clamp(0.95rem, 1.6vw, 1.25rem) clamp(1rem, 1.8vw, 1.4rem);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(2, 7, 9, 0.55);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* --- FAQ list --- */
+.faq-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.faq-item + .faq-item {
+  margin-top: clamp(1.05rem, 2.6vh, 1.8rem);
+  padding-top: clamp(1.05rem, 2.6vh, 1.8rem);
+  border-top: 1px solid var(--line);
+}
+.faq-q {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.faq-a {
+  margin: 0;
+  max-width: 70ch;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.65;
+  color: #dce7e7;
 }

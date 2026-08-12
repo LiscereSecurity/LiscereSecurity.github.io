@@ -34,10 +34,12 @@
     "headline": "Contextual Evaluation under Encryption",
     "name": "Contextual Evaluation under Encryption",
     "author": {
-      "@type": "Person",
-      "name": "Bruno Salmazo"
+      "@type": "Organization",
+      "name": "Liscere",
+      "url": "https://liscere.com/"
     },
     "datePublished": "2026-07",
+    "abstract": "This report characterises one such encrypted channel in hardware, the Web API of a Siemens S7-1200 G2 controller (JSON-RPC over HTTPS/TLS 1.3), and reports what an external observer can and cannot recover from it. The findings are specific and, in one respect, uncomfortable. Under TLS 1.3, a strictly passive observer on a mirror port, the observation architecture validated for Modbus/TCP in the preceding report, is blind to the payload: the method, the target artefact, the value, and the session token are all opaque, and the server certificate itself is encrypted. A traffic-metadata sensor that survives encryption, keyed on record sizes and timing, detects bursts of activity but is unreliable for the isolated, well-chosen write that defines the adversary Liscere is concerned with. We then establish, through a decrypted vantage used as an offline validation method only, that the process variable required for contextual evaluation is recoverable at a workable rate, that the process of the preceding report can be ported onto this channel unchanged, and that an authorised control action can be captured in two distinct operational phases.",
     "publisher": {
       "@type": "Organization",
       "name": "Liscere",
@@ -110,7 +112,7 @@
       </div>
     </article>
 
-    <p class="research-foot">© 2026 Liscere sp. z o.o. · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a></p>
+    <p class="research-foot"><a href="../../index.html">Home</a> · <a href="../../about.html">About</a> · <a href="../../faq.html">FAQ</a> · <a href="../../research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a><br />© 2026 Liscere sp. z o.o.</p>
   </main>
 
   <script>
