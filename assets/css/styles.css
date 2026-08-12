@@ -1132,7 +1132,8 @@ a.shift-step:focus-visible .shift-source {
 /* discreet closing footer, anchored bottom-left (last grid band) */
 .evidence-foot {
   margin: 0;
-  justify-self: start;
+  justify-self: center;
+  text-align: center;
   color: var(--quiet);
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -1633,6 +1634,45 @@ a.shift-step:focus-visible .shift-source {
   outline: none;
 }
 
+/* Header nav (About / FAQ / ...): subtle mono links pinned top-right, opposite the
+   wordmark. Hidden until .past-hero is set (same trigger as the fixed wordmark), so
+   on the home page they slide in once the hero is scrolled past. */
+.site-nav {
+  position: fixed;
+  top: 1.15rem;
+  right: clamp(1.2rem, 6vw, 5.5rem);
+  z-index: 44;
+  display: flex;
+  gap: clamp(0.9rem, 2vw, 1.6rem);
+  pointer-events: auto;
+  opacity: 0;
+  transition: opacity 320ms ease;
+  font-family: var(--font-mono);
+  font-size: var(--fs-data);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.past-hero .site-nav {
+  opacity: 1;
+}
+
+.site-nav a {
+  color: var(--muted);
+  transition: color 180ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--cyan);
+  outline: none;
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+}
+
 .research-lead {
   max-width: 56ch;
   margin: 0;
@@ -1645,6 +1685,7 @@ a.shift-step:focus-visible .shift-source {
 
 .research-foot {
   margin: auto 0 0;
+  text-align: center;
   color: var(--quiet);
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -2153,19 +2194,28 @@ a.paper-card:focus-visible .paper-arrow {
    scoped to .aeo-doc so they never touch the paper/report layouts.
    ===================================================================== */
 .aeo-doc {
-  max-width: 760px;
+  max-width: 720px;
+  width: 100%;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
-  gap: clamp(0.85rem, 2vh, 1.25rem);
+  gap: clamp(1rem, 2.3vh, 1.5rem);
+}
+
+/* Centred header block: title + lead read as a designed opening, the body below
+   stays left-aligned for readability. */
+.aeo-doc > h1.doc-title {
+  text-align: center;
+  margin: 0 auto;
 }
 
 .aeo-doc > p {
   margin: 0;
-  max-width: 68ch;
+  max-width: 66ch;
   font-family: var(--font-sans);
   font-size: var(--fs-body);
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 1.7;
   color: #dce7e7;
 }
 
@@ -2183,15 +2233,21 @@ a.paper-card:focus-visible .paper-arrow {
 }
 
 .aeo-doc > p.aeo-lead {
-  max-width: 72ch;
+  text-align: center;
+  max-width: 60ch;
+  margin: 0.2rem auto clamp(0.6rem, 1.8vh, 1.1rem);
   font-size: clamp(1.08rem, 1.7vw, 1.4rem);
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.55;
   color: var(--ink);
 }
 
+/* Section heads carry a full-width hairline above them, so the page reads as
+   distinct sections rather than one running column. */
 .aeo-doc > h2 {
-  margin: clamp(0.9rem, 2.4vh, 1.7rem) 0 0;
+  margin: clamp(1.4rem, 3.6vh, 2.4rem) 0 0;
+  padding-top: clamp(1rem, 2.4vh, 1.5rem);
+  border-top: 1px solid var(--line);
   font-family: var(--font-mono);
   font-size: var(--fs-data);
   font-weight: 600;
