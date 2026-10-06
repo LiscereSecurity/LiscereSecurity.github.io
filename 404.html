@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en" class="past-hero">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found | Liscere</title>
+  <meta name="description" content="This page does not exist on liscere.com." />
+  <meta name="author" content="Liscere" />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#030405" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=4" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png?v=4" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png?v=4" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png?v=4" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png?v=4" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20261006-legal" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-chrome" aria-label="Site navigation">
+    <a class="site-logo" href="/index.html" aria-label="Liscere home">
+      <img class="wordmark-svg" src="/assets/liscere-wordmark-dark.svg?v=3" alt="Liscere" width="1040" height="216" />
+    </a>
+    <nav class="site-nav" aria-label="Pages">
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/research.html">Research</a>
+    </nav>
+  </header>
+
+  <main id="main-content" class="research-page">
+    <article class="aeo-doc">
+      <h1 class="doc-title">Page not found</h1>
+
+      <p class="aeo-lead">There is nothing at this address. It may have moved, or the link may be mistyped.</p>
+
+      <ul class="aeo-list">
+        <li><a href="/">Home</a>: what Liscere is building</li>
+        <li><a href="/research.html">Research</a>: technical reports and landscape briefings</li>
+        <li><a href="/about.html">About</a>: the company and its founder</li>
+        <li><a href="/faq.html">FAQ</a>: direct answers to common questions</li>
+        <li><a href="/contact.html">Contact</a>: <a href="mailto:hello@liscere.com">hello@liscere.com</a></li>
+      </ul>
+    </article>
+
+    <p class="research-foot"><a href="/index.html">Home</a> · <a href="/about.html">About</a> · <a href="/faq.html">FAQ</a> · <a href="/research.html">Research</a> · <a href="/contact.html">Contact</a> · <a href="/legal.html">Legal</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a><br />© 2026 Liscere sp. z o.o.<span class="foot-entity"> · ul. Prezydenta Gabriela Narutowicza 40/1, 90-135 Łódź, Poland · KRS 0001256054</span></p>
+  </main>
+
+  <script>
+    // Shared with the other content pages: the fixed wordmark (opacity driven by .past-hero on <html>)
+    // shows at the top and fades once scrolled, so it never overlaps the document body.
+    (function () {
+      var root = document.documentElement;
+      function sync() { root.classList.toggle('past-hero', window.scrollY <= 16); }
+      sync();
+      window.addEventListener('scroll', sync, { passive: true });
+    })();
+  </script>
+</body>
+</html>

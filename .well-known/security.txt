@@ -1,0 +1,6 @@
+# Security contact for Liscere sp. z o.o. (liscere.com), per RFC 9116.
+# Reports about this website or Liscere's public code are welcome by email.
+Contact: mailto:hello@liscere.com
+Expires: 2027-10-06T00:00:00.000Z
+Preferred-Languages: en, pl, pt
+Canonical: https://liscere.com/.well-known/security.txt

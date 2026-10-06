@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Operational Legitimacy of Industrial Control Actions: The Liscere Framework | Liscere LTR-2026-02</title>
-  <meta name="description" content="Industrial control protocols such as Modbus/TCP authenticate neither the sender nor the appropriateness of a command. An action can therefore be valid at" />
-  <meta name="author" content="Liscere" />
+  <meta name="description" content="LTR-2026-02, a Liscere technical report by Bruno Salmazo (June 2026): a protocol-agnostic model that evaluates an industrial control action along protocol operation, automation artefact, operational context and policy constraint." />
+  <meta name="author" content="Bruno Salmazo" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#030405" />
 
   <meta property="og:title" content="Operational Legitimacy of Industrial Control Actions: The Liscere Framework" />
-  <meta property="og:description" content="Industrial control protocols such as Modbus/TCP authenticate neither the sender nor the appropriateness of a command. An action can therefore be valid at" />
+  <meta property="og:description" content="LTR-2026-02, a Liscere technical report by Bruno Salmazo (June 2026): a protocol-agnostic model that evaluates an industrial control action along protocol operation, automation artefact, operational context and policy constraint." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://liscere.com/research/ltr-2026-02/" />
   <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
@@ -22,30 +22,51 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Operational Legitimacy of Industrial Control Actions: The Liscere Framework" />
-  <meta name="twitter:description" content="Industrial control protocols such as Modbus/TCP authenticate neither the sender nor the appropriateness of a command. An action can therefore be valid at" />
+  <meta name="twitter:description" content="LTR-2026-02, a Liscere technical report by Bruno Salmazo (June 2026): a protocol-agnostic model that evaluates an industrial control action along protocol operation, automation artefact, operational context and policy constraint." />
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
 
   <link rel="canonical" href="https://liscere.com/research/ltr-2026-02/" />
 
+  <!-- TODO(DOI): when a DOI is minted for LTR-2026-02, add
+       { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.xxxx/..." }
+       to "identifier" below, and doi = {10.xxxx/...} to the BibTeX entry on this page. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
+    "@id": "https://liscere.com/research/ltr-2026-02/#article",
     "headline": "Operational Legitimacy of Industrial Control Actions: The Liscere Framework",
     "name": "Operational Legitimacy of Industrial Control Actions: The Liscere Framework",
     "author": {
-      "@type": "Organization",
-      "name": "Liscere",
-      "url": "https://liscere.com/"
+      "@type": "Person",
+      "@id": "https://liscere.com/about.html#founder",
+      "name": "Bruno Salmazo",
+      "url": "https://liscere.com/about.html#founder",
+      "sameAs": [
+        "https://github.com/BSalmazo"
+      ]
     },
     "datePublished": "2026-06",
+    "inLanguage": "en",
+    "genre": "Technical Report",
+    "identifier": [
+      {
+        "@type": "PropertyValue",
+        "propertyID": "Liscere report number",
+        "value": "LTR-2026-02"
+      }
+    ],
     "abstract": "Industrial control protocols such as Modbus/TCP authenticate neither the sender nor the appropriateness of a command. An action can therefore be valid at the protocol level, issued over an authorised channel, and still be inappropriate for the operational state of the plant. This report presents the Liscere framework, a protocol-agnostic model for evaluating an industrial control action along four dimensions: the protocol operation, the automation artefact it affects, the operational context in which it occurs, and the applicable policy constraint. The framework reconstructs an observed protocol event as an industrial action, resolves the affected artefact, enriches the action with declared operational context, evaluates it against explicit policy, and returns a decision together with an evidence record. The model is defined above protocol-specific encodings, with Modbus/TCP as its first instantiation. An initial feasibility demonstration is reported separately; this report sets out the framework, its definitions, and its scope. A peer-reviewed treatment is in preparation. We are explicit about the boundary between what the model defines and what the current implementation evaluates.",
     "publisher": {
       "@type": "Organization",
+      "@id": "https://liscere.com/#organization",
       "name": "Liscere",
-      "url": "https://liscere.com/"
+      "legalName": "LISCERE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+      "url": "https://liscere.com/",
+      "logo": "https://liscere.com/assets/apple-touch-icon.png"
     },
     "url": "https://liscere.com/research/ltr-2026-02/",
+    "mainEntityOfPage": "https://liscere.com/research/ltr-2026-02/",
     "encoding": {
       "@type": "MediaObject",
       "contentUrl": "https://liscere.com/assets/papers/liscere-framework.pdf",
@@ -62,7 +83,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260812-aeo2" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261006-legal" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -80,6 +101,8 @@
         <p class="paper-eyebrow">LTR-2026-02 · Technical Report · June 2026</p>
         <h1 class="doc-title">Operational Legitimacy of Industrial Control Actions: The Liscere Framework</h1>
 
+        <p class="doc-byline">By <a href="../../about.html#founder">Bruno Salmazo</a>, Liscere</p>
+
         <details class="doc-abstract-toggle">
           <summary>Abstract</summary>
           <p class="doc-abstract">Industrial control protocols such as Modbus/TCP authenticate neither the sender nor the appropriateness of a command. An action can therefore be valid at the protocol level, issued over an authorised channel, and still be inappropriate for the operational state of the plant. This report presents the Liscere framework, a protocol-agnostic model for evaluating an industrial control action along four dimensions: the protocol operation, the automation artefact it affects, the operational context in which it occurs, and the applicable policy constraint. The framework reconstructs an observed protocol event as an industrial action, resolves the affected artefact, enriches the action with declared operational context, evaluates it against explicit policy, and returns a decision together with an evidence record. The model is defined above protocol-specific encodings, with Modbus/TCP as its first instantiation. An initial feasibility demonstration is reported separately; this report sets out the framework, its definitions, and its scope. A peer-reviewed treatment is in preparation. We are explicit about the boundary between what the model defines and what the current implementation evaluates.</p>
@@ -87,7 +110,10 @@
 
         <a class="primary-cta doc-open-mobile" href="../../assets/papers/liscere-framework.pdf" target="_blank" rel="noopener">Open the PDF &#8599;</a>
 
-        <h2 class="doc-section-head">Cite this report</h2>
+        <h2 class="doc-section-head">How to cite</h2>
+        <p class="doc-cite-label">Plain text</p>
+        <p class="doc-cite doc-cite-text">Salmazo, B. (2026, June). <cite>Operational Legitimacy of Industrial Control Actions: The Liscere Framework</cite> (Liscere Technical Report LTR-2026-02). Liscere. <a href="https://liscere.com/research/ltr-2026-02/">https://liscere.com/research/ltr-2026-02/</a></p>
+        <p class="doc-cite-label">BibTeX</p>
         <pre class="doc-cite">@techreport{salmazo_framework_2026,
   author      = {Bruno Salmazo},
   title       = {Operational Legitimacy of Industrial Control Actions: The Liscere Framework},
@@ -110,7 +136,7 @@
       </div>
     </article>
 
-    <p class="research-foot"><a href="../../index.html">Home</a> · <a href="../../about.html">About</a> · <a href="../../faq.html">FAQ</a> · <a href="../../research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a><br />© 2026 Liscere sp. z o.o.</p>
+    <p class="research-foot"><a href="../../index.html">Home</a> · <a href="../../about.html">About</a> · <a href="../../faq.html">FAQ</a> · <a href="../../research.html">Research</a> · <a href="../../contact.html">Contact</a> · <a href="../../legal.html">Legal</a> · <a href="../../privacy.html">Privacy</a> · <a href="../../terms.html">Terms</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a><br />© 2026 Liscere sp. z o.o.<span class="foot-entity"> · ul. Prezydenta Gabriela Narutowicza 40/1, 90-135 Łódź, Poland · KRS 0001256054</span></p>
   </main>
 
   <script>

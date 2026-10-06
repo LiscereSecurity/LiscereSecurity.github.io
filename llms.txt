@@ -32,6 +32,10 @@ Liscere is not an intrusion detection system, not an interlock, not an enforceme
 
 - [About](https://liscere.com/about.html): What Liscere is, the core thesis, what Liscere is not, the legal entity, and the independence statement.
 - [FAQ](https://liscere.com/faq.html): Direct answers to common questions about Liscere.
+- [Contact](https://liscere.com/contact.html): Email, registered office, LinkedIn and GitHub.
+- [Legal information](https://liscere.com/legal.html): Company identification as required by Polish law: legal name, registered office, KRS, NIP, REGON, share capital and management board.
+- [Privacy](https://liscere.com/privacy.html): GDPR Art. 13 notice. The site uses no analytics, no advertising and no cookies.
+- [Terms of use](https://liscere.com/terms.html): Who operates the site, no warranty, copyright and licences, Polish governing law.
 - [Research](https://liscere.com/research.html): Index of Liscere's technical reports (LTR series) and landscape briefings (LB series).
 - [LTR-2026-01: A Modbus/TCP Baseline in the OT Lab](https://liscere.com/research/ltr-2026-01/): The first laboratory feasibility demonstration that the same configuration write is judged differently depending on a declared maintenance window.
 - [LTR-2026-02: The Liscere Framework](https://liscere.com/research/ltr-2026-02/): A protocol-agnostic model that evaluates an industrial control action along protocol operation, automation artefact, operational context and policy constraint.
