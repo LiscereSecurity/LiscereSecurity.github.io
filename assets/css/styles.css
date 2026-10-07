@@ -2312,3 +2312,70 @@ a.paper-card:focus-visible .paper-arrow {
   line-height: 1.65;
   color: #dce7e7;
 }
+
+/* =====================================================================
+   Legal and discoverability additions (Legal, Privacy, Terms, Contact,
+   404, research citation blocks, footer entity line). Small, scoped
+   rules that reuse the existing tokens; nothing above is restyled.
+   ===================================================================== */
+
+/* Footer: registered office and KRS beside the copyright, in smaller text. */
+.foot-entity {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+
+/* Research pages: visible author line under the title. */
+.doc-byline {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 500;
+}
+
+.doc-byline a {
+  color: var(--ink);
+  border-bottom: 1px solid rgba(0, 217, 255, 0.35);
+}
+
+.doc-byline a:hover,
+.doc-byline a:focus-visible {
+  border-bottom-color: var(--cyan);
+  outline: none;
+}
+
+/* Research pages: small label above each citation format. */
+.doc-cite-label {
+  margin: 0 0 -0.4rem;
+  color: var(--quiet);
+  font-family: var(--font-mono);
+  font-size: var(--fs-data);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Plain-text citation: same panel as the BibTeX block, but wrapping prose. */
+.doc-cite.doc-cite-text {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+/* Legal pages: the "last updated" line under the title. */
+.aeo-doc > p.aeo-meta {
+  text-align: center;
+  margin: 0 auto;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-data);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.aeo-list a {
+  overflow-wrap: anywhere;
+}

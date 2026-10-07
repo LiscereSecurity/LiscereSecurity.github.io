@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | Liscere</title>
-  <meta name="description" content="Liscere is an industrial cybersecurity research company in Łódź, Poland, developing contextual evaluation of industrial control actions by passive observation." />
+  <meta name="description" content="About Liscere, an industrial cybersecurity research company in Łódź, Poland, founded by Bruno Salmazo: its thesis, how passive contextual evaluation works, and what it is not." />
   <meta name="author" content="Liscere" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#030405" />
 
   <meta property="og:title" content="About | Liscere" />
-  <meta property="og:description" content="Liscere is an industrial cybersecurity research company in Łódź, Poland, developing contextual evaluation of industrial control actions by passive observation." />
+  <meta property="og:description" content="About Liscere, an industrial cybersecurity research company in Łódź, Poland, founded by Bruno Salmazo: its thesis, how passive contextual evaluation works, and what it is not." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://liscere.com/about.html" />
   <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
@@ -22,7 +22,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About | Liscere" />
-  <meta name="twitter:description" content="Liscere is an industrial cybersecurity research company in Łódź, Poland, developing contextual evaluation of industrial control actions by passive observation." />
+  <meta name="twitter:description" content="About Liscere, an industrial cybersecurity research company in Łódź, Poland, founded by Bruno Salmazo: its thesis, how passive contextual evaluation works, and what it is not." />
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
 
   <link rel="canonical" href="https://liscere.com/about.html" />
@@ -31,6 +31,8 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://liscere.com/#organization",
+    "alternateName": "Liscere sp. z o.o.",
     "name": "Liscere",
     "legalName": "LISCERE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
     "url": "https://liscere.com/",
@@ -47,7 +49,10 @@
     },
     "founder": {
       "@type": "Person",
-      "name": "Bruno Salmazo"
+      "@id": "https://liscere.com/about.html#founder",
+      "name": "Bruno Salmazo",
+      "url": "https://liscere.com/about.html#founder",
+      "sameAs": ["https://github.com/BSalmazo"]
     },
     "identifier": [
       { "@type": "PropertyValue", "propertyID": "KRS", "value": "0001256054" },
@@ -65,10 +70,15 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://liscere.com/about.html#founder",
     "name": "Bruno Salmazo",
+    "url": "https://liscere.com/about.html#founder",
     "jobTitle": "Founder and President of the Management Board",
+    "description": "Industrial automation engineer (MSc) and PhD candidate in OT and ICS cybersecurity; founder of Liscere.",
+    "sameAs": ["https://github.com/BSalmazo"],
     "worksFor": {
       "@type": "Organization",
+      "@id": "https://liscere.com/#organization",
       "name": "Liscere",
       "url": "https://liscere.com/"
     }
@@ -83,7 +93,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20260812-aeo2" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20261006-legal" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -116,13 +126,21 @@
       <h2>What Liscere is not</h2>
       <p>Liscere is a new layer of industrial security, not a replacement for the ones already in place. It is not an intrusion detection system, not an interlock and not an enforcement layer, and it does not replace firewalls, network segmentation or access control. It adds a question those controls do not ask: whether an action is appropriate for the current state of the process.</p>
 
+      <h2 id="founder">Founder</h2>
+      <p>Liscere was founded by Bruno Salmazo, who is the sole member of its management board. Bruno is an industrial automation engineer with an MSc in industrial automation engineering, and a PhD candidate researching the cybersecurity of operational technology (OT) and industrial control systems (ICS). That research is where Liscere's work began.</p>
+      <!-- TODO(founder-linkedin): add Bruno's personal LinkedIn profile URL below. It is not in the repository
+           and was not guessed. Suggested markup, inserted before the GitHub link:
+           <a href="https://www.linkedin.com/in/REPLACE-ME/" target="_blank" rel="noopener">LinkedIn</a> and
+           Also add the same URL to the Person "sameAs" list in the JSON-LD at the top of this file. -->
+      <p>Bruno Salmazo on <a href="https://github.com/BSalmazo" target="_blank" rel="noopener">GitHub</a>.</p>
+
       <h2>Independence</h2>
       <p class="aeo-note">Liscere sp. z o.o. is an independent company. It is not affiliated with, and should not be confused with, any other cybersecurity vendor or product.</p>
 
       <p>Read the <a href="./faq.html">frequently asked questions</a> or browse the <a href="./research.html">research</a>.</p>
     </article>
 
-    <p class="research-foot"><a href="./index.html">Home</a> · <a href="./faq.html">FAQ</a> · <a href="./research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a><br />© 2026 Liscere sp. z o.o.</p>
+    <p class="research-foot"><a href="./index.html">Home</a> · <a href="./about.html">About</a> · <a href="./faq.html">FAQ</a> · <a href="./research.html">Research</a> · <a href="./contact.html">Contact</a> · <a href="./legal.html">Legal</a> · <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a><br />© 2026 Liscere sp. z o.o.<span class="foot-entity"> · ul. Prezydenta Gabriela Narutowicza 40/1, 90-135 Łódź, Poland · KRS 0001256054</span></p>
   </main>
 
   <script>

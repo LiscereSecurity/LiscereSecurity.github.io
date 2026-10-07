@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers | Liscere LTR-2026-05</title>
-  <meta name="description" content="The preceding report in this series established, on physical hardware, that strong transport encryption removes the vantage from which a passive observer" />
-  <meta name="author" content="Liscere" />
+  <meta name="description" content="LTR-2026-05, a Liscere technical report by Bruno Salmazo (July 2026): what passive observation recovers under each OPC UA message security mode (None, Sign, SignAndEncrypt)." />
+  <meta name="author" content="Bruno Salmazo" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#030405" />
 
   <meta property="og:title" content="Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers" />
-  <meta property="og:description" content="The preceding report in this series established, on physical hardware, that strong transport encryption removes the vantage from which a passive observer" />
+  <meta property="og:description" content="LTR-2026-05, a Liscere technical report by Bruno Salmazo (July 2026): what passive observation recovers under each OPC UA message security mode (None, Sign, SignAndEncrypt)." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://liscere.com/research/ltr-2026-05/" />
   <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
@@ -22,30 +22,51 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers" />
-  <meta name="twitter:description" content="The preceding report in this series established, on physical hardware, that strong transport encryption removes the vantage from which a passive observer" />
+  <meta name="twitter:description" content="LTR-2026-05, a Liscere technical report by Bruno Salmazo (July 2026): what passive observation recovers under each OPC UA message security mode (None, Sign, SignAndEncrypt)." />
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
 
   <link rel="canonical" href="https://liscere.com/research/ltr-2026-05/" />
 
+  <!-- TODO(DOI): when a DOI is minted for LTR-2026-05, add
+       { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.xxxx/..." }
+       to "identifier" below, and doi = {10.xxxx/...} to the BibTeX entry on this page. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
+    "@id": "https://liscere.com/research/ltr-2026-05/#article",
     "headline": "Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers",
     "name": "Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers",
     "author": {
-      "@type": "Organization",
-      "name": "Liscere",
-      "url": "https://liscere.com/"
+      "@type": "Person",
+      "@id": "https://liscere.com/about.html#founder",
+      "name": "Bruno Salmazo",
+      "url": "https://liscere.com/about.html#founder",
+      "sameAs": [
+        "https://github.com/BSalmazo"
+      ]
     },
     "datePublished": "2026-07",
-    "abstract": "OPC UA does not present the binary that a transport such as TLS does. It defines three message security modes, None, Sign, and SignAndEncrypt, negotiated per channel alongside a security policy that names the algorithm suite. We show that the mode alone, not the policy, decides what a passive observer recovers, and we document the result mode by mode with capture evidence: under None the full exchange is legible; under Sign it is equally legible and additionally authenticated; under SignAndEncrypt only the transport envelope survives. The intermediate mode is the finding of interest. Sign has no clean analogue in a transport protocol, and it is the one configuration that delivers integrity and authenticity on the wire while leaving the traffic fully visible to a legitimate observer.",
+    "inLanguage": "en",
+    "genre": "Technical Report",
+    "identifier": [
+      {
+        "@type": "PropertyValue",
+        "propertyID": "Liscere report number",
+        "value": "LTR-2026-05"
+      }
+    ],
+    "abstract": "The preceding report in this series established, on physical hardware, that strong transport encryption removes the vantage from which a passive observer can read an industrial control action, not the logic by which such an action might be evaluated, and it left open how widely that vantage problem bites. This report takes up the question for OPC UA, the vendor-neutral protocol of the supervisory and integration layer, and finds that its answer is a gradient rather than a verdict. OPC UA does not present the binary that a transport such as TLS does. It defines three message security modes, None, Sign, and SignAndEncrypt, negotiated per channel alongside a security policy that names the algorithm suite. We show that the mode alone, not the policy, decides what a passive observer recovers, and we document the result mode by mode with capture evidence: under None the full exchange is legible; under Sign it is equally legible and additionally authenticated; under SignAndEncrypt only the transport envelope survives. The intermediate mode is the finding of interest. Sign has no clean analogue in a transport protocol, and it is the one configuration that delivers integrity and authenticity on the wire while leaving the traffic fully visible to a legitimate observer. We place this against the measured state of deployment. Internet-wide studies five years apart, from 2020 and from 2024 to 2025, agree that a large and persistent fraction of observable OPC UA runs without confidentiality, driven not by weakness in the cryptography but by the configuration burden of activating it. The legible case is therefore the common one, and for OPC UA the observation vantage is not fixed but selected, per channel, by a security-mode choice made elsewhere.",
     "publisher": {
       "@type": "Organization",
+      "@id": "https://liscere.com/#organization",
       "name": "Liscere",
-      "url": "https://liscere.com/"
+      "legalName": "LISCERE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+      "url": "https://liscere.com/",
+      "logo": "https://liscere.com/assets/apple-touch-icon.png"
     },
     "url": "https://liscere.com/research/ltr-2026-05/",
+    "mainEntityOfPage": "https://liscere.com/research/ltr-2026-05/",
     "encoding": {
       "@type": "MediaObject",
       "contentUrl": "https://liscere.com/assets/papers/liscere-opcua-security-modes.pdf",
@@ -62,7 +83,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260812-aeo2" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261006-legal" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -80,6 +101,8 @@
         <p class="paper-eyebrow">LTR-2026-05 · Technical Report · July 2026</p>
         <h1 class="doc-title">Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers</h1>
 
+        <p class="doc-byline">By <a href="../../about.html#founder">Bruno Salmazo</a>, Liscere</p>
+
         <details class="doc-abstract-toggle">
           <summary>Abstract</summary>
           <p class="doc-abstract">The preceding report in this series established, on physical hardware, that strong transport encryption removes the vantage from which a passive observer can read an industrial control action, not the logic by which such an action might be evaluated, and it left open how widely that vantage problem bites. This report takes up the question for OPC UA, the vendor-neutral protocol of the supervisory and integration layer, and finds that its answer is a gradient rather than a verdict.</p>
@@ -89,7 +112,10 @@
 
         <a class="primary-cta doc-open-mobile" href="../../assets/papers/liscere-opcua-security-modes.pdf" target="_blank" rel="noopener">Open the PDF &#8599;</a>
 
-        <h2 class="doc-section-head">Cite this report</h2>
+        <h2 class="doc-section-head">How to cite</h2>
+        <p class="doc-cite-label">Plain text</p>
+        <p class="doc-cite doc-cite-text">Salmazo, B. (2026, July). <cite>Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers</cite> (Liscere Technical Report LTR-2026-05). Liscere. <a href="https://liscere.com/research/ltr-2026-05/">https://liscere.com/research/ltr-2026-05/</a></p>
+        <p class="doc-cite-label">BibTeX</p>
         <pre class="doc-cite">@techreport{salmazo_opcua_2026,
   author      = {Bruno Salmazo},
   title       = {Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers},
@@ -112,7 +138,7 @@
       </div>
     </article>
 
-    <p class="research-foot"><a href="../../index.html">Home</a> · <a href="../../about.html">About</a> · <a href="../../faq.html">FAQ</a> · <a href="../../research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a><br />© 2026 Liscere sp. z o.o.</p>
+    <p class="research-foot"><a href="../../index.html">Home</a> · <a href="../../about.html">About</a> · <a href="../../faq.html">FAQ</a> · <a href="../../research.html">Research</a> · <a href="../../contact.html">Contact</a> · <a href="../../legal.html">Legal</a> · <a href="../../privacy.html">Privacy</a> · <a href="../../terms.html">Terms</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a><br />© 2026 Liscere sp. z o.o.<span class="foot-entity"> · ul. Prezydenta Gabriela Narutowicza 40/1, 90-135 Łódź, Poland · KRS 0001256054</span></p>
   </main>
 
   <script>

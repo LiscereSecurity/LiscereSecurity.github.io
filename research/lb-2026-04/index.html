@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base | Liscere LB-2026-04</title>
-  <meta name="description" content="Siemens S7 communication has moved decisively towards encryption by default. Current controllers, configured with the current engineering toolchain" />
-  <meta name="author" content="Liscere" />
+  <meta name="description" content="LB-2026-04, a Liscere landscape briefing by Bruno Salmazo (July 2026): why the deployed Siemens S7 base stays largely readable despite encryption by default on current controllers." />
+  <meta name="author" content="Bruno Salmazo" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#030405" />
 
   <meta property="og:title" content="Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base" />
-  <meta property="og:description" content="Siemens S7 communication has moved decisively towards encryption by default. Current controllers, configured with the current engineering toolchain" />
+  <meta property="og:description" content="LB-2026-04, a Liscere landscape briefing by Bruno Salmazo (July 2026): why the deployed Siemens S7 base stays largely readable despite encryption by default on current controllers." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://liscere.com/research/lb-2026-04/" />
   <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
@@ -22,30 +22,51 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base" />
-  <meta name="twitter:description" content="Siemens S7 communication has moved decisively towards encryption by default. Current controllers, configured with the current engineering toolchain" />
+  <meta name="twitter:description" content="LB-2026-04, a Liscere landscape briefing by Bruno Salmazo (July 2026): why the deployed Siemens S7 base stays largely readable despite encryption by default on current controllers." />
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
 
   <link rel="canonical" href="https://liscere.com/research/lb-2026-04/" />
 
+  <!-- TODO(DOI): when a DOI is minted for LB-2026-04, add
+       { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.xxxx/..." }
+       to "identifier" below, and doi = {10.xxxx/...} to the BibTeX entry on this page. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
+    "@id": "https://liscere.com/research/lb-2026-04/#article",
     "headline": "Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base",
     "name": "Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base",
     "author": {
-      "@type": "Organization",
-      "name": "Liscere",
-      "url": "https://liscere.com/"
+      "@type": "Person",
+      "@id": "https://liscere.com/about.html#founder",
+      "name": "Bruno Salmazo",
+      "url": "https://liscere.com/about.html#founder",
+      "sameAs": [
+        "https://github.com/BSalmazo"
+      ]
     },
     "datePublished": "2026-07",
+    "inLanguage": "en",
+    "genre": "Landscape Briefing",
+    "identifier": [
+      {
+        "@type": "PropertyValue",
+        "propertyID": "Liscere report number",
+        "value": "LB-2026-04"
+      }
+    ],
     "abstract": "Siemens S7 communication has moved decisively towards encryption by default. Current controllers, configured with the current engineering toolchain, protect programming and HMI traffic with certificate-based transport security as a native, preconfigured feature. This briefing documents a gap between that norm and the field: the installed base of S7 controllers remains, in its majority, communication that a passive observer can read. Three regimes coexist across the estate, from cleartext S7comm on the widely deployed S7-300 and S7-400 families, through application-layer encrypted S7CommPlus, to S7CommPlus wrapped in TLS on current hardware. The field is dominated by the readable regimes, and the gap persists through economics rather than ignorance. For any approach that passively observes S7 traffic, the implication is mixed rather than bleak: across most of the deployed estate, passive observation remains viable because the traffic is readable; where encryption is in force, it marks the boundary of the passive vantage. Encryption is the state of the art in S7 communication. It is not yet the state of the field.",
     "publisher": {
       "@type": "Organization",
+      "@id": "https://liscere.com/#organization",
       "name": "Liscere",
-      "url": "https://liscere.com/"
+      "legalName": "LISCERE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+      "url": "https://liscere.com/",
+      "logo": "https://liscere.com/assets/apple-touch-icon.png"
     },
     "url": "https://liscere.com/research/lb-2026-04/",
+    "mainEntityOfPage": "https://liscere.com/research/lb-2026-04/",
     "encoding": {
       "@type": "MediaObject",
       "contentUrl": "https://liscere.com/assets/papers/liscere-s7-encryption-gap.pdf",
@@ -62,7 +83,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260812-aeo2" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261006-legal" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -80,6 +101,8 @@
         <p class="paper-eyebrow">LB-2026-04 · Landscape Briefing · July 2026</p>
         <h1 class="doc-title">Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base</h1>
 
+        <p class="doc-byline">By <a href="../../about.html#founder">Bruno Salmazo</a>, Liscere</p>
+
         <details class="doc-abstract-toggle">
           <summary>Executive Summary</summary>
           <p class="doc-abstract">Siemens S7 communication has moved decisively towards encryption by default. Current controllers, configured with the current engineering toolchain, protect programming and HMI traffic with certificate-based transport security as a native, preconfigured feature. This briefing documents a gap between that norm and the field: the installed base of S7 controllers remains, in its majority, communication that a passive observer can read. Three regimes coexist across the estate, from cleartext S7comm on the widely deployed S7-300 and S7-400 families, through application-layer encrypted S7CommPlus, to S7CommPlus wrapped in TLS on current hardware. The field is dominated by the readable regimes, and the gap persists through economics rather than ignorance. For any approach that passively observes S7 traffic, the implication is mixed rather than bleak: across most of the deployed estate, passive observation remains viable because the traffic is readable; where encryption is in force, it marks the boundary of the passive vantage. Encryption is the state of the art in S7 communication. It is not yet the state of the field.</p>
@@ -87,7 +110,10 @@
 
         <a class="primary-cta doc-open-mobile" href="../../assets/papers/liscere-s7-encryption-gap.pdf" target="_blank" rel="noopener">Open the PDF &#8599;</a>
 
-        <h2 class="doc-section-head">Cite this report</h2>
+        <h2 class="doc-section-head">How to cite</h2>
+        <p class="doc-cite-label">Plain text</p>
+        <p class="doc-cite doc-cite-text">Salmazo, B. (2026, July). <cite>Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base</cite> (Liscere Landscape Briefing LB-2026-04). Liscere. <a href="https://liscere.com/research/lb-2026-04/">https://liscere.com/research/lb-2026-04/</a></p>
+        <p class="doc-cite-label">BibTeX</p>
         <pre class="doc-cite">@techreport{salmazo_s7gap_2026,
   author      = {Bruno Salmazo},
   title       = {Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base},
@@ -110,7 +136,7 @@
       </div>
     </article>
 
-    <p class="research-foot"><a href="../../index.html">Home</a> · <a href="../../about.html">About</a> · <a href="../../faq.html">FAQ</a> · <a href="../../research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a><br />© 2026 Liscere sp. z o.o.</p>
+    <p class="research-foot"><a href="../../index.html">Home</a> · <a href="../../about.html">About</a> · <a href="../../faq.html">FAQ</a> · <a href="../../research.html">Research</a> · <a href="../../contact.html">Contact</a> · <a href="../../legal.html">Legal</a> · <a href="../../privacy.html">Privacy</a> · <a href="../../terms.html">Terms</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a><br />© 2026 Liscere sp. z o.o.<span class="foot-entity"> · ul. Prezydenta Gabriela Narutowicza 40/1, 90-135 Łódź, Poland · KRS 0001256054</span></p>
   </main>
 
   <script>

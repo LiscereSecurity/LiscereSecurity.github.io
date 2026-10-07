@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>How Industrial Systems Communicate: A Field Guide to OT Protocols and Vendors | Liscere LB-2026-03</title>
-  <meta name="description" content="Industrial plants do not run on one network protocol. A single facility typically speaks several at once, each serving a different layer of the operation" />
-  <meta name="author" content="Liscere" />
+  <meta name="description" content="LB-2026-03, a Liscere landscape briefing by Bruno Salmazo (July 2026): a plain-language map of how industrial systems communicate: the layers, the protocols and the major controller vendors." />
+  <meta name="author" content="Bruno Salmazo" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#030405" />
 
   <meta property="og:title" content="How Industrial Systems Communicate: A Field Guide to OT Protocols and Vendors" />
-  <meta property="og:description" content="Industrial plants do not run on one network protocol. A single facility typically speaks several at once, each serving a different layer of the operation" />
+  <meta property="og:description" content="LB-2026-03, a Liscere landscape briefing by Bruno Salmazo (July 2026): a plain-language map of how industrial systems communicate: the layers, the protocols and the major controller vendors." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://liscere.com/research/lb-2026-03/" />
   <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
@@ -22,30 +22,51 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="How Industrial Systems Communicate: A Field Guide to OT Protocols and Vendors" />
-  <meta name="twitter:description" content="Industrial plants do not run on one network protocol. A single facility typically speaks several at once, each serving a different layer of the operation" />
+  <meta name="twitter:description" content="LB-2026-03, a Liscere landscape briefing by Bruno Salmazo (July 2026): a plain-language map of how industrial systems communicate: the layers, the protocols and the major controller vendors." />
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
 
   <link rel="canonical" href="https://liscere.com/research/lb-2026-03/" />
 
+  <!-- TODO(DOI): when a DOI is minted for LB-2026-03, add
+       { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.xxxx/..." }
+       to "identifier" below, and doi = {10.xxxx/...} to the BibTeX entry on this page. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
+    "@id": "https://liscere.com/research/lb-2026-03/#article",
     "headline": "How Industrial Systems Communicate: A Field Guide to OT Protocols and Vendors",
     "name": "How Industrial Systems Communicate: A Field Guide to OT Protocols and Vendors",
     "author": {
-      "@type": "Organization",
-      "name": "Liscere",
-      "url": "https://liscere.com/"
+      "@type": "Person",
+      "@id": "https://liscere.com/about.html#founder",
+      "name": "Bruno Salmazo",
+      "url": "https://liscere.com/about.html#founder",
+      "sameAs": [
+        "https://github.com/BSalmazo"
+      ]
     },
     "datePublished": "2026-07",
+    "inLanguage": "en",
+    "genre": "Landscape Briefing",
+    "identifier": [
+      {
+        "@type": "PropertyValue",
+        "propertyID": "Liscere report number",
+        "value": "LB-2026-03"
+      }
+    ],
     "abstract": "Industrial plants do not run on one network protocol. A single facility typically speaks several at once, each serving a different layer of the operation: field devices exchanging real-time signals with controllers, engineering stations programming those controllers, supervisory systems collecting data from them, and cloud platforms receiving it all. Public discussion of OT security often blurs these layers together, which makes it hard to reason about what any given protocol actually does or where any given product actually sits. This briefing is a reference map. It explains, in plain terms, how the layers of an industrial system communicate, which protocols dominate each layer, who the major controller vendors are, and how vendors and protocols relate to each other. It is informational by design: it argues no thesis and evaluates no product.",
     "publisher": {
       "@type": "Organization",
+      "@id": "https://liscere.com/#organization",
       "name": "Liscere",
-      "url": "https://liscere.com/"
+      "legalName": "LISCERE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
+      "url": "https://liscere.com/",
+      "logo": "https://liscere.com/assets/apple-touch-icon.png"
     },
     "url": "https://liscere.com/research/lb-2026-03/",
+    "mainEntityOfPage": "https://liscere.com/research/lb-2026-03/",
     "encoding": {
       "@type": "MediaObject",
       "contentUrl": "https://liscere.com/assets/papers/liscere-protocol-guide.pdf",
@@ -62,7 +83,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20260812-aeo2" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261006-legal" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -80,6 +101,8 @@
         <p class="paper-eyebrow">LB-2026-03 · Landscape Briefing · July 2026</p>
         <h1 class="doc-title">How Industrial Systems Communicate: A Field Guide to OT Protocols and Vendors</h1>
 
+        <p class="doc-byline">By <a href="../../about.html#founder">Bruno Salmazo</a>, Liscere</p>
+
         <details class="doc-abstract-toggle">
           <summary>Executive Summary</summary>
           <p class="doc-abstract">Industrial plants do not run on one network protocol. A single facility typically speaks several at once, each serving a different layer of the operation: field devices exchanging real-time signals with controllers, engineering stations programming those controllers, supervisory systems collecting data from them, and cloud platforms receiving it all. Public discussion of OT security often blurs these layers together, which makes it hard to reason about what any given protocol actually does or where any given product actually sits. This briefing is a reference map. It explains, in plain terms, how the layers of an industrial system communicate, which protocols dominate each layer, who the major controller vendors are, and how vendors and protocols relate to each other. It is informational by design: it argues no thesis and evaluates no product.</p>
@@ -87,7 +110,10 @@
 
         <a class="primary-cta doc-open-mobile" href="../../assets/papers/liscere-protocol-guide.pdf" target="_blank" rel="noopener">Open the PDF &#8599;</a>
 
-        <h2 class="doc-section-head">Cite this report</h2>
+        <h2 class="doc-section-head">How to cite</h2>
+        <p class="doc-cite-label">Plain text</p>
+        <p class="doc-cite doc-cite-text">Salmazo, B. (2026, July). <cite>How Industrial Systems Communicate: A Field Guide to OT Protocols and Vendors</cite> (Liscere Landscape Briefing LB-2026-03). Liscere. <a href="https://liscere.com/research/lb-2026-03/">https://liscere.com/research/lb-2026-03/</a></p>
+        <p class="doc-cite-label">BibTeX</p>
         <pre class="doc-cite">@techreport{salmazo_protocolguide_2026,
   author      = {Bruno Salmazo},
   title       = {How Industrial Systems Communicate: A Field Guide to OT Protocols and Vendors},
@@ -110,7 +136,7 @@
       </div>
     </article>
 
-    <p class="research-foot"><a href="../../index.html">Home</a> · <a href="../../about.html">About</a> · <a href="../../faq.html">FAQ</a> · <a href="../../research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a><br />© 2026 Liscere sp. z o.o.</p>
+    <p class="research-foot"><a href="../../index.html">Home</a> · <a href="../../about.html">About</a> · <a href="../../faq.html">FAQ</a> · <a href="../../research.html">Research</a> · <a href="../../contact.html">Contact</a> · <a href="../../legal.html">Legal</a> · <a href="../../privacy.html">Privacy</a> · <a href="../../terms.html">Terms</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a><br />© 2026 Liscere sp. z o.o.<span class="foot-entity"> · ul. Prezydenta Gabriela Narutowicza 40/1, 90-135 Łódź, Poland · KRS 0001256054</span></p>
   </main>
 
   <script>
