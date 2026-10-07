@@ -2379,3 +2379,32 @@ a.paper-card:focus-visible .paper-arrow {
 .aeo-list a {
   overflow-wrap: anywhere;
 }
+
+/* Research pages: version, licence and revision note under the byline (v1.1 corrections). */
+.doc-rights,
+.doc-revised,
+.research-licence {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.doc-revised {
+  font-style: italic;
+}
+
+.doc-rights a,
+.research-licence a {
+  color: var(--ink);
+  border-bottom: 1px solid rgba(0, 217, 255, 0.35);
+}
+
+.doc-rights a:hover,
+.doc-rights a:focus-visible,
+.research-licence a:hover,
+.research-licence a:focus-visible {
+  border-bottom-color: var(--cyan);
+  outline: none;
+}

@@ -48,6 +48,9 @@
     },
     "datePublished": "2026-07",
     "inLanguage": "en",
+    "version": "1.1",
+    "dateModified": "2026-10-07",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
     "genre": "Technical Report",
     "identifier": [
       {
@@ -56,7 +59,7 @@
         "value": "LTR-2026-05"
       }
     ],
-    "abstract": "The preceding report in this series established, on physical hardware, that strong transport encryption removes the vantage from which a passive observer can read an industrial control action, not the logic by which such an action might be evaluated, and it left open how widely that vantage problem bites. This report takes up the question for OPC UA, the vendor-neutral protocol of the supervisory and integration layer, and finds that its answer is a gradient rather than a verdict. OPC UA does not present the binary that a transport such as TLS does. It defines three message security modes, None, Sign, and SignAndEncrypt, negotiated per channel alongside a security policy that names the algorithm suite. We show that the mode alone, not the policy, decides what a passive observer recovers, and we document the result mode by mode with capture evidence: under None the full exchange is legible; under Sign it is equally legible and additionally authenticated; under SignAndEncrypt only the transport envelope survives. The intermediate mode is the finding of interest. Sign has no clean analogue in a transport protocol, and it is the one configuration that delivers integrity and authenticity on the wire while leaving the traffic fully visible to a legitimate observer. We place this against the measured state of deployment. Internet-wide studies five years apart, from 2020 and from 2024 to 2025, agree that a large and persistent fraction of observable OPC UA runs without confidentiality, driven not by weakness in the cryptography but by the configuration burden of activating it. The legible case is therefore the common one, and for OPC UA the observation vantage is not fixed but selected, per channel, by a security-mode choice made elsewhere.",
+    "abstract": "The preceding report in this series established, on physical hardware, that strong transport encryption removes the vantage from which a passive observer can read an industrial control action, not the logic by which such an action might be evaluated, and it left open how widely that vantage problem bites. This report takes up the question for OPC UA, the vendor-neutral protocol of the supervisory and integration layer, and finds that its answer is a gradient rather than a verdict. OPC UA does not present the binary that a transport such as TLS does. It defines three message security modes, None, Sign, and SignAndEncrypt, negotiated per channel alongside a security policy that names the algorithm suite. We show that the mode alone, not the policy, decides what a passive observer recovers, and we document the result mode by mode with capture evidence: under None the full exchange is legible; under Sign it is equally legible and additionally authenticated; under SignAndEncrypt only the transport envelope survives. The intermediate mode is the finding of interest. Sign delivers integrity and authenticity on the wire while leaving the traffic fully visible to a legitimate observer. Integrity-only configurations exist in transport protocols, among them TLS 1.3 integrity-only cipher suites (RFC 9150), IPsec AH and integrity-only MACsec, but they sit outside those transports' default configuration, whereas in OPC UA this is one of the three modes defined for every secure channel. We place this against the measured state of deployment. Internet-wide studies five years apart, from 2020 and from 2024 to 2025, agree that a large and persistent fraction of observable OPC UA runs without confidentiality, driven not by weakness in the cryptography but by the configuration burden of activating it. The legible case is therefore the common one, and for OPC UA the observation vantage is not fixed but selected, per channel, by a security-mode choice made elsewhere.",
     "publisher": {
       "@type": "Organization",
       "@id": "https://liscere.com/#organization",
@@ -83,7 +86,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261006-legal" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261007-v11" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -102,11 +105,13 @@
         <h1 class="doc-title">Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers</h1>
 
         <p class="doc-byline">By <a href="../../about.html#founder">Bruno Salmazo</a>, Liscere</p>
+        <p class="doc-rights">Version 1.1 · © 2026 Liscere sp. z o.o. · Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a></p>
+        <p class="doc-revised">Revised 7 October 2026: addresses, MAC addresses and session tokens redacted in Figures 1 to 3; Sign-mode claims qualified; licence statement added.</p>
 
         <details class="doc-abstract-toggle">
           <summary>Abstract</summary>
           <p class="doc-abstract">The preceding report in this series established, on physical hardware, that strong transport encryption removes the vantage from which a passive observer can read an industrial control action, not the logic by which such an action might be evaluated, and it left open how widely that vantage problem bites. This report takes up the question for OPC UA, the vendor-neutral protocol of the supervisory and integration layer, and finds that its answer is a gradient rather than a verdict.</p>
-          <p class="doc-abstract">OPC UA does not present the binary that a transport such as TLS does. It defines three message security modes, None, Sign, and SignAndEncrypt, negotiated per channel alongside a security policy that names the algorithm suite. We show that the mode alone, not the policy, decides what a passive observer recovers, and we document the result mode by mode with capture evidence: under None the full exchange is legible; under Sign it is equally legible and additionally authenticated; under SignAndEncrypt only the transport envelope survives. The intermediate mode is the finding of interest. Sign has no clean analogue in a transport protocol, and it is the one configuration that delivers integrity and authenticity on the wire while leaving the traffic fully visible to a legitimate observer.</p>
+          <p class="doc-abstract">OPC UA does not present the binary that a transport such as TLS does. It defines three message security modes, None, Sign, and SignAndEncrypt, negotiated per channel alongside a security policy that names the algorithm suite. We show that the mode alone, not the policy, decides what a passive observer recovers, and we document the result mode by mode with capture evidence: under None the full exchange is legible; under Sign it is equally legible and additionally authenticated; under SignAndEncrypt only the transport envelope survives. The intermediate mode is the finding of interest. Sign delivers integrity and authenticity on the wire while leaving the traffic fully visible to a legitimate observer. Integrity-only configurations exist in transport protocols, among them TLS 1.3 integrity-only cipher suites (RFC 9150), IPsec AH and integrity-only MACsec, but they sit outside those transports' default configuration, whereas in OPC UA this is one of the three modes defined for every secure channel.</p>
           <p class="doc-abstract">We place this against the measured state of deployment. Internet-wide studies five years apart, from 2020 and from 2024 to 2025, agree that a large and persistent fraction of observable OPC UA runs without confidentiality, driven not by weakness in the cryptography but by the configuration burden of activating it. The legible case is therefore the common one, and for OPC UA the observation vantage is not fixed but selected, per channel, by a security-mode choice made elsewhere.</p>
         </details>
 
@@ -124,7 +129,8 @@
   month       = jul,
   number      = {LTR-2026-05},
   type        = {Technical Report},
-  url         = {https://liscere.com/research/ltr-2026-05/}
+  url         = {https://liscere.com/research/ltr-2026-05/},
+  note        = {Version 1.1, revised 7 October 2026. Licensed under CC BY 4.0}
 }</pre>
       </div>
 

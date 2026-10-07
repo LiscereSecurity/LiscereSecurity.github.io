@@ -48,6 +48,9 @@
     },
     "datePublished": "2026-06",
     "inLanguage": "en",
+    "version": "1.1",
+    "dateModified": "2026-10-07",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
     "genre": "Technical Report",
     "identifier": [
       {
@@ -56,7 +59,7 @@
         "value": "LTR-2026-01"
       }
     ],
-    "abstract": "Industrial control protocols such as Modbus/TCP were designed for reliability in trusted networks and carry no native notion of authorisation or operational appropriateness. An action can therefore be valid at the protocol level, and issued over an authorised channel, yet still be inappropriate for the operational state of the plant. This report introduces the Liscere action-evaluation chain, a protocol-agnostic method that assesses an industrial action along four dimensions: protocol operation, automation artefact, operational context, and policy constraint. We instantiate the chain for Modbus/TCP over a controlled process model in the OT Lab and report an initial feasibility demonstration. Using a control pair that holds the protocol operation, target artefact, and written value constant and varies only a declared maintenance window, we show that the same sensitive configuration write yields an alert in production and an allow during maintenance. Two negative controls confirm that the maintenance window is not a blanket alert suppressor; all four constructed scenarios returned their expected decision and evidence record. We are explicit about what the baseline does not yet measure: detection performance, robustness, and generality across context dimensions and protocols.",
+    "abstract": "Industrial control protocols such as Modbus/TCP were designed for reliability in trusted networks and, in their classic form, carry no native notion of authorisation or operational appropriateness. An action can therefore be valid at the protocol level, and issued over an authorised channel, yet still be inappropriate for the operational state of the plant. This report introduces the Liscere action-evaluation chain, a protocol-agnostic method that assesses an industrial action along four dimensions: protocol operation, automation artefact, operational context, and policy constraint. We instantiate the chain for Modbus/TCP over a controlled process model in the OT Lab and report an initial feasibility demonstration. Using a control pair that holds the protocol operation, target artefact, and written value constant and varies only a declared maintenance window, we show that the same sensitive configuration write yields an alert in production and an allow during maintenance. Two negative controls confirm that the maintenance window is not a blanket alert suppressor; all four constructed scenarios returned their expected decision and matched rule. We are explicit about what the baseline does not yet measure: detection performance, robustness, and generality across context dimensions and protocols.",
     "publisher": {
       "@type": "Organization",
       "@id": "https://liscere.com/#organization",
@@ -83,7 +86,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261006-legal" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261007-v11" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -102,26 +105,12 @@
         <h1 class="doc-title">Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab</h1>
 
         <p class="doc-byline">By <a href="../../about.html#founder">Bruno Salmazo</a>, Liscere</p>
+        <p class="doc-rights">Version 1.1 · © 2026 Liscere sp. z o.o. · Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a></p>
+        <p class="doc-revised">Revised 7 October 2026: evidence description and Appendix A aligned with the published scenario summary; protocol claim narrowed to classic protocols; licence statement added.</p>
 
         <details class="doc-abstract-toggle">
           <summary>Abstract</summary>
-          <p class="doc-abstract">
-            Industrial control protocols such as Modbus/TCP were designed for reliability in trusted
-            networks and carry no native notion of authorisation or operational appropriateness. An
-            action can therefore be valid at the protocol level, and issued over an authorised channel,
-            yet still be inappropriate for the operational state of the plant. This report introduces the
-            Liscere action-evaluation chain, a protocol-agnostic method that assesses an industrial action
-            along four dimensions: protocol operation, automation artefact, operational context, and
-            policy constraint. We instantiate the chain for Modbus/TCP over a controlled process model in
-            the OT Lab and report an initial feasibility demonstration. Using a control pair that holds the
-            protocol operation, target artefact, and written value constant and varies only a declared
-            maintenance window, we show that the same sensitive configuration write yields an alert in
-            production and an allow during maintenance. Two negative controls confirm that the maintenance
-            window is not a blanket alert suppressor; all four constructed scenarios returned their
-            expected decision and evidence record. We are explicit about what the baseline does not yet
-            measure: detection performance, robustness, and generality across context dimensions and
-            protocols.
-          </p>
+          <p class="doc-abstract">Industrial control protocols such as Modbus/TCP were designed for reliability in trusted networks and, in their classic form, carry no native notion of authorisation or operational appropriateness. An action can therefore be valid at the protocol level, and issued over an authorised channel, yet still be inappropriate for the operational state of the plant. This report introduces the Liscere action-evaluation chain, a protocol-agnostic method that assesses an industrial action along four dimensions: protocol operation, automation artefact, operational context, and policy constraint. We instantiate the chain for Modbus/TCP over a controlled process model in the OT Lab and report an initial feasibility demonstration. Using a control pair that holds the protocol operation, target artefact, and written value constant and varies only a declared maintenance window, we show that the same sensitive configuration write yields an alert in production and an allow during maintenance. Two negative controls confirm that the maintenance window is not a blanket alert suppressor; all four constructed scenarios returned their expected decision and matched rule. We are explicit about what the baseline does not yet measure: detection performance, robustness, and generality across context dimensions and protocols.</p>
         </details>
 
         <a class="primary-cta doc-open-mobile" href="../../assets/papers/liscere-evaluation-modbus-tcp.pdf" target="_blank" rel="noopener">Open the PDF &#8599;</a>
@@ -138,7 +127,8 @@
   month       = jun,
   number      = {LTR-2026-01},
   type        = {Technical Report},
-  url         = {https://liscere.com/research/ltr-2026-01/}
+  url         = {https://liscere.com/research/ltr-2026-01/},
+  note        = {Version 1.1, revised 7 October 2026. Licensed under CC BY 4.0}
 }</pre>
       </div>
 
