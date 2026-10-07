@@ -48,6 +48,9 @@
     },
     "datePublished": "2026-06",
     "inLanguage": "en",
+    "version": "1.1",
+    "dateModified": "2026-10-07",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
     "genre": "Technical Report",
     "identifier": [
       {
@@ -56,7 +59,7 @@
         "value": "LTR-2026-02"
       }
     ],
-    "abstract": "Industrial control protocols such as Modbus/TCP authenticate neither the sender nor the appropriateness of a command. An action can therefore be valid at the protocol level, issued over an authorised channel, and still be inappropriate for the operational state of the plant. This report presents the Liscere framework, a protocol-agnostic model for evaluating an industrial control action along four dimensions: the protocol operation, the automation artefact it affects, the operational context in which it occurs, and the applicable policy constraint. The framework reconstructs an observed protocol event as an industrial action, resolves the affected artefact, enriches the action with declared operational context, evaluates it against explicit policy, and returns a decision together with an evidence record. The model is defined above protocol-specific encodings, with Modbus/TCP as its first instantiation. An initial feasibility demonstration is reported separately; this report sets out the framework, its definitions, and its scope. A peer-reviewed treatment is in preparation. We are explicit about the boundary between what the model defines and what the current implementation evaluates.",
+    "abstract": "Classic industrial control protocols such as Modbus/TCP authenticate neither the sender nor the appropriateness of a command. An action can therefore be valid at the protocol level, issued over an authorised channel, and still be inappropriate for the operational state of the plant. This report presents the Liscere framework, a protocol-agnostic model for evaluating an industrial control action along four dimensions: the protocol operation, the automation artefact it affects, the operational context in which it occurs, and the applicable policy constraint. The framework reconstructs an observed protocol event as an industrial action, resolves the affected artefact, enriches the action with declared operational context, evaluates it against explicit policy, and returns a decision together with an evidence record. The model is defined above protocol-specific encodings, with Modbus/TCP as its first instantiation. An initial feasibility demonstration is reported separately; this report sets out the framework, its definitions, and its scope. A peer-reviewed treatment is in preparation. We are explicit about the boundary between what the model defines and what the current implementation evaluates.",
     "publisher": {
       "@type": "Organization",
       "@id": "https://liscere.com/#organization",
@@ -83,7 +86,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261006-legal" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261007-v11" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -102,10 +105,12 @@
         <h1 class="doc-title">Operational Legitimacy of Industrial Control Actions: The Liscere Framework</h1>
 
         <p class="doc-byline">By <a href="../../about.html#founder">Bruno Salmazo</a>, Liscere</p>
+        <p class="doc-rights">Version 1.1 · © 2026 Liscere sp. z o.o. · Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a></p>
+        <p class="doc-revised">Revised 7 October 2026: protocol-authentication claim narrowed to classic protocols; licence statement added.</p>
 
         <details class="doc-abstract-toggle">
           <summary>Abstract</summary>
-          <p class="doc-abstract">Industrial control protocols such as Modbus/TCP authenticate neither the sender nor the appropriateness of a command. An action can therefore be valid at the protocol level, issued over an authorised channel, and still be inappropriate for the operational state of the plant. This report presents the Liscere framework, a protocol-agnostic model for evaluating an industrial control action along four dimensions: the protocol operation, the automation artefact it affects, the operational context in which it occurs, and the applicable policy constraint. The framework reconstructs an observed protocol event as an industrial action, resolves the affected artefact, enriches the action with declared operational context, evaluates it against explicit policy, and returns a decision together with an evidence record. The model is defined above protocol-specific encodings, with Modbus/TCP as its first instantiation. An initial feasibility demonstration is reported separately; this report sets out the framework, its definitions, and its scope. A peer-reviewed treatment is in preparation. We are explicit about the boundary between what the model defines and what the current implementation evaluates.</p>
+          <p class="doc-abstract">Classic industrial control protocols such as Modbus/TCP authenticate neither the sender nor the appropriateness of a command. An action can therefore be valid at the protocol level, issued over an authorised channel, and still be inappropriate for the operational state of the plant. This report presents the Liscere framework, a protocol-agnostic model for evaluating an industrial control action along four dimensions: the protocol operation, the automation artefact it affects, the operational context in which it occurs, and the applicable policy constraint. The framework reconstructs an observed protocol event as an industrial action, resolves the affected artefact, enriches the action with declared operational context, evaluates it against explicit policy, and returns a decision together with an evidence record. The model is defined above protocol-specific encodings, with Modbus/TCP as its first instantiation. An initial feasibility demonstration is reported separately; this report sets out the framework, its definitions, and its scope. A peer-reviewed treatment is in preparation. We are explicit about the boundary between what the model defines and what the current implementation evaluates.</p>
         </details>
 
         <a class="primary-cta doc-open-mobile" href="../../assets/papers/liscere-framework.pdf" target="_blank" rel="noopener">Open the PDF &#8599;</a>
@@ -122,7 +127,8 @@
   month       = jun,
   number      = {LTR-2026-02},
   type        = {Technical Report},
-  url         = {https://liscere.com/research/ltr-2026-02/}
+  url         = {https://liscere.com/research/ltr-2026-02/},
+  note        = {Version 1.1, revised 7 October 2026. Licensed under CC BY 4.0}
 }</pre>
       </div>
 
