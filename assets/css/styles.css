@@ -2762,3 +2762,57 @@ a.paper-card:focus-visible .paper-arrow {
   .sales-page .actions .secondary-cta { white-space: normal; text-align: center; }
 }
 .sales-page .actions > * { max-width: 100%; }
+
+/* =====================================================================
+   FAQ page: home page layout instead of a narrow centred column.
+   Big left aligned title, then one row per question: question on the
+   left, answer on the right (the same proportions as .about-grid).
+   ===================================================================== */
+.faq-page .aeo-doc {
+  max-width: none;
+  margin: 0;
+  gap: 0;
+}
+.faq-page .aeo-doc > h1.doc-title {
+  margin: 0 0 clamp(2rem, 6vh, 4rem);
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.faq-page .faq-item,
+.faq-page .faq-item + .faq-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  column-gap: clamp(2rem, 6vw, 6rem);
+  row-gap: 1rem;
+  margin: 0;
+  padding: clamp(1.8rem, 4.5vh, 3rem) 0;
+  border-top: 1px solid var(--line);
+}
+.faq-page .faq-q {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+  max-width: 24ch;
+  font-size: clamp(1.2rem, 1.7vw, 1.6rem);
+  line-height: 1.3;
+}
+.faq-page .faq-a {
+  grid-column: 2;
+  max-width: 64ch;
+  font-size: clamp(1rem, 1.15vw, 1.2rem);
+  line-height: 1.65;
+}
+.faq-page .aeo-doc > p:last-child {
+  max-width: none;
+  padding-top: clamp(1.8rem, 4.5vh, 3rem);
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 860px) {
+  .faq-page .faq-item,
+  .faq-page .faq-item + .faq-item { grid-template-columns: 1fr; }
+  .faq-page .faq-q { grid-row: auto; max-width: none; }
+  .faq-page .faq-a { grid-column: 1; }
+}
