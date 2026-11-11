@@ -3053,3 +3053,18 @@ html:has(main.page-stack):not(.past-hero) .site-nav {
 @media (max-width: 860px) {
   .about-main .about-item > ul { grid-column: 1; }
 }
+
+/* FAQ: group headings (Working with Liscere / The framework and research) */
+.faq-page .faq-group {
+  margin: clamp(3rem, 8vh, 5rem) 0 clamp(1.2rem, 3vh, 2rem);
+  padding-top: clamp(1.4rem, 3.5vh, 2.2rem);
+  border-top: 1px solid var(--line-strong);
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.faq-page .doc-title + .faq-group { margin-top: 0; padding-top: 0; border-top: 0; }
+.faq-page .faq-group + .faq-item { border-top: 0; padding-top: 0; }

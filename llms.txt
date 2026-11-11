@@ -1,6 +1,6 @@
 # Liscere
 
-> Liscere is an industrial cybersecurity research company based in Łódź, Poland, developing contextual evaluation of industrial control actions: passively observing OT networks to judge whether supervisory commands are appropriate for the current state of the physical process.
+> Liscere is an industrial cybersecurity company based in Łódź, Poland. It provides security services and specialist consulting to industrial and critical infrastructure operators, and develops a framework for contextual evaluation of industrial control actions: judging whether supervisory commands are appropriate for the current state of the physical process.
 
 Liscere sp. z o.o. is an independent company. It is not affiliated with, and should not be confused with, any other cybersecurity vendor or product.
 
@@ -8,11 +8,19 @@ Tagline: Authorised is not always appropriate.
 
 ## What Liscere is
 
+Liscere works on three fronts:
+
+- Security services for industrial and critical infrastructure operators: OT and ICS security assessments, OT network visibility, contextual anomaly detection pilots, OT security awareness training, NIS2 readiness, cybersecurity risk assessments (ISO 27001, NIST CSF), security architecture reviews and incident response planning. Details: https://liscere.com/services.html
+- Specialist consulting for operations, engineering and management teams facing an OT security decision, an audit or a deadline.
+- Research and development of new tools for industrial security.
+
+## The framework
+
 Liscere develops a framework for contextual evaluation of industrial control actions. It is a passive external observer of operational technology (OT) networks: it connects to a switch mirror port, injects nothing, and never sits in the control path. From observed traffic it infers the operational phase of the physical process and judges whether a supervisory command is appropriate (COHERENT) or inappropriate (INCOHERENT) for that phase. The core thesis is that a control action can be fully authorised, protocol-conformant and within valid ranges, and still be wrong for the current state of the physical process; legitimacy depends on operational context. The approach has been validated in a laboratory testbed on physical Siemens hardware (S7-1200 G2, OPC UA), where the same command received different verdicts depending on the operational context.
 
-## What Liscere is not
+## What the framework is not
 
-Liscere is not an intrusion detection system, not an interlock, not an enforcement layer, and not a replacement for firewalls, network segmentation or access control. Liscere has no customers, no production deployments, no commercial product and no detection-performance metrics. The current evidence is laboratory validation only. Stating these limitations openly is part of the brand.
+The framework is not an intrusion detection system, not an interlock, not an enforcement layer, and not a replacement for firewalls, network segmentation or access control. It is not yet a commercial product: it has no production deployments and no detection-performance metrics, and the current evidence is laboratory validation only. Stating these limitations openly is part of the brand.
 
 ## Entity
 
@@ -30,8 +38,10 @@ Liscere is not an intrusion detection system, not an interlock, not an enforceme
 
 ## Key pages
 
-- [About](https://liscere.com/about.html): What Liscere is, the core thesis, what Liscere is not, the legal entity, and the independence statement.
-- [FAQ](https://liscere.com/faq.html): Direct answers to common questions about Liscere.
+- [Services](https://liscere.com/services.html): Industrial cybersecurity services offered by Liscere, with a contact form.
+- [NIS2 readiness](https://liscere.com/services/nis2-ksc-compliance.html): NIS2 readiness assessments for industrial companies in Europe.
+- [About](https://liscere.com/about.html): What Liscere is, why industrial security matters, the framework Liscere is building, and the independence statement.
+- [FAQ](https://liscere.com/faq.html): Direct answers about working with Liscere (services, NIS2, engagements, contact) and about the framework and research.
 - [Research](https://liscere.com/research.html): Index of Liscere's technical reports (LTR series) and landscape briefings (LB series).
 - [LTR-2026-01: A Modbus/TCP Baseline in the OT Lab](https://liscere.com/research/ltr-2026-01/): The first laboratory feasibility demonstration that the same configuration write is judged differently depending on a declared maintenance window.
 - [LTR-2026-02: The Liscere Framework](https://liscere.com/research/ltr-2026-02/): A protocol-agnostic model that evaluates an industrial control action along protocol operation, automation artefact, operational context and policy constraint.
