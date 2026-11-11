@@ -3069,15 +3069,26 @@ html:has(main.page-stack):not(.past-hero) .site-nav {
 .faq-page .doc-title + .faq-group { margin-top: 0; padding-top: 0; border-top: 0; }
 .faq-page .faq-group + .faq-item { border-top: 0; padding-top: 0; }
 
-/* Services and NIS2 on desktop: gentle snapping. When a scroll ends near the
-   start of a section, the page settles on it; a scroll that ends well inside a
-   section stays where the visitor left it (proximity, not mandatory). The home
-   page keeps its one section per scroll; long reading pages and phones scroll
-   freely. Sections carry their own top padding, so no extra scroll padding. */
+/* Services and NIS2 on desktop: the same scroll as the home page. One section
+   per scroll (mandatory snap, snap-stop always), every section exactly one
+   screen tall, and the same height limited scale as the home page so each
+   section's content fits that screen. The footer is a snap point too, so the
+   end of the page stays reachable. Phones keep free scrolling (their cards
+   stack far taller than one screen). */
 @media (min-width: 861px) {
   html:has(main.sales-page) {
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
     scroll-padding-top: 0;
+    font-size: clamp(1rem, min(0.25rem + 1vw, 0.25rem + 1.55vh), 1.5rem);
   }
-  .sales-page .section { scroll-snap-align: start; }
+  .sales-page .section,
+  .sales-page .section:not(.hero) {
+    min-height: 100svh;
+    justify-content: center;
+    padding-top: calc(var(--cu) * 4 + clamp(1.2rem, 3.5vh, 2.6rem));
+    padding-bottom: clamp(1.2rem, 3.5vh, 2.6rem);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  .sales-page .research-foot { scroll-snap-align: end; }
 }
