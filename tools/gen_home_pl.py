@@ -48,6 +48,8 @@ s = s.replace('href="./services.html"', 'href="./uslugi.html"')
 s = s.replace('href="./about.html"', 'href="./o-nas.html"')
 s = s.replace('href="./research.html"', 'href="../research.html" hreflang="en"')
 s = s.replace('href="./privacy.html"', 'href="../privacy.html" hreflang="en"')
+s = s.replace('href="./legal.html">Legal</a>', 'href="../legal.html" hreflang="en">Dane spółki</a>')
+s = s.replace('href="./terms.html">Terms</a>', 'href="../terms.html" hreflang="en">Warunki korzystania</a>')
 
 # ---------- header and navigation
 s = s.replace('\n      <a class="lang-switch" href="./pl/index.html" hreflang="pl" lang="pl" aria-label="Polski">PL</a>', '')
