@@ -2983,3 +2983,10 @@ html:has(main.page-stack):not(.past-hero) .site-nav {
   .about-page .about-item > h2 { grid-row: auto; max-width: none; }
   .about-page .about-item > p { grid-column: 1; }
 }
+
+/* About and FAQ: no divider between the page title and the first row */
+.faq-page .faq-item:first-of-type,
+.about-page .about-item:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
