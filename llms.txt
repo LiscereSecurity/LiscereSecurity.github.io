@@ -2,7 +2,7 @@
 
 > Liscere is a European industrial cybersecurity company, headquartered in Poland and working globally. It helps industrial and critical infrastructure operators protect the systems that run their physical processes, through security services, specialist consulting, and research and development of new tools for industrial security.
 
-Liscere sp. z o.o. is an independent company. It does not resell hardware or platforms, and it is not affiliated with, and should not be confused with, any other cybersecurity vendor or product.
+Liscere sp. z o.o. is an independent company. It is not affiliated with, and should not be confused with, any other cybersecurity vendor or product.
 
 Tagline: Authorised is not always appropriate.
 
