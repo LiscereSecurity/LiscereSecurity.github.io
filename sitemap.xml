@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://liscere.com/</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://liscere.com/about.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://liscere.com/services.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://liscere.com/services/ot-security-assessment.html</loc>
     <lastmod>2026-11-11</lastmod>
   </url>
   <url>
@@ -17,8 +21,28 @@
     <lastmod>2026-11-11</lastmod>
   </url>
   <url>
+    <loc>https://liscere.com/services/ot-visibility-monitoring.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://liscere.com/services/ot-incident-response.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://liscere.com/services/automation-projects.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://liscere.com/services/automation-modernisation.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://liscere.com/services/industrial-training.html</loc>
+    <lastmod>2026-11-11</lastmod>
+  </url>
+  <url>
     <loc>https://liscere.com/faq.html</loc>
-    <lastmod>2026-08-12</lastmod>
+    <lastmod>2026-11-11</lastmod>
   </url>
   <url>
     <loc>https://liscere.com/privacy.html</loc>

@@ -1,5 +1,12 @@
 :root {
   color-scheme: dark;
+
+  /* Site wide units that do not depend on the page's own scale, so the header
+     and side margins are identical on every page (the home page uses a smaller
+     scale to fit one screen per section). Same curve as the content pages:
+     16px up to 1200px wide, about 19px at 1512px, capped at 24px. */
+  --cu: clamp(16px, 4px + 1vw, 24px);
+  --gutter: clamp(calc(var(--cu) * 1.2), 6vw, calc(var(--cu) * 5.5));
   --bg: #030405;
   --ink: #f4f6f4;
   --muted: #93a0a3;
@@ -29,18 +36,33 @@
   /* shared section rhythm: pages 02 and 03 must use these identical values */
   --sec-pad-top: clamp(4rem, 7vh, 5.5rem);
   --sec-gap: clamp(0.85rem, 2.2vh, 1.5rem);
-  --head-max: 720px;
-  --text-wide: 1040px;
+  --head-max: 45rem;
+  --text-wide: 65rem;
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* Screen relative scale. Every size in this file is in rem (or vw/vh), so the
+   root font size acts as one zoom level for the whole site. Reference: a 1200px
+   wide window has root 16px; wider windows scale up proportionally (about 19px
+   on a 14" MacBook at 1512px, 23px at 1920px), capped at 1.5rem (24px). Built on
+   rem, so browser zoom and the user's font size setting still apply. Phones,
+   tablets and windows up to 1200px keep the default size (the 1rem minimum). */
 html {
+  font-size: clamp(1rem, 0.25rem + 1vw, 1.5rem);
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   overscroll-behavior: none;
+}
+
+/* Home page: its sections are one screen each, so the scale also follows the
+   window height and the smaller of the two wins. Measured so the tallest
+   section still fits: about 17.8px on a 14" MacBook (1512 x 890 visible),
+   19.2px at 1920 x 980, 20.7px at 1920 x 1080. */
+html:has(main.page-stack) {
+  font-size: clamp(1rem, min(0.25rem + 1vw, 0.25rem + 1.55vh), 1.5rem);
 }
 
 body {
@@ -120,7 +142,7 @@ p {
 .site-logo {
   position: fixed;
   top: 1rem;
-  left: clamp(1.2rem, 6vw, 5.5rem);
+  left: var(--gutter);
   z-index: 44;
   display: block;
   width: 8rem;
@@ -189,7 +211,7 @@ p {
   min-height: max(100svh, 660px);
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  padding: clamp(4.5rem, 8vh, 6.8rem) clamp(1.2rem, 6vw, 5.5rem);
+  padding: clamp(4.5rem, 8vh, 6.8rem) var(--gutter);
 }
 
 .hero-page {
@@ -231,7 +253,7 @@ p {
 .narrative {
   position: relative;
   z-index: 2;
-  max-width: 780px;
+  max-width: 48.75rem;
 }
 
 .kicker {
@@ -270,7 +292,7 @@ h2 {
 }
 
 .lead {
-  max-width: 660px;
+  max-width: 41.25rem;
   color: #dce7e7;
   font-family: var(--font-sans);
   font-size: var(--fs-subtitle);
@@ -335,12 +357,10 @@ h2 {
 
 .hero-snake--green {
   stroke: var(--green);
-  filter: drop-shadow(0 0 3px rgba(101, 244, 164, 0.55)) drop-shadow(0 0 8px rgba(101, 244, 164, 0.3));
 }
 
 .hero-snake--amber {
   stroke: var(--amber);
-  filter: drop-shadow(0 0 3px rgba(255, 195, 92, 0.6)) drop-shadow(0 0 8px rgba(255, 195, 92, 0.3));
 }
 
 /* the whole group fades out at once once the icon is complete (JS toggles opacity) */
@@ -463,7 +483,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem;
-  max-width: 1060px;
+  max-width: 66.25rem;
   margin-top: clamp(2rem, 6vh, 4rem);
 }
 
@@ -584,7 +604,7 @@ h2 {
   grid-area: viewport;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 24px;
+  border-radius: 1.5rem;
   /* horizontal drags drive the carousel; vertical drags still scroll the page */
   touch-action: pan-y;
 }
@@ -651,7 +671,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: clamp(0.45rem, 1.1vh, 0.75rem);
-  max-width: 820px;
+  max-width: 51.25rem;
   padding: clamp(1.2rem, 2.4vw, 1.9rem);
 }
 
@@ -700,7 +720,7 @@ h2 {
   align-items: center;
   padding: 0.58rem 0.9rem;
   border: 1px solid var(--line-strong);
-  border-radius: 12px;
+  border-radius: 0.75rem;
   background: rgba(0, 217, 255, 0.07);
   color: var(--ink);
   font-family: var(--mono);
@@ -825,7 +845,7 @@ h2 {
   gap: 0.4rem;
   padding: clamp(0.9rem, 1.3vw, 1.2rem) clamp(0.95rem, 1.4vw, 1.3rem);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 0.875rem;
   background: rgba(2, 7, 9, 0.56);
   text-align: center;
 }
@@ -963,7 +983,7 @@ a.shift-step:focus-visible .shift-source {
   display: flex;
   flex-direction: column;
   gap: clamp(1.1rem, 2.4vh, 1.7rem);
-  max-width: 540px;
+  max-width: 33.75rem;
 }
 
 .about-body {
@@ -998,7 +1018,7 @@ a.shift-step:focus-visible .shift-source {
 }
 
 .how-head {
-  max-width: 1040px;
+  max-width: 65rem;
 }
 
 .how-page h2 {
@@ -1008,7 +1028,7 @@ a.shift-step:focus-visible .shift-source {
 
 .how-intro {
   margin: 0;
-  max-width: 760px;
+  max-width: 47.5rem;
   color: var(--muted);
   font-size: clamp(1rem, 1.15vw, 1.12rem);
   line-height: 1.45;
@@ -1109,7 +1129,7 @@ a.shift-step:focus-visible .shift-source {
   flex-direction: column;
   align-items: center;
   gap: clamp(1rem, 2.4vh, 1.6rem);
-  max-width: min(900px, 100%);
+  max-width: min(56.25rem, 100%);
   text-align: center;
   /* sit slightly above the true centre for optical balance (~4-6%) */
   margin-bottom: clamp(2rem, 6vh, 4rem);
@@ -1122,7 +1142,7 @@ a.shift-step:focus-visible .shift-source {
 
 .evidence-body {
   margin: 0;
-  max-width: 720px;
+  max-width: 45rem;
   color: var(--muted);
   font-size: clamp(1rem, 1.2vw, 1.18rem);
   line-height: 1.55;
@@ -1282,7 +1302,7 @@ a.shift-step:focus-visible .shift-source {
   }
 
   .about-side {
-    max-width: 640px;
+    max-width: 40rem;
   }
 }
 
@@ -1505,7 +1525,7 @@ a.shift-step:focus-visible .shift-source {
     gap: 0.4rem;
     padding: 1.2rem 1.25rem;
     border: 1px solid var(--line);
-    border-radius: 14px;
+    border-radius: 0.875rem;
     background: rgba(2, 7, 9, 0.56);
     text-align: left;
     grid-template-columns: none;
@@ -1607,7 +1627,7 @@ a.shift-step:focus-visible .shift-source {
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-  padding: clamp(4.5rem, 8vh, 6.8rem) clamp(1.2rem, 6vw, 5.5rem);
+  padding: clamp(4.5rem, 8vh, 6.8rem) var(--gutter);
   padding-top: calc(var(--sec-pad-top) + clamp(1.5rem, 5vh, 2.8rem));
   gap: clamp(1rem, 2.4vh, 1.6rem);
   text-align: left;
@@ -1616,7 +1636,7 @@ a.shift-step:focus-visible .shift-source {
 .research-back {
   position: fixed;
   top: 1.15rem;
-  right: clamp(1.2rem, 6vw, 5.5rem);
+  right: var(--gutter);
   z-index: 44;
   pointer-events: auto; /* re-enable clicks: parent .site-chrome sets pointer-events:none */
   font-family: var(--font-mono);
@@ -1640,7 +1660,7 @@ a.shift-step:focus-visible .shift-source {
 .site-nav {
   position: fixed;
   top: 1.15rem;
-  right: clamp(1.2rem, 6vw, 5.5rem);
+  right: var(--gutter);
   z-index: 44;
   display: flex;
   gap: clamp(0.9rem, 2vw, 1.6rem);
@@ -1768,7 +1788,7 @@ a.shift-step:focus-visible .shift-source {
      the body and the margin-top:auto CTA. Rely on grid stretch instead. */
   padding: clamp(1.3rem, 1.9vw, 1.7rem);
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 1rem;
   background: rgba(2, 7, 9, 0.56);
   text-align: left;
 }
@@ -1990,7 +2010,7 @@ a.paper-card:focus-visible .paper-arrow {
   padding: clamp(1rem, 1.6vw, 1.3rem);
   overflow-x: auto;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 0.875rem;
   background: rgba(2, 7, 9, 0.56);
   color: #cbd8da;
   font-family: var(--font-mono);
@@ -2031,10 +2051,10 @@ a.paper-card:focus-visible .paper-arrow {
   top: calc(var(--sec-pad-top) + 0.5rem);
   display: block;
   width: 100%;
-  height: min(82vh, 900px);
+  height: min(82vh, 56.25rem);
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 0.875rem;
   background: rgba(2, 7, 9, 0.56);
 }
 
@@ -2143,9 +2163,9 @@ a.paper-card:focus-visible .paper-arrow {
 
 .demo-modal-panel {
   position: relative;
-  width: min(1100px, 100%);
+  width: min(68.75rem, 100%);
   border: 1px solid var(--line-strong);
-  border-radius: 16px;
+  border-radius: 1rem;
   overflow: hidden;
   background: #030405;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 217, 255, 0.12);
@@ -2194,7 +2214,7 @@ a.paper-card:focus-visible .paper-arrow {
    scoped to .aeo-doc so they never touch the paper/report layouts.
    ===================================================================== */
 .aeo-doc {
-  max-width: 720px;
+  max-width: 45rem;
   width: 100%;
   margin-inline: auto;
   display: flex;
@@ -2277,7 +2297,7 @@ a.paper-card:focus-visible .paper-arrow {
   max-width: 72ch;
   padding: clamp(0.95rem, 1.6vw, 1.25rem) clamp(1rem, 1.8vw, 1.4rem);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 0.875rem;
   background: rgba(2, 7, 9, 0.55);
   color: var(--muted);
   line-height: 1.6;
@@ -2325,7 +2345,7 @@ a.paper-card:focus-visible .paper-arrow {
   /* tokens the prototype uses that the site does not define */
   --cyan-2: #4de6ff;
   --card: rgba(2, 7, 9, 0.56);
-  --pad-x: clamp(1.2rem, 6vw, 5.5rem);
+  --pad-x: var(--gutter);
   position: relative;
   z-index: 1;
   display: flex;
@@ -2356,9 +2376,9 @@ a.paper-card:focus-visible .paper-arrow {
   padding: clamp(3.4rem, 7vh, 5.5rem) var(--pad-x);
   border-bottom: 1px solid var(--line);
 }
-.services-page .wrap { max-width: 1040px; margin: 0 auto; }
-.services-page .narrow { max-width: 720px; }
-.services-page .wrap.narrow { max-width: 720px; }
+.services-page .wrap { max-width: 65rem; margin: 0 auto; }
+.services-page .narrow { max-width: 45rem; }
+.services-page .wrap.narrow { max-width: 45rem; }
 .services-page .kicker { margin: 0 0 1rem; color: var(--cyan); }
 .services-page .lead {
   max-width: none;
@@ -2413,7 +2433,7 @@ a.paper-card:focus-visible .paper-arrow {
 /* cards */
 .services-page .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 1rem;
   margin: 1.4rem 0 0;
   padding: 0;
@@ -2425,7 +2445,7 @@ a.paper-card:focus-visible .paper-arrow {
   gap: 0.5rem;
   padding: 1.3rem 1.3rem 1.2rem;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 0.875rem;
   background: var(--card);
   transition: border-color 160ms ease, box-shadow 160ms ease;
 }
@@ -2465,8 +2485,8 @@ a.paper-card:focus-visible .paper-arrow {
 .services-page .pill.cyan { color: var(--cyan); border-color: rgba(0, 217, 255, 0.4); }
 
 /* steps and timeline */
-.services-page .steps { counter-reset: step; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 1.4rem 0 0; padding: 0; list-style: none; }
-.services-page .steps li { position: relative; padding: 1.2rem; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+.services-page .steps { counter-reset: step; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr)); margin: 1.4rem 0 0; padding: 0; list-style: none; }
+.services-page .steps li { position: relative; padding: 1.2rem; border: 1px solid var(--line); border-radius: 0.875rem; background: var(--card); }
 .services-page .steps li::before {
   counter-increment: step;
   content: "0" counter(step);
@@ -2479,7 +2499,7 @@ a.paper-card:focus-visible .paper-arrow {
 }
 .services-page .steps p { margin: 0; }
 .services-page .timeline { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
-.services-page .timeline li { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; padding: 0.9rem 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); align-items: start; }
+.services-page .timeline li { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; padding: 0.9rem 1rem; border: 1px solid var(--line); border-radius: 0.75rem; background: var(--card); align-items: start; }
 .services-page .timeline .date { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; color: var(--ink); }
 .services-page .timeline .date small { display: block; color: var(--quiet); letter-spacing: 0.1em; font-size: 0.64rem; text-transform: uppercase; margin-top: 0.2rem; }
 .services-page .timeline li.passed .date { color: var(--quiet); }
@@ -2493,13 +2513,13 @@ a.paper-card:focus-visible .paper-arrow {
   margin-top: 1.4rem;
   padding: 1rem 1.2rem;
   border: 1px dashed var(--line-strong);
-  border-radius: 12px;
+  border-radius: 0.75rem;
   font-size: 0.92rem;
 }
 
 /* FAQ (details/summary; the site's FAQ page uses .faq-item instead) */
 .services-page .faq { margin: 1.2rem 0 0; display: grid; gap: 0.6rem; }
-.services-page .faq details { border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 0 1.1rem; }
+.services-page .faq details { border: 1px solid var(--line); border-radius: 0.75rem; background: var(--card); padding: 0 1.1rem; }
 .services-page .faq summary { cursor: pointer; list-style: none; padding: 1rem 0; color: var(--ink); font-weight: 600; display: flex; justify-content: space-between; gap: 1rem; }
 .services-page .faq summary::-webkit-details-marker { display: none; }
 .services-page .faq summary::after { content: "+"; font-family: var(--mono); color: var(--cyan); }
@@ -2507,7 +2527,7 @@ a.paper-card:focus-visible .paper-arrow {
 .services-page .faq details p { padding-bottom: 1rem; margin: 0; }
 
 /* contact form */
-.services-page .form-card { padding: 1.5rem; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+.services-page .form-card { padding: 1.5rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--card); }
 .services-page .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
 .services-page .form-grid .full { grid-column: 1 / -1; }
 .services-page label { display: block; font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 0.35rem; }
@@ -2516,7 +2536,7 @@ a.paper-card:focus-visible .paper-arrow {
 .services-page textarea {
   width: 100%;
   padding: 0.75rem 0.9rem;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   border: 1px solid var(--line-strong);
   background: rgba(255, 255, 255, 0.03);
   color: var(--ink);
@@ -2565,8 +2585,8 @@ a.paper-card:focus-visible .paper-arrow {
 @media (max-width: 720px) {
   .site-nav {
     top: 3rem;
-    left: clamp(1.2rem, 6vw, 5.5rem);
-    right: clamp(1.2rem, 6vw, 5.5rem);
+    left: var(--gutter);
+    right: var(--gutter);
     flex-wrap: wrap;
     gap: 0.4rem 1rem;
   }
@@ -2592,7 +2612,7 @@ a.paper-card:focus-visible .paper-arrow {
   .services-page .legal tr,
   .services-page .legal td { display: block; width: 100%; }
   .services-page .legal thead { display: none; }
-  .services-page .legal tr { margin-bottom: 0.9rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+  .services-page .legal tr { margin-bottom: 0.9rem; border: 1px solid var(--line); border-radius: 0.75rem; background: var(--card); }
   .services-page .legal td { border: 0; border-top: 1px solid var(--line); }
   .services-page .legal td:first-child { border-top: 0; color: var(--ink); font-weight: 600; }
   .services-page .legal td::before {
@@ -2679,7 +2699,7 @@ a.paper-card:focus-visible .paper-arrow {
 .sales-page .card {
   gap: 0.9rem;
   padding: clamp(1.4rem, 2vw, 2rem);
-  border-radius: 18px;
+  border-radius: 1.125rem;
 }
 .sales-page .card h3 { margin: 0; font-size: clamp(1.15rem, 1.5vw, 1.45rem); line-height: 1.25; }
 .sales-page .card p { color: #c6d2d3; font-size: clamp(0.98rem, 1.05vw, 1.08rem); line-height: 1.55; }
@@ -2698,7 +2718,7 @@ a.paper-card:focus-visible .paper-arrow {
 .sales-page .contact-aside h2 { margin-bottom: 1.2rem; }
 .sales-page .contact-aside .section-side { margin-bottom: 1.8rem; }
 .sales-page .contact-aside .mono { margin: 0 0 0.6rem; font-size: 0.85rem; }
-.sales-page .form-card { padding: clamp(1.5rem, 2.4vw, 2.2rem); border-radius: 18px; }
+.sales-page .form-card { padding: clamp(1.5rem, 2.4vw, 2.2rem); border-radius: 1.125rem; }
 .sales-page .form-grid .actions { margin-top: 0.4rem; }
 
 @media (max-width: 1100px) {
@@ -2734,7 +2754,7 @@ a.paper-card:focus-visible .paper-arrow {
 }
 .sales-page .faq { margin: 0; }
 .sales-page .faq summary { font-size: clamp(1rem, 1.3vw, 1.25rem); padding: 1.2rem 0; }
-.sales-page .faq details { padding: 0 clamp(1.1rem, 1.6vw, 1.6rem); border-radius: 16px; }
+.sales-page .faq details { padding: 0 clamp(1.1rem, 1.6vw, 1.6rem); border-radius: 1rem; }
 .sales-page .faq details p { color: #c6d2d3; font-size: clamp(0.98rem, 1.1vw, 1.12rem); line-height: 1.6; padding-bottom: 1.3rem; }
 .sales-page .hero .kicker a { color: var(--cyan); border-bottom: 1px solid rgba(0, 217, 255, 0.35); }
 
@@ -2749,3 +2769,413 @@ a.paper-card:focus-visible .paper-arrow {
   .sales-page .actions .secondary-cta { white-space: normal; text-align: center; }
 }
 .sales-page .actions > * { max-width: 100%; }
+
+/* =====================================================================
+   FAQ page: home page layout instead of a narrow centred column.
+   Big left aligned title, then one row per question: question on the
+   left, answer on the right (the same proportions as .about-grid).
+   ===================================================================== */
+.faq-page .aeo-doc {
+  max-width: none;
+  margin: 0;
+  gap: 0;
+}
+.faq-page .aeo-doc > h1.doc-title {
+  margin: 0 0 clamp(2rem, 6vh, 4rem);
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.faq-page .faq-item,
+.faq-page .faq-item + .faq-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  column-gap: clamp(2rem, 6vw, 6rem);
+  row-gap: 1rem;
+  margin: 0;
+  padding: clamp(1.8rem, 4.5vh, 3rem) 0;
+  border-top: 1px solid var(--line);
+}
+.faq-page .faq-q {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+  max-width: 24ch;
+  font-size: clamp(1.2rem, 1.7vw, 1.6rem);
+  line-height: 1.3;
+}
+.faq-page .faq-a {
+  grid-column: 2;
+  max-width: 64ch;
+  font-size: clamp(1rem, 1.15vw, 1.2rem);
+  line-height: 1.65;
+}
+.faq-page .aeo-doc > p:last-child {
+  max-width: none;
+  padding-top: clamp(1.8rem, 4.5vh, 3rem);
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 860px) {
+  .faq-page .faq-item,
+  .faq-page .faq-item + .faq-item { grid-template-columns: 1fr; }
+  .faq-page .faq-q { grid-row: auto; max-width: none; }
+  .faq-page .faq-a { grid-column: 1; }
+}
+
+/* Header nav: the same five links on every page; the current page is marked
+   like the active Research filter (cyan text, cyan underline). */
+.site-nav a {
+  padding: 0.3rem 0;
+  border-bottom: 1.5px solid transparent;
+}
+.site-nav a[aria-current="page"] {
+  color: var(--cyan);
+  border-bottom-color: var(--cyan);
+}
+
+/* Services and NIS2: only the hero fills the screen; the other sections size
+   to their content with generous padding, so short sections no longer leave
+   large empty bands above and below. */
+.sales-page .section:not(.hero) {
+  min-height: 0;
+  padding-block: clamp(4.5rem, 11vh, 8rem);
+}
+@media (max-width: 720px) {
+  .site-nav { gap: 0.4rem 0.75rem; }
+  .site-nav a { padding: 0.1rem 0; }
+}
+@media (max-width: 360px) {
+  .site-nav { letter-spacing: 0.06em; }
+}
+
+/* =====================================================================
+   Header always visible: wordmark and nav stay on screen on every page,
+   on a dark translucent bar so they never sit on top of the text.
+   (Overrides the earlier fade driven by .past-hero.)
+   ===================================================================== */
+.site-chrome { --chrome-h: 4rem; }
+.site-chrome::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--chrome-h);
+  background: rgba(3, 4, 5, 0.8);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.site-logo,
+.site-nav,
+.past-hero .site-logo,
+.past-hero .site-nav { opacity: 1; }
+
+/* anchor links (#contact, #faq...) land below the bar; not on the home page,
+   where it would shift the one screen snap points */
+html:not(:has(main.page-stack)) { scroll-padding-top: 5rem; }
+
+@media (max-width: 720px) {
+  /* nav sits on a second row under the wordmark */
+  .site-chrome { --chrome-h: 4.35rem; }
+}
+
+/* =====================================================================
+   Header: one size on every page (in --cu, not the page's rem), and on the
+   home page it stays hidden on the hero and appears once scrolled.
+   ===================================================================== */
+.site-chrome { --chrome-h: calc(var(--cu) * 4); }
+.site-logo { top: var(--cu); width: calc(var(--cu) * 8); }
+.site-nav {
+  top: calc(var(--cu) * 1.15);
+  gap: clamp(calc(var(--cu) * 0.9), 2vw, calc(var(--cu) * 1.6));
+  font-size: calc(var(--cu) * 0.7);
+}
+.site-nav a { padding: calc(var(--cu) * 0.3) 0; }
+
+.site-chrome::before { transition: opacity 320ms ease; }
+html:has(main.page-stack):not(.past-hero) .site-chrome::before,
+html:has(main.page-stack):not(.past-hero) .site-logo,
+html:has(main.page-stack):not(.past-hero) .site-nav {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .site-chrome { --chrome-h: calc(var(--cu) * 4.35); }
+  .site-logo { width: calc(var(--cu) * 6.5); }
+  .site-nav { top: calc(var(--cu) * 3); gap: calc(var(--cu) * 0.4) calc(var(--cu) * 0.75); }
+  .site-nav a { padding: calc(var(--cu) * 0.1) 0; }
+}
+
+/* =====================================================================
+   About page: same layout as the FAQ. Big left aligned title and lead,
+   then one row per section: section title on the left, text on the right.
+   ===================================================================== */
+.about-main .aeo-doc { max-width: none; margin: 0; gap: 0; }
+.about-main .aeo-doc > h1.doc-title {
+  margin: 0 0 clamp(2rem, 6vh, 4rem);
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.about-main .aeo-doc > p.aeo-lead {
+  max-width: 46ch;
+  margin: 0 0 clamp(2.4rem, 7vh, 4.5rem);
+  text-align: left;
+  font-size: clamp(1.15rem, 1.8vw, 1.6rem);
+  line-height: 1.45;
+}
+.about-main .about-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  column-gap: clamp(2rem, 6vw, 6rem);
+  row-gap: 1.1rem;
+  padding: clamp(1.8rem, 4.5vh, 3rem) 0;
+  border-top: 1px solid var(--line);
+}
+.about-main .about-item > h2 {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+  margin: 0;
+  max-width: 24ch;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: clamp(1.2rem, 1.7vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  text-transform: none;
+}
+.about-main .about-item > p {
+  grid-column: 2;
+  max-width: 64ch;
+  margin: 0;
+  color: #dce7e7;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.15vw, 1.2rem);
+  line-height: 1.65;
+}
+.about-main .about-item > p a {
+  color: var(--cyan);
+  border-bottom: 1px solid rgba(0, 217, 255, 0.35);
+}
+.about-main .about-item > p a:hover { border-bottom-color: var(--cyan); }
+.about-main .about-item > p.aeo-note {
+  padding: clamp(0.95rem, 1.6vw, 1.25rem) clamp(1rem, 1.8vw, 1.4rem);
+  border: 1px solid var(--line);
+  border-radius: 0.875rem;
+  background: rgba(2, 7, 9, 0.55);
+  color: var(--muted);
+}
+.about-main .aeo-doc > p:last-child {
+  max-width: none;
+  padding-top: clamp(1.8rem, 4.5vh, 3rem);
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 860px) {
+  .about-main .about-item { grid-template-columns: 1fr; }
+  .about-main .about-item > h2 { grid-row: auto; max-width: none; }
+  .about-main .about-item > p { grid-column: 1; }
+}
+
+/* About and FAQ: no divider between the page title and the first row */
+.faq-page .faq-item:first-of-type,
+.about-main .about-item:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+/* Home page on desktop: tighten the two tallest sections so the whole page
+   can use a larger scale and still fit one screen per section. */
+@media (min-width: 721px) {
+  .about-page { gap: clamp(2.5rem, 8vh, 7rem); }
+  .how-page { gap: clamp(0.9rem, 2vh, 1.8rem); }
+  /* the cyan closing line stays pinned to the bottom, at the same height as
+     on the other sections; the free space goes above it */
+  .about-page .about-close,
+  .how-page .about-close { margin-top: auto; }
+}
+
+/* Hero performance: the icon glow is a wider translucent stroke under the outline
+   (index.html adds it) instead of a drop-shadow filter, and every hero animation
+   pauses while the hero is off screen or the tab is hidden (.is-paused, set by JS). */
+.hero-snake-glow { opacity: 0.22; }
+.hero-page.is-paused .hero-field *,
+.hero-page.is-paused .hero-scrollcue-dot { animation-play-state: paused !important; }
+/* Chrome flicker fix: on 120Hz displays Chrome was alternating between partial
+   repaints of the animated SVG and the veil above it (about half the lines
+   vanished every other frame). Giving the field its own compositor layer keeps
+   each frame complete. Measured in Chrome 157: ~200 flicker frames per 8s -> 0. */
+.hero-field { will-change: transform; }
+/* hero input lines are drawn on a canvas under the SVG outputs (see index.html) */
+.hero-field-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hero-field-svg { position: relative; }
+
+/* About: bulleted list inside a row (cyan dots, like the Services check list) */
+.about-main .about-item > ul {
+  grid-column: 2;
+  max-width: 64ch;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.7rem;
+  color: #dce7e7;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.15vw, 1.2rem);
+  line-height: 1.6;
+}
+.about-main .about-item > ul li { position: relative; padding-left: 1.5rem; }
+.about-main .about-item > ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.68em;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+}
+.about-main .about-item > ul strong { color: var(--ink); font-weight: 600; }
+@media (max-width: 860px) {
+  .about-main .about-item > ul { grid-column: 1; }
+}
+
+/* FAQ: group headings (Working with Liscere / The framework and research) */
+.faq-page .faq-group {
+  margin: clamp(3rem, 8vh, 5rem) 0 clamp(1.2rem, 3vh, 2rem);
+  padding-top: clamp(1.4rem, 3.5vh, 2.2rem);
+  border-top: 1px solid var(--line-strong);
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.faq-page .doc-title + .faq-group { margin-top: 0; padding-top: 0; border-top: 0; }
+.faq-page .faq-group + .faq-item { border-top: 0; padding-top: 0; }
+
+/* Services and NIS2 on desktop: the same scroll as the home page. One section
+   per scroll (mandatory snap, snap-stop always), every section exactly one
+   screen tall, and the same height limited scale as the home page so each
+   section's content fits that screen. The footer is a snap point too, so the
+   end of the page stays reachable. Phones keep free scrolling (their cards
+   stack far taller than one screen). */
+@media (min-width: 861px) {
+  html:has(main.sales-page) {
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 0;
+    font-size: clamp(1rem, min(0.25rem + 1vw, 0.25rem + 1.55vh), 1.5rem);
+  }
+  .sales-page .section,
+  .sales-page .section:not(.hero) {
+    min-height: 100svh;
+    justify-content: center;
+    padding-top: calc(var(--cu) * 4 + clamp(1.2rem, 3.5vh, 2.6rem));
+    padding-bottom: clamp(1.2rem, 3.5vh, 2.6rem);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  .sales-page .research-foot { scroll-snap-align: end; }
+}
+
+/* Services hero: the same animated scroll cue as the home hero */
+.sales-page .hero { position: relative; }
+
+/* Single service pages: one opening screen that answers what the service is,
+   who it is for and why it is needed, then the questions, then the form. */
+.service-page .hero h1 {
+  max-width: 24ch;
+  margin: 0;
+  font-size: clamp(2.1rem, 4.2vw, 4.6rem);
+}
+.service-brief {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3.5rem);
+  margin: clamp(2.4rem, 6vh, 4rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.service-brief li {
+  padding-top: clamp(1rem, 2vh, 1.4rem);
+  border-top: 1px solid rgba(0, 217, 255, 0.35);
+}
+.sales-page .service-brief h2 {
+  margin: 0 0 0.9rem;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.service-brief p {
+  margin: 0;
+  color: #c6d2d3;
+  font-size: clamp(1rem, 1.15vw, 1.2rem);
+  line-height: 1.6;
+}
+.service-page .hero { padding-bottom: calc(clamp(1.6rem, 5vh, 3rem) + 4.5rem); }
+@media (min-width: 861px) {
+  .sales-page.service-page .hero { padding-bottom: calc(clamp(1.6rem, 5vh, 3rem) + 4.5rem); }
+}
+@media (max-width: 860px) {
+  .service-brief { grid-template-columns: 1fr; gap: 1.6rem; }
+}
+
+/* Service pages: a small fixed button back to the Services section the visitor came from */
+.back-fab {
+  position: fixed;
+  left: var(--gutter);
+  bottom: clamp(1rem, 3vh, 1.6rem);
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 1.05rem;
+  border: 1px solid rgba(0, 217, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(3, 4, 5, 0.72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.back-fab:hover,
+.back-fab:focus-visible { border-color: var(--cyan); color: var(--cyan); }
+.back-fab span { font-size: 1rem; letter-spacing: 0; line-height: 1; }
+/* phones: the content is stacked full width, so the button sits at the top of the
+   page under the header and scrolls away instead of floating over the text */
+@media (max-width: 860px) {
+  .back-fab { position: absolute; top: calc(var(--cu) * 4.35 + 0.9rem); bottom: auto; }
+  .service-page .hero .hero-copy { margin-top: 3.4rem; }
+}
+
+/* Short laptop screens (around 720px tall): the incidents screen on the home page
+   needs a little less vertical padding to stay exactly one screen tall. */
+@media (min-width: 861px) and (max-height: 820px) {
+  .gap-page { padding-bottom: 1.4rem; }
+  .gap-page .incident-carousel { margin-top: 0.8rem; }
+}

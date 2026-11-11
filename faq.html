@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="en" class="past-hero">
+<html lang="en-GB" class="past-hero">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FAQ | Liscere</title>
-  <meta name="description" content="Direct answers about Liscere: how contextual evaluation of control actions works, why it is not an intrusion detection system, and how it is validated." />
+  <title>FAQ | Liscere Industrial Cybersecurity</title>
+  <meta name="description" content="Direct answers about Liscere: OT security and automation services, NIS2 readiness, how engagements work and the framework Liscere is developing." />
   <meta name="author" content="Liscere" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#030405" />
 
-  <meta property="og:title" content="FAQ | Liscere" />
-  <meta property="og:description" content="Direct answers about Liscere: how contextual evaluation of control actions works, why it is not an intrusion detection system, and how it is validated." />
+  <meta property="og:title" content="FAQ | Liscere Industrial Cybersecurity" />
+  <meta property="og:description" content="Direct answers about Liscere: OT security and automation services, NIS2 readiness, how engagements work and the framework Liscere is developing." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://liscere.com/faq.html" />
   <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
@@ -21,21 +21,22 @@
   <meta property="og:site_name" content="Liscere" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="FAQ | Liscere" />
-  <meta name="twitter:description" content="Direct answers about Liscere: how contextual evaluation of control actions works, why it is not an intrusion detection system, and how it is validated." />
+  <meta name="twitter:title" content="FAQ | Liscere Industrial Cybersecurity" />
+  <meta name="twitter:description" content="Direct answers about Liscere: OT security and automation services, NIS2 readiness, how engagements work and the framework Liscere is developing." />
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
 
   <link rel="canonical" href="https://liscere.com/faq.html" />
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://liscere.com/#org",
+    "@context": "https://schema.org",
     "name": "Liscere",
     "legalName": "LISCERE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
     "url": "https://liscere.com/",
     "logo": "https://liscere.com/assets/apple-touch-icon.png",
-    "description": "Liscere is an industrial cybersecurity research company based in Łódź, Poland, developing contextual evaluation of industrial control actions: passively observing OT networks to judge whether supervisory commands are appropriate for the current state of the physical process.",
+    "description": "Liscere is a European industrial cybersecurity company, headquartered in Poland and working globally. It provides security services and secure automation engineering to industrial and critical infrastructure operators, and develops a framework for contextual evaluation of industrial control actions: judging whether supervisory commands are appropriate for the current state of the physical process.",
     "email": "hello@liscere.com",
     "foundingDate": "2026-07-27",
     "address": {
@@ -50,9 +51,21 @@
       "name": "Bruno Salmazo"
     },
     "identifier": [
-      { "@type": "PropertyValue", "propertyID": "KRS", "value": "0001256054" },
-      { "@type": "PropertyValue", "propertyID": "NIP", "value": "7252369168" },
-      { "@type": "PropertyValue", "propertyID": "REGON", "value": "545329293" }
+      {
+        "@type": "PropertyValue",
+        "propertyID": "KRS",
+        "value": "0001256054"
+      },
+      {
+        "@type": "PropertyValue",
+        "propertyID": "NIP",
+        "value": "7252369168"
+      },
+      {
+        "@type": "PropertyValue",
+        "propertyID": "REGON",
+        "value": "545329293"
+      }
     ],
     "sameAs": [
       "https://www.linkedin.com/company/liscere",
@@ -68,50 +81,122 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What does contextual evaluation of industrial control actions mean?",
+        "name": "What does Liscere do?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "It means judging an action not only by whether it is permitted, but by whether it fits the operational context of the process at that moment. An action can be authorised, protocol-conformant and within valid ranges and still be inappropriate for the current operational phase. Liscere infers that phase from the observed traffic and judges whether the action is appropriate or inappropriate for it."
+          "text": "Liscere is a European industrial cybersecurity company, headquartered in Poland and working globally. We provide security services and secure automation engineering to industrial and critical infrastructure operators, and we develop new tools for industrial security, starting with a framework for contextual evaluation of industrial control actions."
         }
       },
       {
         "@type": "Question",
-        "name": "How is Liscere different from an intrusion detection system?",
+        "name": "Which services does Liscere offer?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "An intrusion detection system inspects the traffic; Liscere inspects the process. Signature-based and anomaly-based sensors decide over network features and look for traffic that is malformed, unauthorised or unusual. Liscere instead reconstructs the operational state of the plant from the observed process variables and evaluates each action against that state. The events it surfaces are well-formed, permitted and statistically ordinary, which is why traffic-level sensors have no reason to flag them. It is a semantic layer over the process, not another detection rule over the packets."
+          "text": "Two groups of services. Industrial and OT security: OT and ICS security assessments, OT visibility and monitoring, NIS2 readiness and incident response for OT. Automation engineering: automation projects (PLC and HMI programming, hardware and commissioning), review and modernisation of existing automation, and industrial training. Each one has its own page, linked from the services page (https://liscere.com/services.html)."
         }
       },
       {
         "@type": "Question",
-        "name": "Does Liscere sit in the control path?",
+        "name": "Why does a cybersecurity company also build automation?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Liscere is a passive external observer. It connects to a switch mirror port, receives a copy of the traffic and injects nothing; it cannot send, block or alter any command and is electrically incapable of reaching the control path."
+          "text": "Because many OT security problems are built in from day one: open access to controllers, flat networks, no backups. Designing automation with security from the start avoids them, and our security work shows us where projects usually go wrong."
         }
       },
       {
         "@type": "Question",
-        "name": "Does Liscere depend on a specific vendor or protocol?",
+        "name": "Who does Liscere work with?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Being vendor and protocol agnostic is a design objective. Liscere evaluates the process rather than any one manufacturer's implementation, so it is not bound to a particular controller, fieldbus or SCADA stack. Because it only observes a copy of the traffic, it deploys alongside existing systems without touching them: nothing is installed on the controllers, nothing is reconfigured, and no new path is opened into the control network."
+          "text": "Industrial and critical infrastructure organisations of any size: manufacturing plants, utilities, energy, water and wastewater, transport and building systems, and the suppliers that serve them."
         }
       },
       {
         "@type": "Question",
-        "name": "How is Liscere validated?",
+        "name": "Where does Liscere work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Liscere is validated on real industrial hardware, under realistic conditions, and across a growing range of processes and protocols. The work runs on the controllers used in industry, the Siemens S7 family, with real engineering configurations, over protocols including Modbus/TCP and OPC UA, and every result is exercised across many operational variants rather than a single case. Validation is research-led, continuous and expanding, with new processes, process types and protocols brought into the testbed as the framework matures."
+          "text": "Globally. Liscere is a European company headquartered in Poland, and takes on work in Europe and beyond. Our NIS2 readiness work covers the EU, where each member state applies the directive through its own national law."
         }
       },
       {
         "@type": "Question",
-        "name": "What is Liscere working on?",
+        "name": "Can Liscere help us prepare for NIS2?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The hardest questions in contextual evaluation do not have settled answers yet, and those are the ones Liscere works on: how much can be inferred about a physical process from the outside, how little a system needs to see to judge an action soundly, and where passive observation truly reaches. Part of the work is published and part is not yet. The direction is set and the results keep coming."
+          "text": "Yes. Our NIS2 readiness assessment maps each obligation to what you have today, gathers OT visibility as evidence, prepares an incident playbook for OT and organises an audit readiness pack. Questions of legal interpretation stay with your counsel, and we are glad to work alongside them. See NIS2 readiness (https://liscere.com/services/nis2-ksc-compliance.html)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will an assessment disrupt our production?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. On live OT networks we observe rather than probe: nothing is scanned, injected or changed while the process is running. Active testing, such as penetration testing, runs only on systems and in time windows agreed with your team."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does an engagement start, and how is it priced?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "With a short scoping call: you tell us what you run and what worries you, and we tell you honestly whether we are the right fit and what a sensible first step looks like. Scope and price are then fixed up front, and for assessments you receive a prioritised report in plain language with the evidence attached."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I contact Liscere?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Write to hello@liscere.com or use the contact form on the services page (https://liscere.com/services.html#contact)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is contextual evaluation of industrial control actions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It is the idea behind the framework Liscere is developing: judging an action not only by whether it is permitted, but by whether it fits the operational context of the process at that moment. An action can be authorised, protocol conformant and within valid ranges and still be inappropriate for the current operational phase. The framework infers that phase from the observed traffic and judges whether the action is appropriate for it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the framework available as a product?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not yet. The framework is in active development and validated in our laboratory. Organisations that want to see it on their own network can run a pilot as part of OT visibility and monitoring (https://liscere.com/services/ot-visibility-monitoring.html)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is the framework different from an intrusion detection system?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An intrusion detection system inspects the traffic; the framework inspects the process. A signature based IDS matches packets against patterns of known attacks, and an anomaly based IDS flags protocol violations or statistical deviations from a network baseline. Both look for traffic that is malformed, unauthorised or unusual. The framework instead reconstructs the operational state of the plant from the observed process variables and evaluates each action against that state. The events it surfaces are well formed, permitted and statistically ordinary, which is precisely why traffic level sensors have no reason to flag them. It is a semantic layer over the process, not another detection rule over the packets."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the framework sit in the control path?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. It is an external observer. It connects to a switch mirror port, receives a copy of the traffic and injects nothing; it cannot send, block or alter any command, and by design and by configuration it has no route to send traffic into the control network."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the framework depend on a specific vendor or protocol?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Being vendor and protocol agnostic is a design objective. The framework evaluates the process rather than any one manufacturer's implementation, so it is not bound to a particular controller, fieldbus or SCADA stack. Because it only observes a copy of the traffic, nothing is installed on the controllers, nothing is reconfigured, and no new path is opened into the control network."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is the framework validated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "On real industrial hardware, under realistic conditions, and across a growing range of processes and protocols. Validation runs in our laboratory on Siemens S7-1200 and S7-1200 G2 controllers with real engineering configurations, over Modbus/TCP and OPC UA, with each result repeated across many operational variants rather than a single case."
         }
       },
       {
@@ -119,7 +204,7 @@
         "name": "Where can I read Liscere's research?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "In the research section at https://liscere.com/research.html, which indexes Liscere's technical reports (LTR series) and landscape briefings (LB series). Each report has its own page with an abstract and a link to the full PDF."
+          "text": "In the research section (https://liscere.com/research.html), which indexes Liscere's technical reports (the LTR series) and landscape briefings (the LB series). Each report has its own page with an abstract and a link to the full PDF."
         }
       }
     ]
@@ -134,7 +219,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20261111-services" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20261111-scale22" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -145,56 +230,104 @@
     </a>
     <nav class="site-nav" aria-label="Pages">
       <a href="./index.html">Home</a>
-      <a href="./about.html">About</a>
       <a href="./services.html">Services</a>
+      <a href="./about.html">About</a>
       <a href="./research.html">Research</a>
     </nav>
   </header>
 
-  <main id="main-content" class="research-page">
+  <main id="main-content" class="research-page faq-page">
     <article class="aeo-doc">
       <h1 class="doc-title">Frequently asked questions</h1>
 
+      <h2 class="faq-group">Working with Liscere</h2>
+
       <div class="faq-item">
-        <h2 class="faq-q">What does "contextual evaluation of industrial control actions" mean?</h2>
-        <p class="faq-a">It means judging an action not only by whether it is permitted, but by whether it fits the operational context of the process at that moment. An action can be authorised, protocol-conformant and within valid ranges and still be inappropriate for the current operational phase. Liscere infers that phase from the observed traffic and judges whether the action is appropriate or inappropriate for it.</p>
+        <h3 class="faq-q">What does Liscere do?</h3>
+        <p class="faq-a">Liscere is a European industrial cybersecurity company, headquartered in Poland and working globally. We provide security services and secure automation engineering to industrial and critical infrastructure operators, and we develop new tools for industrial security, starting with a framework for contextual evaluation of industrial control actions.</p>
       </div>
 
       <div class="faq-item">
-        <h2 class="faq-q">How is Liscere different from an intrusion detection system?</h2>
-        <p class="faq-a">An intrusion detection system inspects the traffic; Liscere inspects the process. A signature-based IDS matches packets against patterns of known attacks, and an anomaly-based IDS flags protocol violations or statistical deviations from a network baseline. Both decide over network features, and both are looking for traffic that is malformed, unauthorised or unusual.</p>
-        <p class="faq-a">Liscere instead reconstructs the operational state of the plant from the observed process variables and evaluates each action against that state. The events it surfaces are well-formed, permitted and statistically ordinary, which is precisely why signature and anomaly sensors have no reason to flag them. It is a semantic layer over the process, not another detection rule over the packets.</p>
+        <h3 class="faq-q">Which services does Liscere offer?</h3>
+        <p class="faq-a">Two groups of services. Industrial and OT security: OT and ICS security assessments, OT visibility and monitoring, NIS2 readiness and incident response for OT. Automation engineering: automation projects (PLC and HMI programming, hardware and commissioning), review and modernisation of existing automation, and industrial training. Each one has its own page, linked from the <a href="./services.html">services page</a>.</p>
       </div>
 
       <div class="faq-item">
-        <h2 class="faq-q">Does Liscere sit in the control path?</h2>
-        <p class="faq-a">No. Liscere is a passive external observer. It connects to a switch mirror port, receives a copy of the traffic and injects nothing; it cannot send, block or alter any command, and it is electrically incapable of reaching the control path.</p>
+        <h3 class="faq-q">Why does a cybersecurity company also build automation?</h3>
+        <p class="faq-a">Because many OT security problems are built in from day one: open access to controllers, flat networks, no backups. Designing automation with security from the start avoids them, and our security work shows us where projects usually go wrong.</p>
       </div>
 
       <div class="faq-item">
-        <h2 class="faq-q">Does Liscere depend on a specific vendor or protocol?</h2>
-        <p class="faq-a">No. Being vendor and protocol agnostic is a design objective, not an afterthought. Liscere evaluates the process rather than any one manufacturer's implementation, so it is not bound to a particular controller, fieldbus or SCADA stack. And because it only observes a copy of the traffic, it deploys alongside existing systems without touching them: nothing is installed on the controllers, nothing is reconfigured, and no new path is opened into the control network.</p>
+        <h3 class="faq-q">Who does Liscere work with?</h3>
+        <p class="faq-a">Industrial and critical infrastructure organisations of any size: manufacturing plants, utilities, energy, water and wastewater, transport and building systems, and the suppliers that serve them.</p>
       </div>
 
       <div class="faq-item">
-        <h2 class="faq-q">How is Liscere validated?</h2>
-        <p class="faq-a">Liscere is validated on real industrial hardware, under realistic conditions, and across a growing range of processes and protocols. The work runs on the controllers used in industry, the Siemens S7 family, with real engineering configurations, over protocols including Modbus/TCP and OPC UA, and every result is exercised across many operational variants rather than a single case. Validation is research-led, continuous and expanding, with new processes, process types and protocols brought into the testbed as the framework matures.</p>
+        <h3 class="faq-q">Where does Liscere work?</h3>
+        <p class="faq-a">Globally. Liscere is a European company headquartered in Poland, and takes on work in Europe and beyond. Our NIS2 readiness work covers the EU, where each member state applies the directive through its own national law.</p>
       </div>
 
       <div class="faq-item">
-        <h2 class="faq-q">What is Liscere working on?</h2>
-        <p class="faq-a">The hardest questions in this field do not have settled answers yet, and those are the ones we choose to work on. How much can be inferred about a physical process from the outside, how little a system needs to see to judge an action soundly, where passive observation truly reaches: this is a young frontier, and we are deliberately working at its edge. Part of that work is <a href="./research.html">published</a>; part of it is not, yet. The direction is set, and the results keep coming.</p>
+        <h3 class="faq-q">Can Liscere help us prepare for NIS2?</h3>
+        <p class="faq-a">Yes. Our NIS2 readiness assessment maps each obligation to what you have today, gathers OT visibility as evidence, prepares an incident playbook for OT and organises an audit readiness pack. Questions of legal interpretation stay with your counsel, and we are glad to work alongside them. See <a href="./services/nis2-ksc-compliance.html">NIS2 readiness</a>.</p>
       </div>
 
       <div class="faq-item">
-        <h2 class="faq-q">Where can I read Liscere's research?</h2>
+        <h3 class="faq-q">Will an assessment disrupt our production?</h3>
+        <p class="faq-a">No. On live OT networks we observe rather than probe: nothing is scanned, injected or changed while the process is running. Active testing, such as penetration testing, runs only on systems and in time windows agreed with your team.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">How does an engagement start, and how is it priced?</h3>
+        <p class="faq-a">With a short scoping call: you tell us what you run and what worries you, and we tell you honestly whether we are the right fit and what a sensible first step looks like. Scope and price are then fixed up front, and for assessments you receive a prioritised report in plain language with the evidence attached.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">How can I contact Liscere?</h3>
+        <p class="faq-a">Write to <a href="mailto:hello@liscere.com">hello@liscere.com</a> or use the contact form on the <a href="./services.html#contact">services page</a>.</p>
+      </div>
+
+      <h2 class="faq-group">The framework and research</h2>
+
+      <div class="faq-item">
+        <h3 class="faq-q">What is contextual evaluation of industrial control actions?</h3>
+        <p class="faq-a">It is the idea behind the framework Liscere is developing: judging an action not only by whether it is permitted, but by whether it fits the operational context of the process at that moment. An action can be authorised, protocol conformant and within valid ranges and still be inappropriate for the current operational phase. The framework infers that phase from the observed traffic and judges whether the action is appropriate for it.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">Is the framework available as a product?</h3>
+        <p class="faq-a">Not yet. The framework is in active development and validated in our laboratory. Organisations that want to see it on their own network can run a pilot as part of <a href="./services/ot-visibility-monitoring.html">OT visibility and monitoring</a>.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">How is the framework different from an intrusion detection system?</h3>
+        <p class="faq-a">An intrusion detection system inspects the traffic; the framework inspects the process. A signature based IDS matches packets against patterns of known attacks, and an anomaly based IDS flags protocol violations or statistical deviations from a network baseline. Both look for traffic that is malformed, unauthorised or unusual.</p>
+        <p class="faq-a">The framework instead reconstructs the operational state of the plant from the observed process variables and evaluates each action against that state. The events it surfaces are well formed, permitted and statistically ordinary, which is precisely why traffic level sensors have no reason to flag them. It is a semantic layer over the process, not another detection rule over the packets.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">Does the framework sit in the control path?</h3>
+        <p class="faq-a">No. It is an external observer. It connects to a switch mirror port, receives a copy of the traffic and injects nothing; it cannot send, block or alter any command, and by design and by configuration it has no route to send traffic into the control network.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">Does the framework depend on a specific vendor or protocol?</h3>
+        <p class="faq-a">No. Being vendor and protocol agnostic is a design objective. The framework evaluates the process rather than any one manufacturer's implementation, so it is not bound to a particular controller, fieldbus or SCADA stack. Because it only observes a copy of the traffic, nothing is installed on the controllers, nothing is reconfigured, and no new path is opened into the control network.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">How is the framework validated?</h3>
+        <p class="faq-a">On real industrial hardware, under realistic conditions, and across a growing range of processes and protocols. Validation runs in our laboratory on Siemens S7-1200 and S7-1200 G2 controllers with real engineering configurations, over Modbus/TCP and OPC UA, with each result repeated across many operational variants rather than a single case.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">Where can I read Liscere&#x27;s research?</h3>
         <p class="faq-a">In the <a href="./research.html">research section</a>, which indexes Liscere's technical reports (the LTR series) and landscape briefings (the LB series). Each report has its own page with an abstract and a link to the full PDF.</p>
       </div>
 
-      <p>Read more on the <a href="./about.html">About page</a>.</p>
     </article>
 
-    <p class="research-foot"><a href="./index.html">Home</a> · <a href="./about.html">About</a> · <a href="./services.html">Services</a> · <a href="./research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="./privacy.html">Privacy</a><br />© 2026 Liscere sp. z o.o.</p>
+    <p class="research-foot"><a href="./index.html">Home</a> · <a href="./services.html">Services</a> · <a href="./about.html">About</a> · <a href="./research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="./privacy.html">Privacy</a><br />© 2026 Liscere sp. z o.o.</p>
   </main>
 
   <script>
