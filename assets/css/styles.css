@@ -3179,3 +3179,24 @@ html:has(main.page-stack):not(.past-hero) .site-nav {
   .gap-page { padding-bottom: 1.4rem; }
   .gap-page .incident-carousel { margin-top: 0.8rem; }
 }
+
+/* Language switch (EN / PL): last item in the header nav, set apart by a thin rule */
+.site-nav a.lang-switch {
+  padding-left: clamp(calc(var(--cu) * 0.7), 1.4vw, calc(var(--cu) * 1.2));
+  border-left: 1px solid var(--line);
+  border-bottom-color: transparent;
+  color: var(--muted);
+}
+.site-nav a.lang-switch:hover,
+.site-nav a.lang-switch:focus-visible { color: var(--cyan); }
+
+/* Polish pages: Orbitron has no Polish letters (ą ć ę ł ń ó ś ź ż), so display headings
+   use the brand's Space Grotesk instead of mixing two typefaces inside one word.
+   The "Liscere" name in the hero keeps Orbitron. */
+html[lang^="pl"] h1:not(.hero-name),
+html[lang^="pl"] .aeo-doc > h1.doc-title,
+html[lang^="pl"] h2 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}

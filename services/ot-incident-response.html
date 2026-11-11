@@ -2,15 +2,21 @@
 <html lang="en-GB" class="past-hero">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>OT Incident Response Planning | Liscere</title>
   <meta name="description" content="OT incident response planning: who decides to stop a line, how to isolate without losing view, how to recover and how to report on time under NIS2.">
   <link rel="canonical" href="https://liscere.com/services/ot-incident-response.html">
+  <link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-incident-response.html">
+  <link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/reagowanie-na-incydenty-ot.html">
+  <link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-incident-response.html">
   <meta name="robots" content="index,follow">
   <meta name="theme-color" content="#030405">
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Liscere">
+  <meta property="og:locale" content="en_GB">
   <meta property="og:url" content="https://liscere.com/services/ot-incident-response.html">
   <meta property="og:title" content="OT Incident Response Planning | Liscere">
   <meta property="og:description" content="OT incident response planning: who decides to stop a line, how to isolate without losing view, how to recover and how to report on time under NIS2.">
@@ -20,15 +26,13 @@
   <meta name="twitter:description" content="OT incident response planning: who decides to stop a line, how to isolate without losing view, how to recover and how to report on time under NIS2.">
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/fonts.css?v=1" />
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg?v=4" />
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png?v=4" />
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../assets/css/styles.css?v=20261111-scale22" />
+  <link rel="stylesheet" href="../assets/css/styles.css?v=20261111-scale23" />
 
   <script type="application/ld+json">
   {
@@ -40,10 +44,11 @@
         "name": "Incident response for OT",
         "serviceType": "Incident response planning for industrial environments",
         "description": "A response plan written for an industrial site: roles and decisions, how to isolate systems without losing control of the process, how to recover controllers and operator stations, and how to report on time. Tested with the team in a tabletop exercise.",
+        "inLanguage": "en-GB",
         "provider": {
           "@type": "Organization",
           "@id": "https://liscere.com/#org",
-          "name": "Liscere sp. z o.o.",
+          "name": "Liscere",
           "url": "https://liscere.com/"
         },
         "areaServed": "Worldwide",
@@ -74,6 +79,7 @@
       },
       {
         "@type": "FAQPage",
+        "inLanguage": "en-GB",
         "mainEntity": [
           {
             "@type": "Question",
@@ -141,6 +147,7 @@
       <a href="../services.html" aria-current="page">Services</a>
       <a href="../about.html">About</a>
       <a href="../research.html">Research</a>
+      <a class="lang-switch" href="../pl/uslugi/reagowanie-na-incydenty-ot.html" hreflang="pl" lang="pl" aria-label="Polski">PL</a>
     </nav>
   </header>
 
@@ -218,7 +225,6 @@
           <p class="mono"><a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">linkedin.com/company/liscere</a></p>
         </div>
         <form class="form-card" data-contact data-mailto="hello@liscere.com" novalidate>
-          <!-- data-endpoint="https://formspree.io/f/XXXX" : set this once the form backend is chosen -->
           <div class="form-grid">
             <div>
               <label for="f-name">Name</label>
@@ -269,34 +275,7 @@
     <p class="research-foot"><a href="../index.html">Home</a> · <a href="../services.html">Services</a> · <a href="../about.html">About</a> · <a href="../faq.html">FAQ</a> · <a href="../research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="../privacy.html">Privacy</a><br />© 2026 Liscere sp. z o.o.</p>
   </main>
 
-  <script>
-    // Shared with the research pages: the fixed wordmark (opacity driven by .past-hero on <html>)
-    // shows at the top and fades once scrolled, so it never overlaps the document body.
-    (function () {
-      var root = document.documentElement;
-      function sync() { root.classList.toggle('past-hero', window.scrollY <= 16); }
-      sync();
-      window.addEventListener('scroll', sync, { passive: true });
-    })();
-  </script>
-  <script>
-    // Back to Services: when the visitor came from the Services page, go back in history
-    // so the browser restores the exact screen they left; otherwise open the right section.
-    (function () {
-      var ref = document.referrer;
-      document.querySelectorAll('a[href^="../services.html#"]').forEach(function (a) {
-        a.addEventListener('click', function (ev) {
-          try {
-            var u = new URL(ref);
-            if (u.origin === location.origin && /\/services\.html$/.test(u.pathname) && history.length > 1) {
-              ev.preventDefault();
-              history.back();
-            }
-          } catch (e) {}
-        });
-      });
-    })();
-  </script>
-  <script src="../assets/js/contact-form.js?v=20261111-bot3" defer></script>
+  <script src="../assets/js/site.js?v=1" defer></script>
+  <script src="../assets/js/contact-form.js?v=20261111-bot4" defer></script>
 </body>
 </html>

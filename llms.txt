@@ -60,7 +60,7 @@ Liscere welcomes research partners, OT and process engineers, machine builders, 
 
 ## Contact
 
-- Email: hello@liscere.com
+- Email: hello@liscere.com (English or Polish)
 - Contact form: https://liscere.com/services.html#contact
 - LinkedIn: https://www.linkedin.com/company/liscere
 - GitHub: https://github.com/LiscereSecurity
@@ -78,12 +78,15 @@ Liscere welcomes research partners, OT and process engineers, machine builders, 
 
 ## Key pages
 
+- [Polish version (wersja polska)](https://liscere.com/pl/): the home page, services, the seven service pages, About and FAQ in Polish, including NIS2 and the Polish KSC act ([usługi](https://liscere.com/pl/uslugi.html)).
+
 - [Home](https://liscere.com/): Why industrial security needs a new layer, illustrated with real incidents (Oldsmar 2021, Ukraine 2015, Stuxnet), what Liscere is, and the framework it is building, with routes to its services and to research collaboration.
 - [Services](https://liscere.com/services.html): Liscere's industrial security and automation engineering services, each linking to its own page, with a contact form.
 - [About](https://liscere.com/about.html): What Liscere is, why industrial security matters, the framework Liscere is building, and the independence statement.
 - [FAQ](https://liscere.com/faq.html): Direct answers about working with Liscere (services, automation, NIS2, engagements, contact) and about the framework and research.
 - [Research](https://liscere.com/research.html): Index of Liscere's technical reports (LTR series) and landscape briefings (LB series).
 - [Privacy notice](https://liscere.com/privacy.html): How Liscere processes personal data under the GDPR.
+- [security.txt](https://liscere.com/.well-known/security.txt): Security contact, per RFC 9116.
 
 ## Research
 

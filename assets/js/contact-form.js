@@ -12,6 +12,21 @@
   var forms = document.querySelectorAll("form[data-contact]");
   if (!forms.length) { return; }
 
+  var PL = /^pl/i.test(document.documentElement.lang || "");
+  var T = PL ? {
+    required: "Uzupełnij wymagane pola.",
+    sending: "Wysyłanie…",
+    thanks: "Dziękujemy. Wkrótce się odezwiemy.",
+    failed: "Coś poszło nie tak. Napisz bezpośrednio na hello@liscere.com.",
+    mailto: "Twój program pocztowy powinien otworzyć się z gotową wiadomością. Jeśli tak się nie stanie, napisz na "
+  } : {
+    required: "Please complete the required fields.",
+    sending: "Sending…",
+    thanks: "Thank you. We will be in touch soon.",
+    failed: "Something went wrong. Please email hello@liscere.com directly.",
+    mailto: "Your mail client should open with the message prefilled. If it does not, write to "
+  };
+
   var params = new URLSearchParams(window.location.search);
   var preselect = params.get("service");
 
@@ -46,7 +61,7 @@
 
       if (!form.checkValidity()) {
         form.reportValidity();
-        setStatus("Please complete the required fields.", "err");
+        setStatus(T.required, "err");
         return;
       }
 
@@ -56,7 +71,7 @@
       if (endpoint) {
         var btn = form.querySelector("button[type=submit]");
         btn.disabled = true;
-        setStatus("Sending…", "");
+        setStatus(T.sending, "");
         fetch(endpoint, {
           method: "POST",
           headers: { "Accept": "application/json" },
@@ -64,9 +79,9 @@
         }).then(function (res) {
           if (!res.ok) { throw new Error("HTTP " + res.status); }
           form.reset();
-          setStatus("Thank you. We will be in touch soon.", "ok");
+          setStatus(T.thanks, "ok");
         }).catch(function () {
-          setStatus("Something went wrong. Please email hello@liscere.com directly.", "err");
+          setStatus(T.failed, "err");
         }).finally(function () { btn.disabled = false; });
         return;
       }
@@ -86,7 +101,7 @@
       window.location.href = "mailto:" + to +
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(body);
-      setStatus("Your mail client should open with the message prefilled. If it does not, write to " + to + ".", "ok");
+      setStatus(T.mailto + to + ".", "ok");
     });
 
     function setStatus(text, cls) {
