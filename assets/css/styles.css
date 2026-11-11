@@ -2909,3 +2909,77 @@ html:has(main.page-stack):not(.past-hero) .site-nav {
   .site-nav { top: calc(var(--cu) * 3); gap: calc(var(--cu) * 0.4) calc(var(--cu) * 0.75); }
   .site-nav a { padding: calc(var(--cu) * 0.1) 0; }
 }
+
+/* =====================================================================
+   About page: same layout as the FAQ. Big left aligned title and lead,
+   then one row per section: section title on the left, text on the right.
+   ===================================================================== */
+.about-page .aeo-doc { max-width: none; margin: 0; gap: 0; }
+.about-page .aeo-doc > h1.doc-title {
+  margin: 0 0 clamp(1.4rem, 3.5vh, 2.2rem);
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  line-height: 1.2;
+}
+.about-page .aeo-doc > p.aeo-lead {
+  max-width: 46ch;
+  margin: 0 0 clamp(2.4rem, 7vh, 4.5rem);
+  text-align: left;
+  font-size: clamp(1.15rem, 1.8vw, 1.6rem);
+  line-height: 1.45;
+}
+.about-page .about-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  column-gap: clamp(2rem, 6vw, 6rem);
+  row-gap: 1.1rem;
+  padding: clamp(1.8rem, 4.5vh, 3rem) 0;
+  border-top: 1px solid var(--line);
+}
+.about-page .about-item > h2 {
+  grid-column: 1;
+  grid-row: 1 / span 4;
+  margin: 0;
+  max-width: 24ch;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: clamp(1.2rem, 1.7vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  text-transform: none;
+}
+.about-page .about-item > p {
+  grid-column: 2;
+  max-width: 64ch;
+  margin: 0;
+  color: #dce7e7;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 1.15vw, 1.2rem);
+  line-height: 1.65;
+}
+.about-page .about-item > p a {
+  color: var(--cyan);
+  border-bottom: 1px solid rgba(0, 217, 255, 0.35);
+}
+.about-page .about-item > p a:hover { border-bottom-color: var(--cyan); }
+.about-page .about-item > p.aeo-note {
+  padding: clamp(0.95rem, 1.6vw, 1.25rem) clamp(1rem, 1.8vw, 1.4rem);
+  border: 1px solid var(--line);
+  border-radius: 0.875rem;
+  background: rgba(2, 7, 9, 0.55);
+  color: var(--muted);
+}
+.about-page .aeo-doc > p:last-child {
+  max-width: none;
+  padding-top: clamp(1.8rem, 4.5vh, 3rem);
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 860px) {
+  .about-page .about-item { grid-template-columns: 1fr; }
+  .about-page .about-item > h2 { grid-row: auto; max-width: none; }
+  .about-page .about-item > p { grid-column: 1; }
+}

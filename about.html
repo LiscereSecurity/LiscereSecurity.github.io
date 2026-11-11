@@ -83,7 +83,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20261111-scale7" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20261111-scale8" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -101,25 +101,33 @@
     </nav>
   </header>
 
-  <main id="main-content" class="research-page">
+  <main id="main-content" class="research-page about-page">
     <article class="aeo-doc">
       <h1 class="doc-title">About Liscere</h1>
 
       <p class="aeo-lead">Liscere is an industrial cybersecurity research company developing contextual evaluation of industrial control actions: observing OT networks to judge whether an action is appropriate for the current state of the physical process.<br />Its guiding idea is a short one: authorised is not always appropriate.</p>
 
-      <h2>The thesis</h2>
-      <p>Attacks on industrial systems are no longer rare or theoretical. The pattern behind them has shifted from breaking in to acting from within: adversaries increasingly reach the network through legitimate access and then behave like operators, issuing commands that pass every technical check. Our <a href="./research/lb-2026-01/">threat-landscape briefing</a> sets out this move from access to action.</p>
-      <p>That is where the defensive gap opens. A control action can be fully authorised, protocol-conformant and within valid ranges, and still be wrong for the current state of the physical process. Identity, access, protocol conformance and range checks can all pass, and none of them asks whether the action belongs in the operational context in which it occurs. Legitimacy depends on that context, and that is the question Liscere is built to ask.</p>
+      <section class="about-item">
+        <h2>The thesis</h2>
+        <p>Attacks on industrial systems are no longer rare or theoretical. The pattern behind them has shifted from breaking in to acting from within: adversaries increasingly reach the network through legitimate access and then behave like operators, issuing commands that pass every technical check. Our <a href="./research/lb-2026-01/">threat-landscape briefing</a> sets out this move from access to action.</p>
+        <p>That is where the defensive gap opens. A control action can be fully authorised, protocol-conformant and within valid ranges, and still be wrong for the current state of the physical process. Identity, access, protocol conformance and range checks can all pass, and none of them asks whether the action belongs in the operational context in which it occurs. Legitimacy depends on that context, and that is the question Liscere is built to ask.</p>
+      </section>
 
-      <h2>How it works</h2>
-      <p>Liscere is a passive external observer. It connects to a switch mirror port, receives a copy of the operational technology (OT) traffic, and injects nothing onto the network; it never sits in the control path. From the observed traffic it reconstructs the actions taken and infers the operational phase of the physical process, then judges whether an action is appropriate or inappropriate for that phase.</p>
-      <p>By design, this evaluation is vendor and protocol agnostic. It reasons about the process, not about any one manufacturer's implementation, so it is not bound to a particular controller or fieldbus. And because it only observes, it adds nothing to the systems it watches and changes nothing in how they run: no agents on the controllers, no reconfiguration, no new path into the control network.</p>
+      <section class="about-item">
+        <h2>How it works</h2>
+        <p>Liscere is a passive external observer. It connects to a switch mirror port, receives a copy of the operational technology (OT) traffic, and injects nothing onto the network; it never sits in the control path. From the observed traffic it reconstructs the actions taken and infers the operational phase of the physical process, then judges whether an action is appropriate or inappropriate for that phase.</p>
+        <p>By design, this evaluation is vendor and protocol agnostic. It reasons about the process, not about any one manufacturer's implementation, so it is not bound to a particular controller or fieldbus. And because it only observes, it adds nothing to the systems it watches and changes nothing in how they run: no agents on the controllers, no reconfiguration, no new path into the control network.</p>
+      </section>
 
-      <h2>What Liscere is not</h2>
-      <p>Liscere is a new layer of industrial security, not a replacement for the ones already in place. It is not an intrusion detection system, not an interlock and not an enforcement layer, and it does not replace firewalls, network segmentation or access control. It adds a question those controls do not ask: whether an action is appropriate for the current state of the process.</p>
+      <section class="about-item">
+        <h2>What Liscere is not</h2>
+        <p>Liscere is a new layer of industrial security, not a replacement for the ones already in place. It is not an intrusion detection system, not an interlock and not an enforcement layer, and it does not replace firewalls, network segmentation or access control. It adds a question those controls do not ask: whether an action is appropriate for the current state of the process.</p>
+      </section>
 
-      <h2>Independence</h2>
-      <p class="aeo-note">Liscere sp. z o.o. is an independent company. It is not affiliated with, and should not be confused with, any other cybersecurity vendor or product.</p>
+      <section class="about-item">
+        <h2>Independence</h2>
+        <p class="aeo-note">Liscere sp. z o.o. is an independent company. It is not affiliated with, and should not be confused with, any other cybersecurity vendor or product.</p>
+      </section>
 
       <p>Read the <a href="./faq.html">frequently asked questions</a> or browse the <a href="./research.html">research</a>.</p>
     </article>
