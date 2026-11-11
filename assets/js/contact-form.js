@@ -64,10 +64,11 @@
         "Name: " + data.get("name"),
         "Company: " + (data.get("company") || ""),
         "Email: " + data.get("email"),
-        "Service: " + service,
+        "Service: " + service
+      ].concat(data.get("sector") ? ["Sector: " + data.get("sector")] : []).concat([
         "",
         data.get("message")
-      ].join("\n");
+      ]).join("\n");
       window.location.href = "mailto:" + to +
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(body);
