@@ -3138,3 +3138,37 @@ html:has(main.page-stack):not(.past-hero) .site-nav {
 @media (max-width: 860px) {
   .service-brief { grid-template-columns: 1fr; gap: 1.6rem; }
 }
+
+/* Service pages: a small fixed button back to the Services section the visitor came from */
+.back-fab {
+  position: fixed;
+  left: var(--gutter);
+  bottom: clamp(1rem, 3vh, 1.6rem);
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.6rem 1.05rem;
+  border: 1px solid rgba(0, 217, 255, 0.35);
+  border-radius: 999px;
+  background: rgba(3, 4, 5, 0.72);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.back-fab:hover,
+.back-fab:focus-visible { border-color: var(--cyan); color: var(--cyan); }
+.back-fab span { font-size: 1rem; letter-spacing: 0; line-height: 1; }
+/* phones: the content is stacked full width, so the button sits at the top of the
+   page under the header and scrolls away instead of floating over the text */
+@media (max-width: 860px) {
+  .back-fab { position: absolute; top: calc(var(--cu) * 4.35 + 0.9rem); bottom: auto; }
+  .service-page .hero .hero-copy { margin-top: 3.4rem; }
+}

@@ -28,7 +28,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../assets/css/styles.css?v=20261111-scale20" />
+  <link rel="stylesheet" href="../assets/css/styles.css?v=20261111-scale21" />
 
   <script type="application/ld+json">
   {
@@ -136,11 +136,13 @@
     </nav>
   </header>
 
+  <a class="back-fab" href="../services.html#automation" aria-label="Back to services"><span aria-hidden="true">&larr;</span> Services</a>
+
   <main id="main-content" class="services-page sales-page service-page">
 
     <section class="section hero">
       <div class="hero-copy">
-        <p class="kicker"><a href="../services.html">Services</a> / Industrial training</p>
+        <p class="kicker"><a href="../services.html#automation">Services</a> / Industrial training</p>
         <h1>Practical training for the people who run the plant.</h1>
         <ul class="service-brief">
           <li>
@@ -263,6 +265,24 @@
       function sync() { root.classList.toggle('past-hero', window.scrollY <= 16); }
       sync();
       window.addEventListener('scroll', sync, { passive: true });
+    })();
+  </script>
+  <script>
+    // Back to Services: when the visitor came from the Services page, go back in history
+    // so the browser restores the exact screen they left; otherwise open the right section.
+    (function () {
+      var ref = document.referrer;
+      document.querySelectorAll('a[href^="../services.html#"]').forEach(function (a) {
+        a.addEventListener('click', function (ev) {
+          try {
+            var u = new URL(ref);
+            if (u.origin === location.origin && /\/services\.html$/.test(u.pathname) && history.length > 1) {
+              ev.preventDefault();
+              history.back();
+            }
+          } catch (e) {}
+        });
+      });
     })();
   </script>
   <script src="../assets/js/contact-form.js?v=20261111-bot2" defer></script>
