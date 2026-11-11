@@ -3092,3 +3092,6 @@ html:has(main.page-stack):not(.past-hero) .site-nav {
   }
   .sales-page .research-foot { scroll-snap-align: end; }
 }
+
+/* Services hero: the same animated scroll cue as the home hero */
+.sales-page .hero { position: relative; }
