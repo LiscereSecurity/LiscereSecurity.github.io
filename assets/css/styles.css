@@ -1,5 +1,12 @@
 :root {
   color-scheme: dark;
+
+  /* Site wide units that do not depend on the page's own scale, so the header
+     and side margins are identical on every page (the home page uses a smaller
+     scale to fit one screen per section). Same curve as the content pages:
+     16px up to 1200px wide, about 19px at 1512px, capped at 24px. */
+  --cu: clamp(16px, 4px + 1vw, 24px);
+  --gutter: clamp(calc(var(--cu) * 1.2), 6vw, calc(var(--cu) * 5.5));
   --bg: #030405;
   --ink: #f4f6f4;
   --muted: #93a0a3;
@@ -133,7 +140,7 @@ p {
 .site-logo {
   position: fixed;
   top: 1rem;
-  left: clamp(1.2rem, 6vw, 5.5rem);
+  left: var(--gutter);
   z-index: 44;
   display: block;
   width: 8rem;
@@ -202,7 +209,7 @@ p {
   min-height: max(100svh, 660px);
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  padding: clamp(4.5rem, 8vh, 6.8rem) clamp(1.2rem, 6vw, 5.5rem);
+  padding: clamp(4.5rem, 8vh, 6.8rem) var(--gutter);
 }
 
 .hero-page {
@@ -1620,7 +1627,7 @@ a.shift-step:focus-visible .shift-source {
   display: flex;
   flex-direction: column;
   min-height: 100svh;
-  padding: clamp(4.5rem, 8vh, 6.8rem) clamp(1.2rem, 6vw, 5.5rem);
+  padding: clamp(4.5rem, 8vh, 6.8rem) var(--gutter);
   padding-top: calc(var(--sec-pad-top) + clamp(1.5rem, 5vh, 2.8rem));
   gap: clamp(1rem, 2.4vh, 1.6rem);
   text-align: left;
@@ -1629,7 +1636,7 @@ a.shift-step:focus-visible .shift-source {
 .research-back {
   position: fixed;
   top: 1.15rem;
-  right: clamp(1.2rem, 6vw, 5.5rem);
+  right: var(--gutter);
   z-index: 44;
   pointer-events: auto; /* re-enable clicks: parent .site-chrome sets pointer-events:none */
   font-family: var(--font-mono);
@@ -1653,7 +1660,7 @@ a.shift-step:focus-visible .shift-source {
 .site-nav {
   position: fixed;
   top: 1.15rem;
-  right: clamp(1.2rem, 6vw, 5.5rem);
+  right: var(--gutter);
   z-index: 44;
   display: flex;
   gap: clamp(0.9rem, 2vw, 1.6rem);
@@ -2338,7 +2345,7 @@ a.paper-card:focus-visible .paper-arrow {
   /* tokens the prototype uses that the site does not define */
   --cyan-2: #4de6ff;
   --card: rgba(2, 7, 9, 0.56);
-  --pad-x: clamp(1.2rem, 6vw, 5.5rem);
+  --pad-x: var(--gutter);
   position: relative;
   z-index: 1;
   display: flex;
@@ -2578,8 +2585,8 @@ a.paper-card:focus-visible .paper-arrow {
 @media (max-width: 720px) {
   .site-nav {
     top: 3rem;
-    left: clamp(1.2rem, 6vw, 5.5rem);
-    right: clamp(1.2rem, 6vw, 5.5rem);
+    left: var(--gutter);
+    right: var(--gutter);
     flex-wrap: wrap;
     gap: 0.4rem 1rem;
   }
@@ -2873,4 +2880,32 @@ html:not(:has(main.page-stack)) { scroll-padding-top: 5rem; }
 @media (max-width: 720px) {
   /* nav sits on a second row under the wordmark */
   .site-chrome { --chrome-h: 4.35rem; }
+}
+
+/* =====================================================================
+   Header: one size on every page (in --cu, not the page's rem), and on the
+   home page it stays hidden on the hero and appears once scrolled.
+   ===================================================================== */
+.site-chrome { --chrome-h: calc(var(--cu) * 4); }
+.site-logo { top: var(--cu); width: calc(var(--cu) * 8); }
+.site-nav {
+  top: calc(var(--cu) * 1.15);
+  gap: clamp(calc(var(--cu) * 0.9), 2vw, calc(var(--cu) * 1.6));
+  font-size: calc(var(--cu) * 0.7);
+}
+.site-nav a { padding: calc(var(--cu) * 0.3) 0; }
+
+.site-chrome::before { transition: opacity 320ms ease; }
+html:has(main.page-stack):not(.past-hero) .site-chrome::before,
+html:has(main.page-stack):not(.past-hero) .site-logo,
+html:has(main.page-stack):not(.past-hero) .site-nav {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .site-chrome { --chrome-h: calc(var(--cu) * 4.35); }
+  .site-logo { width: calc(var(--cu) * 6.5); }
+  .site-nav { top: calc(var(--cu) * 3); gap: calc(var(--cu) * 0.4) calc(var(--cu) * 0.75); }
+  .site-nav a { padding: calc(var(--cu) * 0.1) 0; }
 }
