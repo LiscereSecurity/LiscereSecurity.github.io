@@ -84,7 +84,7 @@
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=4" />
   <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20261111-scale13" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20261111-scale14" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -861,29 +861,82 @@
       };
 
       // build the cyan input lines (deferred until the layout is correctly measured)
-      const buildInputs = () => {
-        if (reduce) {
-          for (let i = 0; i < 20; i++) {
-            const p = makeInput();
-            p.style.opacity = rnd(0.08, 0.2).toFixed(3);
-            inG.appendChild(p);
+      // INPUT LINES are drawn on a <canvas> under the SVG, not as animated SVG paths:
+      // Chrome repainted 64 simultaneously animating SVG strokes in pieces on 120Hz
+      // screens, so lines flickered. The canvas is redrawn in full every frame with
+      // the same geometry, timing and opacity curve as the old CSS keyframes.
+      const cv = document.createElement("canvas");
+      cv.className = "hero-field-canvas";
+      cv.setAttribute("aria-hidden", "true");
+      svg.parentNode.insertBefore(cv, svg);
+      const ctx2d = cv.getContext("2d");
+      let lines = [], dpr = 1, elapsed = 0, lastTs = null, raf = 0;
+
+      const sizeCanvas = () => {
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        cv.width = Math.round(W * dpr);
+        cv.height = Math.round(H * dpr);
+      };
+
+      // same curve as the former @keyframes heroDraw: the line grows over 0-80% of the
+      // cycle; it fades in over 0-14%, holds, and fades out over 91-100%
+      const drawLines = () => {
+        ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx2d.clearRect(0, 0, W, H);
+        ctx2d.strokeStyle = "#4de6ff";
+        ctx2d.lineCap = "round";
+        const t = elapsed / 1000;
+        for (const l of lines) {
+          let offset = 0, alpha = l.op;
+          if (!reduce) {
+            const tt = t - l.delay;
+            if (tt < 0) continue;
+            const ph = (tt % l.dur) / l.dur;
+            offset = ph < 0.8 ? l.len * (1 - ph / 0.8) : 0;
+            alpha = ph < 0.14 ? l.op * (ph / 0.14) : ph < 0.91 ? l.op : l.op * (1 - (ph - 0.91) / 0.09);
           }
-          return;
+          if (alpha <= 0.002) continue;
+          ctx2d.globalAlpha = alpha;
+          ctx2d.lineWidth = l.w;
+          ctx2d.setLineDash([l.len, l.len]);
+          ctx2d.lineDashOffset = offset;
+          ctx2d.stroke(l.path);
         }
-        const count = W <= 720 ? 34 : 64;
+        ctx2d.globalAlpha = 1;
+      };
+
+      const frame = (ts) => {
+        raf = 0;
+        if (paused()) { lastTs = null; return; } // paused() is defined below; frames only run after start()
+        if (lastTs !== null) elapsed += Math.min(ts - lastTs, 100); // no jump after a stall
+        lastTs = ts;
+        drawLines();
+        raf = window.requestAnimationFrame(frame);
+      };
+      const ensureLoop = () => {
+        if (reduce) { drawLines(); return; }
+        if (!raf) raf = window.requestAnimationFrame(frame);
+      };
+
+      const buildInputs = () => {
+        sizeCanvas();
+        lines = [];
+        const count = reduce ? 20 : W <= 720 ? 34 : 64;
         for (let i = 0; i < count; i++) {
           const p = makeInput();
-          inG.appendChild(p);
+          inG.appendChild(p); // measured in the SVG, then removed: the canvas draws it
           const len = p.getTotalLength();
-          const op = rnd(0.18, 0.5);
-          const dur = rnd(4, 8.5);
-          const delay = rnd(0, 0.3);
-          p.style.setProperty("--len", len.toFixed(1));
-          p.style.setProperty("--op", op.toFixed(3));
-          p.style.strokeDasharray = len.toFixed(1);
-          p.style.strokeDashoffset = len.toFixed(1);
-          p.style.animation = `heroDraw ${dur.toFixed(2)}s linear ${delay.toFixed(2)}s infinite`;
+          const d = p.getAttribute("d");
+          const w = parseFloat(p.getAttribute("stroke-width")) || 1;
+          p.remove();
+          lines.push({
+            path: new Path2D(d), len, w,
+            op: reduce ? rnd(0.08, 0.2) : rnd(0.18, 0.5),
+            dur: rnd(4, 8.5),
+            delay: rnd(0, 0.3),
+          });
         }
+        ensureLoop();
       };
 
       let icons = [];
@@ -896,6 +949,7 @@
       const paused = () => !heroVisible || !pageVisible;
       const syncPause = () => {
         if (heroEl) heroEl.classList.toggle("is-paused", paused());
+        if (!paused()) ensureLoop();
         if (!paused() && cyclePending) { cyclePending = false; cycleOutput(); }
       };
       if (heroEl && "IntersectionObserver" in window) {

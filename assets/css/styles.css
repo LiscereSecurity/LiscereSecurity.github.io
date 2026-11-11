@@ -3013,3 +3013,12 @@ html:has(main.page-stack):not(.past-hero) .site-nav {
    vanished every other frame). Giving the field its own compositor layer keeps
    each frame complete. Measured in Chrome 157: ~200 flicker frames per 8s -> 0. */
 .hero-field { will-change: transform; }
+/* hero input lines are drawn on a canvas under the SVG outputs (see index.html) */
+.hero-field-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hero-field-svg { position: relative; }
