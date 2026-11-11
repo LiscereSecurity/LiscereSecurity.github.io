@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | Liscere</title>
-  <meta name="description" content="Liscere is an industrial cybersecurity research company in Łódź, Poland, developing contextual evaluation of industrial control actions by passive observation." />
+  <meta name="description" content="Liscere is an industrial cybersecurity company in Łódź, Poland: security services, specialist consulting and research and development of new tools for industrial and critical infrastructure operators." />
   <meta name="author" content="Liscere" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#030405" />
 
   <meta property="og:title" content="About | Liscere" />
-  <meta property="og:description" content="Liscere is an industrial cybersecurity research company in Łódź, Poland, developing contextual evaluation of industrial control actions by passive observation." />
+  <meta property="og:description" content="Liscere is an industrial cybersecurity company in Łódź, Poland: security services, specialist consulting and research and development of new tools for industrial and critical infrastructure operators." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://liscere.com/about.html" />
   <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
@@ -22,7 +22,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About | Liscere" />
-  <meta name="twitter:description" content="Liscere is an industrial cybersecurity research company in Łódź, Poland, developing contextual evaluation of industrial control actions by passive observation." />
+  <meta name="twitter:description" content="Liscere is an industrial cybersecurity company in Łódź, Poland: security services, specialist consulting and research and development of new tools for industrial and critical infrastructure operators." />
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
 
   <link rel="canonical" href="https://liscere.com/about.html" />
@@ -35,7 +35,7 @@
     "legalName": "LISCERE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
     "url": "https://liscere.com/",
     "logo": "https://liscere.com/assets/apple-touch-icon.png",
-    "description": "Liscere is an industrial cybersecurity research company based in Łódź, Poland, developing contextual evaluation of industrial control actions: passively observing OT networks to judge whether supervisory commands are appropriate for the current state of the physical process.",
+    "description": "Liscere is an industrial cybersecurity company based in Łódź, Poland. It provides security services and specialist consulting to industrial and critical infrastructure operators, and develops a framework for contextual evaluation of industrial control actions: judging whether supervisory commands are appropriate for the current state of the physical process.",
     "email": "hello@liscere.com",
     "foundingDate": "2026-07-27",
     "address": {
@@ -83,7 +83,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20261111-scale14" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20261111-scale15" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -107,33 +107,44 @@
 
       <section class="about-item">
         <h2>What Liscere is</h2>
-        <p>Liscere is an industrial cybersecurity research company developing contextual evaluation of industrial control actions: observing OT networks to judge whether an action is appropriate for the current state of the physical process.</p>
-        <p>Its guiding idea is a short one: authorised is not always appropriate.</p>
+        <p>Liscere is an industrial cybersecurity company. We help industrial and critical infrastructure operators protect the systems that run their physical processes, and we work on three fronts at once:</p>
+        <ul>
+          <li><strong>Security services:</strong> OT and ICS assessments, network visibility, NIS2 readiness, training and incident response planning.</li>
+          <li><strong>Specialist consulting:</strong> for operations, engineering and management teams facing an OT security decision, an audit or a deadline.</li>
+          <li><strong>Research and development:</strong> new tools for industrial security, starting with a framework that judges whether an industrial command fits the state of the process.</li>
+        </ul>
+        <p>Each front feeds the others. What we see in the field shapes the tools we build, and the research behind those tools sharpens the advice we give.</p>
       </section>
 
       <section class="about-item">
-        <h2>The thesis</h2>
-        <p>Attacks on industrial systems are no longer rare or theoretical. The pattern behind them has shifted from breaking in to acting from within: adversaries increasingly reach the network through legitimate access and then behave like operators, issuing commands that pass every technical check. Our <a href="./research/lb-2026-01/">threat-landscape briefing</a> sets out this move from access to action.</p>
-        <p>That is where the defensive gap opens. A control action can be fully authorised, protocol-conformant and within valid ranges, and still be wrong for the current state of the physical process. Identity, access, protocol conformance and range checks can all pass, and none of them asks whether the action belongs in the operational context in which it occurs. Legitimacy depends on that context, and that is the question Liscere is built to ask.</p>
+        <h2>Why industrial security matters</h2>
+        <p>Water treatment, energy, manufacturing and transport all run on control systems that were built to keep a process running, not to defend themselves. Many of them cannot be patched, restarted or replaced without stopping the process they control. When they are attacked, the consequences are physical: a line stops, a dose changes, equipment is damaged or people are put at risk.</p>
+        <p>The attacks have changed too. Adversaries increasingly reach these networks through legitimate access and then act like operators, issuing commands that pass every technical check. Our <a href="./research/lb-2026-01/">threat landscape briefing</a> sets out this shift from access to action.</p>
+        <p>Regulation is catching up, and NIS2 now makes cybersecurity a management duty for essential and important entities across Europe. The systems that matter most are often the least protected. That is why we work on them.</p>
       </section>
 
       <section class="about-item">
-        <h2>How it works</h2>
-        <p>Liscere is a passive external observer. It connects to a switch mirror port, receives a copy of the operational technology (OT) traffic, and injects nothing onto the network; it never sits in the control path. From the observed traffic it reconstructs the actions taken and infers the operational phase of the physical process, then judges whether an action is appropriate or inappropriate for that phase.</p>
-        <p>By design, this evaluation is vendor and protocol agnostic. It reasons about the process, not about any one manufacturer's implementation, so it is not bound to a particular controller or fieldbus. And because it only observes, it adds nothing to the systems it watches and changes nothing in how they run: no agents on the controllers, no reconfiguration, no new path into the control network.</p>
+        <h2>How we work with you</h2>
+        <p>Most engagements start with a short scoping call and then a fixed scope: an assessment, a visibility exercise, a NIS2 gap analysis or a training session. You get findings in plain language, prioritised, with the evidence attached, and a team that stays available afterwards.</p>
+        <p>See <a href="./services.html">our services</a> or write to us at <a href="mailto:hello@liscere.com">hello@liscere.com</a>.</p>
       </section>
 
       <section class="about-item">
-        <h2>What Liscere is not</h2>
-        <p>Liscere is a new layer of industrial security, not a replacement for the ones already in place. It is not an intrusion detection system, not an interlock and not an enforcement layer, and it does not replace firewalls, network segmentation or access control. It adds a question those controls do not ask: whether an action is appropriate for the current state of the process.</p>
+        <h2>The framework we are building</h2>
+        <p>Alongside our services, we are developing a framework for contextual evaluation of industrial control actions. Its guiding idea is a short one: authorised is not always appropriate. A command can pass every identity, access and protocol check and still be wrong for the current state of the physical process.</p>
+        <p>The framework observes a copy of the OT traffic from a switch mirror port and never sits in the control path. From that traffic it reconstructs the actions taken, infers the operational phase of the process and judges whether each action fits that phase. It is designed to be vendor and protocol agnostic, and it adds to the controls already in place: it does not replace firewalls, network segmentation or access control.</p>
+        <p>The framework is in active development and validated in our laboratory. We publish what we learn in our <a href="./research.html">research</a>.</p>
       </section>
 
       <section class="about-item">
         <h2>Independence</h2>
-        <p class="aeo-note">Liscere sp. z o.o. is an independent company. It is not affiliated with, and should not be confused with, any other cybersecurity vendor or product.</p>
+        <p class="aeo-note">We do not resell hardware or platforms, so our advice is never a sales pitch for a product. Liscere sp. z o.o. is an independent company. It is not affiliated with, and should not be confused with, any other cybersecurity vendor or product.</p>
       </section>
 
-      <p>Read the <a href="./faq.html">frequently asked questions</a> or browse the <a href="./research.html">research</a>.</p>
+      <section class="about-item">
+        <h2>The company</h2>
+        <p>Liscere sp. z o.o. was founded in 2026 and is based in Łódź, Poland, working across the EU.</p>
+      </section>
     </article>
 
     <p class="research-foot"><a href="./index.html">Home</a> · <a href="./services.html">Services</a> · <a href="./faq.html">FAQ</a> · <a href="./research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="./privacy.html">Privacy</a><br />© 2026 Liscere sp. z o.o.</p>
