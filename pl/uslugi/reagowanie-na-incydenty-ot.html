@@ -2,7 +2,7 @@
 <html lang="pl-PL" class="past-hero">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://formspree.io https://cloudflareinsights.com; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Plan reagowania na incydenty OT | Liscere</title>
@@ -224,7 +224,7 @@
           <p class="mono">hello@liscere.com</p>
           <p class="mono"><a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">linkedin.com/company/liscere</a></p>
         </div>
-        <form class="form-card" data-contact data-mailto="hello@liscere.com" novalidate>
+        <form class="form-card" data-contact data-endpoint="https://formspree.io/f/xdegodog" data-mailto="hello@liscere.com" novalidate>
           <div class="form-grid">
             <div>
               <label for="f-name">Imię i nazwisko</label>
@@ -276,6 +276,7 @@
   </main>
 
   <script src="../../assets/js/site.js?v=1" defer></script>
-  <script src="../../assets/js/contact-form.js?v=20261111-bot4" defer></script>
+  <script src="../../assets/js/contact-form.js?v=20261111-fs1" defer></script>
+  <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3280d901c4be4657ba0562ac10e607b7"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

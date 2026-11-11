@@ -1,8 +1,8 @@
 /* Liscere contact form.
    Works in two modes:
-   1. data-endpoint set on the <form>: POSTs the fields there (Formspree,
-      Netlify Functions, Cloudflare Pages Functions or any endpoint that
-      accepts form-encoded POST and returns JSON).
+   1. data-endpoint set on the <form> (live: Formspree): POSTs the fields there
+      and shows a thank-you message. The origin must also be in connect-src
+      in tools/csp.py.
    2. No data-endpoint: opens the visitor's mail client with the message
       prefilled, addressed to the data-mailto address. Nothing is lost if
       the endpoint is not wired up yet. */
@@ -67,8 +67,13 @@
 
       var data = new FormData(form);
       var endpoint = form.getAttribute("data-endpoint");
+      var subjectService = data.get("service") || "General enquiry";
+      var subjectLine = "[Liscere] " + subjectService + ": " + (data.get("company") || data.get("name"));
 
       if (endpoint) {
+        data.delete("website");
+        data.set("_subject", subjectLine);
+        data.set("page", location.pathname);
         var btn = form.querySelector("button[type=submit]");
         btn.disabled = true;
         setStatus(T.sending, "");
@@ -87,8 +92,8 @@
       }
 
       var to = form.getAttribute("data-mailto") || "hello@liscere.com";
-      var service = data.get("service") || "General enquiry";
-      var subject = "[Liscere] " + service + ": " + (data.get("company") || data.get("name"));
+      var service = subjectService;
+      var subject = subjectLine;
       var body = [
         "Name: " + data.get("name"),
         "Company: " + (data.get("company") || ""),

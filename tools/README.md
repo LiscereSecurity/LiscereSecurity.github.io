@@ -23,3 +23,12 @@ to a sending service (for example Formspree) or add analytics, add that service'
 `connect-src` / `script-src` lists in `csp.py`, then run the build.
 
 When CSS or JS changes, bump the `?v=` query string on the pages (and `CSSV` in `data_en.py`).
+
+## After a deploy
+
+Tell Bing and the other IndexNow search engines about changed pages:
+
+    python3 tools/indexnow.py                 # every URL in sitemap.xml
+    python3 tools/indexnow.py https://liscere.com/services.html
+
+The key file `<key>.txt` at the site root proves ownership; do not delete it.
