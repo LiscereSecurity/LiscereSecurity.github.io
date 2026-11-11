@@ -38,18 +38,22 @@
 }
 
 /* Screen relative scale. Every size in this file is in rem (or vw/vh), so the
-   root font size acts as one zoom level for the whole site. The design reference
-   is a 1440 x 900 window (root 16px, e.g. MacBook Air 13"). Wider and taller
-   windows scale up proportionally; the smaller of the width and height ratios
-   wins so the one screen sections of the home page always fit. Capped at 1.5rem
-   (24px) for very large monitors, never below the browser default, and it is
-   built on rem so browser zoom and the user's font size setting still apply.
-   Phones and small windows keep the default size (the 1rem minimum). */
+   root font size acts as one zoom level for the whole site. Reference: a 1200px
+   wide window has root 16px; wider windows scale up proportionally (about 19px
+   on a 14" MacBook at 1512px, 23px at 1920px), capped at 1.5rem (24px). Built on
+   rem, so browser zoom and the user's font size setting still apply. Phones,
+   tablets and windows up to 1200px keep the default size (the 1rem minimum). */
 html {
-  font-size: clamp(1rem, min(0.25rem + 0.8333vw, 0.25rem + 1.3333vh), 1.5rem);
+  font-size: clamp(1rem, 0.25rem + 1vw, 1.5rem);
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   overscroll-behavior: none;
+}
+
+/* Home page: its sections are one screen each, so the scale also follows the
+   window height (16px at 860px tall) and the smaller of the two wins. */
+html:has(main.page-stack) {
+  font-size: clamp(1rem, min(0.25rem + 1vw, 0.25rem + 1.3953vh), 1.5rem);
 }
 
 body {
