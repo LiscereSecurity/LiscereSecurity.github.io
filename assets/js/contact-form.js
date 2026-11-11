@@ -15,8 +15,18 @@
   var params = new URLSearchParams(window.location.search);
   var preselect = params.get("service");
 
+  /* Bot checks (with the honeypot below): a real visitor takes more than a few
+     seconds and touches the form with a pointer or the keyboard before sending.
+     Submissions that fail either check are dropped silently. */
+  var MIN_FILL_MS = 3000;
+  var openedAt = Date.now();
+
   Array.prototype.forEach.call(forms, function (form) {
     var status = form.querySelector(".form-status");
+    var touched = false;
+    ["pointerdown", "keydown", "touchstart"].forEach(function (type) {
+      form.addEventListener(type, function () { touched = true; }, { passive: true });
+    });
     var select = form.querySelector("select[name=service]");
     if (select && preselect) {
       Array.prototype.forEach.call(select.options, function (opt) {
@@ -29,6 +39,7 @@
       setStatus("", "");
 
       if (form.querySelector("input[name=website]").value) { return; } /* honeypot */
+      if (!touched || Date.now() - openedAt < MIN_FILL_MS) { return; } /* too fast or no interaction */
 
       if (!form.checkValidity()) {
         form.reportValidity();
