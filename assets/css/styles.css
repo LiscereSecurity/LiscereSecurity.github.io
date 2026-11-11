@@ -2721,3 +2721,31 @@ a.paper-card:focus-visible .paper-arrow {
 /* the home page's phone rule stretches .primary-cta/.secondary-cta to half width; keep natural width here */
 .sales-page .primary-cta,
 .sales-page .secondary-cta { flex: none; white-space: nowrap; }
+
+/* NIS2 page additions to the sales layout */
+.sales-page .card-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sales-page .card .check-list { margin: 0; gap: 0.55rem; }
+.sales-page .card .check-list li { color: #c6d2d3; font-size: clamp(0.98rem, 1.05vw, 1.08rem); line-height: 1.5; }
+.sales-page .faq-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+.sales-page .faq { margin: 0; }
+.sales-page .faq summary { font-size: clamp(1rem, 1.3vw, 1.25rem); padding: 1.2rem 0; }
+.sales-page .faq details { padding: 0 clamp(1.1rem, 1.6vw, 1.6rem); border-radius: 16px; }
+.sales-page .faq details p { color: #c6d2d3; font-size: clamp(0.98rem, 1.1vw, 1.12rem); line-height: 1.6; padding-bottom: 1.3rem; }
+.sales-page .hero .kicker a { color: var(--cyan); border-bottom: 1px solid rgba(0, 217, 255, 0.35); }
+
+@media (max-width: 1100px) {
+  .sales-page .card-grid.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 860px) {
+  .sales-page .faq-layout { grid-template-columns: 1fr; gap: 1.6rem; }
+}
+@media (max-width: 600px) {
+  .sales-page .card-grid.cols-3 { grid-template-columns: 1fr; }
+  .sales-page .actions .secondary-cta { white-space: normal; text-align: center; }
+}
+.sales-page .actions > * { max-width: 100%; }
