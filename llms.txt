@@ -43,7 +43,7 @@ Liscere welcomes research partners, OT and process engineers, system integrators
 
 ## Contact
 
-- Email: hello@liscere.com (replies within two working days)
+- Email: hello@liscere.com
 - Contact form: https://liscere.com/services.html#contact
 - LinkedIn: https://www.linkedin.com/company/liscere
 - GitHub: https://github.com/LiscereSecurity

@@ -61,7 +61,7 @@
         }).then(function (res) {
           if (!res.ok) { throw new Error("HTTP " + res.status); }
           form.reset();
-          setStatus("Thank you. We will reply within two working days.", "ok");
+          setStatus("Thank you. We will be in touch soon.", "ok");
         }).catch(function () {
           setStatus("Something went wrong. Please email hello@liscere.com directly.", "err");
         }).finally(function () { btn.disabled = false; });
