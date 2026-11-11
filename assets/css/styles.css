@@ -2816,3 +2816,29 @@ a.paper-card:focus-visible .paper-arrow {
   .faq-page .faq-q { grid-row: auto; max-width: none; }
   .faq-page .faq-a { grid-column: 1; }
 }
+
+/* Header nav: the same five links on every page; the current page is marked
+   like the active Research filter (cyan text, cyan underline). */
+.site-nav a {
+  padding: 0.3rem 0;
+  border-bottom: 1.5px solid transparent;
+}
+.site-nav a[aria-current="page"] {
+  color: var(--cyan);
+  border-bottom-color: var(--cyan);
+}
+
+/* Services and NIS2: only the hero fills the screen; the other sections size
+   to their content with generous padding, so short sections no longer leave
+   large empty bands above and below. */
+.sales-page .section:not(.hero) {
+  min-height: 0;
+  padding-block: clamp(4.5rem, 11vh, 8rem);
+}
+@media (max-width: 720px) {
+  .site-nav { gap: 0.4rem 0.75rem; }
+  .site-nav a { padding: 0.1rem 0; }
+}
+@media (max-width: 360px) {
+  .site-nav { letter-spacing: 0.06em; }
+}
