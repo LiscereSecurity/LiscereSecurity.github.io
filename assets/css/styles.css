@@ -2312,3 +2312,262 @@ a.paper-card:focus-visible .paper-arrow {
   line-height: 1.65;
   color: #dce7e7;
 }
+
+/* =====================================================================
+   Services pages (/services.html, /services/*.html)
+   Ported from the services prototype. Every rule is scoped to
+   .services-page so the generic prototype class names (.section, .hero,
+   .card, .note, label, input...) never leak into the other pages. The
+   prototype's base, header and footer rules are not ported: the pages use
+   the site's own body, .site-chrome header and .research-foot footer.
+   ===================================================================== */
+.services-page {
+  /* tokens the prototype uses that the site does not define */
+  --cyan-2: #4de6ff;
+  --card: rgba(2, 7, 9, 0.56);
+  --pad-x: clamp(1.2rem, 6vw, 5.5rem);
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  color: var(--muted);
+  font-size: var(--fs-body);
+  line-height: 1.65;
+}
+
+.services-page a { color: var(--cyan); }
+.services-page a:hover { color: var(--cyan-2); }
+.services-page :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+
+.services-page h2 { font-size: clamp(1.45rem, 2.6vw, 2.1rem); }
+.services-page h3 {
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--fs-card);
+  font-weight: 600;
+  line-height: 1.35;
+}
+.services-page p { margin: 0 0 1rem; }
+
+/* layout */
+.services-page .section {
+  padding: clamp(3.4rem, 7vh, 5.5rem) var(--pad-x);
+  border-bottom: 1px solid var(--line);
+}
+.services-page .wrap { max-width: 1040px; margin: 0 auto; }
+.services-page .narrow { max-width: 720px; }
+.services-page .wrap.narrow { max-width: 720px; }
+.services-page .kicker { margin: 0 0 1rem; color: var(--cyan); }
+.services-page .lead {
+  max-width: none;
+  color: var(--ink);
+  font-size: var(--fs-subtitle);
+  line-height: 1.45;
+}
+.services-page .climax {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--cyan);
+  color: var(--ink);
+  font-size: var(--fs-climax);
+  font-weight: 500;
+  line-height: 1.4;
+}
+.services-page .hero { padding-top: calc(var(--sec-pad-top) + clamp(1.5rem, 5vh, 2.8rem)); }
+.services-page .hero .actions { margin-top: 1.6rem; }
+
+/* buttons */
+.services-page .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+.services-page .btn-primary {
+  background: var(--cyan);
+  color: #03100b;
+  box-shadow: 0 0 24px rgba(0, 217, 255, 0.28);
+}
+.services-page .btn-primary:hover { background: var(--cyan-2); color: #03100b; transform: translateY(-2px); }
+.services-page .btn-secondary {
+  background: rgba(255, 255, 255, 0.035);
+  border-color: var(--line);
+  color: #cbd8da;
+}
+.services-page .btn-secondary:hover { border-color: var(--cyan); color: var(--ink); background: rgba(0, 217, 255, 0.06); }
+.services-page .actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+/* cards */
+.services-page .card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1.4rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.services-page .card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.3rem 1.3rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--card);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+.services-page .card:hover { border-color: var(--cyan); box-shadow: 0 0 28px rgba(0, 217, 255, 0.12); }
+.services-page .card .tag {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--quiet);
+}
+.services-page .card p { margin: 0; font-size: 0.95rem; }
+.services-page .card .who { color: var(--quiet); font-size: 0.86rem; }
+.services-page .card .more {
+  margin-top: auto;
+  padding-top: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+.services-page .card.featured { border-color: rgba(0, 217, 255, 0.45); }
+.services-page .pill {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+.services-page .pill.amber { color: var(--amber); border-color: rgba(255, 195, 92, 0.4); }
+.services-page .pill.green { color: var(--green); border-color: rgba(102, 244, 164, 0.4); }
+.services-page .pill.cyan { color: var(--cyan); border-color: rgba(0, 217, 255, 0.4); }
+
+/* steps and timeline */
+.services-page .steps { counter-reset: step; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 1.4rem 0 0; padding: 0; list-style: none; }
+.services-page .steps li { position: relative; padding: 1.2rem; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+.services-page .steps li::before {
+  counter-increment: step;
+  content: "0" counter(step);
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  color: var(--cyan);
+  margin-bottom: 0.5rem;
+}
+.services-page .steps p { margin: 0; }
+.services-page .timeline { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
+.services-page .timeline li { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; padding: 0.9rem 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); align-items: start; }
+.services-page .timeline .date { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; color: var(--ink); }
+.services-page .timeline .date small { display: block; color: var(--quiet); letter-spacing: 0.1em; font-size: 0.64rem; text-transform: uppercase; margin-top: 0.2rem; }
+.services-page .timeline li.passed .date { color: var(--quiet); }
+.services-page .timeline li.passed .date small { color: var(--amber); }
+.services-page .timeline li.next .date small { color: var(--cyan); }
+.services-page .check-list { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 0.5rem; }
+.services-page .check-list li { padding-left: 1.5rem; position: relative; }
+.services-page .check-list li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px rgba(0, 217, 255, 0.5); }
+.services-page .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+.services-page .note {
+  margin-top: 1.4rem;
+  padding: 1rem 1.2rem;
+  border: 1px dashed var(--line-strong);
+  border-radius: 12px;
+  font-size: 0.92rem;
+}
+
+/* FAQ (details/summary; the site's FAQ page uses .faq-item instead) */
+.services-page .faq { margin: 1.2rem 0 0; display: grid; gap: 0.6rem; }
+.services-page .faq details { border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 0 1.1rem; }
+.services-page .faq summary { cursor: pointer; list-style: none; padding: 1rem 0; color: var(--ink); font-weight: 600; display: flex; justify-content: space-between; gap: 1rem; }
+.services-page .faq summary::-webkit-details-marker { display: none; }
+.services-page .faq summary::after { content: "+"; font-family: var(--mono); color: var(--cyan); }
+.services-page .faq details[open] summary::after { content: "\2212"; }
+.services-page .faq details p { padding-bottom: 1rem; margin: 0; }
+
+/* contact form */
+.services-page .form-card { padding: 1.5rem; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+.services-page .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+.services-page .form-grid .full { grid-column: 1 / -1; }
+.services-page label { display: block; font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 0.35rem; }
+.services-page input,
+.services-page select,
+.services-page textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 0.98rem;
+}
+.services-page input::placeholder,
+.services-page textarea::placeholder { color: var(--quiet); }
+.services-page input:focus,
+.services-page select:focus,
+.services-page textarea:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.15); }
+.services-page select option { background: #0b1114; color: var(--ink); }
+.services-page textarea { min-height: 7.5rem; resize: vertical; }
+.services-page .consent { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.86rem; color: var(--muted); }
+.services-page .consent input { width: 1rem; height: 1rem; margin-top: 0.3rem; flex: none; }
+.services-page .consent label { display: inline; text-transform: none; letter-spacing: 0; font-family: var(--sans); font-size: 0.86rem; color: var(--muted); }
+.services-page .hp { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
+.services-page .form-status { margin: 0.9rem 0 0; font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.06em; min-height: 1.2rem; }
+.services-page .form-status.ok { color: var(--green); }
+.services-page .form-status.err { color: var(--red); }
+.services-page .contact-aside p { font-size: 0.95rem; }
+.services-page .contact-aside .mono { font-family: var(--mono); font-size: 0.8rem; color: var(--ink); letter-spacing: 0.04em; }
+
+/* footer: the site's .research-foot, with the section gutter */
+.services-page .section:last-of-type { border-bottom: 0; }
+.services-page .research-foot { padding: 2rem var(--pad-x) 2.5rem; }
+.services-page .research-foot a { color: var(--muted); }
+.services-page .research-foot a:hover,
+.services-page .research-foot a:focus-visible { color: var(--cyan); }
+
+@media (max-width: 860px) {
+  .services-page .two-col { grid-template-columns: 1fr; }
+  .services-page .form-grid { grid-template-columns: 1fr; }
+  .services-page .timeline li { grid-template-columns: 1fr; gap: 0.3rem; }
+}
+
+/* the site's phone rule enlarges every h1/h2 for the one-screen home sections;
+   keep the services headings at their prototype scale instead */
+@media (max-width: 720px) {
+  .services-page h1 { font-size: var(--fs-h1); }
+  .services-page h2 { font-size: clamp(1.45rem, 2.6vw, 2.1rem); }
+}
+
+/* Header nav on phones: with Services added there are up to five links, which no
+   longer fit beside the wordmark. Drop the nav to a second row under the logo. */
+@media (max-width: 720px) {
+  .site-nav {
+    top: 3rem;
+    left: clamp(1.2rem, 6vw, 5.5rem);
+    right: clamp(1.2rem, 6vw, 5.5rem);
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+  }
+}
