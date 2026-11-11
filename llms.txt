@@ -1,6 +1,6 @@
 # Liscere
 
-> Liscere is a European industrial cybersecurity company, headquartered in Poland and working globally. It helps industrial and critical infrastructure operators protect the systems that run their physical processes, through security services, specialist consulting, and research and development of new tools for industrial security.
+> Liscere is a European industrial cybersecurity company, headquartered in Poland and working globally. It helps industrial and critical infrastructure operators protect the systems that run their physical processes, through security services, automation engineering built secure from the start, and research and development of new tools for industrial security.
 
 Liscere sp. z o.o. is an independent company. It is not affiliated with, and should not be confused with, any other cybersecurity vendor or product.
 
@@ -10,20 +10,26 @@ Tagline: Authorised is not always appropriate.
 
 Liscere works on three fronts, and each one feeds the others:
 
-- Security services for industrial and critical infrastructure operators (listed below).
-- Specialist consulting for operations, engineering and management teams facing an OT security decision, an audit or a regulatory deadline.
+- Security services for industrial and critical infrastructure operators.
+- Automation engineering: PLC and HMI projects, review and modernisation of existing automation, and industrial training, with security designed in from the start.
 - Research and development of new tools for industrial security, starting with a framework for contextual evaluation of industrial control actions.
 
 ## Services
 
-- OT and ICS security assessment: a structured review of controllers, operator stations, remote access and the network between them, finding vulnerabilities, misconfigurations and security gaps; includes penetration testing on agreed systems.
-- OT network visibility: what talks to what on the control network, which protocols are in use and who writes to which points, delivered as a complete OT asset inventory (controllers, workstations and devices, with vendor, model and firmware where the traffic reveals it).
-- Contextual anomaly detection pilot: Liscere's framework watching over the customer's equipment on its own network, flagging supervisory actions that do not fit the current state of the process, with the evidence behind each verdict; supports the incident detection and handling that NIS2 requires. Pilot slots are limited.
-- OT security awareness training: practical training in industrial cybersecurity (how controllers and other OT hardware work, industrial software, protocols and networks, how OT differs from IT), tailored to what each team needs.
-- NIS2 readiness: everything an industrial company needs to comply with NIS2 and the national law that applies: what applies, what is missing and the evidence auditors will ask for, with the OT side fully covered (OT visibility as evidence, an incident playbook for OT and an audit readiness pack). Available across the EU.
-- Cybersecurity risk assessment: a review of current security against ISO 27001 or the NIST Cybersecurity Framework, covering IT and OT together, with a prioritised list of improvements.
-- Security architecture review: segmentation between IT and OT, remote access, backup and recovery of controllers.
-- Incident response planning for industrial environments, including reporting to the competent CSIRT on time.
+Each service has its own page with what it is, who it is for, why it is needed and common questions.
+
+Industrial and OT security:
+
+- [OT and ICS security assessment](https://liscere.com/services/ot-security-assessment.html): a structured review of controllers, operator stations, remote access and the networks between them, including network architecture, segmentation and recovery; finds vulnerabilities and security gaps, ranks them by their risk to the process, and includes penetration testing on agreed systems. Aligned with IEC 62443.
+- [OT visibility and monitoring](https://liscere.com/services/ot-visibility-monitoring.html): a passive study of the control network delivering a complete OT asset inventory (controllers, workstations and devices, with vendor, model and firmware where the traffic reveals it) and a map of what talks to what; optionally extended with a pilot of Liscere's framework, which flags supervisory actions that do not fit the current state of the process.
+- [NIS2 readiness](https://liscere.com/services/nis2-ksc-compliance.html): readiness for NIS2 and the national law that applies, across the EU: gap assessment, OT visibility as evidence, an incident playbook for OT and an audit readiness pack.
+- [Incident response for OT](https://liscere.com/services/ot-incident-response.html): a response plan written for industrial sites (roles, decisions, isolation without losing control of the process, recovery of controllers, reporting to the competent CSIRT on time), tested in a tabletop exercise.
+
+Automation engineering:
+
+- [Automation projects](https://liscere.com/services/automation-projects.html): complete automation projects for machines and processes: requirements analysis, PLC and HMI programming, hardware selection and supply when needed, and commissioning on site. Platforms include Siemens (TIA Portal, S7-1200, S7-1500, WinCC), Rockwell Automation (Studio 5000, FactoryTalk View), Schneider Electric (EcoStruxure), Beckhoff TwinCAT, CODESYS, ABB, Omron and Mitsubishi Electric.
+- [Review and modernisation](https://liscere.com/services/automation-modernisation.html): analysis of existing PLC and HMI software for faults, undocumented logic, risks and security gaps, followed by improvements or migration from legacy platforms (for example Siemens S5 and S7-300/400, Rockwell PLC-5 and SLC 500), planned around production.
+- [Industrial training](https://liscere.com/services/industrial-training.html): practical training in industrial automation and cybersecurity for operators, maintenance teams, engineers and IT staff, tailored to each team; supports the training duties of NIS2.
 
 How engagements work: every engagement starts with a short scoping call. Scope and price are then fixed up front, and the customer receives a prioritised report in plain language with the evidence attached. On live OT networks Liscere observes rather than probes: nothing is scanned, injected or changed while the process is running. Active testing, such as penetration testing, runs only on systems and in time windows agreed with the customer.
 
@@ -35,11 +41,11 @@ Liscere develops a framework for contextual evaluation of industrial control act
 
 The framework observes a copy of operational technology (OT) traffic from a switch mirror port, injects nothing and never sits in the control path. From the observed traffic it reconstructs the actions taken, infers the operational phase of the process and judges whether each supervisory command is appropriate (COHERENT) or inappropriate (INCOHERENT) for that phase. It is designed to be vendor and protocol agnostic, and it complements existing controls: it is not an intrusion detection system, an interlock or an enforcement layer, and it does not replace firewalls, network segmentation or access control.
 
-Status: the framework is in active development and has been validated in Liscere's laboratory on physical Siemens hardware (S7-1200 and S7-1200 G2) over Modbus/TCP and OPC UA, including characterisation under encryption (TLS 1.3 and the OPC UA security modes). In those tests the same command received different verdicts depending on the operational context. It is not yet offered as a commercial product; organisations can evaluate it on their own network through a contextual anomaly detection pilot.
+Status: the framework is in active development and has been validated in Liscere's laboratory on physical Siemens hardware (S7-1200 and S7-1200 G2) over Modbus/TCP and OPC UA, including characterisation under encryption (TLS 1.3 and the OPC UA security modes). In those tests the same command received different verdicts depending on the operational context. It is not yet offered as a commercial product; organisations can evaluate it on their own network through a pilot, as part of OT visibility and monitoring.
 
 ## Partnerships
 
-Liscere welcomes research partners, OT and process engineers, system integrators and industrial operators who want to test contextual evaluation against realistic scenarios or work together on industrial security. Write to hello@liscere.com.
+Liscere welcomes research partners, OT and process engineers, machine builders, system integrators and industrial operators who want to test contextual evaluation against realistic scenarios or work together on industrial security. Write to hello@liscere.com.
 
 ## Contact
 
@@ -62,10 +68,9 @@ Liscere welcomes research partners, OT and process engineers, system integrators
 ## Key pages
 
 - [Home](https://liscere.com/): Why industrial security needs a new layer, illustrated with real incidents (Oldsmar 2021, Ukraine 2015, Stuxnet), what Liscere is, and the framework it is building, with routes to its services and to research collaboration.
-- [Services](https://liscere.com/services.html): Industrial cybersecurity services offered by Liscere, with a contact form.
-- [NIS2 readiness](https://liscere.com/services/nis2-ksc-compliance.html): NIS2 readiness for industrial companies in Europe: key dates, who is covered, what the directive requires and what the assessment delivers.
+- [Services](https://liscere.com/services.html): Liscere's industrial security and automation engineering services, each linking to its own page, with a contact form.
 - [About](https://liscere.com/about.html): What Liscere is, why industrial security matters, the framework Liscere is building, and the independence statement.
-- [FAQ](https://liscere.com/faq.html): Direct answers about working with Liscere (services, NIS2, engagements, contact) and about the framework and research.
+- [FAQ](https://liscere.com/faq.html): Direct answers about working with Liscere (services, automation, NIS2, engagements, contact) and about the framework and research.
 - [Research](https://liscere.com/research.html): Index of Liscere's technical reports (LTR series) and landscape briefings (LB series).
 - [Privacy notice](https://liscere.com/privacy.html): How Liscere processes personal data under the GDPR.
 

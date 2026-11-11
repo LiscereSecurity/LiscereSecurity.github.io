@@ -13,11 +13,11 @@
   <meta property="og:site_name" content="Liscere">
   <meta property="og:url" content="https://liscere.com/services/nis2-ksc-compliance.html">
   <meta property="og:title" content="NIS2 Readiness for Industrial Companies in Europe | Liscere">
-  <meta property="og:description" content="NIS2 is law across Europe. Readiness assessments with an OT lens for industrial and critical infrastructure companies, from Liscere.">
+  <meta property="og:description" content="NIS2 is law across Europe. Liscere runs readiness assessments with an OT lens for industrial and critical infrastructure companies: gap assessment, OT visibility, incident playbook and audit readiness.">
   <meta property="og:image" content="https://liscere.com/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="NIS2 Readiness for Industrial Companies in Europe | Liscere">
-  <meta name="twitter:description" content="NIS2 is law across Europe. Readiness assessments with an OT lens for industrial and critical infrastructure companies, from Liscere.">
+  <meta name="twitter:description" content="NIS2 is law across Europe. Liscere runs readiness assessments with an OT lens for industrial and critical infrastructure companies: gap assessment, OT visibility, incident playbook and audit readiness.">
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,19 +37,16 @@
       {
         "@type": "Service",
         "@id": "https://liscere.com/services/nis2-ksc-compliance.html#service",
-        "name": "NIS2 readiness assessment",
-        "serviceType": "NIS2 compliance readiness assessment for industrial companies",
-        "description": "Gap assessment against the obligations of the EU NIS2 Directive and its national laws, with an OT lens: risk management, incident reporting, management accountability and the technical evidence behind each.",
+        "name": "NIS2 readiness",
+        "serviceType": "NIS2 compliance readiness assessment",
+        "description": "A readiness assessment for NIS2 and the national law that applies: which obligations apply, what is already in place, what is missing and the evidence auditors will ask for, with the OT side fully covered.",
         "provider": {
           "@type": "Organization",
           "@id": "https://liscere.com/#org",
           "name": "Liscere sp. z o.o.",
           "url": "https://liscere.com/"
         },
-        "areaServed": {
-          "@type": "Place",
-          "name": "European Union"
-        },
+        "areaServed": "EU",
         "url": "https://liscere.com/services/nis2-ksc-compliance.html"
       },
       {
@@ -80,42 +77,50 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Does NIS2 apply to my company?",
+            "name": "Is my company covered by NIS2?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "NIS2 covers medium and large organisations in eighteen sectors, from energy, transport, health and water to chemicals, food, manufacturing and waste management. Some smaller entities are covered regardless of size. Each country sets the details in its own law. If you are unsure, a short scoping call is usually enough to tell."
+              "text": "Medium and large organisations in the sectors listed in Annexes I and II of the directive are in scope, including energy, transport, health, water, digital infrastructure, chemicals, food, waste, and the manufacturing of medical devices, electronics, machinery and vehicles. Suppliers to covered entities are increasingly asked for evidence too."
             }
           },
           {
             "@type": "Question",
-            "name": "When do the obligations apply?",
+            "name": "What are the key dates?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Member states had to turn NIS2 into national law by 17 October 2024. Many were late, so the obligations take effect country by country as each national law comes into force. In Poland, for example, the amended KSC act requires covered entities to comply by 3 April 2027."
+              "text": "NIS2 entered into force on 16 January 2023. Member states had until 17 October 2024 to turn it into national law and until 17 April 2025 to identify the entities in scope. Obligations apply as each national law takes effect; in Poland, the amended KSC act requires compliance by 3 April 2027."
             }
           },
           {
             "@type": "Question",
-            "name": "Is our OT network in scope?",
+            "name": "What does NIS2 require?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. NIS2 does not stop at the office network. Risk management, incident handling and supervision all cover the systems that deliver the service, which for an industrial company means the control network."
+              "text": "Risk management measures (policies, incident handling, business continuity, supply chain security and secure maintenance), incident reporting within 24 hours, 72 hours and one month, and accountability of management bodies, who must approve the measures, take part in training and can be held liable."
             }
           },
           {
             "@type": "Question",
-            "name": "Does Liscere replace our legal counsel?",
+            "name": "What does the readiness assessment deliver?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. We handle the technical and organisational side: the gap assessment, the evidence, the OT visibility, the incident playbook and the audit readiness pack. Questions of legal interpretation stay with your counsel, and we are happy to work alongside them."
+              "text": "A gap assessment of each obligation, an inventory of the control network as evidence, an incident playbook for OT and an audit readiness pack, with documents and records organised the way a supervisor will ask for them."
             }
           },
           {
             "@type": "Question",
-            "name": "How long does a readiness assessment take?",
+            "name": "What are the fines?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "A readiness assessment for a single site typically runs over a few weeks, depending on how much documentation already exists and whether OT visibility is included. Scope and price are fixed up front after a scoping call."
+              "text": "Up to 10 million euros or 2% of worldwide turnover for essential entities, and up to 7 million euros or 1.4% for important entities."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Liscere a law firm?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. We handle the technical and organisational side and work alongside legal counsel, who should confirm how the national law applies."
             }
           }
         ]
@@ -139,154 +144,30 @@
     </nav>
   </header>
 
-  <main id="main-content" class="services-page sales-page nis2-page">
+  <main id="main-content" class="services-page sales-page service-page">
 
     <section class="section hero">
       <div class="hero-copy">
         <p class="kicker"><a href="../services.html">Services</a> / NIS2 readiness</p>
         <h1>NIS2 is law across Europe. The clock is already running.</h1>
-        <p class="lead">Essential and important entities now face strict duties on risk management, incident reporting and accountability. We get industrial companies ready, with the OT lens most compliance projects lack.</p>
-        <div class="actions">
-          <a class="primary-cta" href="#contact">Book a readiness call</a>
-          <a class="secondary-cta" href="#requirements">What NIS2 requires</a>
-        </div>
+        <ul class="service-brief">
+          <li>
+            <h2>What it is</h2>
+            <p>A readiness assessment for NIS2 and the national law that applies: which obligations apply, what is already in place, what is missing and the evidence auditors will ask for, with the OT side fully covered.</p>
+          </li>
+          <li>
+            <h2>Who it is for</h2>
+            <p>Medium and large companies in the eighteen sectors NIS2 covers, such as energy, water, transport, chemicals, food and manufacturing, and the suppliers that serve them.</p>
+          </li>
+          <li>
+            <h2>Why it is needed</h2>
+            <p>NIS2 brings strict duties on risk management, incident reporting and management accountability, with fines of up to 10 million euros or 2% of worldwide turnover. Most compliance projects leave the OT side out.</p>
+          </li>
+        </ul>
       </div>
-    </section>
-
-    <section class="section" id="deadlines">
-      <div class="section-head">
-        <div>
-          <p class="kicker">Key dates</p>
-          <h2>From directive to national law.</h2>
-        </div>
-        <p class="section-side">Dates from Directive (EU) 2022/2555. National laws differ in detail; your legal counsel should confirm how they apply to you.</p>
-      </div>
-      <ul class="card-grid">
-        <li class="card">
-          <span class="tag">In force</span>
-          <h3>16 January 2023</h3>
-          <p>NIS2 enters into force at EU level and replaces the original NIS Directive.</p>
-        </li>
-        <li class="card">
-          <span class="tag">Transposition</span>
-          <h3>17 October 2024</h3>
-          <p>Deadline for member states to turn NIS2 into national law. Many were late, and national laws are still arriving.</p>
-        </li>
-        <li class="card">
-          <span class="tag">Registers</span>
-          <h3>17 April 2025</h3>
-          <p>Member states to have identified the essential and important entities on their territory.</p>
-        </li>
-        <li class="card featured">
-          <span class="tag">Now</span>
-          <h3>National deadlines</h3>
-          <p>Obligations apply as each national law takes effect. In Poland, the amended KSC act requires compliance by 3 April 2027.</p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="section" id="who">
-      <div class="section-head">
-        <div>
-          <p class="kicker">Who is covered</p>
-          <h2>Eighteen sectors, and everyone who supplies them.</h2>
-        </div>
-        <p class="section-side">Medium and large organisations in these sectors are in scope. Not sure where you stand? That is what the scoping call is for.</p>
-      </div>
-      <ul class="card-grid cols-3">
-        <li class="card">
-          <span class="tag">Annex I</span>
-          <h3>Sectors of high criticality</h3>
-          <ul class="check-list">
-            <li>Energy, transport, health</li>
-            <li>Drinking water and wastewater</li>
-            <li>Banking and financial market infrastructure</li>
-            <li>Digital infrastructure, ICT service management, space, public administration</li>
-          </ul>
-        </li>
-        <li class="card">
-          <span class="tag">Annex II</span>
-          <h3>Other critical sectors</h3>
-          <ul class="check-list">
-            <li>Chemicals and food</li>
-            <li>Manufacturing of medical devices, electronics, electrical equipment, machinery and vehicles</li>
-            <li>Waste management, postal and courier services</li>
-            <li>Digital providers and research</li>
-          </ul>
-        </li>
-        <li class="card featured">
-          <span class="tag">Supply chain</span>
-          <h3>Suppliers to covered entities</h3>
-          <p>Not covered yourself? Your customers may be. NIS2 pushes security down the supply chain, and suppliers are increasingly asked for evidence.</p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="section" id="requirements">
-      <div class="section-head">
-        <div>
-          <p class="kicker">What NIS2 requires</p>
-          <h2>Paperwork is the easy part. Evidence is the hard part.</h2>
-        </div>
-        <p class="section-side">An ISMS that does not know what the control network does is paperwork.</p>
-      </div>
-      <ul class="card-grid">
-        <li class="card">
-          <span class="tag">Risk</span>
-          <h3>Risk management measures</h3>
-          <p>Policies, incident handling, business continuity, supply chain security and secure system maintenance, proportionate to the risk.</p>
-        </li>
-        <li class="card">
-          <span class="tag">Reporting</span>
-          <h3>Incident reporting</h3>
-          <p>An early warning within 24 hours, a notification within 72 hours and a final report within one month.</p>
-        </li>
-        <li class="card">
-          <span class="tag">Accountability</span>
-          <h3>Management responsibility</h3>
-          <p>Management bodies must approve the measures, oversee them and take part in training. They can be held liable.</p>
-        </li>
-        <li class="card">
-          <span class="tag">Enforcement</span>
-          <h3>Supervision and fines</h3>
-          <p>Up to 10 million euros or 2% of worldwide turnover for essential entities, and 7 million euros or 1.4% for important ones.</p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="section" id="what-you-get">
-      <div class="section-head">
-        <div>
-          <p class="kicker">The readiness assessment</p>
-          <h2>What you get.</h2>
-        </div>
-        <p class="section-side">We are not a law firm. We handle the technical and organisational side, work alongside your counsel and put our name on the evidence.</p>
-      </div>
-      <ul class="card-grid">
-        <li class="card">
-          <span class="tag">01</span>
-          <h3>Gap assessment</h3>
-          <p>Each obligation mapped to what you have today, what is missing and how hard the gap is to close.</p>
-        </li>
-        <li class="card featured">
-          <span class="tag">02</span>
-          <h3>OT visibility as evidence</h3>
-          <p>An inventory of what actually talks on your control network, which protocols are in use and who writes where. Evidence an auditor can read.</p>
-        </li>
-        <li class="card">
-          <span class="tag">03</span>
-          <h3>Incident playbook for OT</h3>
-          <p>Who decides to stop a line, how to isolate without losing view and how to report on time. Written for the people on shift.</p>
-        </li>
-        <li class="card">
-          <span class="tag">04</span>
-          <h3>Audit readiness pack</h3>
-          <p>Documents, records and technical evidence organised the way a supervisor will ask for them.</p>
-        </li>
-      </ul>
-      <div class="actions">
-        <a class="primary-cta" href="#contact">Book a readiness call</a>
-        <a class="secondary-cta" href="../research/lb-2026-01/">Why OT attacks look like valid commands</a>
+      <div class="hero-scrollcue" aria-hidden="true">
+        <span class="hero-scrollcue-label">Scroll</span>
+        <span class="hero-scrollcue-track"><span class="hero-scrollcue-dot"></span></span>
       </div>
     </section>
 
@@ -298,24 +179,28 @@
         </div>
         <div class="faq">
           <details>
-            <summary>Does NIS2 apply to my company?</summary>
-            <p>NIS2 covers medium and large organisations in eighteen sectors, from energy, transport, health and water to chemicals, food, manufacturing and waste management. Some smaller entities are covered regardless of size. Each country sets the details in its own law. If you are unsure, a short scoping call is usually enough to tell.</p>
+            <summary>Is my company covered by NIS2?</summary>
+            <p>Medium and large organisations in the sectors listed in Annexes I and II of the directive are in scope, including energy, transport, health, water, digital infrastructure, chemicals, food, waste, and the manufacturing of medical devices, electronics, machinery and vehicles. Suppliers to covered entities are increasingly asked for evidence too.</p>
           </details>
           <details>
-            <summary>When do the obligations apply?</summary>
-            <p>Member states had to turn NIS2 into national law by 17 October 2024. Many were late, so the obligations take effect country by country as each national law comes into force. In Poland, for example, the amended KSC act requires covered entities to comply by 3 April 2027.</p>
+            <summary>What are the key dates?</summary>
+            <p>NIS2 entered into force on 16 January 2023. Member states had until 17 October 2024 to turn it into national law and until 17 April 2025 to identify the entities in scope. Obligations apply as each national law takes effect; in Poland, the amended KSC act requires compliance by 3 April 2027.</p>
           </details>
           <details>
-            <summary>Is our OT network in scope?</summary>
-            <p>Yes. NIS2 does not stop at the office network. Risk management, incident handling and supervision all cover the systems that deliver the service, which for an industrial company means the control network.</p>
+            <summary>What does NIS2 require?</summary>
+            <p>Risk management measures (policies, incident handling, business continuity, supply chain security and secure maintenance), incident reporting within 24 hours, 72 hours and one month, and accountability of management bodies, who must approve the measures, take part in training and can be held liable.</p>
           </details>
           <details>
-            <summary>Does Liscere replace our legal counsel?</summary>
-            <p>No. We handle the technical and organisational side: the gap assessment, the evidence, the OT visibility, the incident playbook and the audit readiness pack. Questions of legal interpretation stay with your counsel, and we are happy to work alongside them.</p>
+            <summary>What does the readiness assessment deliver?</summary>
+            <p>A gap assessment of each obligation, an inventory of the control network as evidence, an incident playbook for OT and an audit readiness pack, with documents and records organised the way a supervisor will ask for them.</p>
           </details>
           <details>
-            <summary>How long does a readiness assessment take?</summary>
-            <p>A readiness assessment for a single site typically runs over a few weeks, depending on how much documentation already exists and whether OT visibility is included. Scope and price are fixed up front after a scoping call.</p>
+            <summary>What are the fines?</summary>
+            <p>Up to 10 million euros or 2% of worldwide turnover for essential entities, and up to 7 million euros or 1.4% for important entities.</p>
+          </details>
+          <details>
+            <summary>Is Liscere a law firm?</summary>
+            <p>No. We handle the technical and organisational side and work alongside legal counsel, who should confirm how the national law applies.</p>
           </details>
         </div>
       </div>
@@ -324,9 +209,9 @@
     <section class="section" id="contact">
       <div class="contact-grid">
         <div class="contact-aside">
-          <p class="kicker">Book a readiness call</p>
-          <h2>Thirty minutes. No slides.</h2>
-          <p class="section-side">Tell us your sector, the countries you operate in and roughly how many sites you run. We will tell you honestly whether NIS2 applies and what a sensible first step looks like.</p>
+          <p class="kicker">Contact us</p>
+          <h2>Tell us what you need. We will find the solution.</h2>
+          <p class="section-side">Our goal is to keep what is critical protected, and we work hard to make that possible.</p>
           <p class="mono">hello@liscere.com</p>
           <p class="mono"><a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">linkedin.com/company/liscere</a></p>
         </div>
@@ -346,25 +231,21 @@
               <input id="f-email" name="email" type="email" autocomplete="email" required>
             </div>
             <div>
-              <label for="f-sector">Sector</label>
-              <select id="f-sector" name="sector">
-                <option value="">Select</option>
-                <option>Energy</option>
-                <option>Water and wastewater</option>
-                <option>Transport</option>
-                <option>Chemicals</option>
-                <option>Food</option>
-                <option>Manufacturing</option>
-                <option>Digital infrastructure</option>
-                <option>Public entity</option>
-                <option>Supplier to a covered entity</option>
-                <option>Other</option>
+              <label for="f-service">What are you interested in?</label>
+              <select id="f-service" name="service">
+                <option value="General enquiry">General enquiry</option>
+                <option value="OT and ICS security assessment">OT and ICS security assessment</option>
+                <option value="OT visibility and monitoring">OT visibility and monitoring</option>
+                <option value="NIS2 readiness" selected>NIS2 readiness</option>
+                <option value="Incident response for OT">Incident response for OT</option>
+                <option value="Automation projects">Automation projects</option>
+                <option value="Review and modernisation">Review and modernisation</option>
+                <option value="Industrial training">Industrial training</option>
               </select>
             </div>
-            <input type="hidden" name="service" value="NIS2 readiness">
             <div class="full">
-              <label for="f-message">Where do you stand today?</label>
-              <textarea id="f-message" name="message" required placeholder="Countries, number of sites, what exists already, what worries you."></textarea>
+              <label for="f-message">Message</label>
+              <textarea id="f-message" name="message" required placeholder="Describe what you need in a few lines."></textarea>
             </div>
             <div class="full consent">
               <input id="f-consent" name="consent" type="checkbox" required>
@@ -375,7 +256,7 @@
               <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
             </div>
             <div class="full actions">
-              <button class="primary-cta" type="submit">Book a readiness call</button>
+              <button class="primary-cta" type="submit">Send message</button>
             </div>
             <p class="full form-status" role="status" aria-live="polite"></p>
           </div>

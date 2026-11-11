@@ -13,11 +13,11 @@
   <meta property="og:site_name" content="Liscere">
   <meta property="og:url" content="https://liscere.com/services/ot-security-assessment.html">
   <meta property="og:title" content="OT Security Assessment and ICS Penetration Testing | Liscere">
-  <meta property="og:description" content="Find the weak points in your OT before an attacker does: an OT and ICS security assessment with findings ranked by their risk to the process.">
+  <meta property="og:description" content="OT and ICS security assessment from Liscere: vulnerabilities, network architecture, remote access and penetration testing on agreed systems, with findings ranked by their risk to the process. Aligned with IEC 62443 and NIS2.">
   <meta property="og:image" content="https://liscere.com/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="OT Security Assessment and ICS Penetration Testing | Liscere">
-  <meta name="twitter:description" content="Find the weak points in your OT before an attacker does: an OT and ICS security assessment with findings ranked by their risk to the process.">
+  <meta name="twitter:description" content="OT and ICS security assessment from Liscere: vulnerabilities, network architecture, remote access and penetration testing on agreed systems, with findings ranked by their risk to the process. Aligned with IEC 62443 and NIS2.">
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -39,7 +39,7 @@
         "@id": "https://liscere.com/services/ot-security-assessment.html#service",
         "name": "OT and ICS security assessment",
         "serviceType": "Operational technology and industrial control system security assessment and penetration testing",
-        "description": "A structured review of controllers, operator stations, remote access and the network between them, uncovering vulnerabilities and security gaps, with penetration testing on agreed systems.",
+        "description": "A structured review of controllers, operator stations, remote access and the networks between them. It uncovers vulnerabilities and security gaps, ranks them by their risk to the process and includes penetration testing on agreed systems.",
         "provider": {
           "@type": "Organization",
           "@id": "https://liscere.com/#org",
@@ -210,7 +210,7 @@
       <div class="contact-grid">
         <div class="contact-aside">
           <p class="kicker">Contact us</p>
-          <h2>Tell us about your plant.</h2>
+          <h2>Tell us what you need. We will find the solution.</h2>
           <p class="section-side">Our goal is to keep what is critical protected, and we work hard to make that possible.</p>
           <p class="mono">hello@liscere.com</p>
           <p class="mono"><a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">linkedin.com/company/liscere</a></p>
@@ -230,7 +230,19 @@
               <label for="f-email">Work email</label>
               <input id="f-email" name="email" type="email" autocomplete="email" required>
             </div>
-            <input type="hidden" name="service" value="OT and ICS security assessment">
+            <div>
+              <label for="f-service">What are you interested in?</label>
+              <select id="f-service" name="service">
+                <option value="General enquiry">General enquiry</option>
+                <option value="OT and ICS security assessment" selected>OT and ICS security assessment</option>
+                <option value="OT visibility and monitoring">OT visibility and monitoring</option>
+                <option value="NIS2 readiness">NIS2 readiness</option>
+                <option value="Incident response for OT">Incident response for OT</option>
+                <option value="Automation projects">Automation projects</option>
+                <option value="Review and modernisation">Review and modernisation</option>
+                <option value="Industrial training">Industrial training</option>
+              </select>
+            </div>
             <div class="full">
               <label for="f-message">Message</label>
               <textarea id="f-message" name="message" required placeholder="Describe what you need in a few lines."></textarea>
