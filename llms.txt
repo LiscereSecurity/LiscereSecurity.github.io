@@ -16,7 +16,7 @@ Liscere works on three fronts, and each one feeds the others:
 
 ## Services
 
-- OT and ICS security assessment: a structured review of controllers, operator stations, remote access and the network between them.
+- OT and ICS security assessment: a structured review of controllers, operator stations, remote access and the network between them, finding vulnerabilities, misconfigurations and security gaps; includes penetration testing on agreed systems.
 - OT network visibility: what talks to what on the control network, which protocols are in use and who writes to which points, delivered as a complete OT asset inventory (controllers, workstations and devices, with vendor, model and firmware where the traffic reveals it).
 - Contextual anomaly detection pilot: Liscere's framework watching over the customer's equipment on its own network, flagging supervisory actions that do not fit the current state of the process, with the evidence behind each verdict; supports the incident detection and handling that NIS2 requires. Pilot slots are limited.
 - OT security awareness training: practical training in industrial cybersecurity (how controllers and other OT hardware work, industrial software, protocols and networks, how OT differs from IT), tailored to what each team needs.
@@ -25,7 +25,7 @@ Liscere works on three fronts, and each one feeds the others:
 - Security architecture review: segmentation between IT and OT, remote access, backup and recovery of controllers.
 - Incident response planning for industrial environments, including reporting to the competent CSIRT on time.
 
-How engagements work: every engagement starts with a short scoping call. Scope and price are then fixed up front, and the customer receives a prioritised report in plain language with the evidence attached. On live OT networks Liscere observes rather than probes: nothing is scanned, injected or changed while the process is running.
+How engagements work: every engagement starts with a short scoping call. Scope and price are then fixed up front, and the customer receives a prioritised report in plain language with the evidence attached. On live OT networks Liscere observes rather than probes: nothing is scanned, injected or changed while the process is running. Active testing, such as penetration testing, runs only on systems and in time windows agreed with the customer.
 
 Who Liscere works with: industrial and critical infrastructure organisations of any size, including manufacturing plants, utilities, energy, water and wastewater, transport and building systems, and the suppliers that serve them.
 
