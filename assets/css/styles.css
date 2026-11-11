@@ -3008,3 +3008,8 @@ html:has(main.page-stack):not(.past-hero) .site-nav {
 .hero-snake-glow { opacity: 0.22; }
 .hero-page.is-paused .hero-field *,
 .hero-page.is-paused .hero-scrollcue-dot { animation-play-state: paused !important; }
+/* Chrome flicker fix: on 120Hz displays Chrome was alternating between partial
+   repaints of the animated SVG and the veil above it (about half the lines
+   vanished every other frame). Giving the field its own compositor layer keeps
+   each frame complete. Measured in Chrome 157: ~200 flicker frames per 8s -> 0. */
+.hero-field { will-change: transform; }
