@@ -2610,3 +2610,114 @@ a.paper-card:focus-visible .paper-arrow {
   .services-page .legal td:nth-child(3)::before { content: "Purpose and legal basis"; }
   .services-page .legal td:nth-child(4)::before { content: "Retention"; }
 }
+
+/* =====================================================================
+   Services sales layout (/services.html): mirrors the home page scale.
+   Full width sections with the site gutter, big left aligned headings,
+   a title/side text grid like .about-grid, and full width card rows.
+   ===================================================================== */
+.sales-page .section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(2rem, 5vh, 3.4rem);
+  min-height: max(100svh, 640px);
+  padding: clamp(5rem, 10vh, 7rem) var(--pad-x);
+}
+
+.sales-page h2 { margin: 0; font-size: var(--fs-h1); line-height: 1.25; }
+.sales-page .kicker { margin-bottom: 1.2rem; }
+
+/* hero: copy anchored upper left, like the home hero */
+.sales-page .hero { justify-content: center; }
+.sales-page .hero-copy { max-width: min(80rem, 100%); }
+.sales-page .hero h1 {
+  max-width: 22ch;
+  margin: 0 0 1.8rem;
+  font-size: clamp(2.3rem, 5vw, 5.6rem);
+  line-height: 1.12;
+}
+.sales-page .hero .lead {
+  max-width: 44ch;
+  margin: 0;
+  color: #dce7e7;
+  font-size: clamp(1.05rem, 1.7vw, 1.7rem);
+  font-weight: 500;
+  line-height: 1.45;
+}
+.sales-page .actions { display: flex; flex-wrap: wrap; gap: clamp(0.8rem, 1.4vw, 1.2rem); }
+.sales-page .hero .actions { margin-top: clamp(2rem, 5vh, 3rem); }
+
+.sales-page a.primary-cta,
+.sales-page button.primary-cta { color: #03100b; border: 1px solid rgba(0, 217, 255, 0.55); padding-inline: 1.5rem; }
+.sales-page a.primary-cta:hover,
+.sales-page button.primary-cta:hover { background: var(--cyan-2); color: #03100b; transform: translateY(-2px); }
+.sales-page a.secondary-cta { color: #cbd8da; padding-inline: 1.4rem; }
+.sales-page a.secondary-cta:hover { border-color: var(--cyan); color: var(--ink); background: rgba(0, 217, 255, 0.06); }
+
+/* section head: title left, short side text right (same proportions as .about-grid) */
+.sales-page .section-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+.sales-page .section-side {
+  max-width: 36rem;
+  margin: 0;
+  color: #dce7e7;
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
+  line-height: 1.55;
+}
+
+/* cards: one full width row of four */
+.sales-page .card-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.4vw, 1.4rem);
+  margin: 0;
+}
+.sales-page .card {
+  gap: 0.9rem;
+  padding: clamp(1.4rem, 2vw, 2rem);
+  border-radius: 18px;
+}
+.sales-page .card h3 { margin: 0; font-size: clamp(1.15rem, 1.5vw, 1.45rem); line-height: 1.25; }
+.sales-page .card p { color: #c6d2d3; font-size: clamp(0.98rem, 1.05vw, 1.08rem); line-height: 1.55; }
+.sales-page .card .tag { font-size: 0.7rem; color: var(--cyan); }
+.sales-page .card-cta { align-self: flex-start; margin-top: auto; min-height: 2.6rem; }
+.sales-page .card p + .card-cta,
+.sales-page .card p:last-of-type { margin-bottom: 0.4rem; }
+
+/* contact: same two column grid, form on the right */
+.sales-page .contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+.sales-page .contact-aside h2 { margin-bottom: 1.2rem; }
+.sales-page .contact-aside .section-side { margin-bottom: 1.8rem; }
+.sales-page .contact-aside .mono { margin: 0 0 0.6rem; font-size: 0.85rem; }
+.sales-page .form-card { padding: clamp(1.5rem, 2.4vw, 2.2rem); border-radius: 18px; }
+.sales-page .form-grid .actions { margin-top: 0.4rem; }
+
+@media (max-width: 1100px) {
+  .sales-page .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 860px) {
+  .sales-page .section { min-height: 0; }
+  .sales-page .hero { min-height: max(88svh, 560px); }
+  .sales-page .section-head,
+  .sales-page .contact-grid { grid-template-columns: 1fr; align-items: start; gap: 1.2rem; }
+  .sales-page .contact-grid { gap: 2rem; }
+}
+
+@media (max-width: 600px) {
+  .sales-page .card-grid { grid-template-columns: 1fr; }
+  .sales-page .hero h1 { font-size: clamp(2rem, 9vw, 2.6rem); }
+  .sales-page h2 { font-size: clamp(1.6rem, 7vw, 2.1rem); }
+}
+/* the home page's phone rule stretches .primary-cta/.secondary-cta to half width; keep natural width here */
+.sales-page .primary-cta,
+.sales-page .secondary-cta { flex: none; white-space: nowrap; }
