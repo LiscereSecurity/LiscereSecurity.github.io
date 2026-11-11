@@ -20,8 +20,8 @@ Liscere works on three fronts, and each one feeds the others:
 - OT network visibility: what talks to what on the control network, which protocols are in use and who writes to which points, delivered as a complete OT asset inventory (controllers, workstations and devices, with vendor, model and firmware where the traffic reveals it).
 - Contextual anomaly detection pilot: Liscere's framework watching over the customer's equipment on its own network, flagging supervisory actions that do not fit the current state of the process, with the evidence behind each verdict; supports the incident detection and handling that NIS2 requires. Pilot slots are limited.
 - OT security awareness training: practical training in industrial cybersecurity (how controllers and other OT hardware work, industrial software, protocols and networks, how OT differs from IT), tailored to what each team needs.
-- NIS2 readiness: a gap assessment against NIS2 and the national law that applies, with an OT lens; OT visibility as evidence, an incident playbook for OT and an audit readiness pack. Available across the EU.
-- Cybersecurity risk assessment against ISO 27001 or the NIST Cybersecurity Framework, covering IT and OT together.
+- NIS2 readiness: everything an industrial company needs to comply with NIS2 and the national law that applies: what applies, what is missing and the evidence auditors will ask for, with the OT side fully covered (OT visibility as evidence, an incident playbook for OT and an audit readiness pack). Available across the EU.
+- Cybersecurity risk assessment: a review of current security against ISO 27001 or the NIST Cybersecurity Framework, covering IT and OT together, with a prioritised list of improvements.
 - Security architecture review: segmentation between IT and OT, remote access, backup and recovery of controllers.
 - Incident response planning for industrial environments, including reporting to the competent CSIRT on time.
 
