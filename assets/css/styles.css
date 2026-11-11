@@ -2842,3 +2842,35 @@ a.paper-card:focus-visible .paper-arrow {
 @media (max-width: 360px) {
   .site-nav { letter-spacing: 0.06em; }
 }
+
+/* =====================================================================
+   Header always visible: wordmark and nav stay on screen on every page,
+   on a dark translucent bar so they never sit on top of the text.
+   (Overrides the earlier fade driven by .past-hero.)
+   ===================================================================== */
+.site-chrome { --chrome-h: 4rem; }
+.site-chrome::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--chrome-h);
+  background: rgba(3, 4, 5, 0.8);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.site-logo,
+.site-nav,
+.past-hero .site-logo,
+.past-hero .site-nav { opacity: 1; }
+
+/* anchor links (#contact, #faq...) land below the bar; not on the home page,
+   where it would shift the one screen snap points */
+html:not(:has(main.page-stack)) { scroll-padding-top: 5rem; }
+
+@media (max-width: 720px) {
+  /* nav sits on a second row under the wordmark */
+  .site-chrome { --chrome-h: 4.35rem; }
+}
