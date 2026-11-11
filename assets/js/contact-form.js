@@ -40,6 +40,9 @@
 
       if (form.querySelector("input[name=website]").value) { return; } /* honeypot */
       if (!touched || Date.now() - openedAt < MIN_FILL_MS) { return; } /* too fast or no interaction */
+      var msg = String(form.querySelector("[name=message]").value || "");
+      if ((msg.match(/https?:\/\/|www\./gi) || []).length > 2) { return; } /* link spam */
+      if (/<a\s|\[url=/i.test(msg)) { return; } /* markup spam */
 
       if (!form.checkValidity()) {
         form.reportValidity();

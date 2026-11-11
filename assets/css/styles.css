@@ -3172,3 +3172,10 @@ html:has(main.page-stack):not(.past-hero) .site-nav {
   .back-fab { position: absolute; top: calc(var(--cu) * 4.35 + 0.9rem); bottom: auto; }
   .service-page .hero .hero-copy { margin-top: 3.4rem; }
 }
+
+/* Short laptop screens (around 720px tall): the incidents screen on the home page
+   needs a little less vertical padding to stay exactly one screen tall. */
+@media (min-width: 861px) and (max-height: 820px) {
+  .gap-page { padding-bottom: 1.4rem; }
+  .gap-page .incident-carousel { margin-top: 0.8rem; }
+}

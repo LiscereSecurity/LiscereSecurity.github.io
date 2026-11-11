@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="en" class="past-hero">
+<html lang="en-GB" class="past-hero">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FAQ | Liscere</title>
-  <meta name="description" content="Direct answers about Liscere: industrial cybersecurity and automation services, NIS2 readiness, how engagements work, and the contextual evaluation framework Liscere is developing." />
+  <title>FAQ | Liscere Industrial Cybersecurity</title>
+  <meta name="description" content="Direct answers about Liscere: OT security and automation services, NIS2 readiness, how engagements work and the framework Liscere is developing." />
   <meta name="author" content="Liscere" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#030405" />
 
-  <meta property="og:title" content="FAQ | Liscere" />
-  <meta property="og:description" content="Direct answers about Liscere: industrial cybersecurity and automation services, NIS2 readiness, how engagements work, and the contextual evaluation framework Liscere is developing." />
+  <meta property="og:title" content="FAQ | Liscere Industrial Cybersecurity" />
+  <meta property="og:description" content="Direct answers about Liscere: OT security and automation services, NIS2 readiness, how engagements work and the framework Liscere is developing." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://liscere.com/faq.html" />
   <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
@@ -21,16 +21,17 @@
   <meta property="og:site_name" content="Liscere" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="FAQ | Liscere" />
-  <meta name="twitter:description" content="Direct answers about Liscere: industrial cybersecurity and automation services, NIS2 readiness, how engagements work, and the contextual evaluation framework Liscere is developing." />
+  <meta name="twitter:title" content="FAQ | Liscere Industrial Cybersecurity" />
+  <meta name="twitter:description" content="Direct answers about Liscere: OT security and automation services, NIS2 readiness, how engagements work and the framework Liscere is developing." />
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
 
   <link rel="canonical" href="https://liscere.com/faq.html" />
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://liscere.com/#org",
+    "@context": "https://schema.org",
     "name": "Liscere",
     "legalName": "LISCERE SPÓŁKA Z OGRANICZONĄ ODPOWIEDZIALNOŚCIĄ",
     "url": "https://liscere.com/",
@@ -50,9 +51,21 @@
       "name": "Bruno Salmazo"
     },
     "identifier": [
-      { "@type": "PropertyValue", "propertyID": "KRS", "value": "0001256054" },
-      { "@type": "PropertyValue", "propertyID": "NIP", "value": "7252369168" },
-      { "@type": "PropertyValue", "propertyID": "REGON", "value": "545329293" }
+      {
+        "@type": "PropertyValue",
+        "propertyID": "KRS",
+        "value": "0001256054"
+      },
+      {
+        "@type": "PropertyValue",
+        "propertyID": "NIP",
+        "value": "7252369168"
+      },
+      {
+        "@type": "PropertyValue",
+        "propertyID": "REGON",
+        "value": "545329293"
+      }
     ],
     "sameAs": [
       "https://www.linkedin.com/company/liscere",
@@ -127,7 +140,7 @@
         "name": "How does an engagement start, and how is it priced?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "With a short scoping call: you tell us what you run and what worries you, and we tell you honestly whether we are the right fit and what a sensible first step looks like. Scope and price are then fixed up front, and you receive a prioritised report in plain language with the evidence attached."
+          "text": "With a short scoping call: you tell us what you run and what worries you, and we tell you honestly whether we are the right fit and what a sensible first step looks like. Scope and price are then fixed up front, and for assessments you receive a prioritised report in plain language with the evidence attached."
         }
       },
       {
@@ -151,7 +164,7 @@
         "name": "Is the framework available as a product?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Not yet. The framework is in active development and validated in our laboratory. Organisations that want to see it on their own network can apply for a contextual anomaly detection pilot; slots are limited."
+          "text": "Not yet. The framework is in active development and validated in our laboratory. Organisations that want to see it on their own network can run a pilot as part of OT visibility and monitoring (https://liscere.com/services/ot-visibility-monitoring.html)."
         }
       },
       {
@@ -167,7 +180,7 @@
         "name": "Does the framework sit in the control path?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. It is an external observer. It connects to a switch mirror port, receives a copy of the traffic and injects nothing; it cannot send, block or alter any command, and it is electrically incapable of reaching the control path."
+          "text": "No. It is an external observer. It connects to a switch mirror port, receives a copy of the traffic and injects nothing; it cannot send, block or alter any command, and by design and by configuration it has no route to send traffic into the control network."
         }
       },
       {
@@ -183,7 +196,7 @@
         "name": "How is the framework validated?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "On real industrial hardware, under realistic conditions, and across a growing range of processes and protocols. The work runs on controllers used in industry, the Siemens S7 family, with real engineering configurations, over protocols including Modbus/TCP and OPC UA, and every result is exercised across many operational variants rather than a single case."
+          "text": "On real industrial hardware, under realistic conditions, and across a growing range of processes and protocols. Validation runs in our laboratory on Siemens S7-1200 and S7-1200 G2 controllers with real engineering configurations, over Modbus/TCP and OPC UA, with each result repeated across many operational variants rather than a single case."
         }
       },
       {
@@ -206,7 +219,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20261111-scale21" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20261111-scale22" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -236,7 +249,7 @@
 
       <div class="faq-item">
         <h3 class="faq-q">Which services does Liscere offer?</h3>
-        <p class="faq-a">Two groups of services. Industrial and OT security: OT and ICS security assessments, OT visibility and monitoring, NIS2 readiness and incident response for OT. Automation engineering: automation projects (PLC and HMI programming, hardware and commissioning), review and modernisation of existing automation, and industrial training. Each one has its own page, linked from the services page on the <a href="./services.html">services page</a>.</p>
+        <p class="faq-a">Two groups of services. Industrial and OT security: OT and ICS security assessments, OT visibility and monitoring, NIS2 readiness and incident response for OT. Automation engineering: automation projects (PLC and HMI programming, hardware and commissioning), review and modernisation of existing automation, and industrial training. Each one has its own page, linked from the <a href="./services.html">services page</a>.</p>
       </div>
 
       <div class="faq-item">
@@ -266,7 +279,7 @@
 
       <div class="faq-item">
         <h3 class="faq-q">How does an engagement start, and how is it priced?</h3>
-        <p class="faq-a">With a short scoping call: you tell us what you run and what worries you, and we tell you honestly whether we are the right fit and what a sensible first step looks like. Scope and price are then fixed up front, and you receive a prioritised report in plain language with the evidence attached.</p>
+        <p class="faq-a">With a short scoping call: you tell us what you run and what worries you, and we tell you honestly whether we are the right fit and what a sensible first step looks like. Scope and price are then fixed up front, and for assessments you receive a prioritised report in plain language with the evidence attached.</p>
       </div>
 
       <div class="faq-item">
@@ -283,7 +296,7 @@
 
       <div class="faq-item">
         <h3 class="faq-q">Is the framework available as a product?</h3>
-        <p class="faq-a">Not yet. The framework is in active development and validated in our laboratory. Organisations that want to see it on their own network can apply for a contextual anomaly detection pilot; slots are limited.</p>
+        <p class="faq-a">Not yet. The framework is in active development and validated in our laboratory. Organisations that want to see it on their own network can run a pilot as part of <a href="./services/ot-visibility-monitoring.html">OT visibility and monitoring</a>.</p>
       </div>
 
       <div class="faq-item">
@@ -294,7 +307,7 @@
 
       <div class="faq-item">
         <h3 class="faq-q">Does the framework sit in the control path?</h3>
-        <p class="faq-a">No. It is an external observer. It connects to a switch mirror port, receives a copy of the traffic and injects nothing; it cannot send, block or alter any command, and it is electrically incapable of reaching the control path.</p>
+        <p class="faq-a">No. It is an external observer. It connects to a switch mirror port, receives a copy of the traffic and injects nothing; it cannot send, block or alter any command, and by design and by configuration it has no route to send traffic into the control network.</p>
       </div>
 
       <div class="faq-item">
@@ -304,7 +317,7 @@
 
       <div class="faq-item">
         <h3 class="faq-q">How is the framework validated?</h3>
-        <p class="faq-a">On real industrial hardware, under realistic conditions, and across a growing range of processes and protocols. The work runs on controllers used in industry, the Siemens S7 family, with real engineering configurations, over protocols including Modbus/TCP and OPC UA, and every result is exercised across many operational variants rather than a single case.</p>
+        <p class="faq-a">On real industrial hardware, under realistic conditions, and across a growing range of processes and protocols. Validation runs in our laboratory on Siemens S7-1200 and S7-1200 G2 controllers with real engineering configurations, over Modbus/TCP and OPC UA, with each result repeated across many operational variants rather than a single case.</p>
       </div>
 
       <div class="faq-item">

@@ -2,6 +2,8 @@
 
 > Liscere is a European industrial cybersecurity company, headquartered in Poland and working globally. It helps industrial and critical infrastructure operators protect the systems that run their physical processes, through security services, automation engineering built secure from the start, and research and development of new tools for industrial security.
 
+Last updated: 11 November 2026.
+
 Liscere sp. z o.o. is an independent company. It is not affiliated with, and should not be confused with, any other cybersecurity vendor or product.
 
 Tagline: Authorised is not always appropriate.
@@ -27,19 +29,28 @@ Industrial and OT security:
 
 Automation engineering:
 
-- [Automation projects](https://liscere.com/services/automation-projects.html): complete automation projects for machines and processes: requirements analysis, PLC and HMI programming, hardware selection and supply when needed, and commissioning on site. Platforms include Siemens (TIA Portal, S7-1200, S7-1500, WinCC), Rockwell Automation (Studio 5000, FactoryTalk View), Schneider Electric (EcoStruxure), Beckhoff TwinCAT, CODESYS, ABB, Omron and Mitsubishi Electric.
+- [Automation projects](https://liscere.com/services/automation-projects.html): complete automation projects for machines and processes: requirements analysis, PLC and HMI programming, hardware selection, with supply arranged when needed, and commissioning on site. Platforms include Siemens (TIA Portal, S7-1200, S7-1500, WinCC), Rockwell Automation (Studio 5000, FactoryTalk View), Schneider Electric (EcoStruxure), Beckhoff TwinCAT, CODESYS, ABB, Omron and Mitsubishi Electric.
 - [Review and modernisation](https://liscere.com/services/automation-modernisation.html): analysis of existing PLC and HMI software for faults, undocumented logic, risks and security gaps, followed by improvements or migration from legacy platforms (for example Siemens S5 and S7-300/400, Rockwell PLC-5 and SLC 500), planned around production.
 - [Industrial training](https://liscere.com/services/industrial-training.html): practical training in industrial automation and cybersecurity for operators, maintenance teams, engineers and IT staff, tailored to each team; supports the training duties of NIS2.
 
-How engagements work: every engagement starts with a short scoping call. Scope and price are then fixed up front, and the customer receives a prioritised report in plain language with the evidence attached. On live OT networks Liscere observes rather than probes: nothing is scanned, injected or changed while the process is running. Active testing, such as penetration testing, runs only on systems and in time windows agreed with the customer.
+How engagements work: every engagement starts with a short scoping call. Scope and price are then fixed up front, and for assessments the customer receives a prioritised report in plain language with the evidence attached. On live OT networks Liscere observes rather than probes: nothing is scanned, injected or changed while the process is running. Active testing, such as penetration testing, runs only on systems and in time windows agreed with the customer.
 
 Who Liscere works with: industrial and critical infrastructure organisations of any size, including manufacturing plants, utilities, energy, water and wastewater, transport and building systems, and the suppliers that serve them.
+
+## Quick answers
+
+- What is Liscere? A European industrial cybersecurity company, headquartered in Poland and working globally, offering OT security services, secure automation engineering and research.
+- Does Liscere disrupt production during assessments? No. On live OT networks it observes rather than probes; active testing runs only on agreed systems in agreed time windows.
+- Which vendors and platforms does Liscere work with? Siemens, Rockwell Automation (Allen-Bradley), Schneider Electric, ABB, Beckhoff, Omron, Mitsubishi Electric and CODESYS based systems.
+- Which protocols? The main industrial protocols, including Modbus/TCP, S7comm, OPC UA, EtherNet/IP and PROFINET, with the goal of being fully protocol agnostic.
+- Where does Liscere work? Globally, including on site commissioning; NIS2 readiness covers the EU.
+- How to start? Write to hello@liscere.com or use the contact form; every engagement starts with a short scoping call, and scope and price are fixed up front.
 
 ## The framework (research and development)
 
 Liscere develops a framework for contextual evaluation of industrial control actions. Its premise is that a control action can be fully authorised, protocol conformant and within valid ranges, and still be wrong for the current state of the physical process; legitimacy depends on operational context.
 
-The framework observes a copy of operational technology (OT) traffic from a switch mirror port, injects nothing and never sits in the control path. From the observed traffic it reconstructs the actions taken, infers the operational phase of the process and judges whether each supervisory command is appropriate (COHERENT) or inappropriate (INCOHERENT) for that phase. It is designed to be vendor and protocol agnostic, and it complements existing controls: it is not an intrusion detection system, an interlock or an enforcement layer, and it does not replace firewalls, network segmentation or access control.
+The framework observes a copy of operational technology (OT) traffic from a switch mirror port, injects nothing and never sits in the control path. From the observed traffic it reconstructs the actions taken, infers the operational phase of the process and judges whether each supervisory command is appropriate (COHERENT) or inappropriate (INCOHERENT) for that phase. Its goal is to be vendor and protocol agnostic, and it complements existing controls: it is not an intrusion detection system, an interlock or an enforcement layer, and it does not replace firewalls, network segmentation or access control.
 
 Status: the framework is in active development and has been validated in Liscere's laboratory on physical Siemens hardware (S7-1200 and S7-1200 G2) over Modbus/TCP and OPC UA, including characterisation under encryption (TLS 1.3 and the OPC UA security modes). In those tests the same command received different verdicts depending on the operational context. It is not yet offered as a commercial product; organisations can evaluate it on their own network through a pilot, as part of OT visibility and monitoring.
 

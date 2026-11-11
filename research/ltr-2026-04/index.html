@@ -1,16 +1,16 @@
 <!doctype html>
-<html lang="en" class="past-hero">
+<html lang="en-GB" class="past-hero">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contextual Evaluation under Encryption | Liscere LTR-2026-04</title>
-  <meta name="description" content="Encryption is arriving in operational technology. Protocols that historically carried control traffic in clear, from Modbus/TCP to native controller" />
+  <title>Contextual Evaluation under Encryption | Liscere</title>
+  <meta name="description" content="What a passive observer can and cannot recover once an OT channel is encrypted, characterised in hardware over TLS 1.3." />
   <meta name="author" content="Liscere" />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#030405" />
 
   <meta property="og:title" content="Contextual Evaluation under Encryption" />
-  <meta property="og:description" content="Encryption is arriving in operational technology. Protocols that historically carried control traffic in clear, from Modbus/TCP to native controller" />
+  <meta property="og:description" content="What a passive observer can and cannot recover once an OT channel is encrypted, characterised in hardware over TLS 1.3." />
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://liscere.com/research/ltr-2026-04/" />
   <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
@@ -22,7 +22,7 @@
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contextual Evaluation under Encryption" />
-  <meta name="twitter:description" content="Encryption is arriving in operational technology. Protocols that historically carried control traffic in clear, from Modbus/TCP to native controller" />
+  <meta name="twitter:description" content="What a passive observer can and cannot recover once an OT channel is encrypted, characterised in hardware over TLS 1.3." />
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
 
   <link rel="canonical" href="https://liscere.com/research/ltr-2026-04/" />
@@ -35,6 +35,7 @@
     "name": "Contextual Evaluation under Encryption",
     "author": {
       "@type": "Organization",
+      "@id": "https://liscere.com/#org",
       "name": "Liscere",
       "url": "https://liscere.com/"
     },
@@ -42,6 +43,7 @@
     "abstract": "This report characterises one such encrypted channel in hardware, the Web API of a Siemens S7-1200 G2 controller (JSON-RPC over HTTPS/TLS 1.3), and reports what an external observer can and cannot recover from it. The findings are specific and, in one respect, uncomfortable. Under TLS 1.3, a strictly passive observer on a mirror port, the observation architecture validated for Modbus/TCP in the preceding report, is blind to the payload: the method, the target artefact, the value, and the session token are all opaque, and the server certificate itself is encrypted. A traffic-metadata sensor that survives encryption, keyed on record sizes and timing, detects bursts of activity but is unreliable for the isolated, well-chosen write that defines the adversary Liscere is concerned with. We then establish, through a decrypted vantage used as an offline validation method only, that the process variable required for contextual evaluation is recoverable at a workable rate, that the process of the preceding report can be ported onto this channel unchanged, and that an authorised control action can be captured in two distinct operational phases.",
     "publisher": {
       "@type": "Organization",
+      "@id": "https://liscere.com/#org",
       "name": "Liscere",
       "url": "https://liscere.com/"
     },
@@ -62,7 +64,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261111-scale21" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261111-scale22" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
