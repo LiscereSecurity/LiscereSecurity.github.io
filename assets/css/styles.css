@@ -2571,3 +2571,42 @@ a.paper-card:focus-visible .paper-arrow {
     gap: 0.4rem 1rem;
   }
 }
+
+/* Privacy notice (/privacy.html): legal text inside the services layout */
+.services-page .legal h2 { font-size: clamp(1.15rem, 1.8vw, 1.5rem); margin-top: 2.2rem; }
+.services-page .legal h3 { margin-top: 1.4rem; }
+.services-page .legal ul { padding-left: 1.2rem; }
+.services-page .legal li { margin-bottom: 0.4rem; }
+.services-page .legal strong { color: var(--ink); }
+.services-page .legal table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.4rem; font-size: 0.94rem; }
+.services-page .legal th,
+.services-page .legal td { text-align: left; vertical-align: top; padding: 0.7rem 0.8rem; border: 1px solid var(--line); }
+.services-page .legal th { font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); background: var(--card); }
+.services-page .legal .meta { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.06em; color: var(--quiet); }
+
+/* phones: the four column table becomes one card per row, column names as labels */
+@media (max-width: 720px) {
+  .services-page .legal h2 { font-size: clamp(1.15rem, 5vw, 1.5rem); }
+  .services-page .legal table,
+  .services-page .legal tbody,
+  .services-page .legal tr,
+  .services-page .legal td { display: block; width: 100%; }
+  .services-page .legal thead { display: none; }
+  .services-page .legal tr { margin-bottom: 0.9rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+  .services-page .legal td { border: 0; border-top: 1px solid var(--line); }
+  .services-page .legal td:first-child { border-top: 0; color: var(--ink); font-weight: 600; }
+  .services-page .legal td::before {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: var(--mono);
+    font-size: 0.64rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--quiet);
+  }
+  .services-page .legal td:nth-child(1)::before { content: "Situation"; }
+  .services-page .legal td:nth-child(2)::before { content: "Data"; }
+  .services-page .legal td:nth-child(3)::before { content: "Purpose and legal basis"; }
+  .services-page .legal td:nth-child(4)::before { content: "Retention"; }
+}
