@@ -16,10 +16,10 @@ Liscere works on three fronts, and each one feeds the others:
 
 ## Services
 
-- OT and ICS security assessment: a structured review of controllers, operator stations, remote access and the network between them, with a prioritised list of exposures explained against how the process runs.
-- OT network visibility: an inventory of what is on the control network, what talks to what, which protocols are in use and who writes to which points.
-- Contextual anomaly detection pilot: Liscere's evaluation framework on the customer's own network, flagging supervisory actions that do not fit the current state of the process, with the evidence behind each verdict. Pilot slots are limited.
-- OT security awareness training for operators and engineers, built around the customer's own process.
+- OT and ICS security assessment: a structured review of controllers, operator stations, remote access and the network between them.
+- OT network visibility: what talks to what on the control network, which protocols are in use and who writes to which points, delivered as a complete OT asset inventory (controllers, workstations and devices, with vendor, model and firmware where the traffic reveals it).
+- Contextual anomaly detection pilot: Liscere's framework watching over the customer's equipment on its own network, flagging supervisory actions that do not fit the current state of the process, with the evidence behind each verdict; supports the incident detection and handling that NIS2 requires. Pilot slots are limited.
+- OT security awareness training: practical training in industrial cybersecurity (how controllers and other OT hardware work, industrial software, protocols and networks, how OT differs from IT), tailored to what each team needs.
 - NIS2 readiness: a gap assessment against NIS2 and the national law that applies, with an OT lens; OT visibility as evidence, an incident playbook for OT and an audit readiness pack. Available across the EU.
 - Cybersecurity risk assessment against ISO 27001 or the NIST Cybersecurity Framework, covering IT and OT together.
 - Security architecture review: segmentation between IT and OT, remote access, backup and recovery of controllers.
