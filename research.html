@@ -2,6 +2,8 @@
 <html lang="en-GB" class="past-hero">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Research | Liscere OT Security Reports and Briefings</title>
   <meta name="description" content="Liscere technical reports and landscape briefings on contextual evaluation of industrial control actions, OT protocols, encryption and OT threats." />
@@ -26,15 +28,13 @@
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
 
   <link rel="canonical" href="https://liscere.com/research.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/css/fonts.css?v=1" />
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg?v=4" />
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png?v=4" />
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20261111-scale22" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20261111-scale23" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -48,6 +48,7 @@
       <a href="./services.html">Services</a>
       <a href="./about.html">About</a>
       <a href="./research.html" aria-current="page">Research</a>
+      <a class="lang-switch" href="./pl/index.html" hreflang="pl" lang="pl" aria-label="Polski">PL</a>
     </nav>
   </header>
 
@@ -187,39 +188,6 @@
     <p class="research-foot"><a href="./index.html">Home</a> · <a href="./services.html">Services</a> · <a href="./about.html">About</a> · <a href="./faq.html">FAQ</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="./privacy.html">Privacy</a><br />© 2026 Liscere sp. z o.o.</p>
   </main>
 
-  <script>
-    (function () {
-      var buttons = document.querySelectorAll('.research-filter-btn');
-      var cards = document.querySelectorAll('.research-cards .paper-card');
-      function apply(filter) {
-        cards.forEach(function (card) {
-          card.hidden = !(filter === 'all' || card.getAttribute('data-group') === filter);
-        });
-      }
-      buttons.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-          buttons.forEach(function (b) {
-            var active = b === btn;
-            b.classList.toggle('is-active', active);
-            b.setAttribute('aria-pressed', active ? 'true' : 'false');
-          });
-          apply(btn.getAttribute('data-filter'));
-        });
-      });
-    })();
-
-    // Research page only: the fixed "Liscere" wordmark overlaps the cards once
-    // scrolled. Its visibility is driven by the .past-hero class on <html> (the
-    // only thing .past-hero controls: .past-hero .site-logo { opacity: 1 }). Keep
-    // past-hero at the very top so the wordmark shows, and drop it while scrolled
-    // so the wordmark returns to its default opacity: 0. The 320ms opacity
-    // transition on .site-logo makes it fade in/out.
-    (function () {
-      var root = document.documentElement;
-      function sync() { root.classList.toggle('past-hero', window.scrollY <= 16); }
-      sync();
-      window.addEventListener('scroll', sync, { passive: true });
-    })();
-  </script>
+  <script src="./assets/js/site.js?v=1" defer></script>
 </body>
 </html>
