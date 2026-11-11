@@ -357,12 +357,10 @@ h2 {
 
 .hero-snake--green {
   stroke: var(--green);
-  filter: drop-shadow(0 0 3px rgba(101, 244, 164, 0.55)) drop-shadow(0 0 8px rgba(101, 244, 164, 0.3));
 }
 
 .hero-snake--amber {
   stroke: var(--amber);
-  filter: drop-shadow(0 0 3px rgba(255, 195, 92, 0.6)) drop-shadow(0 0 8px rgba(255, 195, 92, 0.3));
 }
 
 /* the whole group fades out at once once the icon is complete (JS toggles opacity) */
@@ -2997,8 +2995,16 @@ html:has(main.page-stack):not(.past-hero) .site-nav {
    can use a larger scale and still fit one screen per section. */
 @media (min-width: 721px) {
   .about-page { gap: clamp(2.5rem, 8vh, 7rem); }
-  .how-page {
-    gap: clamp(1.2rem, 3vh, 2.2rem);
-    padding-bottom: clamp(2.5rem, 5vh, 4rem);
-  }
+  .how-page { gap: clamp(0.9rem, 2vh, 1.8rem); }
+  /* the cyan closing line stays pinned to the bottom, at the same height as
+     on the other sections; the free space goes above it */
+  .about-page .about-close,
+  .how-page .about-close { margin-top: auto; }
 }
+
+/* Hero performance: the icon glow is a wider translucent stroke under the outline
+   (index.html adds it) instead of a drop-shadow filter, and every hero animation
+   pauses while the hero is off screen or the tab is hidden (.is-paused, set by JS). */
+.hero-snake-glow { opacity: 0.22; }
+.hero-page.is-paused .hero-field *,
+.hero-page.is-paused .hero-scrollcue-dot { animation-play-state: paused !important; }
