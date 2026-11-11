@@ -73,6 +73,8 @@ Liscere welcomes research partners, OT and process engineers, machine builders, 
 - NIP: 7252369168
 - REGON: 545329293
 - Registered office: ul. Prezydenta Gabriela Narutowicza 40/1, 90-135 Łódź, Poland
+- Registry court: Sąd Rejonowy dla Łodzi-Śródmieścia w Łodzi, XX Wydział Gospodarczy Krajowego Rejestru Sądowego
+- Share capital: PLN 5,000.00
 - Founder and President of the Management Board: Bruno Salmazo
 - Website: https://liscere.com
 
@@ -86,9 +88,13 @@ Liscere welcomes research partners, OT and process engineers, machine builders, 
 - [FAQ](https://liscere.com/faq.html): Direct answers about working with Liscere (services, automation, NIS2, engagements, contact) and about the framework and research.
 - [Research](https://liscere.com/research.html): Index of Liscere's technical reports (LTR series) and landscape briefings (LB series).
 - [Privacy notice](https://liscere.com/privacy.html): How Liscere processes personal data under the GDPR.
+- [Legal information](https://liscere.com/legal.html): Company details required by Polish law (registry court, KRS, NIP, REGON, share capital, management board).
+- [Terms of use](https://liscere.com/terms.html): Terms of use of the website; the research publications are licensed under CC BY 4.0.
 - [security.txt](https://liscere.com/.well-known/security.txt): Security contact, per RFC 9116.
 
 ## Research
+
+The research publications are licensed under CC BY 4.0: they may be shared and adapted for any purpose with credit to the author and Liscere.
 
 - [LTR-2026-01: A Modbus/TCP Baseline in the OT Lab](https://liscere.com/research/ltr-2026-01/): The first laboratory feasibility demonstration that the same configuration write is judged differently depending on a declared maintenance window.
 - [LTR-2026-02: The Liscere Framework](https://liscere.com/research/ltr-2026-02/): A protocol-agnostic model that evaluates an industrial control action along protocol operation, automation artefact, operational context and policy constraint.
