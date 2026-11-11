@@ -29,15 +29,24 @@
   /* shared section rhythm: pages 02 and 03 must use these identical values */
   --sec-pad-top: clamp(4rem, 7vh, 5.5rem);
   --sec-gap: clamp(0.85rem, 2.2vh, 1.5rem);
-  --head-max: 720px;
-  --text-wide: 1040px;
+  --head-max: 45rem;
+  --text-wide: 65rem;
 }
 
 * {
   box-sizing: border-box;
 }
 
+/* Screen relative scale. Every size in this file is in rem (or vw/vh), so the
+   root font size acts as one zoom level for the whole site. The design reference
+   is a 1440 x 900 window (root 16px, e.g. MacBook Air 13"). Wider and taller
+   windows scale up proportionally; the smaller of the width and height ratios
+   wins so the one screen sections of the home page always fit. Capped at 1.5rem
+   (24px) for very large monitors, never below the browser default, and it is
+   built on rem so browser zoom and the user's font size setting still apply.
+   Phones and small windows keep the default size (the 1rem minimum). */
 html {
+  font-size: clamp(1rem, min(0.25rem + 0.8333vw, 0.25rem + 1.3333vh), 1.5rem);
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   overscroll-behavior: none;
@@ -231,7 +240,7 @@ p {
 .narrative {
   position: relative;
   z-index: 2;
-  max-width: 780px;
+  max-width: 48.75rem;
 }
 
 .kicker {
@@ -270,7 +279,7 @@ h2 {
 }
 
 .lead {
-  max-width: 660px;
+  max-width: 41.25rem;
   color: #dce7e7;
   font-family: var(--font-sans);
   font-size: var(--fs-subtitle);
@@ -463,7 +472,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem;
-  max-width: 1060px;
+  max-width: 66.25rem;
   margin-top: clamp(2rem, 6vh, 4rem);
 }
 
@@ -584,7 +593,7 @@ h2 {
   grid-area: viewport;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 24px;
+  border-radius: 1.5rem;
   /* horizontal drags drive the carousel; vertical drags still scroll the page */
   touch-action: pan-y;
 }
@@ -651,7 +660,7 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: clamp(0.45rem, 1.1vh, 0.75rem);
-  max-width: 820px;
+  max-width: 51.25rem;
   padding: clamp(1.2rem, 2.4vw, 1.9rem);
 }
 
@@ -700,7 +709,7 @@ h2 {
   align-items: center;
   padding: 0.58rem 0.9rem;
   border: 1px solid var(--line-strong);
-  border-radius: 12px;
+  border-radius: 0.75rem;
   background: rgba(0, 217, 255, 0.07);
   color: var(--ink);
   font-family: var(--mono);
@@ -825,7 +834,7 @@ h2 {
   gap: 0.4rem;
   padding: clamp(0.9rem, 1.3vw, 1.2rem) clamp(0.95rem, 1.4vw, 1.3rem);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 0.875rem;
   background: rgba(2, 7, 9, 0.56);
   text-align: center;
 }
@@ -963,7 +972,7 @@ a.shift-step:focus-visible .shift-source {
   display: flex;
   flex-direction: column;
   gap: clamp(1.1rem, 2.4vh, 1.7rem);
-  max-width: 540px;
+  max-width: 33.75rem;
 }
 
 .about-body {
@@ -998,7 +1007,7 @@ a.shift-step:focus-visible .shift-source {
 }
 
 .how-head {
-  max-width: 1040px;
+  max-width: 65rem;
 }
 
 .how-page h2 {
@@ -1008,7 +1017,7 @@ a.shift-step:focus-visible .shift-source {
 
 .how-intro {
   margin: 0;
-  max-width: 760px;
+  max-width: 47.5rem;
   color: var(--muted);
   font-size: clamp(1rem, 1.15vw, 1.12rem);
   line-height: 1.45;
@@ -1109,7 +1118,7 @@ a.shift-step:focus-visible .shift-source {
   flex-direction: column;
   align-items: center;
   gap: clamp(1rem, 2.4vh, 1.6rem);
-  max-width: min(900px, 100%);
+  max-width: min(56.25rem, 100%);
   text-align: center;
   /* sit slightly above the true centre for optical balance (~4-6%) */
   margin-bottom: clamp(2rem, 6vh, 4rem);
@@ -1122,7 +1131,7 @@ a.shift-step:focus-visible .shift-source {
 
 .evidence-body {
   margin: 0;
-  max-width: 720px;
+  max-width: 45rem;
   color: var(--muted);
   font-size: clamp(1rem, 1.2vw, 1.18rem);
   line-height: 1.55;
@@ -1282,7 +1291,7 @@ a.shift-step:focus-visible .shift-source {
   }
 
   .about-side {
-    max-width: 640px;
+    max-width: 40rem;
   }
 }
 
@@ -1505,7 +1514,7 @@ a.shift-step:focus-visible .shift-source {
     gap: 0.4rem;
     padding: 1.2rem 1.25rem;
     border: 1px solid var(--line);
-    border-radius: 14px;
+    border-radius: 0.875rem;
     background: rgba(2, 7, 9, 0.56);
     text-align: left;
     grid-template-columns: none;
@@ -1768,7 +1777,7 @@ a.shift-step:focus-visible .shift-source {
      the body and the margin-top:auto CTA. Rely on grid stretch instead. */
   padding: clamp(1.3rem, 1.9vw, 1.7rem);
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 1rem;
   background: rgba(2, 7, 9, 0.56);
   text-align: left;
 }
@@ -1990,7 +1999,7 @@ a.paper-card:focus-visible .paper-arrow {
   padding: clamp(1rem, 1.6vw, 1.3rem);
   overflow-x: auto;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 0.875rem;
   background: rgba(2, 7, 9, 0.56);
   color: #cbd8da;
   font-family: var(--font-mono);
@@ -2031,10 +2040,10 @@ a.paper-card:focus-visible .paper-arrow {
   top: calc(var(--sec-pad-top) + 0.5rem);
   display: block;
   width: 100%;
-  height: min(82vh, 900px);
+  height: min(82vh, 56.25rem);
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 0.875rem;
   background: rgba(2, 7, 9, 0.56);
 }
 
@@ -2143,9 +2152,9 @@ a.paper-card:focus-visible .paper-arrow {
 
 .demo-modal-panel {
   position: relative;
-  width: min(1100px, 100%);
+  width: min(68.75rem, 100%);
   border: 1px solid var(--line-strong);
-  border-radius: 16px;
+  border-radius: 1rem;
   overflow: hidden;
   background: #030405;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 217, 255, 0.12);
@@ -2194,7 +2203,7 @@ a.paper-card:focus-visible .paper-arrow {
    scoped to .aeo-doc so they never touch the paper/report layouts.
    ===================================================================== */
 .aeo-doc {
-  max-width: 720px;
+  max-width: 45rem;
   width: 100%;
   margin-inline: auto;
   display: flex;
@@ -2277,7 +2286,7 @@ a.paper-card:focus-visible .paper-arrow {
   max-width: 72ch;
   padding: clamp(0.95rem, 1.6vw, 1.25rem) clamp(1rem, 1.8vw, 1.4rem);
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 0.875rem;
   background: rgba(2, 7, 9, 0.55);
   color: var(--muted);
   line-height: 1.6;
@@ -2356,9 +2365,9 @@ a.paper-card:focus-visible .paper-arrow {
   padding: clamp(3.4rem, 7vh, 5.5rem) var(--pad-x);
   border-bottom: 1px solid var(--line);
 }
-.services-page .wrap { max-width: 1040px; margin: 0 auto; }
-.services-page .narrow { max-width: 720px; }
-.services-page .wrap.narrow { max-width: 720px; }
+.services-page .wrap { max-width: 65rem; margin: 0 auto; }
+.services-page .narrow { max-width: 45rem; }
+.services-page .wrap.narrow { max-width: 45rem; }
 .services-page .kicker { margin: 0 0 1rem; color: var(--cyan); }
 .services-page .lead {
   max-width: none;
@@ -2413,7 +2422,7 @@ a.paper-card:focus-visible .paper-arrow {
 /* cards */
 .services-page .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 1rem;
   margin: 1.4rem 0 0;
   padding: 0;
@@ -2425,7 +2434,7 @@ a.paper-card:focus-visible .paper-arrow {
   gap: 0.5rem;
   padding: 1.3rem 1.3rem 1.2rem;
   border: 1px solid var(--line);
-  border-radius: 14px;
+  border-radius: 0.875rem;
   background: var(--card);
   transition: border-color 160ms ease, box-shadow 160ms ease;
 }
@@ -2465,8 +2474,8 @@ a.paper-card:focus-visible .paper-arrow {
 .services-page .pill.cyan { color: var(--cyan); border-color: rgba(0, 217, 255, 0.4); }
 
 /* steps and timeline */
-.services-page .steps { counter-reset: step; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 1.4rem 0 0; padding: 0; list-style: none; }
-.services-page .steps li { position: relative; padding: 1.2rem; border: 1px solid var(--line); border-radius: 14px; background: var(--card); }
+.services-page .steps { counter-reset: step; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr)); margin: 1.4rem 0 0; padding: 0; list-style: none; }
+.services-page .steps li { position: relative; padding: 1.2rem; border: 1px solid var(--line); border-radius: 0.875rem; background: var(--card); }
 .services-page .steps li::before {
   counter-increment: step;
   content: "0" counter(step);
@@ -2479,7 +2488,7 @@ a.paper-card:focus-visible .paper-arrow {
 }
 .services-page .steps p { margin: 0; }
 .services-page .timeline { list-style: none; margin: 1.4rem 0 0; padding: 0; display: grid; gap: 0.6rem; }
-.services-page .timeline li { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; padding: 0.9rem 1rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); align-items: start; }
+.services-page .timeline li { display: grid; grid-template-columns: 11rem 1fr; gap: 1rem; padding: 0.9rem 1rem; border: 1px solid var(--line); border-radius: 0.75rem; background: var(--card); align-items: start; }
 .services-page .timeline .date { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; color: var(--ink); }
 .services-page .timeline .date small { display: block; color: var(--quiet); letter-spacing: 0.1em; font-size: 0.64rem; text-transform: uppercase; margin-top: 0.2rem; }
 .services-page .timeline li.passed .date { color: var(--quiet); }
@@ -2493,13 +2502,13 @@ a.paper-card:focus-visible .paper-arrow {
   margin-top: 1.4rem;
   padding: 1rem 1.2rem;
   border: 1px dashed var(--line-strong);
-  border-radius: 12px;
+  border-radius: 0.75rem;
   font-size: 0.92rem;
 }
 
 /* FAQ (details/summary; the site's FAQ page uses .faq-item instead) */
 .services-page .faq { margin: 1.2rem 0 0; display: grid; gap: 0.6rem; }
-.services-page .faq details { border: 1px solid var(--line); border-radius: 12px; background: var(--card); padding: 0 1.1rem; }
+.services-page .faq details { border: 1px solid var(--line); border-radius: 0.75rem; background: var(--card); padding: 0 1.1rem; }
 .services-page .faq summary { cursor: pointer; list-style: none; padding: 1rem 0; color: var(--ink); font-weight: 600; display: flex; justify-content: space-between; gap: 1rem; }
 .services-page .faq summary::-webkit-details-marker { display: none; }
 .services-page .faq summary::after { content: "+"; font-family: var(--mono); color: var(--cyan); }
@@ -2507,7 +2516,7 @@ a.paper-card:focus-visible .paper-arrow {
 .services-page .faq details p { padding-bottom: 1rem; margin: 0; }
 
 /* contact form */
-.services-page .form-card { padding: 1.5rem; border: 1px solid var(--line); border-radius: 16px; background: var(--card); }
+.services-page .form-card { padding: 1.5rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--card); }
 .services-page .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
 .services-page .form-grid .full { grid-column: 1 / -1; }
 .services-page label { display: block; font-family: var(--mono); font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-bottom: 0.35rem; }
@@ -2516,7 +2525,7 @@ a.paper-card:focus-visible .paper-arrow {
 .services-page textarea {
   width: 100%;
   padding: 0.75rem 0.9rem;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   border: 1px solid var(--line-strong);
   background: rgba(255, 255, 255, 0.03);
   color: var(--ink);
@@ -2592,7 +2601,7 @@ a.paper-card:focus-visible .paper-arrow {
   .services-page .legal tr,
   .services-page .legal td { display: block; width: 100%; }
   .services-page .legal thead { display: none; }
-  .services-page .legal tr { margin-bottom: 0.9rem; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+  .services-page .legal tr { margin-bottom: 0.9rem; border: 1px solid var(--line); border-radius: 0.75rem; background: var(--card); }
   .services-page .legal td { border: 0; border-top: 1px solid var(--line); }
   .services-page .legal td:first-child { border-top: 0; color: var(--ink); font-weight: 600; }
   .services-page .legal td::before {
@@ -2679,7 +2688,7 @@ a.paper-card:focus-visible .paper-arrow {
 .sales-page .card {
   gap: 0.9rem;
   padding: clamp(1.4rem, 2vw, 2rem);
-  border-radius: 18px;
+  border-radius: 1.125rem;
 }
 .sales-page .card h3 { margin: 0; font-size: clamp(1.15rem, 1.5vw, 1.45rem); line-height: 1.25; }
 .sales-page .card p { color: #c6d2d3; font-size: clamp(0.98rem, 1.05vw, 1.08rem); line-height: 1.55; }
@@ -2698,7 +2707,7 @@ a.paper-card:focus-visible .paper-arrow {
 .sales-page .contact-aside h2 { margin-bottom: 1.2rem; }
 .sales-page .contact-aside .section-side { margin-bottom: 1.8rem; }
 .sales-page .contact-aside .mono { margin: 0 0 0.6rem; font-size: 0.85rem; }
-.sales-page .form-card { padding: clamp(1.5rem, 2.4vw, 2.2rem); border-radius: 18px; }
+.sales-page .form-card { padding: clamp(1.5rem, 2.4vw, 2.2rem); border-radius: 1.125rem; }
 .sales-page .form-grid .actions { margin-top: 0.4rem; }
 
 @media (max-width: 1100px) {
@@ -2734,7 +2743,7 @@ a.paper-card:focus-visible .paper-arrow {
 }
 .sales-page .faq { margin: 0; }
 .sales-page .faq summary { font-size: clamp(1rem, 1.3vw, 1.25rem); padding: 1.2rem 0; }
-.sales-page .faq details { padding: 0 clamp(1.1rem, 1.6vw, 1.6rem); border-radius: 16px; }
+.sales-page .faq details { padding: 0 clamp(1.1rem, 1.6vw, 1.6rem); border-radius: 1rem; }
 .sales-page .faq details p { color: #c6d2d3; font-size: clamp(0.98rem, 1.1vw, 1.12rem); line-height: 1.6; padding-bottom: 1.3rem; }
 .sales-page .hero .kicker a { color: var(--cyan); border-bottom: 1px solid rgba(0, 217, 255, 0.35); }
 
