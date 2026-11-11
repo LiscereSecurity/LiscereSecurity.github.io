@@ -180,7 +180,7 @@ def render(p, lang):
           <p class="mono">hello@liscere.com</p>
           <p class="mono"><a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">linkedin.com/company/liscere</a></p>
         </div>
-        <form class="form-card" data-contact data-mailto="hello@liscere.com" novalidate>
+        <form class="form-card" data-contact data-endpoint="https://formspree.io/f/xdegodog" data-mailto="hello@liscere.com" novalidate>
           <div class="form-grid">
             <div>
               <label for="f-name">{L['name']}</label>
@@ -226,7 +226,7 @@ def render(p, lang):
   </main>
 
   <script src="{root}assets/js/site.js?v=1" defer></script>
-  <script src="{root}assets/js/contact-form.js?v=20261111-bot4" defer></script>
+  <script src="{root}assets/js/contact-form.js?v=20261111-fs1" defer></script>
 </body>
 </html>
 """

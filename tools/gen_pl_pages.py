@@ -84,7 +84,7 @@ ORG = {"@type": "Organization", "@id": SITE + "#org", "name": "Liscere", "url": 
 
 def contact_form(selected=None):
     opts = "\n".join(f'                <option value="{attr(v)}"{" selected" if v == selected else ""}>{esc(PL_NAMES[v])}</option>' for v, _ in SERVICES)
-    return f"""        <form class="form-card" data-contact data-mailto="hello@liscere.com" novalidate>
+    return f"""        <form class="form-card" data-contact data-endpoint="https://formspree.io/f/xdegodog" data-mailto="hello@liscere.com" novalidate>
           <div class="form-grid">
             <div>
               <label for="f-name">Imię i nazwisko</label>
@@ -212,7 +212,7 @@ def uslugi():
                  desc="Audyty bezpieczeństwa OT, widoczność OT, gotowość do NIS2 i KSC, reagowanie na incydenty oraz bezpieczne projekty PLC i HMI, modernizacja i szkolenia.",
                  path="pl/uslugi.html", en_path="services.html", current="services",
                  main_class="services-page sales-page", body=body, ld=ld,
-                 scripts=f'  <script src="{R}assets/js/contact-form.js?v=20261111-bot4" defer></script>\n')
+                 scripts=f'  <script src="{R}assets/js/contact-form.js?v=20261111-fs1" defer></script>\n')
 
 # ---------------------------------------------------------------- O nas
 def o_nas():

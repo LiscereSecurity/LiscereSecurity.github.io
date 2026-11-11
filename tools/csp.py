@@ -16,7 +16,7 @@ for f in fs:
         hashes.append(f"'sha256-{h}'")
     script = " ".join(["'self'"] + hashes)
     csp = ("default-src 'self'; script-src " + script + "; style-src 'self' 'unsafe-inline'; img-src 'self' data:; "
-           "font-src 'self'; media-src 'self'; connect-src 'self'; object-src 'self'; frame-src 'self'; "
+           "font-src 'self'; media-src 'self'; connect-src 'self' https://formspree.io; object-src 'self'; frame-src 'self'; "
            "base-uri 'self'; form-action 'self'; upgrade-insecure-requests")
     tags = f'  <meta http-equiv="Content-Security-Policy" content="{csp}">\n  <meta name="referrer" content="strict-origin-when-cross-origin">\n'
     s, n = re.subn(r'(<meta charset="utf-8"\s*/?>\n)', lambda m: m.group(1) + tags, s, count=1)
