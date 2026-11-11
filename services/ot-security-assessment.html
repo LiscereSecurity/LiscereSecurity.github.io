@@ -28,7 +28,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../assets/css/styles.css?v=20261111-scale19" />
+  <link rel="stylesheet" href="../assets/css/styles.css?v=20261111-scale20" />
 
   <script type="application/ld+json">
   {
@@ -77,10 +77,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What is an OT security assessment?",
+            "name": "What does the assessment cover?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "A review of the systems that control a physical process: controllers, operator stations, engineering workstations, remote access and the networks between them. It finds vulnerabilities and security gaps and ranks them by their risk to the process."
+              "text": "Controllers, operator stations and engineering workstations (vulnerabilities, configuration and firmware), the network architecture and segmentation between IT and OT, remote access for staff, vendors and integrators, and whether systems can be restored after an incident. Penetration testing is included on agreed systems."
             }
           },
           {
@@ -101,6 +101,14 @@
           },
           {
             "@type": "Question",
+            "name": "What is delivered at the end?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A report in plain language with every finding ranked by its risk to the process, the evidence attached and a practical roadmap of what to fix first and what can wait."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "Does the assessment help with NIS2?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -112,7 +120,7 @@
             "name": "How long does it take?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Typically a few weeks for a single site, depending on its size and the scope agreed in the scoping call. Scope and price are fixed up front."
+              "text": "Typically a few weeks for a single site, depending on its size and the scope agreed in a short first call. Scope and price are fixed up front."
             }
           }
         ]
@@ -142,70 +150,25 @@
       <div class="hero-copy">
         <p class="kicker"><a href="../services.html">Services</a> / OT security assessment</p>
         <h1>Find the weak points in your OT before an attacker does.</h1>
-        <p class="lead">A structured review of controllers, operator stations, remote access and the network between them, with penetration testing where it is safe to run.</p>
+        <ul class="service-brief">
+          <li>
+            <h2>What it is</h2>
+            <p>A structured review of controllers, operator stations, remote access and the networks between them. It uncovers vulnerabilities and security gaps, ranks them by their risk to the process and includes penetration testing on agreed systems.</p>
+          </li>
+          <li>
+            <h2>Who it is for</h2>
+            <p>Manufacturing plants, utilities, energy, water and transport operators, and the integrators and machine builders that serve them. Any site where a control system runs a physical process.</p>
+          </li>
+          <li>
+            <h2>Why it is needed</h2>
+            <p>Most OT networks were built to run, not to resist attacks. Controllers accept commands from anyone on the network, and remote access often reaches further than anyone thinks. An assessment finds those gaps first.</p>
+          </li>
+        </ul>
       </div>
       <div class="hero-scrollcue" aria-hidden="true">
         <span class="hero-scrollcue-label">Scroll</span>
         <span class="hero-scrollcue-track"><span class="hero-scrollcue-dot"></span></span>
       </div>
-    </section>
-
-    <section class="section" id="included">
-      <div class="section-head">
-        <div>
-          <p class="kicker">What is included</p>
-          <h2>Every layer an attacker could reach.</h2>
-        </div>
-      </div>
-      <ul class="card-grid">
-        <li class="card">
-          <span class="tag">Devices</span>
-          <h3>Vulnerabilities and configuration</h3>
-          <p>Controllers, operator stations and engineering workstations checked for known vulnerabilities, weak configurations and outdated firmware.</p>
-        </li>
-        <li class="card">
-          <span class="tag">Network</span>
-          <h3>Architecture and segmentation</h3>
-          <p>Segmentation between IT and OT, zones and conduits, and the paths an attacker could use to move from the office network to the plant.</p>
-        </li>
-        <li class="card">
-          <span class="tag">Access</span>
-          <h3>Remote access and recovery</h3>
-          <p>How vendors, integrators and staff reach the plant from outside, and whether controllers and operator stations can be restored after an incident.</p>
-        </li>
-        <li class="card featured">
-          <span class="tag">Testing</span>
-          <h3>Penetration testing</h3>
-          <p>Active testing of agreed systems, in agreed time windows, to show what an attacker could actually do.</p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="section" id="how">
-      <div class="section-head">
-        <div>
-          <p class="kicker">How it works</p>
-          <h2>From a short call to a clear plan.</h2>
-        </div>
-        <p class="section-side">Aligned with IEC 62443 and with the risk management measures required by NIS2.</p>
-      </div>
-      <ul class="card-grid cols-3">
-        <li class="card">
-          <span class="tag">01</span>
-          <h3>Scoping</h3>
-          <p>A short call to understand the plant, the systems in scope and any constraints. Scope and price are fixed up front.</p>
-        </li>
-        <li class="card">
-          <span class="tag">02</span>
-          <h3>Assessment</h3>
-          <p>Documentation review, interviews and observation of the live network, plus penetration testing where agreed.</p>
-        </li>
-        <li class="card">
-          <span class="tag">03</span>
-          <h3>Report</h3>
-          <p>Findings ranked by risk to the process, with the evidence attached and a practical roadmap of what to fix first.</p>
-        </li>
-      </ul>
     </section>
 
     <section class="section" id="faq">
@@ -216,8 +179,8 @@
         </div>
         <div class="faq">
           <details>
-            <summary>What is an OT security assessment?</summary>
-            <p>A review of the systems that control a physical process: controllers, operator stations, engineering workstations, remote access and the networks between them. It finds vulnerabilities and security gaps and ranks them by their risk to the process.</p>
+            <summary>What does the assessment cover?</summary>
+            <p>Controllers, operator stations and engineering workstations (vulnerabilities, configuration and firmware), the network architecture and segmentation between IT and OT, remote access for staff, vendors and integrators, and whether systems can be restored after an incident. Penetration testing is included on agreed systems.</p>
           </details>
           <details>
             <summary>Will the assessment disrupt production?</summary>
@@ -228,12 +191,16 @@
             <p>Industrial control systems from the major vendors, including Siemens, Rockwell Automation (Allen-Bradley), Schneider Electric, ABB, Beckhoff, Omron and Mitsubishi Electric, as well as systems built on CODESYS, and the SCADA, HMI and network equipment around them.</p>
           </details>
           <details>
+            <summary>What is delivered at the end?</summary>
+            <p>A report in plain language with every finding ranked by its risk to the process, the evidence attached and a practical roadmap of what to fix first and what can wait.</p>
+          </details>
+          <details>
             <summary>Does the assessment help with NIS2?</summary>
             <p>Yes. NIS2 requires risk analysis and security measures proportionate to the risk. The assessment provides the technical evidence for the OT side, and it can be combined with a full NIS2 readiness assessment.</p>
           </details>
           <details>
             <summary>How long does it take?</summary>
-            <p>Typically a few weeks for a single site, depending on its size and the scope agreed in the scoping call. Scope and price are fixed up front.</p>
+            <p>Typically a few weeks for a single site, depending on its size and the scope agreed in a short first call. Scope and price are fixed up front.</p>
           </details>
         </div>
       </div>
