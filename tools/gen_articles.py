@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 ROOT_DIR = os.path.dirname(HERE)
 SITE = "https://liscere.com/"
-CSS_V = "20261112-a2"
+CSS_V = "20261112-a3"
 ORG = {"@id": SITE + "#org"}
 
 CSP = ("<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; script-src 'self' "
@@ -94,17 +94,17 @@ def chrome(lang, aid, R, has_pl=True):
         nav = (f'      <a href="{R}pl/index.html">Start</a>\n'
                f'      <a href="{R}pl/uslugi.html">Usługi</a>\n'
                f'      <a href="{R}pl/o-nas.html">O nas</a>\n'
-               f'      <a href="{R}research.html" hreflang="en" aria-current="page">Badania</a>\n'
+               f'      <a href="{R}pl/badania.html" aria-current="page">Badania</a>\n'
                f'      <a class="lang-switch" href="{other}" hreflang="en" lang="en" aria-label="English">EN</a>')
         logo = f"{R}pl/index.html"
         foot = (f'<a href="{R}pl/index.html">Start</a> · <a href="{R}pl/uslugi.html">Usługi</a> · '
                 f'<a href="{R}pl/o-nas.html">O nas</a> · <a href="{R}pl/faq.html">FAQ</a> · '
-                f'<a href="{R}research.html" hreflang="en">Badania</a> · '
+                f'<a href="{R}pl/badania.html">Badania</a> · '
                 '<a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · '
                 '<a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · '
-                f'<a href="{R}privacy.html" hreflang="en">Prywatność</a> · '
-                f'<a href="{R}legal.html" hreflang="en">Dane spółki</a> · '
-                f'<a href="{R}terms.html" hreflang="en">Warunki korzystania</a>')
+                f'<a href="{R}pl/prywatnosc.html">Prywatność</a> · '
+                f'<a href="{R}pl/dane-spolki.html">Dane spółki</a> · '
+                f'<a href="{R}pl/warunki.html">Warunki korzystania</a>')
     t = UI[lang]
     header = f'''  <a class="skip-link" href="#main-content">{t["skip"]}</a>
 
@@ -154,7 +154,7 @@ def build(art, lang):
     is_report = series != "fieldnotes"
     has_pl = "pl" in art.get("langs", ("en", "pl"))
     head_part = head_part.replace(f'<p class="kicker">{s_kicker}',
-        f'<p class="kicker"><a class="series-back" href="{R}research.html#{series}" data-back{"" if lang == "en" else ' hreflang="en"'}>{s_kicker}</a>', 1)
+        f'<p class="kicker"><a class="series-back" href="{R}{"research.html" if lang == "en" else "pl/badania.html"}#{series}" data-back>{s_kicker}</a>', 1)
     if art.get("byline"):
         # Author, version, copyright and licence, revision note: between the title and the lede.
         meta = (f'<p class="article-byline">{art["byline"]}</p>\n'
@@ -281,7 +281,7 @@ def build(art, lang):
           {cite}
         </section>
 
-        <p class="article-back"><a href="{R}research.html" data-back{"" if lang == "en" else ' hreflang="en"'}>{t["back"]}</a></p>
+        <p class="article-back"><a href="{R}{"research.html" if lang == "en" else "pl/badania.html"}" data-back>{t["back"]}</a></p>
       </div>
     </article>'''
 
@@ -319,7 +319,7 @@ def build(art, lang):
          "url": SITE, "logo": SITE + "assets/apple-touch-icon.png"},
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": t["home_name"], "item": SITE if lang == "en" else SITE + "pl/"},
-            {"@type": "ListItem", "position": 2, "name": t["research_name"], "item": SITE + "research.html"},
+            {"@type": "ListItem", "position": 2, "name": t["research_name"], "item": SITE + ("research.html" if lang == "en" else "pl/badania.html")},
             {"@type": "ListItem", "position": 3, "name": aid.upper(), "item": URL}]},
     ]
     if a.get("faq"):

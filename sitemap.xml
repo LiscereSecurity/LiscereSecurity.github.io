@@ -8,137 +8,11 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/"/>
   </url>
   <url>
-    <loc>https://liscere.com/pl/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/"/>
-  </url>
-  <url>
     <loc>https://liscere.com/about.html</loc>
     <lastmod>2026-11-11</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/about.html"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/o-nas.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/about.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/pl/o-nas.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/about.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/o-nas.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/about.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/services.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/pl/uslugi.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/services/ot-security-assessment.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-security-assessment.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/audyt-bezpieczenstwa-ot.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-security-assessment.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/pl/uslugi/audyt-bezpieczenstwa-ot.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-security-assessment.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/audyt-bezpieczenstwa-ot.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-security-assessment.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/services/nis2-ksc-compliance.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/nis2-ksc-compliance.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/nis2-ksc.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/nis2-ksc-compliance.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/pl/uslugi/nis2-ksc.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/nis2-ksc-compliance.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/nis2-ksc.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/nis2-ksc-compliance.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/services/ot-visibility-monitoring.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-visibility-monitoring.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/widocznosc-i-monitoring-ot.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-visibility-monitoring.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/pl/uslugi/widocznosc-i-monitoring-ot.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-visibility-monitoring.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/widocznosc-i-monitoring-ot.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-visibility-monitoring.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/services/ot-incident-response.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-incident-response.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/reagowanie-na-incydenty-ot.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-incident-response.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/pl/uslugi/reagowanie-na-incydenty-ot.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-incident-response.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/reagowanie-na-incydenty-ot.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-incident-response.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/services/automation-projects.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/automation-projects.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/projekty-automatyki.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/automation-projects.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/pl/uslugi/projekty-automatyki.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/automation-projects.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/projekty-automatyki.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/automation-projects.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/services/automation-modernisation.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/automation-modernisation.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/modernizacja-automatyki.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/automation-modernisation.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/pl/uslugi/modernizacja-automatyki.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/automation-modernisation.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/modernizacja-automatyki.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/automation-modernisation.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/services/industrial-training.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/industrial-training.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/szkolenia-przemyslowe.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/industrial-training.html"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/pl/uslugi/szkolenia-przemyslowe.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/industrial-training.html"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/szkolenia-przemyslowe.html"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/industrial-training.html"/>
   </url>
   <url>
     <loc>https://liscere.com/faq.html</loc>
@@ -148,6 +22,41 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/faq.html"/>
   </url>
   <url>
+    <loc>https://liscere.com/legal.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/dane-spolki.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/legal.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/badania.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/badania/fn-2026-01/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research/fn-2026-01/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/fn-2026-01/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research/fn-2026-01/"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/dane-spolki.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/legal.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/dane-spolki.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/legal.html"/>
+  </url>
+  <url>
     <loc>https://liscere.com/pl/faq.html</loc>
     <lastmod>2026-11-11</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/faq.html"/>
@@ -155,11 +64,121 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/faq.html"/>
   </url>
   <url>
+    <loc>https://liscere.com/pl/o-nas.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/o-nas.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/about.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/prywatnosc.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/prywatnosc.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/uslugi.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/uslugi/audyt-bezpieczenstwa-ot.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-security-assessment.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/audyt-bezpieczenstwa-ot.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-security-assessment.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/uslugi/modernizacja-automatyki.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/automation-modernisation.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/modernizacja-automatyki.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/automation-modernisation.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/uslugi/nis2-ksc.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/nis2-ksc-compliance.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/nis2-ksc.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/nis2-ksc-compliance.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/uslugi/projekty-automatyki.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/automation-projects.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/projekty-automatyki.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/automation-projects.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/uslugi/reagowanie-na-incydenty-ot.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-incident-response.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/reagowanie-na-incydenty-ot.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-incident-response.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/uslugi/szkolenia-przemyslowe.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/industrial-training.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/szkolenia-przemyslowe.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/industrial-training.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/uslugi/widocznosc-i-monitoring-ot.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-visibility-monitoring.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/widocznosc-i-monitoring-ot.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-visibility-monitoring.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/warunki.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/warunki.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/terms.html"/>
+  </url>
+  <url>
     <loc>https://liscere.com/privacy.html</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/prywatnosc.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/privacy.html"/>
   </url>
   <url>
     <loc>https://liscere.com/research.html</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/research/fn-2026-01/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research/fn-2026-01/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/fn-2026-01/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research/fn-2026-01/"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/research/lb-2026-01/</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://liscere.com/research/lb-2026-02/</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://liscere.com/research/lb-2026-03/</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://liscere.com/research/lb-2026-04/</loc>
+    <lastmod>2026-11-12</lastmod>
+  </url>
+  <url>
+    <loc>https://liscere.com/research/lb-2026-05/</loc>
     <lastmod>2026-11-12</lastmod>
   </url>
   <url>
@@ -183,45 +202,66 @@
     <lastmod>2026-11-12</lastmod>
   </url>
   <url>
-    <loc>https://liscere.com/research/lb-2026-01/</loc>
-    <lastmod>2026-11-12</lastmod>
-  </url>
-  <url>
-    <loc>https://liscere.com/research/lb-2026-02/</loc>
-    <lastmod>2026-11-12</lastmod>
-  </url>
-  <url>
-    <loc>https://liscere.com/research/lb-2026-03/</loc>
-    <lastmod>2026-11-12</lastmod>
-  </url>
-  <url>
-    <loc>https://liscere.com/research/lb-2026-04/</loc>
-    <lastmod>2026-11-12</lastmod>
-  </url>
-  <url>
-    <loc>https://liscere.com/research/lb-2026-05/</loc>
-    <lastmod>2026-11-12</lastmod>
-  </url>
-  <url>
-    <loc>https://liscere.com/research/fn-2026-01/</loc>
-    <lastmod>2026-11-12</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research/fn-2026-01/"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/fn-2026-01/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research/fn-2026-01/"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/pl/badania/fn-2026-01/</loc>
-    <lastmod>2026-11-12</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research/fn-2026-01/"/>
-    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/fn-2026-01/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research/fn-2026-01/"/>
-  </url>
-  <url>
-    <loc>https://liscere.com/legal.html</loc>
+    <loc>https://liscere.com/services.html</loc>
     <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/services/automation-modernisation.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/automation-modernisation.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/modernizacja-automatyki.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/automation-modernisation.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/services/automation-projects.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/automation-projects.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/projekty-automatyki.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/automation-projects.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/services/industrial-training.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/industrial-training.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/szkolenia-przemyslowe.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/industrial-training.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/services/nis2-ksc-compliance.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/nis2-ksc-compliance.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/nis2-ksc.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/nis2-ksc-compliance.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/services/ot-incident-response.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-incident-response.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/reagowanie-na-incydenty-ot.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-incident-response.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/services/ot-security-assessment.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-security-assessment.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/audyt-bezpieczenstwa-ot.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-security-assessment.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/services/ot-visibility-monitoring.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-visibility-monitoring.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/widocznosc-i-monitoring-ot.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-visibility-monitoring.html"/>
   </url>
   <url>
     <loc>https://liscere.com/terms.html</loc>
     <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/warunki.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/terms.html"/>
   </url>
 </urlset>

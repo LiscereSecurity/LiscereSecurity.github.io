@@ -2629,6 +2629,10 @@ a.paper-card:focus-visible .paper-arrow {
   .services-page .legal td:nth-child(2)::before { content: "Data"; }
   .services-page .legal td:nth-child(3)::before { content: "Purpose and legal basis"; }
   .services-page .legal td:nth-child(4)::before { content: "Retention"; }
+  html[lang^="pl"] .services-page .legal td:nth-child(1)::before { content: "Sytuacja"; }
+  html[lang^="pl"] .services-page .legal td:nth-child(2)::before { content: "Dane"; }
+  html[lang^="pl"] .services-page .legal td:nth-child(3)::before { content: "Cel i podstawa prawna"; }
+  html[lang^="pl"] .services-page .legal td:nth-child(4)::before { content: "Okres przechowywania"; }
 }
 
 /* =====================================================================
@@ -3679,3 +3683,22 @@ html.article-view {
 .article .sources .ref-label { font-family: var(--font-mono); font-size: 0.85em; color: var(--muted); }
 .article ul.sources { list-style: none; padding-left: 0; }
 .article ul.sources li:target { background: rgba(0, 217, 255, 0.08); }
+
+/* Research index: short introduction under the title; language tag on cards in the Polish index. */
+.research-intro {
+  max-width: 46rem;
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+.paper-eyebrow .paper-lang {
+  display: block;
+  width: fit-content;
+  margin-top: 0.45rem;
+  padding: 0.05rem 0.4rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 0.25rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}

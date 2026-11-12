@@ -17,6 +17,11 @@ Combinada em 12/11/2026. Este arquivo fica em `tools/`, que não é publicado no
    - Converter os relatórios antigos para o formato artigo (texto na página e PDF como link "Baixar PDF").
    - Feito em 12/11: os 10 relatórios convertidos (PR #13), texto idêntico aos PDFs v1.1, gerados por gen_articles.py com dados em tools/data_reports.py.
    - O gerador precisa de um modo "só em inglês": botão PL apontando para `/pl/tylko-po-angielsku.html?from=...` e sem hreflang pl.
+3b. **Versões em polonês e revisão final** (12/11)
+   - Badania, Prywatność, Dane spółki e Warunki em polonês, ligadas às versões em inglês.
+   - `tools/gen_sitemap.py` gera o sitemap a partir das páginas; `tools/audit.py` confere SEO, links, idiomas e dados estruturados (rodar antes de cada PR).
+   - Testado em WebKit (Safari) e Chromium, desktop e celular.
+   - Pendente: revisão do texto jurídico em polonês por alguém fluente; Cloudflare (HSTS e frame-ancestors).
 4. **Palavras-chave e novos artigos**
    - Puxar os preços reais no Keyword Planner (Polônia, idioma polonês).
    - Escrever artigos sobre NIS2 e KSC, em polonês e inglês, para indexar o quanto antes.

@@ -12,6 +12,7 @@ AUTO = {"automation-projects", "automation-modernisation", "industrial-training"
 UI = {
  "en": dict(lang="en-GB", ogloc="en_GB", skip="Skip to content", navlabel="Site navigation", pages="Pages",
    home="Home", services="Services", about="About", research="Research", faq="FAQ", privacy="Privacy", legal="Legal", terms="Terms", enlink="",
+   privacy_page="privacy.html", legal_page="legal.html", terms_page="terms.html",
    logo_label="Liscere home", what="What it is", who="Who it is for", why="Why it is needed",
    scroll="Scroll", qk="Questions we hear", qh="Straight answers.", ck="Contact us",
    ch="Tell us what you need. We will find the solution.",
@@ -22,13 +23,14 @@ UI = {
    send="Send message", back_label="Back to services", switch="PL", switch_label="Polski", switch_lang="pl"),
  "pl": dict(lang="pl-PL", ogloc="pl_PL", skip="Przejdź do treści", navlabel="Nawigacja", pages="Strony",
    home="Start", services="Usługi", about="O nas", research="Badania", faq="FAQ", privacy="Prywatność", legal="Dane spółki", terms="Warunki korzystania", enlink=' hreflang="en"',
+   privacy_page="prywatnosc.html", legal_page="dane-spolki.html", terms_page="warunki.html",
    logo_label="Liscere, strona główna", what="Czym jest", who="Dla kogo", why="Dlaczego jest potrzebny",
    scroll="Przewiń", qk="Pytania, które słyszymy", qh="Konkretne odpowiedzi.", ck="Kontakt",
    ch="Powiedz nam, czego potrzebujesz. Znajdziemy rozwiązanie.",
    cs="Naszym celem jest ochrona tego, co krytyczne, i ciężko pracujemy, aby to było możliwe.",
    name="Imię i nazwisko", company="Firma", email="Służbowy e-mail", interest="Czego dotyczy zapytanie?",
    general="Zapytanie ogólne", message="Wiadomość", ph="Opisz w kilku zdaniach, czego potrzebujesz.",
-   consent='Wyrażam zgodę na przetwarzanie przez Liscere sp. z o.o. danych z tego formularza w celu odpowiedzi na moje zapytanie, zgodnie z <a href="{root}privacy.html" hreflang="en">informacją o prywatności</a> (w języku angielskim).',
+   consent='Wyrażam zgodę na przetwarzanie przez Liscere sp. z o.o. danych z tego formularza w celu odpowiedzi na moje zapytanie, zgodnie z <a href="{root}prywatnosc.html">informacją o prywatności</a>.',
    send="Wyślij wiadomość", back_label="Powrót do usług", switch="EN", switch_label="English", switch_lang="en"),
 }
 
@@ -52,7 +54,7 @@ def render(p, lang):
     else:
         d = dict(p); d.update(PL[p["slug"]]); url = pl_url; root = "../../"
         home = "../index.html"; svc = "../uslugi.html"; about = "../o-nas.html"; faqp = "../faq.html"
-        research = "../../research.html"; other = f"../../services/{p['slug']}.html"
+        research = "../badania.html"; other = f"../../services/{p['slug']}.html"
         crumbs = [("Start", SITE + "pl/"), ("Usługi", SITE + "pl/uslugi.html")]
         names = PL_NAMES
     sec = "automation" if p["slug"] in AUTO else "ot-security"
@@ -75,7 +77,8 @@ def render(p, lang):
             <p>{esc(a)}</p>
           </details>
 """ for q, a in d["faq"])
-    consent = L["consent"].format(root=root)
+    lroot = root if lang == "en" else "../"   # legal pages: site root (EN) or /pl/ (PL)
+    consent = L["consent"].format(root=lroot)
     nav_cur = 'aria-current="page"'
     return f"""<!doctype html>
 <html lang="{L['lang']}" class="past-hero">
@@ -222,7 +225,7 @@ def render(p, lang):
       </div>
     </section>
 
-    <p class="research-foot"><a href="{home}">{L['home']}</a> · <a href="{svc}">{L['services']}</a> · <a href="{about}">{L['about']}</a> · <a href="{faqp}">{L['faq']}</a> · <a href="{research}">{L['research']}</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="{root}privacy.html"{L['enlink']}>{L['privacy']}</a> · <a href="{root}legal.html"{L['enlink']}>{L['legal']}</a> · <a href="{root}terms.html"{L['enlink']}>{L['terms']}</a><br />© 2026 Liscere sp. z o.o.</p>
+    <p class="research-foot"><a href="{home}">{L['home']}</a> · <a href="{svc}">{L['services']}</a> · <a href="{about}">{L['about']}</a> · <a href="{faqp}">{L['faq']}</a> · <a href="{research}">{L['research']}</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="{lroot}{L['privacy_page']}">{L['privacy']}</a> · <a href="{lroot}{L['legal_page']}">{L['legal']}</a> · <a href="{lroot}{L['terms_page']}">{L['terms']}</a><br />© 2026 Liscere sp. z o.o.</p>
   </main>
 
   <script src="{root}assets/js/site.js?v=3" defer></script>

@@ -21,6 +21,8 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Liscere: OT Cybersecurity" />
   <meta property="og:site_name" content="Liscere" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="pl_PL" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Research | Liscere OT Security Reports and Briefings" />
@@ -28,13 +30,110 @@
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
 
   <link rel="canonical" href="https://liscere.com/research.html" />
+  <link rel="alternate" hreflang="en" href="https://liscere.com/research.html" />
+  <link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania.html" />
+  <link rel="alternate" hreflang="x-default" href="https://liscere.com/research.html" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://liscere.com/#org",
+      "name": "Liscere",
+      "url": "https://liscere.com/"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://liscere.com/research.html",
+      "url": "https://liscere.com/research.html",
+      "inLanguage": "en-GB",
+      "name": "Liscere research",
+      "about": {
+        "@id": "https://liscere.com/#org"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://liscere.com/research/fn-2026-01/",
+            "name": "The Supermarket Refrigeration Attack"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://liscere.com/research/lb-2026-05/",
+            "name": "Passive and Active in OT"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://liscere.com/research/lb-2026-04/",
+            "name": "The S7 Encryption Gap"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "url": "https://liscere.com/research/ltr-2026-05/",
+            "name": "OPC UA Security Modes"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "url": "https://liscere.com/research/lb-2026-03/",
+            "name": "OT Protocol Field Guide"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "url": "https://liscere.com/research/lb-2026-02/",
+            "name": "Protocol Landscape"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "url": "https://liscere.com/research/ltr-2026-04/",
+            "name": "Encrypted Channels"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "url": "https://liscere.com/research/ltr-2026-03/",
+            "name": "Hardware Validation"
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "url": "https://liscere.com/research/ltr-2026-02/",
+            "name": "Framework"
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "url": "https://liscere.com/research/ltr-2026-01/",
+            "name": "Evaluation"
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "url": "https://liscere.com/research/lb-2026-01/",
+            "name": "OT Threat Landscape"
+          }
+        ]
+      }
+    }
+  ]
+}
+  </script>
   <link rel="stylesheet" href="./assets/css/fonts.css?v=1" />
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg?v=4" />
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png?v=4" />
   <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="./assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="./assets/css/styles.css?v=20261112-a2" />
+  <link rel="stylesheet" href="./assets/css/styles.css?v=20261112-a3" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -48,12 +147,13 @@
       <a href="./services.html">Services</a>
       <a href="./about.html">About</a>
       <a href="./research.html" aria-current="page">Research</a>
-      <a class="lang-switch" href="/pl/tylko-po-angielsku.html?from=/research.html" rel="nofollow" hreflang="pl" lang="pl" aria-label="Polski">PL</a>
+      <a class="lang-switch" href="./pl/badania.html" hreflang="pl" lang="pl" aria-label="Polski">PL</a>
     </nav>
   </header>
 
   <main id="main-content" class="research-page">
     <h1 id="research-title">Research</h1>
+    <p class="research-intro">Liscere publishes its work: technical reports from the OT Lab, landscape briefings on protocols, encryption and threats, and Field Notes on current incidents. Every report is readable in full on its page and as a PDF, licensed under CC BY 4.0.</p>
 
     <div class="research-filter" role="group" aria-label="Filter research outputs">
       <button type="button" class="research-filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
