@@ -15,7 +15,7 @@ import re
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.dirname(HERE)
 SITE = "https://liscere.com/"
-CSS_V = "20261112-v11"
+CSS_V = "20261112-a1"
 ORG = {"@id": SITE + "#org"}
 
 CSP = ("<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; script-src 'self' "
@@ -36,6 +36,8 @@ UI = {
         cta_title="Facing something similar?",
         cta_text="We help industrial operators find what is exposed, see what their control network is being told to do, and respond when something goes wrong.",
         cta_button="Talk to us", series="Field Notes", home_name="Home", research_name="Research",
+        cite_report="Cite this report", pdf_title="Full report (PDF)", pdf_text="The same text as a typeset PDF, with page numbers for citation.",
+        pdf_button="Download PDF", references="References",
     ),
     "pl": dict(
         html_lang="pl-PL", og_locale="pl_PL", skip="Przejdź do treści", nav_label="Nawigacja",
@@ -49,6 +51,14 @@ UI = {
 }
 
 
+# Series: filter key on research.html, label shown in the kicker, name in structured data.
+SERIES = {
+    "fieldnotes": ("FIELD NOTES", "Field Notes", "Liscere Field Notes"),
+    "landscape": ("LANDSCAPE BRIEFING", "Landscape Briefing", "Liscere Landscape Briefings"),
+    "research": ("TECHNICAL REPORT", "Technical Report", "Liscere Technical Reports"),
+}
+
+
 def url_of(lang, aid):
     return SITE + (f"research/{aid}/" if lang == "en" else f"pl/badania/{aid}/")
 
@@ -57,15 +67,19 @@ def path_of(lang, aid):
     return os.path.join(ROOT_DIR, *(["research", aid] if lang == "en" else ["pl", "badania", aid]), "index.html")
 
 
-def chrome(lang, aid, R):
-    """Header and footer. R is the relative path to the site root."""
+def chrome(lang, aid, R, has_pl=True):
+    """Header and footer. R is the relative path to the site root. English only pages send the
+    PL switch to the Polish notice page, which links back here."""
     other = (f"{R}pl/badania/{aid}/" if lang == "en" else f"{R}research/{aid}/")
+    pl_attr = ""
+    if not has_pl:
+        other, pl_attr = f"/pl/tylko-po-angielsku.html?from=/research/{aid}/", ' rel="nofollow"'
     if lang == "en":
         nav = (f'      <a href="{R}index.html">Home</a>\n'
                f'      <a href="{R}services.html">Services</a>\n'
                f'      <a href="{R}about.html">About</a>\n'
                f'      <a href="{R}research.html" aria-current="page">Research</a>\n'
-               f'      <a class="lang-switch" href="{other}" hreflang="pl" lang="pl" aria-label="Polski">PL</a>')
+               f'      <a class="lang-switch" href="{other}"{pl_attr} hreflang="pl" lang="pl" aria-label="Polski">PL</a>')
         logo = f"{R}index.html"
         foot = (f'<a href="{R}index.html">Home</a> · <a href="{R}services.html">Services</a> · '
                 f'<a href="{R}about.html">About</a> · <a href="{R}faq.html">FAQ</a> · '
@@ -133,24 +147,54 @@ def build(art, lang):
     fig_part = fig.group(0) if fig else ""
     head_part = head_part.replace(fig_part, "").strip()
     rest = body[i_h2:].strip()
-    head_part = head_part.replace('<p class="kicker">FIELD NOTES',
-        f'<p class="kicker"><a class="series-back" href="{R}research.html#fieldnotes" data-back{"" if lang == "en" else ' hreflang="en"'}>FIELD NOTES</a>', 1)
+    series = art.get("series", "fieldnotes")
+    s_kicker, s_label, s_name = SERIES[series]
+    is_report = series != "fieldnotes"
+    has_pl = "pl" in art.get("langs", ("en", "pl"))
+    head_part = head_part.replace(f'<p class="kicker">{s_kicker}',
+        f'<p class="kicker"><a class="series-back" href="{R}research.html#{series}" data-back{"" if lang == "en" else ' hreflang="en"'}>{s_kicker}</a>', 1)
+    if art.get("byline"):
+        # Author, version, copyright and licence, revision note: between the title and the lede.
+        meta = (f'<p class="article-byline">{art["byline"]}</p>\n'
+                f'<p class="doc-rights">{art["rights"]}</p>\n'
+                f'<p class="doc-revised">{art["revised"]}</p>\n')
+        head_part = re.sub(r"(</h1>\s*)", lambda m: m.group(1) + meta + "\n", head_part, count=1)
 
     # ids on the section headings, for the contents list
     toc = []
     def add_id(m):
         title = m.group(1)
-        hid = slug(title) if title != t["sources"] else "sources"
+        hid = "sources" if title in (t["sources"], t.get("references")) else slug(re.sub(r"^\d+\.\s*", "", title))
         toc.append((hid, title))
         return f'<h2 id="{hid}">{title}</h2>'
     rest = re.sub(r"<h2>(.*?)</h2>", add_id, rest)
     sources_at = rest.index('<h2 id="sources">')
     main_part, sources_part = rest[:sources_at].rstrip(), rest[sources_at:].strip()
-    toc = [x for x in toc if x[0] != "sources"] + [("help", t["help"]), ("questions", t["questions"]), ("sources", t["sources"])]
-    sources = re.findall(r'<li>(.*?): <a href="([^"]+)">', sources_part)
+    src_title = next(n for i, n in toc if i == "sources")
+    toc = ([x for x in toc if x[0] != "sources"] + [("help", t["help"])]
+           + ([("questions", t["questions"])] if a.get("faq") else []) + [("sources", src_title)])
+    sources = []
+    for li in re.findall(r"<li>(.*?)</li>", sources_part, re.S):
+        link = re.search(r'<a href="([^"]+)"', li)
+        name = re.sub(r":\s*<a [^>]*>.*?</a>\s*$", "", li).strip()
+        sources.append((name, (SITE + link.group(1).lstrip("/")) if link and link.group(1).startswith("/") else (link.group(1) if link else None)))
+    if is_report:
+        # numbered references: anchors on the list, and in-text [n] markers link to them
+        n = iter(range(1, 1000))
+        sources_part = re.sub(r"<li>", lambda m: f'<li id="ref-{next(n)}">', sources_part)
+        main_part = re.sub(r"\[(\d+(?:, \d+)*)\]", lambda m: "[" + ", ".join(
+            f'<a class="ref" href="#ref-{x}">{x}</a>' for x in m.group(1).split(", ")) + "]", main_part)
 
     kp = "\n".join(f"          <li>{k}</li>" for k in a["key_points"])
     toc_html = "\n".join(f'              <li><a href="#{i}">{html.escape(n, quote=False)}</a></li>' for i, n in toc)
+    pdf_card = ""
+    if art.get("pdf"):
+        pdf_card = f'''
+          <section class="side-pdf" aria-labelledby="side-pdf-title">
+            <h2 id="side-pdf-title">{t["pdf_title"]}</h2>
+            <p>{t["pdf_text"]}</p>
+            <a class="secondary-cta" href="{R}{art["pdf"]}" target="_blank" rel="noopener">{t["pdf_button"]} &#8599;</a>
+          </section>'''
     if fig_part:
         media = ind(fig_part, 10)
         cta = ""
@@ -167,7 +211,26 @@ def build(art, lang):
     faq = "\n".join(f'''        <div class="faq-item">
           <h3 class="faq-q">{html.escape(q, quote=False)}</h3>
           <p class="faq-a">{html.escape(ans, quote=False)}</p>
-        </div>''' for q, ans in a["faq"])
+        </div>''' for q, ans in a.get("faq", []))
+    faq_section = f'''
+
+        <section class="article-faq" aria-labelledby="questions">
+          <h2 id="questions">{t["questions"]}</h2>
+{ind(faq, 2)}
+        </section>''' if a.get("faq") else ""
+    if art.get("bibtex"):
+        cite = f'''<h2 id="cite-title" class="doc-section-head">{t["cite_report"]}</h2>
+          <pre class="doc-cite">{art["bibtex"]}</pre>'''
+    else:
+        cite = f'''<h2 id="cite-title" class="doc-section-head">{t["cite"]}</h2>
+          <pre class="doc-cite">@misc{{liscere_{aid.replace("-", "_")}{"" if lang == "en" else "_pl"},
+  author       = {{{{Liscere}}}},
+  title        = {{{h1}}},
+  howpublished = {{Liscere Field Notes {aid.upper()}}},
+  year         = {{{art["date"][:4]}}},
+  month        = {art["month_bib"]},{"" if lang == "en" else chr(10) + "  language     = {polish},"}
+  url          = {{{URL}}}
+}}</pre>'''
 
     article = f'''    <article class="article">
       <header class="article-head">
@@ -189,7 +252,7 @@ def build(art, lang):
             <ol>
 {toc_html}
             </ol>
-          </nav>{cta}
+          </nav>{pdf_card}{cta}
         </div>
       </aside>
 
@@ -201,27 +264,14 @@ def build(art, lang):
           <ul class="related-links">
 {ind(related, 2)}
           </ul>
-        </section>
-
-        <section class="article-faq" aria-labelledby="questions">
-          <h2 id="questions">{t["questions"]}</h2>
-{ind(faq, 2)}
-        </section>
+        </section>{faq_section}
 
         <section class="article-sources" aria-labelledby="sources">
 {ind(sources_part, 10)}
         </section>
 
         <section class="article-cite" aria-labelledby="cite-title">
-          <h2 id="cite-title" class="doc-section-head">{t["cite"]}</h2>
-          <pre class="doc-cite">@misc{{liscere_{aid.replace("-", "_")}{"" if lang == "en" else "_pl"},
-  author       = {{{{Liscere}}}},
-  title        = {{{h1}}},
-  howpublished = {{Liscere Field Notes {aid.upper()}}},
-  year         = {{{art["date"][:4]}}},
-  month        = {art["month_bib"]},{"" if lang == "en" else chr(10) + "  language     = {polish},"}
-  url          = {{{URL}}}
-}}</pre>
+          {cite}
         </section>
 
         <p class="article-back"><a href="{R}research.html" data-back{"" if lang == "en" else ' hreflang="en"'}>{t["back"]}</a></p>
@@ -234,12 +284,21 @@ def build(art, lang):
         "url": URL, "mainEntityOfPage": URL, "inLanguage": t["html_lang"],
         "datePublished": art["date"], "dateModified": art.get("modified", art["date"]),
         "image": [SITE + art["og_image"], SITE + art["poster"]] if art.get("poster") else [SITE + art["og_image"]],
-        "author": ORG, "publisher": ORG,
-        "isPartOf": {"@type": "CreativeWorkSeries", "name": "Liscere Field Notes", "url": SITE + "research.html"},
-        "articleSection": "Field Notes", "about": a["about"], "keywords": a["keywords"],
-        ("translationOfWork" if lang == "pl" else "workTranslation"): {"@id": url_of(other_lang, aid) + "#article"},
-        "citation": [{"@type": "CreativeWork", "name": html.unescape(re.sub(r"<[^>]+>", "", n)), "url": u} for n, u in sources],
+        "author": art.get("author", ORG), "publisher": ORG,
+        "isPartOf": {"@type": "CreativeWorkSeries", "name": s_name, "url": SITE + "research.html#" + series},
+        "articleSection": s_label, "about": a["about"], "keywords": a["keywords"],
+        "citation": [dict({"@type": "CreativeWork", "name": html.unescape(re.sub(r"<[^>]+>", "", n))}, **({"url": u} if u else {}))
+                     for n, u in sources],
     }
+    if has_pl:
+        graph_article[("translationOfWork" if lang == "pl" else "workTranslation")] = {"@id": url_of(other_lang, aid) + "#article"}
+    if is_report:
+        graph_article["@type"] = "ScholarlyArticle"
+        graph_article["abstract"] = html.unescape(re.sub(r"<[^>]+>", "", re.search(r'<p class="lede">(.*?)</p>', head_part, re.S).group(1)))
+        graph_article.update({"version": art["version"], "license": "https://creativecommons.org/licenses/by/4.0/",
+                              "copyrightHolder": art.get("copyright_holder", ORG), "identifier": aid.upper()})
+    if art.get("pdf"):
+        graph_article["encoding"] = {"@type": "MediaObject", "contentUrl": SITE + art["pdf"], "encodingFormat": "application/pdf"}
     graph = [graph_article]
     if art.get("video"):
         v = art["video"]
@@ -255,12 +314,20 @@ def build(art, lang):
             {"@type": "ListItem", "position": 1, "name": t["home_name"], "item": SITE if lang == "en" else SITE + "pl/"},
             {"@type": "ListItem", "position": 2, "name": t["research_name"], "item": SITE + "research.html"},
             {"@type": "ListItem", "position": 3, "name": aid.upper(), "item": URL}]},
-        {"@type": "FAQPage", "@id": URL + "#faq", "inLanguage": t["html_lang"], "mainEntity": [
-            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ans}} for q, ans in a["faq"]]},
     ]
+    if a.get("faq"):
+        graph.append({"@type": "FAQPage", "@id": URL + "#faq", "inLanguage": t["html_lang"], "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ans}} for q, ans in a["faq"]]})
     ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, indent=2)
 
-    header, footer = chrome(lang, aid, R)
+    header, footer = chrome(lang, aid, R, has_pl)
+    img_type = "image/png" if art["og_image"].endswith(".png") else "image/jpeg"
+    alternates = (f'''
+  <link rel="alternate" hreflang="en" href="{url_of("en", aid)}" />
+  <link rel="alternate" hreflang="pl" href="{url_of("pl", aid)}" />
+  <link rel="alternate" hreflang="x-default" href="{url_of("en", aid)}" />''' if has_pl else "")
+    locale_alt = f'''
+  <meta property="og:locale:alternate" content="{UI[other_lang]["og_locale"]}" />''' if has_pl else ""
     og_video = ""
     if art.get("video"):
         og_video = f'''
@@ -278,7 +345,7 @@ def build(art, lang):
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{a["title"]}</title>
   <meta name="description" content="{T(a["description"])}" />
-  <meta name="author" content="Liscere" />
+  <meta name="author" content="{art.get("author_name", "Liscere")}" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
   <meta name="theme-color" content="#030405" />
 
@@ -287,15 +354,14 @@ def build(art, lang):
   <meta property="og:type" content="article" />
   <meta property="og:url" content="{URL}" />
   <meta property="og:image" content="{SITE}{art["og_image"]}" />
-  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:type" content="{img_type}" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="{T(a["og_image_alt"])}" />{og_video}
   <meta property="og:site_name" content="Liscere" />
-  <meta property="og:locale" content="{t["og_locale"]}" />
-  <meta property="og:locale:alternate" content="{UI[other_lang]["og_locale"]}" />
+  <meta property="og:locale" content="{t["og_locale"]}" />{locale_alt}
   <meta property="article:published_time" content="{art["date"]}" />
-  <meta property="article:section" content="Field Notes" />
+  <meta property="article:section" content="{s_label}" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{T(h1)}" />
@@ -303,10 +369,7 @@ def build(art, lang):
   <meta name="twitter:image" content="{SITE}{art["og_image"]}" />
   <meta name="twitter:image:alt" content="{T(a["og_image_alt"])}" />
 
-  <link rel="canonical" href="{URL}" />
-  <link rel="alternate" hreflang="en" href="{url_of("en", aid)}" />
-  <link rel="alternate" hreflang="pl" href="{url_of("pl", aid)}" />
-  <link rel="alternate" hreflang="x-default" href="{url_of("en", aid)}" />
+  <link rel="canonical" href="{URL}" />{alternates}
 
   <script type="application/ld+json">
 {ld}
@@ -411,9 +474,59 @@ FN_2026_01 = dict(
     ),
 )
 
-ARTICLES = [FN_2026_01]
+
+CC_BY = '<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a>'
+SALMAZO = {"@type": "Person", "name": "Bruno Salmazo"}
+
+LB_2026_01 = dict(
+    id="lb-2026-01", series="landscape", langs=("en",), date="2026-06-23", modified="2026-10-07",
+    og_image="assets/og-image.png", pdf="assets/papers/liscere-ot-threat-landscape.pdf", version="1.1",
+    author=SALMAZO, author_name="Bruno Salmazo", copyright_holder=SALMAZO,
+    byline="By Bruno Salmazo · Liscere",
+    rights="Version 1.1 · © 2026 Bruno Salmazo · Published by Liscere · Licensed under " + CC_BY,
+    revised="Revised 7 October 2026: date corrected from May to June 2026 (first published 23 June 2026); NIS2 reference added; licence statement added.",
+    bibtex="""@techreport{salmazo_threatlandscape_2026,
+  author      = {Bruno Salmazo},
+  title       = {The Operational Technology Threat Landscape, 2026: From Access to Action},
+  institution = {Liscere},
+  year        = {2026},
+  month       = jun,
+  number      = {LB-2026-01},
+  type        = {Landscape Briefing},
+  url         = {https://liscere.com/research/lb-2026-01/}
+}""",
+    en=dict(
+        title="The OT Threat Landscape 2026: From Access to Action | Liscere",
+        description="Why the centre of gravity in OT attacks has moved from gaining access to issuing valid commands: a Liscere briefing on the 2026 threat landscape.",
+        og_image_alt="Liscere: OT Cybersecurity",
+        about=["Operational technology security", "Industrial control systems", "OT threat landscape", "Ransomware", "NIS2"],
+        keywords="OT threat landscape 2026, ICS security, industrial cyber incidents, OT ransomware, engineering workstation, Modbus, NIS2, IEC 62443, context-aware security",
+        contact="../../services.html#contact",
+        key_points=[
+            "In the 2025 SANS survey, more than one in five organisations reported an OT security incident, and around four in ten of those disrupted operations.",
+            "Dragos tracked 119 ransomware groups affecting roughly 3,300 industrial organisations in 2025, up from 80 groups the year before.",
+            "Attackers increasingly enter through legitimate access and then act like operators, issuing commands that are valid at the protocol level.",
+            "Protocol checks, access control and anomaly detection leave one question open: is this valid action appropriate for the state the plant is in?",
+        ],
+        related=[
+            ("services/ot-security-assessment.html", "OT and ICS security assessment", "Find what is exposed and what an attacker could change."),
+            ("services/ot-visibility-monitoring.html", "OT visibility and monitoring", "See what your control network is actually being told to do."),
+            ("services/nis2-ksc-compliance.html", "NIS2 and KSC readiness", "Turn the directive's expectations into concrete OT controls."),
+        ],
+        faq=[
+            ("How have OT attacks changed?",
+             "Access is increasingly the way in rather than the obstacle. Adversaries reach industrial networks through legitimate access, learn how the control system operates and then issue commands that are valid at the protocol level, so their activity looks like an operator's."),
+            ("Why do current OT defences leave a gap?",
+             "Protocol checks confirm a message is well formed, access control confirms the sender may act, and anomaly detection flags unusual traffic. A command can pass all three and still be wrong for the moment, such as a configuration change during production or a setpoint that is unsafe for the current process state."),
+            ("Do NIS2 and IEC 62443 close this gap?",
+             "They raise expectations for monitoring, segmentation and least privilege in industrial environments, and they motivate context-aware control of individual actions. They do not implement it themselves, so operators still have to close the distance between what is permitted and what is appropriate."),
+        ],
+    ),
+)
+
+ARTICLES = [FN_2026_01, LB_2026_01]
 
 if __name__ == "__main__":
     for art in ARTICLES:
-        for lang in ("en", "pl"):
+        for lang in art.get("langs", ("en", "pl")):
             print(os.path.relpath(build(art, lang), ROOT_DIR))

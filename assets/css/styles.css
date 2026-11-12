@@ -3581,3 +3581,28 @@ html.article-view {
   border-bottom-color: var(--cyan);
   outline: none;
 }
+
+/* Converted research reports (article layout): author line, version and licence, PDF card,
+   closing note, numbered reference links. */
+.article .article-byline {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+.article-head .doc-rights { margin-top: -0.4rem; }
+.side-pdf {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+}
+.article .side-pdf h2 { margin: 0; font-size: var(--fs-card); }
+.article .side-pdf p { font-size: 0.92rem; line-height: 1.55; color: var(--muted); }
+.article .side-pdf a.secondary-cta { align-self: flex-start; text-decoration: none; }
+.article .report-note { color: var(--muted); font-style: italic; }
+.article a.ref { color: var(--cyan); text-decoration: none; }
+.article a.ref:hover, .article a.ref:focus-visible { text-decoration: underline; }
+.article ol.sources li:target { background: rgba(0, 217, 255, 0.08); }
