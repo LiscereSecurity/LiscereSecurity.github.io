@@ -7,14 +7,15 @@ Combinada em 12/11/2026. Este arquivo fica em `tools/`, que não é publicado no
    - Link de volta no nome da série ("Field Notes", "Landscape Briefing", "Technical Report").
    - Publicar e avisar o IndexNow.
 2. **Pendências de ontem**
-   - Passo 3: página da empresa no LinkedIn (descrição, especialidades, botão).
-   - Passo 7.4: relatórios anteriores à empresa (LB-2026-01, LTR-2026-01, LTR-2026-02). Fazer a cessão por escrito para a Liscere ou manter no seu nome. Isso libera os PDFs v1.1 (PR #2).
-   - Passo 7.5: LinkedIn pessoal na página About.
+   - ~~Passo 3: página da empresa no LinkedIn~~ feito em 12/11 (EN e PL), primeiro post do FN-2026-01 publicado.
+   - ~~Passo 7.4~~ decidido em 12/11: LB-2026-01, LTR-2026-01 e LTR-2026-02 ficam no nome de Bruno Salmazo, publicados pela Liscere sob CC BY 4.0. PDFs v1.1 aplicados no PR "research v1.1"; PRs #1 e #2 ficam obsoletos.
+   - ~~Passo 7.5~~ decidido em 12/11: sem LinkedIn pessoal por enquanto; tudo pela página da Liscere.
+   - Post do FN-2026-01 em polonês (1 ou 2 dias depois do inglês).
    - Passos 8 a 12: diretórios, associações, DOIs no Zenodo, posts no LinkedIn, prospecção.
    - Bing: resultado do Site Scan.
 3. **Organizar a página Research**
    - Converter os relatórios antigos para o formato artigo (texto na página e PDF como link "Baixar PDF").
-   - Começar pelos que não dependem do passo 7.4: LB-2026-02 a 05 e LTR-2026-03 a 05.
+   - Todos os 10 relatórios estão liberados (o passo 7.4 foi decidido).
    - O gerador precisa de um modo "só em inglês": botão PL apontando para `/pl/tylko-po-angielsku.html?from=...` e sem hreflang pl.
 4. **Palavras-chave e novos artigos**
    - Puxar os preços reais no Keyword Planner (Polônia, idioma polonês).
