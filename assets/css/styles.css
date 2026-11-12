@@ -3249,12 +3249,11 @@ html.article-view {
     grid-column: 1 / -1;
   }
 
-  .article-head h1 {
-    max-width: 22em;
-  }
-
+  /* The head spans both columns, so the title and the lede line up with the
+     right edge of the side column. */
+  .article-head h1,
   .article-head .lede {
-    max-width: 44rem;
+    max-width: none;
   }
 
   .article > .key-points {
@@ -3513,5 +3512,34 @@ html.article-view {
 }
 
 .article-back a {
+  text-decoration: none;
+}
+
+/* Side column contact card: used when an article has no video, so the side
+   column still has a clear next step under the contents list. */
+.side-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: rgba(0, 217, 255, 0.04);
+}
+
+.article .side-cta h2 {
+  margin: 0;
+  font-size: var(--fs-card);
+}
+
+.article .side-cta p {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.article .side-cta a.primary-cta {
+  align-self: flex-start;
+  color: #03100b;
   text-decoration: none;
 }
