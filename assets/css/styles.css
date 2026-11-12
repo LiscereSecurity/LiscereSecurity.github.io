@@ -3200,3 +3200,208 @@ html[lang^="pl"] h2 {
   font-weight: 600;
   letter-spacing: -0.015em;
 }
+
+/* =====================================================================
+   Article layout (Field Notes and future full-text research articles)
+   A normal scrolling reading column: no scroll snap, comfortable measure.
+   ===================================================================== */
+html.article-view {
+  scroll-snap-type: none;
+}
+
+.article-page {
+  min-height: 0;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  max-width: 46rem;
+}
+
+.article .kicker {
+  margin: 0;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: var(--fs-data);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.article h1 {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1.6rem, 3.2vw, 2.45rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  color: var(--ink);
+}
+
+.article h2 {
+  margin: 1.6rem 0 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.article p,
+.article li {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  color: #dce7e7;
+}
+
+.article p {
+  margin: 0;
+}
+
+.article ul,
+.article ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.article li::marker {
+  color: var(--cyan);
+}
+
+.article strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.article a {
+  color: var(--cyan);
+  text-decoration: underline;
+  text-decoration-color: rgba(0, 217, 255, 0.4);
+  text-underline-offset: 0.18em;
+  transition: text-decoration-color 180ms ease;
+}
+
+.article a:hover,
+.article a:focus-visible {
+  text-decoration-color: var(--cyan);
+}
+
+.article .lede {
+  font-size: clamp(1.08rem, 1.45vw, 1.28rem);
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.key-points {
+  padding: 1.1rem 1.3rem;
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--cyan);
+  border-radius: 0.5rem;
+  background: rgba(0, 217, 255, 0.04);
+}
+
+.key-points h2 {
+  margin: 0 0 0.7rem;
+  font-family: var(--font-mono);
+  font-size: var(--fs-data);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.key-points li {
+  font-size: calc(var(--fs-body) * 0.95);
+  line-height: 1.6;
+}
+
+.article figure.video {
+  margin: 0.4rem 0;
+}
+
+.article figure.video video {
+  display: block;
+  width: 100%;
+  max-width: min(100%, 72vh);
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: #000;
+}
+
+.article figure.video figcaption {
+  margin-top: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.article .tagline {
+  margin: 1.4rem 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-climax);
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+  color: var(--cyan);
+}
+
+.article ol.sources li {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+.article-related .related-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.9rem;
+}
+
+.article-related .related-links li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+}
+
+.article-related .related-links a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.article-related .related-links span {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.article-faq .faq-item:first-of-type {
+  margin-top: 0.9rem;
+}
+
+.article-cite .doc-cite {
+  margin-top: 0.6rem;
+}
+
+.article-back {
+  margin-top: 1rem !important;
+  font-family: var(--font-mono);
+  font-size: var(--fs-data);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.article-back a {
+  text-decoration: none;
+}
