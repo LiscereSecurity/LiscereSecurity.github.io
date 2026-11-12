@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="en-GB" class="past-hero">
+<html lang="en-GB" class="past-hero article-view">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://formspree.io https://cloudflareinsights.com; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Operational Legitimacy of Industrial Control Actions: The Liscere Framework | Liscere</title>
+  <title>The Liscere Framework for ICS Control Actions | Liscere</title>
   <meta name="description" content="The Liscere framework: a protocol agnostic model that evaluates an industrial control action by protocol, artefact, operational context and policy." />
   <meta name="author" content="Bruno Salmazo" />
-  <meta name="robots" content="index,follow" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
   <meta name="theme-color" content="#030405" />
 
   <meta property="og:title" content="Operational Legitimacy of Industrial Control Actions: The Liscere Framework" />
@@ -21,46 +21,176 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Liscere: OT Cybersecurity" />
   <meta property="og:site_name" content="Liscere" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="article:published_time" content="2026-06" />
+  <meta property="article:section" content="Technical Report" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Operational Legitimacy of Industrial Control Actions: The Liscere Framework" />
   <meta name="twitter:description" content="The Liscere framework: a protocol agnostic model that evaluates an industrial control action by protocol, artefact, operational context and policy." />
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
+  <meta name="twitter:image:alt" content="Liscere: OT Cybersecurity" />
 
   <link rel="canonical" href="https://liscere.com/research/ltr-2026-02/" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "Operational Legitimacy of Industrial Control Actions: The Liscere Framework",
-    "name": "Operational Legitimacy of Industrial Control Actions: The Liscere Framework",
-    "author": {
-      "@type": "Person",
-      "name": "Bruno Salmazo"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://liscere.com/research/ltr-2026-02/#article",
+      "headline": "Operational Legitimacy of Industrial Control Actions: The Liscere Framework",
+      "name": "Operational Legitimacy of Industrial Control Actions: The Liscere Framework",
+      "description": "The Liscere framework: a protocol agnostic model that evaluates an industrial control action by protocol, artefact, operational context and policy.",
+      "url": "https://liscere.com/research/ltr-2026-02/",
+      "mainEntityOfPage": "https://liscere.com/research/ltr-2026-02/",
+      "inLanguage": "en-GB",
+      "datePublished": "2026-06",
+      "dateModified": "2026-10-07",
+      "image": [
+        "https://liscere.com/assets/og-image.png"
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "Bruno Salmazo"
+      },
+      "publisher": {
+        "@id": "https://liscere.com/#org"
+      },
+      "isPartOf": {
+        "@type": "CreativeWorkSeries",
+        "name": "Liscere Technical Reports",
+        "url": "https://liscere.com/research.html#research"
+      },
+      "articleSection": "Technical Report",
+      "about": [
+        "Industrial control systems",
+        "Operational technology security",
+        "Context-aware security",
+        "Policy evaluation"
+      ],
+      "keywords": "Liscere framework, operational legitimacy, industrial control actions, ICS security model, Modbus/TCP, automation artefact, operational context, policy",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Modbus Organization. Modbus Application Protocol Specification V1.1b3, 2012."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Modbus Organization. Modbus Messaging on TCP/IP Implementation Guide V1.0b, 2006."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "International Electrotechnical Commission. IEC 62443-3-3:2013, Industrial communication networks, Network and system security, Part 3-3: System security requirements and security levels. IEC, 2013."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "N. Falliere, L. O. Murchu, and E. Chien. W32.Stuxnet Dossier, version 1.4. Symantec Security Response, 2011."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "K. Stouffer, M. Pease, C. Tang, T. Zimmerman, V. Pillitteri, S. Lightman, A. Hahn, S. Saravia, A. Sherule, and M. Thompson. Guide to Operational Technology (OT) Security. NIST Special Publication 800-82, Revision 3, 2023."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "R. Langner. Stuxnet: Dissecting a Cyberwarfare Weapon. IEEE Security & Privacy, 9(3):49-51, 2011."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "B. Galloway and G. P. Hancke. Introduction to Industrial Control Networks. IEEE Communications Surveys & Tutorials, 15(2):860-880, 2013."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "I. Garitano, R. Uribeetxeberria, and U. Zurutuza. A Review of SCADA Anomaly Detection Systems. In Soft Computing Models in Industrial and Environmental Applications (SOCO), Advances in Intelligent and Soft Computing, vol. 87, pages 357-366. Springer, 2011."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "A. A. Cárdenas, S. Amin, Z.-S. Lin, Y.-L. Huang, C.-Y. Huang, and S. Sastry. Attacks Against Process Control Systems: Risk Assessment, Detection, and Response. In ACM ASIACCS, pages 355-366, 2011."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "S. McLaughlin, C. Konstantinou, X. Wang, L. Davi, A.-R. Sadeghi, M. Maniatakos, and R. Karri. The Cybersecurity Landscape in Industrial Control Systems. Proceedings of the IEEE, 104(5):1039-1057, 2016."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "B. Salmazo. Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab. Liscere Technical Report LTR-2026-01, 2026."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Liscere. OT Lab: a controlled laboratory for industrial action evaluation. https://github.com/LiscereSecurity/OT-Lab, 2026."
+        }
+      ],
+      "abstract": "Classic industrial control protocols such as Modbus/TCP authenticate neither the sender nor the appropriateness of a command [1, 2]. An action can therefore be valid at the protocol level, issued over an authorised channel, and still be inappropriate for the operational state of the plant. This report presents the Liscere framework, a protocol-agnostic model for evaluating an industrial control action along four dimensions: the protocol operation, the automation artefact it affects, the operational context in which it occurs, and the applicable policy constraint. The framework reconstructs an observed protocol event as an industrial action, resolves the affected artefact, enriches the action with declared operational context, evaluates it against explicit policy, and returns a decision together with an evidence record. The model is defined above protocol-specific encodings, with Modbus/TCP as its first instantiation. An initial feasibility demonstration is reported separately [11]; this report sets out the framework, its definitions, and its scope. A peer-reviewed treatment is in preparation. We are explicit about the boundary between what the model defines and what the current implementation evaluates.",
+      "version": "1.1",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "copyrightHolder": {
+        "@type": "Person",
+        "name": "Bruno Salmazo"
+      },
+      "identifier": "LTR-2026-02",
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "https://liscere.com/assets/papers/liscere-framework.pdf",
+        "encodingFormat": "application/pdf"
+      }
     },
-    "datePublished": "2026-06",
-    "version": "1.1",
-    "dateModified": "2026-10-07",
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "copyrightHolder": {
-      "@type": "Person",
-      "name": "Bruno Salmazo"
-    },
-    "abstract": "Classic industrial control protocols such as Modbus/TCP authenticate neither the sender nor the appropriateness of a command. An action can therefore be valid at the protocol level, issued over an authorised channel, and still be inappropriate for the operational state of the plant. This report presents the Liscere framework, a protocol-agnostic model for evaluating an industrial control action along four dimensions: the protocol operation, the automation artefact it affects, the operational context in which it occurs, and the applicable policy constraint. The framework reconstructs an observed protocol event as an industrial action, resolves the affected artefact, enriches the action with declared operational context, evaluates it against explicit policy, and returns a decision together with an evidence record. The model is defined above protocol-specific encodings, with Modbus/TCP as its first instantiation. An initial feasibility demonstration is reported separately; this report sets out the framework, its definitions, and its scope. A peer-reviewed treatment is in preparation. We are explicit about the boundary between what the model defines and what the current implementation evaluates.",
-    "publisher": {
+    {
       "@type": "Organization",
       "@id": "https://liscere.com/#org",
       "name": "Liscere",
-      "url": "https://liscere.com/"
+      "legalName": "Liscere sp. z o.o.",
+      "url": "https://liscere.com/",
+      "logo": "https://liscere.com/assets/apple-touch-icon.png"
     },
-    "url": "https://liscere.com/research/ltr-2026-02/",
-    "encoding": {
-      "@type": "MediaObject",
-      "contentUrl": "https://liscere.com/assets/papers/liscere-framework.pdf",
-      "encodingFormat": "application/pdf"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://liscere.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://liscere.com/research.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "LTR-2026-02",
+          "item": "https://liscere.com/research/ltr-2026-02/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://liscere.com/research/ltr-2026-02/#faq",
+      "inLanguage": "en-GB",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Liscere framework?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A protocol-agnostic model for evaluating an industrial control action along four dimensions: the protocol operation, the automation artefact it affects, the operational context in which it occurs and the applicable policy constraint."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What decision does it return?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A decision together with an evidence record. The report defines four decisions: allow, alert, deny and escalate."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
 
   <link rel="stylesheet" href="../../assets/css/fonts.css?v=1" />
@@ -69,7 +199,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261112-a1" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261112-a2" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -87,23 +217,235 @@
     </nav>
   </header>
 
-  <main id="main-content" class="research-page">
-    <article class="doc-split">
-      <div class="doc-col">
-        <p class="paper-eyebrow">LTR-2026-02 · <a class="series-back" href="../../research.html#research" data-back>Technical Report</a> · June 2026</p>
-        <h1 class="doc-title">Operational Legitimacy of Industrial Control Actions: The Liscere Framework</h1>
+  <main id="main-content" class="research-page article-page">
+    <article class="article">
+      <header class="article-head">
+        <p class="kicker"><a class="series-back" href="../../research.html#research" data-back>TECHNICAL REPORT</a> · LTR-2026-02 · June 2026</p>
+
+        <h1>Operational Legitimacy of Industrial Control Actions: The Liscere Framework</h1>
+
+        <p class="article-byline">By Bruno Salmazo · Liscere</p>
         <p class="doc-rights">Version 1.1 · © 2026 Bruno Salmazo · Published by Liscere · Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a></p>
         <p class="doc-revised">Revised 7 October 2026: protocol-authentication claim narrowed to classic protocols; licence statement added.</p>
 
-        <details class="doc-abstract-toggle">
-          <summary>Abstract</summary>
-          <p class="doc-abstract">Classic industrial control protocols such as Modbus/TCP authenticate neither the sender nor the appropriateness of a command. An action can therefore be valid at the protocol level, issued over an authorised channel, and still be inappropriate for the operational state of the plant. This report presents the Liscere framework, a protocol-agnostic model for evaluating an industrial control action along four dimensions: the protocol operation, the automation artefact it affects, the operational context in which it occurs, and the applicable policy constraint. The framework reconstructs an observed protocol event as an industrial action, resolves the affected artefact, enriches the action with declared operational context, evaluates it against explicit policy, and returns a decision together with an evidence record. The model is defined above protocol-specific encodings, with Modbus/TCP as its first instantiation. An initial feasibility demonstration is reported separately; this report sets out the framework, its definitions, and its scope. A peer-reviewed treatment is in preparation. We are explicit about the boundary between what the model defines and what the current implementation evaluates.</p>
-        </details>
+        <p class="lede">Classic industrial control protocols such as Modbus/TCP authenticate neither the sender nor the appropriateness of a command [1, 2]. An action can therefore be valid at the protocol level, issued over an authorised channel, and still be inappropriate for the operational state of the plant. This report presents the Liscere framework, a protocol-agnostic model for evaluating an industrial control action along four dimensions: the protocol operation, the automation artefact it affects, the operational context in which it occurs, and the applicable policy constraint. The framework reconstructs an observed protocol event as an industrial action, resolves the affected artefact, enriches the action with declared operational context, evaluates it against explicit policy, and returns a decision together with an evidence record. The model is defined above protocol-specific encodings, with Modbus/TCP as its first instantiation. An initial feasibility demonstration is reported separately [11]; this report sets out the framework, its definitions, and its scope. A peer-reviewed treatment is in preparation. We are explicit about the boundary between what the model defines and what the current implementation evaluates.</p>
+        <p class="keywords"><strong>Keywords:</strong> operational technology security, industrial control systems, contextual action evaluation, operational legitimacy, policy-based decision, Modbus/TCP.</p>
+      </header>
 
-        <a class="primary-cta doc-open-mobile" href="../../assets/papers/liscere-framework.pdf" target="_blank" rel="noopener">Open the PDF &#8599;</a>
+      <aside class="key-points" aria-labelledby="key-points-title">
+        <h2 id="key-points-title">Key points</h2>
+        <ul>
+          <li>An action can be valid at the protocol level, sent over an authorised channel and still be wrong for the plant's operational state.</li>
+          <li>The framework evaluates each control action by protocol operation, automation artefact, operational context and policy constraint.</li>
+          <li>It reconstructs the action, resolves the artefact, adds declared context, evaluates policy and returns a decision with an evidence record.</li>
+          <li>The model sits above protocol encodings; Modbus/TCP is its first instantiation.</li>
+        </ul>
+      </aside>
 
-        <h2 class="doc-section-head">Cite this report</h2>
-        <pre class="doc-cite">@techreport{salmazo_framework_2026,
+      <aside class="article-side" aria-label="Video and contents">
+        <div class="side-sticky">
+
+          <nav class="article-toc" aria-labelledby="toc-title">
+            <h2 id="toc-title">On this page</h2>
+            <ol>
+              <li><a href="#introduction">1. Introduction</a></li>
+              <li><a href="#problem-statement-and-definitions">2. Problem Statement and Definitions</a></li>
+              <li><a href="#the-action-evaluation-chain">3. The Action-Evaluation Chain</a></li>
+              <li><a href="#framework-design">4. Framework Design</a></li>
+              <li><a href="#positioning">5. Positioning</a></li>
+              <li><a href="#scope-and-limitations">6. Scope and Limitations</a></li>
+              <li><a href="#conclusion-and-outlook">7. Conclusion and Outlook</a></li>
+              <li><a href="#appendix-a-the-evaluation-object-illustrated">Appendix A. The evaluation object, illustrated</a></li>
+              <li><a href="#help">How Liscere can help</a></li>
+              <li><a href="#questions">Questions</a></li>
+              <li><a href="#sources">References</a></li>
+            </ol>
+          </nav>
+          <section class="side-pdf" aria-labelledby="side-pdf-title">
+            <h2 id="side-pdf-title">Full report (PDF)</h2>
+            <p>The same text as a typeset PDF, with page numbers for citation.</p>
+            <a class="secondary-cta" href="../../assets/papers/liscere-framework.pdf" target="_blank" rel="noopener">Download PDF &#8599;</a>
+          </section>
+          <section class="side-cta" aria-labelledby="side-cta-title">
+            <h2 id="side-cta-title">Facing something similar?</h2>
+            <p>We help industrial operators find what is exposed, see what their control network is being told to do, and respond when something goes wrong.</p>
+            <a class="primary-cta" href="../../services.html#contact">Talk to us</a>
+          </section>
+        </div>
+      </aside>
+
+      <div class="article-body">
+        <h2 id="introduction">1. Introduction</h2>
+
+        <p>Operational technology (OT) networks were historically isolated and optimised for availability and determinism rather than for security. Field protocols such as Modbus/TCP reflect that heritage: requests are unauthenticated and unencrypted, and any station able to reach a device may issue a well-formed command that the device will execute [<a class="ref" href="#ref-1">1</a>, <a class="ref" href="#ref-2">2</a>]. As OT and IT networks converge, the assumption of a trusted perimeter no longer holds.</p>
+
+        <p>A recurring lesson from real incidents is that damage need not involve malformed traffic or protocol violations. Stuxnet manipulated controllers using legitimate-looking commands [<a class="ref" href="#ref-4">4</a>, <a class="ref" href="#ref-6">6</a>], and process-aware attacks issue individually valid actions whose harm becomes apparent only at the level of the physical process [<a class="ref" href="#ref-9">9</a>]. Much of the intrusion-detection literature for industrial systems focuses on detecting anomalous or malformed traffic [<a class="ref" href="#ref-7">7</a>, <a class="ref" href="#ref-8">8</a>, <a class="ref" href="#ref-10">10</a>]. Comparatively little addresses a complementary question: given a well-formed and authorised action, is it appropriate for the current operational context?</p>
+
+        <p>This report makes the following contributions. It defines operational legitimacy and the problem of contextual industrial action evaluation (Section 2). It presents the Liscere action-evaluation chain and its four-dimension evaluation object (Section 3). It sets out the framework design, its principles, components, and decision logic (Section 4). It positions the framework relative to adjacent work (Section 5), and states its scope and limitations explicitly (Section 6). This is a conceptual exposition; the empirical feasibility demonstration is reported in LTR-2026-01 [<a class="ref" href="#ref-11">11</a>], and a peer-reviewed version is in preparation.</p>
+
+        <h2 id="problem-statement-and-definitions">2. Problem Statement and Definitions</h2>
+
+        <p>Operational technology systems interact with physical processes through controllers, actuators, supervisory applications, engineering workstations, and industrial communication protocols. In such environments, cyber operations are not merely information-processing events. They may change setpoints, trigger actuators, modify controller configuration, alter process modes, or acknowledge alarms. The security meaning of these operations depends on the physical and operational context in which they occur.</p>
+
+        <p>Traditional network and protocol-level checks are necessary but insufficient. A message may be well formed, use an expected industrial protocol, and still be operationally inappropriate. Conversely, an unusual action may be legitimate under specific operating conditions such as commissioning, maintenance, recovery, or emergency handling. The central problem is therefore not only whether an action is valid at the protocol level, but whether it is contextually legitimate for the affected automation artefact.</p>
+
+        <p>Operational legitimacy means that an action is appropriate for the affected automation artefact under the current operational context and applicable policy constraints. We address the following question: given a protocol-level operation, the automation artefact it affects, the operational context in which it occurs, and the applicable policy constraints, should the resulting industrial action be allowed, alerted, denied, or escalated? We call this problem contextual industrial action evaluation.</p>
+
+        <p>The framework uses the following definitions.</p>
+
+        <p><strong>An industrial action</strong> is a semantically reconstructed operation that may affect an industrial process, controller, automation artefact, or operational state. It may be carried by different protocol-level representations, including a Modbus register write, an OPC UA node write, a DNP3 operate command, or an IEC 60870-5-104 setpoint command. The action is not equivalent to the raw packet; the raw packet is evidence from which the action is reconstructed.</p>
+
+        <p><strong>A protocol-level operation</strong> is the operation as represented by a specific industrial communication protocol. Protocol-level validity means that the operation conforms to the syntax and basic semantics of the carrier protocol. It does not imply operational legitimacy.</p>
+
+        <p><strong>An automation artefact</strong> is the process, controller, or engineering object affected by an industrial action. Examples include process setpoints, actuator commands, alarm thresholds, interlocks, recipe parameters, operating mode selectors, safety-related thresholds, controller configuration variables, and unknown or unmapped registers, tags, or objects.</p>
+
+        <p><strong>Operational context</strong> is the set of conditions that influence whether an industrial action is appropriate. Relevant dimensions may include process state, operating mode, actor role, timing, sequence position, maintenance state, artefact sensitivity, value semantics, mapping confidence, and evidence quality. The current Modbus/TCP baseline implements one declared context dimension, <code>maintenance_window</code>, and richer dimensions remain future work.</p>
+
+        <p><strong>A policy constraint</strong> defines whether an industrial action is acceptable, suspicious, prohibited, or requires escalation under specified conditions. It may be derived from engineering limits, safety requirements, operational procedures, maintenance policies, actor-role permissions, site security policy, vendor documentation, process knowledge, formal specifications, or learned operational rules.</p>
+
+        <p><strong>A decision output</strong> is the result of evaluating an industrial action against artefact, context, and policy constraints. The framework defines four outputs.</p>
+
+        <figure class="table">
+        <div class="table-wrap"><table>
+          <thead><tr><th>Decision</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td>ALLOW</td><td>The action is acceptable under the available artefact, context, and policy information.</td></tr>
+            <tr><td>ALERT</td><td>The action is suspicious, risky, unexpected, or policy-relevant and should be reported.</td></tr>
+            <tr><td>DENY</td><td>The action violates a policy constraint strongly enough that it should be blocked where enforcement is available.</td></tr>
+            <tr><td>ESCALATE</td><td>The action cannot be safely classified with the available evidence, or it affects a sensitive artefact requiring higher-level review.</td></tr>
+          </tbody>
+        </table></div>
+          <figcaption>Table 1: The four decision outputs defined by the framework.</figcaption>
+        </figure>
+
+        <p>The current implementation validates ALLOW and ALERT. DENY and ESCALATE are framework-level outputs and require separate enforcement or workflow semantics before they can be claimed as evaluated.</p>
+
+        <h2 id="the-action-evaluation-chain">3. The Action-Evaluation Chain</h2>
+
+        <p>Liscere evaluates industrial actions through a structured chain. Observed protocol events are reconstructed as industrial actions, resolved to affected automation artefacts, enriched with operational context, evaluated against policy constraints, and assigned an explicit decision with supporting evidence.</p>
+
+        <figure>
+          <img src="/assets/research/ltr-2026-02/fig1.png" width="1402" height="310" alt="Figure 1: The Liscere action-evaluation chain. An observed protocol event is reconstructed as an industrial action, resolved to the affected automation artefact, enriched with declared operational context, evaluated against policy, and assigned a decision with an evidence record. The chain is protocol-agnostic, and Modbus/TCP is the first instantiation." loading="lazy">
+          <figcaption>Figure 1: The Liscere action-evaluation chain. An observed protocol event is reconstructed as an industrial action, resolved to the affected automation artefact, enriched with declared operational context, evaluated against policy, and assigned a decision with an evidence record. The chain is protocol-agnostic, and Modbus/TCP is the first instantiation.</figcaption>
+        </figure>
+
+        <p>The conceptual evaluation unit relates four dimensions:</p>
+
+        <pre class="display-expr" aria-label="Evaluation unit: protocol operation times automation artefact times operational context times policy constraint, giving decision plus rationale plus evidence">protocol operation × automation artefact × operational context × policy constraint
+                                           ↓
+                           decision + rationale + evidence</pre>
+
+        <p>Three of these four dimensions describe the action: the protocol operation is the action at the wire level, the automation artefact is the logical asset it affects, and the operational context is the declared state of the plant. The fourth dimension, the policy constraint, evaluates the other three to yield a decision and an evidence record.</p>
+
+        <p>The chain is deliberately protocol-agnostic. Only the protocol-operation dimension is protocol-specific, and it is isolated behind a mapping from raw protocol fields to artefacts. Adding a protocol amounts to providing that mapping, leaving the context and policy machinery unchanged.</p>
+
+        <h2 id="framework-design">4. Framework Design</h2>
+
+        <h3>4.1 Design principles</h3>
+
+        <p><strong>Protocol-agnostic at the model level.</strong> The framework is defined above protocol-specific encodings. Industrial protocols are treated as carriers of industrial actions. Modbus/TCP is the first empirical baseline, not a claim of multi-protocol generality.</p>
+
+        <p><strong>Artefact-centric semantics.</strong> The security meaning of an operation depends on the automation artefact it affects. A write is evaluated as a write to a setpoint, an actuator command, an alarm threshold, a configuration variable, a recipe parameter, or an unknown artefact.</p>
+
+        <p><strong>Contextual legitimacy.</strong> An industrial action may be acceptable in one context and inappropriate in another. A configuration write may be acceptable during maintenance but suspicious during production; a setpoint change may be safe within engineering limits but policy-relevant outside them.</p>
+
+        <p><strong>Policy-driven decisions.</strong> The framework evaluates declared policy constraints over reconstructed actions, artefacts, context, and evidence. Constraints may be derived from engineering limits, operational procedures, maintenance policies, documentation, process knowledge, formal specifications, access-control attributes, or learned operational rules.</p>
+
+        <p><strong>Explainable decision outputs.</strong> Each decision should carry a label, the matched policy, the affected artefact, the context used, a rationale, and an evidence record. The baseline evaluates ALLOW and ALERT; DENY and ESCALATE require separate enforcement or workflow semantics.</p>
+
+        <h3>4.2 Core components</h3>
+
+        <p>The Protocol Event Observer captures protocol-level operations from packets, logs, command traces, proxy events, or parser outputs. The Semantic Action Reconstructor translates protocol events into candidate industrial actions by identifying operation type, target, value, and action class. The Automation Artefact Resolver maps the reconstructed action to the affected artefact using sources such as register maps, PLC tag databases, HMI configuration, engineering files, protocol object models, or scenario metadata; where no mapping is available, the artefact is classified as unknown. The Operational Context Enricher attaches context to the action, such as operating mode, actor role, timing, maintenance state, artefact sensitivity, value semantics, and mapping confidence; the current baseline implements only a declared <code>maintenance_window</code> value. The Policy Evaluation Engine evaluates policy constraints against the contextualised action. The Decision Generator produces the final decision and evidence record. The current instantiation runs in the OT Lab [<a class="ref" href="#ref-12">12</a>].</p>
+
+        <h3>4.3 Decision logic</h3>
+
+        <p>A simplified decision process is:</p>
+
+        <pre>for each observed ProtocolEvent:
+            reconstruct  IndustrialAction
+            resolve      AutomationArtefact
+            enrich with  OperationalContext
+            select       applicable PolicyConstraints
+            evaluate     constraints
+            produce      ActionDecision</pre>
+
+        <p>A deployment may return ALERT or ESCALATE for unknown mappings, ALERT or DENY for policy violations depending on enforcement availability, and ALLOW when all applicable constraints are satisfied. The current baseline validates ALLOW and ALERT.</p>
+
+        <h2 id="positioning">5. Positioning</h2>
+
+        <p>The framework sits alongside several established lines of work. Surveys of industrial anomaly and intrusion detection [<a class="ref" href="#ref-8">8</a>, <a class="ref" href="#ref-10">10</a>] and introductions to industrial control networks [<a class="ref" href="#ref-7">7</a>] address whether traffic is anomalous or malformed. Process-aware analyses [<a class="ref" href="#ref-9">9</a>] reason about the effect of actions on the controlled process. Standards such as NIST SP 800-82 [<a class="ref" href="#ref-5">5</a>] and the IEC 62443 series [<a class="ref" href="#ref-3">3</a>] codify defence-in-depth, including zoning, monitoring, and least privilege, but do not themselves evaluate individual actions. Attribute-based access control governs whether a subject may perform an action under given conditions.</p>
+
+        <p>Liscere offers a complementary framing. Rather than asking whether traffic is anomalous, or whether a subject is authorised, it asks whether an otherwise valid and authorised action is appropriate given a declared operational context, and it makes the decision, the matched policy, and the supporting evidence explicit. The framework does not claim novelty in semantic extraction, specification mining, protocol abstraction, access control, formal safe-action restriction, or process modelling. Its contribution is the explicit action-evaluation object and decision chain that combine artefact, context, policy, decision, and evidence around a reconstructed industrial action.</p>
+
+        <h2 id="scope-and-limitations">6. Scope and Limitations</h2>
+
+        <p>The framework is protocol-agnostic at the model level, but only Modbus/TCP is instantiated; multi-protocol validation is future work. One declared operational-context dimension, <code>maintenance_window</code>, is implemented; richer context dimensions remain future work. ALLOW and ALERT are implemented and validated, while DENY and ESCALATE are framework-level and require separate enforcement or workflow semantics. The context is declared, not inferred. Policy rules and address-to-artefact mappings are defined manually in the current instantiation. The framework is observational and applies no production enforcement; it complements, and does not replace, protocol checks, anomaly detection, access control, and formal safe-action restriction within a defence-in-depth posture [<a class="ref" href="#ref-3">3</a>, <a class="ref" href="#ref-5">5</a>]. The empirical feasibility demonstration is limited to a controlled process model and is reported in LTR-2026-01 [<a class="ref" href="#ref-11">11</a>]. A peer-reviewed treatment is in preparation.</p>
+
+        <h2 id="conclusion-and-outlook">7. Conclusion and Outlook</h2>
+
+        <p>We presented the Liscere framework, a protocol-agnostic model that evaluates an industrial control action across four dimensions and returns an explicit decision with an evidence record. Modbus/TCP is the first instantiation, and an initial feasibility demonstration is reported separately [<a class="ref" href="#ref-11">11</a>]. Future work will broaden the context model beyond a single declared dimension, add further protocols through the protocol-operation mapping, explore inferred rather than declared context, implement and evaluate the DENY and ESCALATE outputs, and move from constructed scenarios to a quantitative evaluation with adversarial and false-positive analysis.</p>
+
+        <h2 id="appendix-a-the-evaluation-object-illustrated">Appendix A. The evaluation object, illustrated</h2>
+
+        <p>The following illustrates how the model characterises a single action across its four dimensions. It is an illustration of the model, not a result; the empirical evaluation of such scenarios is reported in LTR-2026-01 [<a class="ref" href="#ref-11">11</a>].</p>
+
+        <figure class="table">
+        <div class="table-wrap"><table>
+          <thead><tr><th>Dimension</th><th>Value</th></tr></thead>
+          <tbody>
+            <tr><td>Protocol operation</td><td>Write single register (function code <code>0x06</code>) to a mapped address.</td></tr>
+            <tr><td>Automation artefact</td><td>A high-alarm setpoint, exposed as the artefact <code>ALARM_HI_SP</code> and marked sensitive.</td></tr>
+            <tr><td>Operational context</td><td>The declared <code>maintenance_window</code>, true or false.</td></tr>
+            <tr><td>Policy constraint</td><td>A sensitive configuration write is permitted during a declared maintenance window and is otherwise reported.</td></tr>
+          </tbody>
+        </table></div>
+          <figcaption>Table 2: The evaluation object, illustrated across its four dimensions.</figcaption>
+        </figure>
+
+        <p>Under this model, the same write resolves to different decisions according to the declared context: the policy reports the write outside a maintenance window and permits it within one. The action is identical; the declared context is the only difference.</p>
+
+        <section class="article-related" aria-labelledby="help">
+          <h2 id="help">How Liscere can help</h2>
+          <ul class="related-links">
+            <li><a href="../../services/ot-visibility-monitoring.html">OT visibility and monitoring</a><span>See what your control network is actually being told to do.</span></li>
+            <li><a href="../../services/ot-security-assessment.html">OT and ICS security assessment</a><span>Find what is exposed and what an attacker could change.</span></li>
+            <li><a href="../../services/nis2-ksc-compliance.html">NIS2 and KSC readiness</a><span>Turn the directive's expectations into concrete OT controls.</span></li>
+          </ul>
+        </section>
+
+        <section class="article-faq" aria-labelledby="questions">
+          <h2 id="questions">Questions</h2>
+          <div class="faq-item">
+            <h3 class="faq-q">What is the Liscere framework?</h3>
+            <p class="faq-a">A protocol-agnostic model for evaluating an industrial control action along four dimensions: the protocol operation, the automation artefact it affects, the operational context in which it occurs and the applicable policy constraint.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">What decision does it return?</h3>
+            <p class="faq-a">A decision together with an evidence record. The report defines four decisions: allow, alert, deny and escalate.</p>
+          </div>
+        </section>
+
+        <section class="article-sources" aria-labelledby="sources">
+          <h2 id="sources">References</h2>
+          <ol class="sources">
+            <li id="ref-1">Modbus Organization. Modbus Application Protocol Specification V1.1b3, 2012.</li>
+            <li id="ref-2">Modbus Organization. Modbus Messaging on TCP/IP Implementation Guide V1.0b, 2006.</li>
+            <li id="ref-3">International Electrotechnical Commission. IEC 62443-3-3:2013, Industrial communication networks, Network and system security, Part 3-3: System security requirements and security levels. IEC, 2013.</li>
+            <li id="ref-4">N. Falliere, L. O. Murchu, and E. Chien. W32.Stuxnet Dossier, version 1.4. Symantec Security Response, 2011.</li>
+            <li id="ref-5">K. Stouffer, M. Pease, C. Tang, T. Zimmerman, V. Pillitteri, S. Lightman, A. Hahn, S. Saravia, A. Sherule, and M. Thompson. Guide to Operational Technology (OT) Security. NIST Special Publication 800-82, Revision 3, 2023.</li>
+            <li id="ref-6">R. Langner. Stuxnet: Dissecting a Cyberwarfare Weapon. IEEE Security & Privacy, 9(3):49-51, 2011.</li>
+            <li id="ref-7">B. Galloway and G. P. Hancke. Introduction to Industrial Control Networks. IEEE Communications Surveys & Tutorials, 15(2):860-880, 2013.</li>
+            <li id="ref-8">I. Garitano, R. Uribeetxeberria, and U. Zurutuza. A Review of SCADA Anomaly Detection Systems. In Soft Computing Models in Industrial and Environmental Applications (SOCO), Advances in Intelligent and Soft Computing, vol. 87, pages 357-366. Springer, 2011.</li>
+            <li id="ref-9">A. A. Cárdenas, S. Amin, Z.-S. Lin, Y.-L. Huang, C.-Y. Huang, and S. Sastry. Attacks Against Process Control Systems: Risk Assessment, Detection, and Response. In ACM ASIACCS, pages 355-366, 2011.</li>
+            <li id="ref-10">S. McLaughlin, C. Konstantinou, X. Wang, L. Davi, A.-R. Sadeghi, M. Maniatakos, and R. Karri. The Cybersecurity Landscape in Industrial Control Systems. Proceedings of the IEEE, 104(5):1039-1057, 2016.</li>
+            <li id="ref-11">B. Salmazo. Context-Aware Evaluation of Industrial Control Actions: A Modbus/TCP Baseline in the OT Lab. Liscere Technical Report LTR-2026-01, 2026.</li>
+            <li id="ref-12">Liscere. OT Lab: a controlled laboratory for industrial action evaluation. https://github.com/LiscereSecurity/OT-Lab, 2026.</li>
+          </ol>
+        </section>
+
+        <section class="article-cite" aria-labelledby="cite-title">
+          <h2 id="cite-title" class="doc-section-head">Cite this report</h2>
+          <pre class="doc-cite">@techreport{salmazo_framework_2026,
   author      = {Bruno Salmazo},
   title       = {Operational Legitimacy of Industrial Control Actions: The Liscere Framework},
   institution = {Liscere},
@@ -113,15 +455,9 @@
   type        = {Technical Report},
   url         = {https://liscere.com/research/ltr-2026-02/}
 }</pre>
-      </div>
+        </section>
 
-      <div class="doc-preview-col">
-        <div class="doc-preview">
-          <object class="doc-preview-pdf" data="../../assets/papers/liscere-framework.pdf#view=FitH" type="application/pdf" aria-label="Interactive preview of the report; scroll to read, or open the full PDF">
-            <p class="doc-pdf-fallback">Preview unavailable on this device. <a href="../../assets/papers/liscere-framework.pdf" target="_blank" rel="noopener">Open the full PDF.</a></p>
-          </object>
-          <a class="doc-preview-open" href="../../assets/papers/liscere-framework.pdf" target="_blank" rel="noopener">Open full PDF &#8599;</a>
-        </div>
+        <p class="article-back"><a href="../../research.html" data-back>&#8592; All research</a></p>
       </div>
     </article>
 

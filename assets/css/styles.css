@@ -3606,3 +3606,76 @@ html.article-view {
 .article a.ref { color: var(--cyan); text-decoration: none; }
 .article a.ref:hover, .article a.ref:focus-visible { text-decoration: underline; }
 .article ol.sources li:target { background: rgba(0, 217, 255, 0.08); }
+
+/* Converted reports: multi-paragraph abstracts, keywords, sub-headings, figures, tables, code. */
+.article-head:has(.lede + .lede) .lede { font-size: calc(var(--fs-body) * 1.04); }
+.article .keywords { margin: 0; color: var(--muted); font-size: 0.9rem; line-height: 1.55; }
+.article .keywords strong { color: var(--ink); font-weight: 500; }
+.article-body h3 { margin: 1.2rem 0 0; font-size: var(--fs-card); line-height: 1.35; }
+.article-body figure:not(.video) { margin: 0.6rem 0; }
+.article-body figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: #fff;
+}
+.article-body figure.stacked img + img { margin-top: 0.6rem; }
+.article-body figcaption,
+.article-body .caption,
+.article-body .table-notes {
+  margin-top: 0.6rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.article-body .table-notes p { margin: 0.3rem 0 0; }
+.article-body .table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+}
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+.article-body th,
+.article-body td {
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.article-body th {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  background: rgba(0, 217, 255, 0.05);
+  white-space: nowrap;
+}
+.article-body tr:last-child td { border-bottom: 0; }
+.article-body code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  color: var(--cyan-2, #4de6ff);
+}
+.article-body pre {
+  margin: 0.4rem 0;
+  padding: 0.9rem 1rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: rgba(0, 217, 255, 0.03);
+}
+.article .sources .ref-label { font-family: var(--font-mono); font-size: 0.85em; color: var(--muted); }
+.article ul.sources { list-style: none; padding-left: 0; }
+.article ul.sources li:target { background: rgba(0, 217, 255, 0.08); }

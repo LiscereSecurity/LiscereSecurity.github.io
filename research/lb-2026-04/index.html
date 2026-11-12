@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="en-GB" class="past-hero">
+<html lang="en-GB" class="past-hero article-view">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://formspree.io https://cloudflareinsights.com; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base | Liscere</title>
+  <title>The S7 Encryption Gap in the Installed Base | Liscere</title>
   <meta name="description" content="Why the installed Siemens S7 base stays largely readable on the network, even though current controllers encrypt by default." />
-  <meta name="author" content="Liscere" />
-  <meta name="robots" content="index,follow" />
+  <meta name="author" content="Bruno Salmazo" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
   <meta name="theme-color" content="#030405" />
 
   <meta property="og:title" content="Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base" />
@@ -21,47 +21,179 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Liscere: OT Cybersecurity" />
   <meta property="og:site_name" content="Liscere" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="article:published_time" content="2026-07" />
+  <meta property="article:section" content="Landscape Briefing" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base" />
   <meta name="twitter:description" content="Why the installed Siemens S7 base stays largely readable on the network, even though current controllers encrypt by default." />
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
+  <meta name="twitter:image:alt" content="Liscere: OT Cybersecurity" />
 
   <link rel="canonical" href="https://liscere.com/research/lb-2026-04/" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base",
-    "name": "Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base",
-    "author": {
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://liscere.com/research/lb-2026-04/#article",
+      "headline": "Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base",
+      "name": "Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base",
+      "description": "Why the installed Siemens S7 base stays largely readable on the network, even though current controllers encrypt by default.",
+      "url": "https://liscere.com/research/lb-2026-04/",
+      "mainEntityOfPage": "https://liscere.com/research/lb-2026-04/",
+      "inLanguage": "en-GB",
+      "datePublished": "2026-07",
+      "dateModified": "2026-10-07",
+      "image": [
+        "https://liscere.com/assets/og-image.png"
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "Bruno Salmazo"
+      },
+      "publisher": {
+        "@id": "https://liscere.com/#org"
+      },
+      "isPartOf": {
+        "@type": "CreativeWorkSeries",
+        "name": "Liscere Landscape Briefings",
+        "url": "https://liscere.com/research.html#landscape"
+      },
+      "articleSection": "Landscape Briefing",
+      "about": [
+        "Siemens S7",
+        "Industrial protocols",
+        "Encryption",
+        "Operational technology security"
+      ],
+      "keywords": "Siemens S7 encryption, S7comm, S7CommPlus, S7-1200, S7-1500, S7-300, S7-400, PLC security, TLS, passive monitoring",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Wireshark. S7comm dissector and protocol documentation. Wireshark Foundation, accessed 2026."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "M. Rodda and V. Mavroudis. Analysis of Publicly Accessible Operational Technology and Associated Risks. arXiv:2508.02375, 2025."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Claroty Team82. The Race to Native Code Execution in PLCs: Using RCE to Uncover Siemens SIMATIC S7-1200/1500 Hardcoded Cryptographic Keys. Claroty, 2022."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Cybersecurity and Infrastructure Security Agency. ICS Advisory ICSA-22-286-04: Siemens SIMATIC S7-1200 and S7-1500 CPU Families (CVE-2022-38465). CISA, 2022."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Siemens. Configuration of TLS-based PG/HMI Communication and the Protection of Confidential Configuration Data. Security Concept, TIA Portal V17, Item-ID 109798583, 2021; and Communication with S7-1500 and S7-1200, WinCC Unified Runtime, TIA Portal V21, 2026."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "python-snap7. Connecting to PLCs: TLS 1.3, firmware thresholds, and post-quantum key-exchange rejection on S7-1200/1500. Project documentation, v3.0, 2026."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Siemens. SIMATIC S7-1200 G2 Programmable Logic Controller System Manual. V1.0.1, 04/2025, A5E52923928-AB."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Forescout Research Labs. The Global Threat Evolution of Internet-Exposed OT/ICS. Forescout, 2024."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Composite of analyst coverage of the PLC market and academic estimates of S7 market share, 2016-2026. Reported qualitatively; precise share figures diverge between sources."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "M. Mladenov, L. Erdodi, and G. Smaragdakis. All that Glitters is not Gold: Uncovering Exposed Industrial Control Systems and Honeypots in the Wild. IEEE European Symposium on Security and Privacy (EuroS&P), 2025."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ENLYZE. On the Hype Around the Critical Siemens S7-1200/S7-1500 Vulnerability CVE-2022-38465. ENLYZE engineering blog, accessed 2026."
+        }
+      ],
+      "abstract": "Siemens S7 communication has moved decisively towards encryption by default. Current controllers, configured with the current engineering toolchain, protect programming and HMI traffic with certificate-based transport security as a native, preconfigured feature. This briefing documents a gap between that norm and the field: the installed base of S7 controllers remains, in its majority, communication that a passive observer can read. Three regimes coexist across the estate, from cleartext S7comm on the widely deployed S7-300 and S7-400 families, through application-layer encrypted S7CommPlus, to S7CommPlus wrapped in TLS on current hardware. The field is dominated by the readable regime, and the gap persists through economics rather than ignorance. For any approach that passively observes S7 traffic, the implication is mixed rather than bleak: across most of the deployed estate, passive observation remains viable because the traffic is readable; where encryption is in force, it marks the boundary of the passive vantage. Encryption is the state of the art in S7 communication. It is not yet the state of the field.",
+      "version": "1.1",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "copyrightHolder": {
+        "@id": "https://liscere.com/#org"
+      },
+      "identifier": "LB-2026-04",
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "https://liscere.com/assets/papers/liscere-s7-encryption-gap.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
       "@type": "Organization",
       "@id": "https://liscere.com/#org",
       "name": "Liscere",
-      "url": "https://liscere.com/"
+      "legalName": "Liscere sp. z o.o.",
+      "url": "https://liscere.com/",
+      "logo": "https://liscere.com/assets/apple-touch-icon.png"
     },
-    "datePublished": "2026-07",
-    "version": "1.1",
-    "dateModified": "2026-10-07",
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "copyrightHolder": {
-      "@id": "https://liscere.com/#org"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://liscere.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://liscere.com/research.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "LB-2026-04",
+          "item": "https://liscere.com/research/lb-2026-04/"
+        }
+      ]
     },
-    "abstract": "Siemens S7 communication has moved decisively towards encryption by default. Current controllers, configured with the current engineering toolchain, protect programming and HMI traffic with certificate-based transport security as a native, preconfigured feature. This briefing documents a gap between that norm and the field: the installed base of S7 controllers remains, in its majority, communication that a passive observer can read. Three regimes coexist across the estate, from cleartext S7comm on the widely deployed S7-300 and S7-400 families, through application-layer encrypted S7CommPlus, to S7CommPlus wrapped in TLS on current hardware. The field is dominated by the readable regime, and the gap persists through economics rather than ignorance. For any approach that passively observes S7 traffic, the implication is mixed rather than bleak: across most of the deployed estate, passive observation remains viable because the traffic is readable; where encryption is in force, it marks the boundary of the passive vantage. Encryption is the state of the art in S7 communication. It is not yet the state of the field.",
-    "publisher": {
-      "@type": "Organization",
-      "@id": "https://liscere.com/#org",
-      "name": "Liscere",
-      "url": "https://liscere.com/"
-    },
-    "url": "https://liscere.com/research/lb-2026-04/",
-    "encoding": {
-      "@type": "MediaObject",
-      "contentUrl": "https://liscere.com/assets/papers/liscere-s7-encryption-gap.pdf",
-      "encodingFormat": "application/pdf"
+    {
+      "@type": "FAQPage",
+      "@id": "https://liscere.com/research/lb-2026-04/#faq",
+      "inLanguage": "en-GB",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Siemens S7 traffic encrypted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On current controllers configured with the current engineering toolchain, yes, by default. Across the installed base, mostly not: the widely deployed S7-300 and S7-400 families use cleartext S7comm."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the installed base stay unencrypted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The briefing finds that the gap persists through economics rather than ignorance, and that the readable regime still dominates the field."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does this mean for passive monitoring of S7 networks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Across most of the deployed estate passive observation remains viable because the traffic is readable. Where encryption is in force, it marks the boundary of the passive vantage."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
 
   <link rel="stylesheet" href="../../assets/css/fonts.css?v=1" />
@@ -70,7 +202,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261112-a1" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261112-a2" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -88,23 +220,187 @@
     </nav>
   </header>
 
-  <main id="main-content" class="research-page">
-    <article class="doc-split">
-      <div class="doc-col">
-        <p class="paper-eyebrow">LB-2026-04 · <a class="series-back" href="../../research.html#landscape" data-back>Landscape Briefing</a> · July 2026</p>
-        <h1 class="doc-title">Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base</h1>
+  <main id="main-content" class="research-page article-page">
+    <article class="article">
+      <header class="article-head">
+        <p class="kicker"><a class="series-back" href="../../research.html#landscape" data-back>LANDSCAPE BRIEFING</a> · LB-2026-04 · July 2026</p>
+
+        <h1>Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base</h1>
+
+        <p class="article-byline">By Bruno Salmazo · Liscere</p>
         <p class="doc-rights">Version 1.1 · © 2026 Liscere sp. z o.o. · Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a></p>
         <p class="doc-revised">Revised 7 October 2026: readable-regime wording and S7-300/S7-400 milestone corrected; licence statement added.</p>
 
-        <details class="doc-abstract-toggle">
-          <summary>Executive Summary</summary>
-          <p class="doc-abstract">Siemens S7 communication has moved decisively towards encryption by default. Current controllers, configured with the current engineering toolchain, protect programming and HMI traffic with certificate-based transport security as a native, preconfigured feature. This briefing documents a gap between that norm and the field: the installed base of S7 controllers remains, in its majority, communication that a passive observer can read. Three regimes coexist across the estate, from cleartext S7comm on the widely deployed S7-300 and S7-400 families, through application-layer encrypted S7CommPlus, to S7CommPlus wrapped in TLS on current hardware. The field is dominated by the readable regime, and the gap persists through economics rather than ignorance. For any approach that passively observes S7 traffic, the implication is mixed rather than bleak: across most of the deployed estate, passive observation remains viable because the traffic is readable; where encryption is in force, it marks the boundary of the passive vantage. Encryption is the state of the art in S7 communication. It is not yet the state of the field.</p>
-        </details>
+        <p class="lede">Siemens S7 communication has moved decisively towards encryption by default. Current controllers, configured with the current engineering toolchain, protect programming and HMI traffic with certificate-based transport security as a native, preconfigured feature. This briefing documents a gap between that norm and the field: the installed base of S7 controllers remains, in its majority, communication that a passive observer can read. Three regimes coexist across the estate, from cleartext S7comm on the widely deployed S7-300 and S7-400 families, through application-layer encrypted S7CommPlus, to S7CommPlus wrapped in TLS on current hardware. The field is dominated by the readable regime, and the gap persists through economics rather than ignorance. For any approach that passively observes S7 traffic, the implication is mixed rather than bleak: across most of the deployed estate, passive observation remains viable because the traffic is readable; where encryption is in force, it marks the boundary of the passive vantage. Encryption is the state of the art in S7 communication. It is not yet the state of the field.</p>
+      </header>
 
-        <a class="primary-cta doc-open-mobile" href="../../assets/papers/liscere-s7-encryption-gap.pdf" target="_blank" rel="noopener">Open the PDF &#8599;</a>
+      <aside class="key-points" aria-labelledby="key-points-title">
+        <h2 id="key-points-title">Key points</h2>
+        <ul>
+          <li>Current Siemens controllers protect programming and HMI traffic with certificate-based transport security by default.</li>
+          <li>Most of the installed S7 base still carries communication that a passive observer can read.</li>
+          <li>Three regimes coexist: cleartext S7comm on S7-300 and S7-400, application-layer encrypted S7CommPlus, and S7CommPlus in TLS on current hardware.</li>
+          <li>The gap persists through economics rather than ignorance. Encryption is the state of the art, not yet the state of the field.</li>
+        </ul>
+      </aside>
 
-        <h2 class="doc-section-head">Cite this report</h2>
-        <pre class="doc-cite">@techreport{salmazo_s7gap_2026,
+      <aside class="article-side" aria-label="Video and contents">
+        <div class="side-sticky">
+
+          <nav class="article-toc" aria-labelledby="toc-title">
+            <h2 id="toc-title">On this page</h2>
+            <ol>
+              <li><a href="#the-three-encryption-regimes-of-s7">1. The three encryption regimes of S7</a></li>
+              <li><a href="#the-firmware-ruler-problem">2. The firmware ruler problem</a></li>
+              <li><a href="#what-the-installed-base-actually-runs">3. What the installed base actually runs</a></li>
+              <li><a href="#why-the-gap-persists">4. Why the gap persists</a></li>
+              <li><a href="#security-implications-for-passive-monitoring">5. Security implications for passive monitoring</a></li>
+              <li><a href="#outlook">6. Outlook</a></li>
+              <li><a href="#help">How Liscere can help</a></li>
+              <li><a href="#questions">Questions</a></li>
+              <li><a href="#sources">References</a></li>
+            </ol>
+          </nav>
+          <section class="side-pdf" aria-labelledby="side-pdf-title">
+            <h2 id="side-pdf-title">Full report (PDF)</h2>
+            <p>The same text as a typeset PDF, with page numbers for citation.</p>
+            <a class="secondary-cta" href="../../assets/papers/liscere-s7-encryption-gap.pdf" target="_blank" rel="noopener">Download PDF &#8599;</a>
+          </section>
+          <section class="side-cta" aria-labelledby="side-cta-title">
+            <h2 id="side-cta-title">Facing something similar?</h2>
+            <p>We help industrial operators find what is exposed, see what their control network is being told to do, and respond when something goes wrong.</p>
+            <a class="primary-cta" href="../../services.html#contact">Talk to us</a>
+          </section>
+        </div>
+      </aside>
+
+      <div class="article-body">
+        <h2 id="the-three-encryption-regimes-of-s7">1. The three encryption regimes of S7</h2>
+        <p>Siemens S7 communication is not a single protocol with a single security posture. Across the installed base, three distinct regimes coexist, and conflating them is the most common source of error when reasoning about what an observer can and cannot recover.</p>
+        <p><strong>Cleartext (S7comm, protocol ID 0x32).</strong> The original S7 communication protocol, in service since the mid-1990s, carries its payload in the clear [<a class="ref" href="#ref-1">1</a>]. It provides no transport encryption and no authentication of the peer; where a controller password is configured, it is exchanged in cleartext within the protocol's userdata function [<a class="ref" href="#ref-1">1</a>]. This is the protocol of the S7-300 and S7-400 families, and of the earliest S7-1200 firmware. Its structure is well understood and openly dissected: a message-type field, known as ROSCTR, distinguishes job requests from responses, and a function code within each request identifies read, write, and control operations against named memory areas [<a class="ref" href="#ref-1">1</a>]. Any party with a vantage point on the traffic recovers the operations and their operands directly.</p>
+        <p><strong>Legacy-protected (S7CommPlus, protocol ID 0x72, pre-TLS).</strong> Introduced with the S7-1500 family and later S7-1200 firmware, S7CommPlus was Siemens' response to the authentication gap that Stuxnet exposed [<a class="ref" href="#ref-2">2</a>]. It encrypts the application payload under a proprietary scheme, attaches a per-message integrity value, and derives session keys that render recorded traffic unusable for replay [<a class="ref" href="#ref-1">1</a>]. The confidentiality of the older configuration data and of legacy programming and HMI communication rested, however, on a private key built into the CPU family rather than provisioned per device. That design was later shown to be insufficient: the global key could be recovered by an offline attack against a single controller of the family, a vulnerability assigned CVE-2022-38465 with a CVSS base score of 9.3, reported by Claroty's research team and coordinated through CISA [<a class="ref" href="#ref-3">3</a>][<a class="ref" href="#ref-4">4</a>].</p>
+        <p><strong>TLS-wrapped (S7CommPlus over TLS).</strong> From TIA Portal V17 onwards, on controllers meeting the required firmware level, S7CommPlus is carried inside a TLS session with certificate-based key management [<a class="ref" href="#ref-5">5</a>]. This replaces the shared-key legacy protection with per-device certificates and standard transport security. It is the regime configured on current-generation hardware with the current toolchain.</p>
+        <p>The distinction between the second and third regimes matters and is easily lost. The S7CommPlus application layer carries its own encryption and integrity mechanisms independently of TLS; the TLS wrapper is a separate, transport-level layer added later. A controller may therefore protect its traffic by the proprietary application-layer scheme alone, or by that scheme within a TLS session. Both present an opaque payload to a passive observer, but by different mechanisms and with different metadata left exposed.</p>
+        <h2 id="the-firmware-ruler-problem">2. The firmware ruler problem</h2>
+        <p>Determining which regime a given controller uses is, in practice, obstructed by a versioning problem that is easy to get wrong. The threshold at which a controller adopts TLS-based secure communication is expressed in firmware terms, but the S7-1200 line carries two separate firmware rulers that are not comparable.</p>
+        <p>The classic S7-1200 uses a V4.x ruler, and the commonly cited threshold for TLS-based programming and HMI communication on that line is firmware V4.5 or higher, paired with TIA Portal V17 or higher [<a class="ref" href="#ref-5">5</a>][<a class="ref" href="#ref-6">6</a>]. The second-generation S7-1200 G2, by contrast, begins its own numbering at V1.0.1 and is a distinct product line rather than an earlier point on the classic ruler [<a class="ref" href="#ref-7">7</a>]. A G2 controller reporting a low version within its own ruler is not an old, pre-secure device; it is a current device on a separate scale. Applying the classic V4.5 threshold to a G2 version number is a category error, and one that a defender inventorying a mixed estate can easily make.</p>
+        <p>Table 1 sets out the regimes against product generation, firmware ruler, and toolchain milestone.</p>
+        <div class="table-wrap"><table>
+        <thead>
+        <tr>
+        <th>Generation / line</th>
+        <th>Firmware ruler</th>
+        <th>Comms protocol</th>
+        <th>Encryption</th>
+        <th>Milestone</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>S7-300 / S7-400</td>
+        <td>legacy</td>
+        <td>S7comm (0x32)</td>
+        <td>None; cleartext, no authentication</td>
+        <td>1994; never moved to S7CommPlus [<a class="ref" href="#ref-2">2</a>]</td>
+        </tr>
+        <tr>
+        <td>S7-1200 V1 to V3</td>
+        <td>V1.x to V3.x</td>
+        <td>S7comm / early S7CommPlus</td>
+        <td>None; V3 confirmed cleartext</td>
+        <td>pre-2014 [<a class="ref" href="#ref-2">2</a>]</td>
+        </tr>
+        <tr>
+        <td>S7-1200 classic V4.0+ / S7-1500</td>
+        <td>V4.0+</td>
+        <td>S7CommPlus (0x72)</td>
+        <td>Payload encryption and integrity; legacy global-key protection*</td>
+        <td>~2014, TIA V13 [<a class="ref" href="#ref-1">1</a>][<a class="ref" href="#ref-3">3</a>]</td>
+        </tr>
+        <tr>
+        <td>S7-1200 classic &gt;= V4.5 / S7-1500 &gt;= V2.9</td>
+        <td>V4.5+ / V2.9+</td>
+        <td>S7CommPlus over TLS</td>
+        <td>TLS, certificate-managed</td>
+        <td>TIA V17, 2021 [<a class="ref" href="#ref-5">5</a>]</td>
+        </tr>
+        <tr>
+        <td>S7-1200 G2</td>
+        <td>V1.0.1 (04/2025) to V4.1.4 (04/2026)</td>
+        <td>S7CommPlus</td>
+        <td>Secure communication native; TLS-based, security by default†</td>
+        <td>G2 launch 04/2025; TIA V21 [<a class="ref" href="#ref-7">7</a>]</td>
+        </tr>
+        </tbody>
+        </table></div>
+        <p>Table 1. S7 communication security across product generations and toolchain versions.</p>
+        <div class="table-notes">
+        <p>* The legacy protection of pre-TLS generations used a private key shared across the CPU family, later shown vulnerable to offline extraction (CVE-2022-38465) and replaced by TLS certificate management from TIA V17 [<a class="ref" href="#ref-3">3</a>][<a class="ref" href="#ref-4">4</a>].</p>
+        <p>† The G2 uses its own firmware ruler beginning at V1.0.1, distinct from the classic V4.x line; secure PG/PC and HMI communication is listed as a native CPU feature [<a class="ref" href="#ref-7">7</a>].</p>
+        </div>
+        <p>The G2 System Manual lists secure PG/PC and HMI communication, protection of confidential configuration data, and secure boot among the controller's native security features, configured in the engineering software [<a class="ref" href="#ref-7">7</a>]. The generation therefore ships as a security-by-default platform: the secure regime is the configured norm rather than an add-on enabled at a later firmware level.</p>
+        <h2 id="what-the-installed-base-actually-runs">3. What the installed base actually runs</h2>
+        <p>The move to encryption by default describes the current product and the current toolchain. It does not describe the installed base, and the gap between the two is the substance of this briefing.</p>
+        <p>Three observations, drawn from public measurement, establish the shape of the field. First, the older families that carry no encryption remain widely deployed and widely reachable. Internet-exposure scanning consistently finds the S7-300 and the S7-1200 among the most common S7 controllers, and the S7-300 in particular never received the S7CommPlus security update: it communicates in cleartext by architecture, not by misconfiguration [<a class="ref" href="#ref-2">2</a>]. Second, S7 exposure is growing rather than receding. A longitudinal study of internet-exposed operational technology reported Siemens S7 among the fastest-growing exposed services between 2017 and 2024, with an increase on the order of 120 per cent over the period, against a total exposed-device population approaching 110,000 as of early 2024 [<a class="ref" href="#ref-8">8</a>]. Third, the S7 family as a whole holds a substantial share of the global PLC market, so the absolute number of deployed controllers behind these proportions is large [<a class="ref" href="#ref-9">9</a>].</p>
+        <p>Two qualifications keep this honest. Internet-exposed devices are a biased sample: they are not the whole installed base, and a controller reachable from the public internet is already a security failure independent of its protocol. Exposure figures are also inflated by honeypots, which recent scanning work has found to constitute a material and growing fraction of apparent industrial control hosts [<a class="ref" href="#ref-10">10</a>]. Neither qualification changes the direction of the finding. Whether one counts exposed devices, market share, or the simple fact that decades of S7-300 and S7-400 installations remain in service, the population is dominated by generations whose communication is readable. Encryption is the recent state of the art, not the prevailing state of the field.</p>
+        <h2 id="why-the-gap-persists">4. Why the gap persists</h2>
+        <p>The gap is not merely a matter of old hardware waiting to be replaced. It persists because closing it is expensive, disruptive, and often outside the asset owner's control.</p>
+        <p>Adopting the secure regime is not a firmware update in isolation. It requires updating the engineering project, provisioning certificates, disabling the legacy communication path, and loading the changed configuration into every affected device. That change breaks existing connections: HMIs, peer controllers, and other periphery configured against the old path must be updated in step [<a class="ref" href="#ref-11">11</a>]. Where the asset owner does not hold the engineering project, only the original machine builder can perform the migration, and a machine builder has little incentive to alter a system that is running to specification [<a class="ref" href="#ref-11">11</a>]. The practical outcome, reported from the field, is that brownfield installations remain on the readable path because migrating them is costly and risky, not because the operator is unaware of the exposure.</p>
+        <p>The history of the legacy protection reinforces the point. The confidentiality that pre-TLS controllers did offer rested on the family-wide global key later broken as CVE-2022-38465 [<a class="ref" href="#ref-3">3</a>]. In responding, the guidance from CISA was to confine legacy, non-TLS communication to trusted network environments, an instruction that implicitly concedes the legacy path is still in operational use and will remain so [<a class="ref" href="#ref-4">4</a>]. Security by default addresses the controller a plant buys today. It does not, on its own, address the controller a plant bought fifteen years ago and still runs.</p>
+        <h2 id="security-implications-for-passive-monitoring">5. Security implications for passive monitoring</h2>
+        <p>The regime map has a direct consequence for any approach that relies on passively observing S7 traffic from a mirror or tap, without participating in the exchange.</p>
+        <p>For the readable regime, which dominates the installed base, passive observation recovers the substance of the communication: the operations, the memory areas addressed, and the values exchanged [<a class="ref" href="#ref-1">1</a>]. The protocol declares data types on the wire, so a passive observer recovers not only values but their types, placing readable S7 closer to a protocol such as OPC UA in signed mode than to a type-agnostic protocol such as Modbus. For the encrypted regimes, whether protected by the S7CommPlus application-layer scheme or wrapped in TLS, passive observation of the payload recovers nothing of the application content. What remains visible is transport metadata: endpoints, timing, message sizes, and, depending on the transport version, portions of the connection-establishment exchange [<a class="ref" href="#ref-5">5</a>].</p>
+        <p>Two points bound this correctly. First, the loss under encryption is a loss of vantage, not a loss of logic. The evaluation an observer might perform on readable traffic is unchanged in principle; what encryption removes is the observer's ability to see the traffic at all. The same process logic that is legible on an S7-300 becomes opaque on a current G2 not because the logic changed but because the vantage was withdrawn. Second, the opacity holds specifically for the passive, unkeyed observer. The published breaks of S7CommPlus are the work of active adversaries: rogue clients that participate in the session, and reverse-engineering of the protocol against a controlled device [<a class="ref" href="#ref-2">2</a>]. None of them is a passive recovery from mirrored traffic without keys. An honest account must not conflate what an active attacker with a foothold can achieve with what a passive observer on a span port can see; the two are different problems, and only the latter is at issue here.</p>
+        <p>The net position is therefore mixed rather than bleak. Across most of the deployed S7 estate today, passive observation remains viable because the traffic is readable. Where encryption is in force, it marks the boundary of the passive vantage, and that boundary is a property of the deployment's transport security, not of the observing method.</p>
+        <h2 id="outlook">6. Outlook</h2>
+        <p>The direction of travel is clear even if its pace is not. New controllers ship in the secure regime by default, and the encrypted share of the S7 estate will grow as hardware is replaced and as toolchains advance. That growth is gradual: the economics described above mean brownfield installations turn over slowly, and the readable regime will remain a substantial fraction of the field for years rather than months.</p>
+        <p>Two developments bear watching. The first is the steady tightening of transport security on the controllers themselves, which narrows what even the connection-establishment exchange exposes as newer TLS versions encrypt more of the handshake [<a class="ref" href="#ref-5">5</a>]. The second, further out, is the interaction between these embedded TLS stacks and post-quantum cryptography. Current controller TLS implementations are rigid about what they will accept, to the point of rejecting oversized handshakes that advertise post-quantum key-exchange groups [<a class="ref" href="#ref-6">6</a>]. Whatever the merits of that rigidity, it signals that the cryptographic agility of deployed industrial controllers lags the general internet, and that the transition to post-quantum transport security in operational technology will be correspondingly slower. For an observer, each such tightening moves more of the exchange out of view; for a defender, it is a reminder that the security posture of the transport is now a first-class variable in what any monitoring approach can achieve.</p>
+
+        <section class="article-related" aria-labelledby="help">
+          <h2 id="help">How Liscere can help</h2>
+          <ul class="related-links">
+            <li><a href="../../services/ot-visibility-monitoring.html">OT visibility and monitoring</a><span>See what your control network is actually being told to do.</span></li>
+            <li><a href="../../services/ot-security-assessment.html">OT and ICS security assessment</a><span>Find what is exposed and what an attacker could change.</span></li>
+            <li><a href="../../services/nis2-ksc-compliance.html">NIS2 and KSC readiness</a><span>Turn the directive's expectations into concrete OT controls.</span></li>
+          </ul>
+        </section>
+
+        <section class="article-faq" aria-labelledby="questions">
+          <h2 id="questions">Questions</h2>
+          <div class="faq-item">
+            <h3 class="faq-q">Is Siemens S7 traffic encrypted?</h3>
+            <p class="faq-a">On current controllers configured with the current engineering toolchain, yes, by default. Across the installed base, mostly not: the widely deployed S7-300 and S7-400 families use cleartext S7comm.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Why does the installed base stay unencrypted?</h3>
+            <p class="faq-a">The briefing finds that the gap persists through economics rather than ignorance, and that the readable regime still dominates the field.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">What does this mean for passive monitoring of S7 networks?</h3>
+            <p class="faq-a">Across most of the deployed estate passive observation remains viable because the traffic is readable. Where encryption is in force, it marks the boundary of the passive vantage.</p>
+          </div>
+        </section>
+
+        <section class="article-sources" aria-labelledby="sources">
+          <h2 id="sources">References</h2>
+          <ol class="sources">
+            <li id="ref-1">Wireshark. S7comm dissector and protocol documentation. Wireshark Foundation, accessed 2026.</li>
+            <li id="ref-2">M. Rodda and V. Mavroudis. Analysis of Publicly Accessible Operational Technology and Associated Risks. arXiv:2508.02375, 2025.</li>
+            <li id="ref-3">Claroty Team82. The Race to Native Code Execution in PLCs: Using RCE to Uncover Siemens SIMATIC S7-1200/1500 Hardcoded Cryptographic Keys. Claroty, 2022.</li>
+            <li id="ref-4">Cybersecurity and Infrastructure Security Agency. ICS Advisory ICSA-22-286-04: Siemens SIMATIC S7-1200 and S7-1500 CPU Families (CVE-2022-38465). CISA, 2022.</li>
+            <li id="ref-5">Siemens. Configuration of TLS-based PG/HMI Communication and the Protection of Confidential Configuration Data. Security Concept, TIA Portal V17, Item-ID 109798583, 2021; and Communication with S7-1500 and S7-1200, WinCC Unified Runtime, TIA Portal V21, 2026.</li>
+            <li id="ref-6">python-snap7. Connecting to PLCs: TLS 1.3, firmware thresholds, and post-quantum key-exchange rejection on S7-1200/1500. Project documentation, v3.0, 2026.</li>
+            <li id="ref-7">Siemens. SIMATIC S7-1200 G2 Programmable Logic Controller System Manual. V1.0.1, 04/2025, A5E52923928-AB.</li>
+            <li id="ref-8">Forescout Research Labs. The Global Threat Evolution of Internet-Exposed OT/ICS. Forescout, 2024.</li>
+            <li id="ref-9">Composite of analyst coverage of the PLC market and academic estimates of S7 market share, 2016-2026. Reported qualitatively; precise share figures diverge between sources.</li>
+            <li id="ref-10">M. Mladenov, L. Erdodi, and G. Smaragdakis. All that Glitters is not Gold: Uncovering Exposed Industrial Control Systems and Honeypots in the Wild. IEEE European Symposium on Security and Privacy (EuroS&amp;P), 2025.</li>
+            <li id="ref-11">ENLYZE. On the Hype Around the Critical Siemens S7-1200/S7-1500 Vulnerability CVE-2022-38465. ENLYZE engineering blog, accessed 2026.</li>
+          </ol>
+        </section>
+
+        <section class="article-cite" aria-labelledby="cite-title">
+          <h2 id="cite-title" class="doc-section-head">Cite this report</h2>
+          <pre class="doc-cite">@techreport{salmazo_s7gap_2026,
   author      = {Bruno Salmazo},
   title       = {Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base},
   institution = {Liscere},
@@ -114,15 +410,9 @@
   type        = {Landscape Briefing},
   url         = {https://liscere.com/research/lb-2026-04/}
 }</pre>
-      </div>
+        </section>
 
-      <div class="doc-preview-col">
-        <div class="doc-preview">
-          <object class="doc-preview-pdf" data="../../assets/papers/liscere-s7-encryption-gap.pdf#view=FitH" type="application/pdf" aria-label="Interactive preview of the report; scroll to read, or open the full PDF">
-            <p class="doc-pdf-fallback">Preview unavailable on this device. <a href="../../assets/papers/liscere-s7-encryption-gap.pdf" target="_blank" rel="noopener">Open the full PDF.</a></p>
-          </object>
-          <a class="doc-preview-open" href="../../assets/papers/liscere-s7-encryption-gap.pdf" target="_blank" rel="noopener">Open full PDF &#8599;</a>
-        </div>
+        <p class="article-back"><a href="../../research.html" data-back>&#8592; All research</a></p>
       </div>
     </article>
 
