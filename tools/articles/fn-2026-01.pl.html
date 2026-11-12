@@ -1,0 +1,54 @@
+<p class="kicker">FIELD NOTES · FN-2026-01 · 12 listopada 2026</p>
+
+<h1>Autoryzowane polecenia, zepsuta żywność: cyberatak na chłodnie supermarketów w październiku 2026</h1>
+
+<p class="lede">W nocy z 11 na 12 października 2026 roku atakujący dostali się do sterowników chłodniczych około 700 supermarketów we Francji. Nie zepsuli lodówek. Użyli własnych funkcji sterowników, czyli cykli odszraniania i nastaw temperatury, aby przez noc ogrzać lodówki i zamrażarki, aż żywność się zepsuła. Urządzenia zrobiły dokładnie to, co im kazano.</p>
+
+<figure class="video">
+  <video controls playsinline preload="metadata" poster="/assets/video/liscere-supermarket-attack-poster.jpg" width="1080" height="1080">
+    <source src="/assets/video/liscere-supermarket-attack.mp4" type="video/mp4">
+  </video>
+  <figcaption>Dwuminutowy film (po angielsku). Sceny z Liscere to ilustracyjna rekonstrukcja, a nie nagranie incydentu.</figcaption>
+</figure>
+
+<h2>Co się wydarzyło</h2>
+<ul>
+  <li><strong>Skala.</strong> Francuskie władze oceniają liczbę dotkniętych supermarketów na około 700, spośród mniej więcej 10 000 w kraju. Zanim podano oficjalną liczbę, pierwsze doniesienia prasowe mówiły o 250 do 350 sklepach.</li>
+  <li><strong>Co zostało zmienione.</strong> Atakujący zmienili ustawienia odszraniania i temperatury. Jedna z sieci handlowych podała, że jej urządzenia chłodnicze pracowały w temperaturze 50 °C przez około sześć godzin. Według Le Monde cykle odszraniania wydłużono z jednej godziny nawet do ośmiu, co opóźniło alarmy. W jednym ze sklepów pod Bordeaux nastawę zamrażarki zmieniono z &minus;22 °C na 150 °C, a kilka ustawień zmieniało się w ciągu jednej sekundy, co wskazuje na automatyzację.</li>
+  <li><strong>Skutki.</strong> Straty żywności szacuje się na dziesiątki milionów euro. Paryska prokuratura podała, że atak spowodował również pożary.</li>
+  <li><strong>Druga fala.</strong> W nocy z 12 na 13 października kampania objęła sterowniki drugiego producenta. CERT-FR zaktualizował swój alert, aby je uwzględnić.</li>
+  <li><strong>Dostęp.</strong> Nie potwierdzono publicznie, w jaki sposób atakujący uzyskali dostęp. Badacze naliczyli tysiące interfejsów sterowników chłodniczych dostępnych z internetu, wiele z nich w systemach, których wsparcie producenta już się zakończyło.</li>
+  <li><strong>Atrybucja.</strong> 9 listopada Francja publicznie przypisała operację grupie, którą łączy z irańskim Korpusem Strażników Rewolucji. Teheran odrzucił te oskarżenia.</li>
+</ul>
+
+<h2>Dlaczego to ma znaczenie nie tylko dla supermarketów</h2>
+<p>Nic w tym ataku nie wymagało awarii lodówek. Odszranianie to normalna funkcja. Zmiana nastawy to normalna czynność technika. Każde polecenie dotarło w formacie, którego sterownik oczekuje, przez interfejs, do którego obsługi został zbudowany. Rozpatrywane pojedynczo, polecenia były autoryzowane.</p>
+<p>Szkodliwymi uczynił je kontekst: odszranianie wydłużone do ośmiu godzin w środku nocy, zamrażarka, której kazano osiągnąć &plus;50 °C, ta sama zmiana wysłana do wielu szaf chłodniczych w ciągu kilku sekund. Pytanie, które pozwoliłoby je wychwycić, nie brzmi „czy to polecenie jest dozwolone?”, lecz „czy to polecenie ma sens dla tego procesu, właśnie teraz?”.</p>
+<p>Ten sam schemat dotyczy uzdatniania wody, energetyki, szpitali i fabryk. Wszędzie tam, gdzie można dotrzeć do sterownika, autoryzowane polecenie może zostać użyte przeciwko procesowi, którym ten sterownik steruje.</p>
+
+<h2>Co zaleca CERT-FR</h2>
+<ul>
+  <li>Odłączyć dotknięte sterowniki od internetu.</li>
+  <li>Przywracać zdalny dostęp wyłącznie przez bezpieczny VPN lub chronioną sieć.</li>
+  <li>Stosować filtrowanie adresów IP tylko jako tymczasowy środek awaryjny.</li>
+  <li>W przypadku przejętych urządzeń bez wsparcia producenta nie polegać wyłącznie na przywróceniu ustawień fabrycznych.</li>
+  <li>Przejrzeć harmonogramy odszraniania.</li>
+</ul>
+<p>Najpierw trzeba usunąć ekspozycję. Monitoring jej nie zastępuje.</p>
+
+<h2>Gdzie pasuje monitoring kontekstowy</h2>
+<p>Liscere pasywnie obserwuje ruch w sieci przemysłowej z portu lustrzanego (mirror port), nie wysyłając do niej niczego. Uczy się, jak normalnie zachowuje się proces, i ocenia, czy każde polecenie nadzorcze pasuje do bieżącego stanu tego procesu. Jest zaprojektowane tak, aby sygnalizować polecenia podobne do użytych w tym ataku: nastawę daleko poza wyuczonym zakresem, odszranianie niepodobne do żadnego wcześniej zaobserwowanego, serię identycznych zmian w nocy. Następnie informuje właściwą osobę, podając powód, w chwili wysłania polecenia.</p>
+<p>Jeśli odpowiadasz za chłodnictwo, automatykę budynkową lub przemysłowe systemy sterowania i chcesz wiedzieć, co naprawdę jest wysyłane do Twojej sieci, <a href="mailto:hello@liscere.com">porozmawiaj z nami</a>.</p>
+
+<p class="tagline">Autoryzowane nie zawsze znaczy właściwe.</p>
+
+<h2>Źródła</h2>
+<ol class="sources">
+  <li>CERT-FR, alert CERTFR-2026-ALE-012, 12 października 2026 (aktualizacja): <a href="https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/">cert.ssi.gouv.fr</a></li>
+  <li>BleepingComputer, „Cyberattack shuts down refrigerators at French supermarkets”, 12 października 2026: <a href="https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/">bleepingcomputer.com</a></li>
+  <li>Infosecurity Magazine, „French Supermarket Cyber-Attack Impacts More Refrigeration Controllers”, 14 października 2026: <a href="https://www.infosecurity-magazine.com/news/french-supermarket-hack-more/">infosecurity-magazine.com</a></li>
+  <li>SecurityWeek, 15 października 2026: <a href="https://www.securityweek.com/supermarket-refrigeration-attack-widens-to-copeland-dixell-controllers/">securityweek.com</a></li>
+  <li>CSO Online, „When defrost becomes sabotage: 3 OT lessons from France's supermarket attack”, 20 października 2026: <a href="https://www.csoonline.com/article/4237172/when-defrost-becomes-sabotage-3-ot-lessons-from-frances-supermarket-attack.html">csoonline.com</a></li>
+  <li>Forescout Research, „Cold chain, open control”, 22 października 2026: <a href="https://www.forescout.com/blog/cold-chain-open-control-exposed-refrigeration-systems-reveal-global-risk/">forescout.com</a></li>
+  <li>LeBigData, „La France accuse l'Iran d'avoir saboté 700 sites frigorifiques”, 11 listopada 2026: <a href="https://www.lebigdata.fr/la-france-accuse-liran-davoir-sabote-700-sites-frigorifiques-au-moins-15-departs-de-feu">lebigdata.fr</a></li>
+</ol>

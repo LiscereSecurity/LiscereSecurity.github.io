@@ -26,11 +26,8 @@ for k in ("og:description", "twitter:description"):
     s = re.sub(r'(<meta (?:property|name)="' + k + r'" content=")[^"]*', lambda m: m.group(1) + desc, s)
 s = s.replace('<meta property="og:url" content="https://liscere.com/" />', '<meta property="og:url" content="https://liscere.com/pl/" />\n  <meta property="og:locale" content="pl_PL" />')
 s = s.replace('<meta property="og:image:alt" content="Liscere: OT Cybersecurity" />', '<meta property="og:image:alt" content="Liscere: cyberbezpieczeństwo OT" />')
-s = s.replace('<link rel="canonical" href="https://liscere.com/" />',
-  '<link rel="canonical" href="https://liscere.com/pl/" />\n'
-  '  <link rel="alternate" hreflang="en" href="https://liscere.com/" />\n'
-  '  <link rel="alternate" hreflang="pl" href="https://liscere.com/pl/" />\n'
-  '  <link rel="alternate" hreflang="x-default" href="https://liscere.com/" />')
+# the hreflang alternates are copied from index.html as they are; only the canonical changes
+s = s.replace('<link rel="canonical" href="https://liscere.com/" />', '<link rel="canonical" href="https://liscere.com/pl/" />')
 # JSON-LD: the Polish home describes itself and points at the one Organization on the English home
 blocks = re.findall(r'  <script type="application/ld\+json">.*?</script>\n', s, re.S)
 for b in blocks:

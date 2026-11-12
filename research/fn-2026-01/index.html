@@ -26,6 +26,7 @@
   <meta property="og:video:height" content="720" />
   <meta property="og:site_name" content="Liscere" />
   <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="pl_PL" />
   <meta property="article:published_time" content="2026-11-12" />
   <meta property="article:section" content="Field Notes" />
 
@@ -36,6 +37,9 @@
   <meta name="twitter:image:alt" content="Supermarket fridges linked to a Liscere monitor flagging an unexpected command" />
 
   <link rel="canonical" href="https://liscere.com/research/fn-2026-01/" />
+  <link rel="alternate" hreflang="en" href="https://liscere.com/research/fn-2026-01/" />
+  <link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/fn-2026-01/" />
+  <link rel="alternate" hreflang="x-default" href="https://liscere.com/research/fn-2026-01/" />
 
   <script type="application/ld+json">
 {
@@ -76,8 +80,8 @@
         "Critical infrastructure"
       ],
       "keywords": "supermarket refrigeration attack, France, October 2026, CERT-FR, OT security, ICS, refrigeration controllers, defrost, setpoint, cold chain",
-      "video": {
-        "@id": "https://liscere.com/research/fn-2026-01/#video"
+      "workTranslation": {
+        "@id": "https://liscere.com/pl/badania/fn-2026-01/#article"
       },
       "citation": [
         {
@@ -115,7 +119,10 @@
           "name": "LeBigData, \"La France accuse l'Iran d'avoir saboté 700 sites frigorifiques\", 11 November 2026",
           "url": "https://www.lebigdata.fr/la-france-accuse-liran-davoir-sabote-700-sites-frigorifiques-au-moins-15-departs-de-feu"
         }
-      ]
+      ],
+      "video": {
+        "@id": "https://liscere.com/research/fn-2026-01/#video"
+      }
     },
     {
       "@type": "VideoObject",
@@ -130,6 +137,7 @@
       "duration": "PT1M57S",
       "contentUrl": "https://liscere.com/assets/video/liscere-supermarket-attack.mp4",
       "encodingFormat": "video/mp4",
+      "inLanguage": "en-GB",
       "publisher": {
         "@id": "https://liscere.com/#org"
       }
@@ -168,6 +176,7 @@
     {
       "@type": "FAQPage",
       "@id": "https://liscere.com/research/fn-2026-01/#faq",
+      "inLanguage": "en-GB",
       "mainEntity": [
         {
           "@type": "Question",
@@ -219,14 +228,14 @@
       <a href="../../services.html">Services</a>
       <a href="../../about.html">About</a>
       <a href="../../research.html" aria-current="page">Research</a>
-      <a class="lang-switch" href="../../pl/index.html" hreflang="pl" lang="pl" aria-label="Polski">PL</a>
+      <a class="lang-switch" href="../../pl/badania/fn-2026-01/" hreflang="pl" lang="pl" aria-label="Polski">PL</a>
     </nav>
   </header>
 
   <main id="main-content" class="research-page article-page">
     <article class="article">
       <header class="article-head">
-        <p class="kicker">FIELD NOTES · FN-2026-01 · 12 November 2026</p>
+        <p class="kicker"><a class="series-back" href="../../research.html#fieldnotes" data-back>FIELD NOTES</a> · FN-2026-01 · 12 November 2026</p>
 
         <h1>Authorised commands, spoiled food: the October 2026 supermarket refrigeration attack</h1>
 
@@ -238,7 +247,7 @@
         <ul>
           <li>Around 700 supermarkets in France were hit on the night of 11 to 12 October 2026, and controllers from a second manufacturer the following night.</li>
           <li>Nothing was broken. The attackers changed defrost cycles and temperature setpoints, normal functions the controllers are built to accept.</li>
-          <li>Food losses are estimated at tens of millions of euros. On 9 November France attributed the operation to a group it links to Iran's Revolutionary Guard; Tehran rejected the accusation.</li>
+          <li>Food losses are estimated at tens of millions of euros. On 9 November France attributed the operation to a group it links to Iran&rsquo;s Revolutionary Guard; Tehran rejected the accusation.</li>
           <li>The lesson for any OT operator: remove internet exposure first, then ask whether each command makes sense for the process at that moment.</li>
         </ul>
       </aside>
@@ -254,13 +263,13 @@
           <nav class="article-toc" aria-labelledby="toc-title">
             <h2 id="toc-title">On this page</h2>
             <ol>
-            <li><a href="#what-happened">What happened</a></li>
-            <li><a href="#why-it-matters">Why this matters beyond supermarkets</a></li>
-            <li><a href="#cert-fr-recommends">What CERT-FR recommends</a></li>
-            <li><a href="#contextual-monitoring">Where contextual monitoring fits</a></li>
-            <li><a href="#how-liscere-can-help">How Liscere can help</a></li>
-            <li><a href="#questions">Questions</a></li>
-            <li><a href="#sources">Sources</a></li>
+              <li><a href="#what-happened">What happened</a></li>
+              <li><a href="#why-this-matters-beyond-supermarkets">Why this matters beyond supermarkets</a></li>
+              <li><a href="#what-cert-fr-recommends">What CERT-FR recommends</a></li>
+              <li><a href="#where-contextual-monitoring-fits">Where contextual monitoring fits</a></li>
+              <li><a href="#help">How Liscere can help</a></li>
+              <li><a href="#questions">Questions</a></li>
+              <li><a href="#sources">Sources</a></li>
             </ol>
           </nav>
         </div>
@@ -277,12 +286,12 @@
           <li><strong>Attribution.</strong> On 9 November France publicly attributed the operation to a group it links to Iran's Revolutionary Guard. Tehran rejected the accusation.</li>
         </ul>
 
-        <h2 id="why-it-matters">Why this matters beyond supermarkets</h2>
+        <h2 id="why-this-matters-beyond-supermarkets">Why this matters beyond supermarkets</h2>
         <p>Nothing in this attack required the fridges to malfunction. Defrost is a normal function. Changing a setpoint is a normal action for a technician. Every command arrived in the format the controller expects, through the interface it was built to accept. Seen one by one, the commands were authorised.</p>
         <p>What made them harmful was context: a defrost stretched to eight hours in the middle of the night, a freezer asked to reach &plus;50 °C, the same change pushed to many cabinets within seconds. The question that would have caught them is not "is this command allowed?" but "does this command make sense for this process, right now?"</p>
         <p>The same pattern applies to water treatment, energy, hospitals and factories. Wherever a controller can be reached, an authorised command can be used against the process it controls.</p>
 
-        <h2 id="cert-fr-recommends">What CERT-FR recommends</h2>
+        <h2 id="what-cert-fr-recommends">What CERT-FR recommends</h2>
         <ul>
           <li>Take the affected controllers off the internet.</li>
           <li>Restore remote access only through a secure VPN or a protected network.</li>
@@ -292,53 +301,53 @@
         </ul>
         <p>Removing exposure comes first. Monitoring does not replace it.</p>
 
-        <h2 id="contextual-monitoring">Where contextual monitoring fits</h2>
+        <h2 id="where-contextual-monitoring-fits">Where contextual monitoring fits</h2>
         <p>Liscere watches industrial network traffic passively, from a mirror port, without sending anything onto the network. It learns how a process normally behaves and judges whether each supervisory command fits the current state of that process. It is designed to flag commands like the ones used here: a setpoint far outside the learned range, a defrost unlike any seen before, a burst of identical changes at night. It then tells the right person, with the reason, at the moment the command is sent.</p>
         <p>If you run refrigeration, building automation or industrial control systems and want to know what your network is actually being told to do, <a href="mailto:hello@liscere.com">talk to us</a>.</p>
 
         <p class="tagline">Authorised is not always appropriate.</p>
 
-      <section class="article-related" aria-labelledby="how-liscere-can-help">
-        <h2 id="how-liscere-can-help">How Liscere can help</h2>
-        <ul class="related-links">
-          <li><a href="../../services/ot-security-assessment.html">OT and ICS security assessment</a><span>Find what is exposed and what an attacker could change.</span></li>
-          <li><a href="../../services/ot-visibility-monitoring.html">OT visibility and monitoring</a><span>See what your control network is actually being told to do.</span></li>
-          <li><a href="../../services/ot-incident-response.html">Incident response for OT</a><span>Contain an incident without stopping the process.</span></li>
-        </ul>
-      </section>
+        <section class="article-related" aria-labelledby="help">
+          <h2 id="help">How Liscere can help</h2>
+          <ul class="related-links">
+            <li><a href="../../services/ot-security-assessment.html">OT and ICS security assessment</a><span>Find what is exposed and what an attacker could change.</span></li>
+            <li><a href="../../services/ot-visibility-monitoring.html">OT visibility and monitoring</a><span>See what your control network is actually being told to do.</span></li>
+            <li><a href="../../services/ot-incident-response.html">Incident response for OT</a><span>Contain an incident without stopping the process.</span></li>
+          </ul>
+        </section>
 
-      <section class="article-faq" aria-labelledby="questions">
-        <h2 id="questions">Questions</h2>
-        <div class="faq-item">
-          <h3 class="faq-q">What happened in the French supermarket refrigeration attack?</h3>
-          <p class="faq-a">On the night of 11 to 12 October 2026 attackers reached the refrigeration controllers of about 700 supermarkets in France and used defrost cycles and temperature setpoints to warm fridges and freezers overnight until the food was lost. A second wave the next night reached controllers from a second manufacturer.</p>
-        </div>
-        <div class="faq-item">
-          <h3 class="faq-q">How did the attackers get in?</h3>
-          <p class="faq-a">It has not been publicly confirmed. Researchers counted thousands of refrigeration controller interfaces reachable from the internet, many of them on end of life systems. CERT-FR's first recommendation is to take the affected controllers off the internet.</p>
-        </div>
-        <div class="faq-item">
-          <h3 class="faq-q">How can an attack like this be detected?</h3>
-          <p class="faq-a">Each command was authorised on its own, so the useful question is whether it makes sense for the process at that moment: a setpoint far outside the normal range, a defrost far longer than usual, the same change pushed to many cabinets within seconds. Removing exposure comes first; contextual monitoring adds a check on what the network is actually being told to do.</p>
-        </div>
-      </section>
+        <section class="article-faq" aria-labelledby="questions">
+          <h2 id="questions">Questions</h2>
+          <div class="faq-item">
+            <h3 class="faq-q">What happened in the French supermarket refrigeration attack?</h3>
+            <p class="faq-a">On the night of 11 to 12 October 2026 attackers reached the refrigeration controllers of about 700 supermarkets in France and used defrost cycles and temperature setpoints to warm fridges and freezers overnight until the food was lost. A second wave the next night reached controllers from a second manufacturer.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">How did the attackers get in?</h3>
+            <p class="faq-a">It has not been publicly confirmed. Researchers counted thousands of refrigeration controller interfaces reachable from the internet, many of them on end of life systems. CERT-FR's first recommendation is to take the affected controllers off the internet.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">How can an attack like this be detected?</h3>
+            <p class="faq-a">Each command was authorised on its own, so the useful question is whether it makes sense for the process at that moment: a setpoint far outside the normal range, a defrost far longer than usual, the same change pushed to many cabinets within seconds. Removing exposure comes first; contextual monitoring adds a check on what the network is actually being told to do.</p>
+          </div>
+        </section>
 
-      <section class="article-sources" aria-labelledby="sources">
-        <h2 id="sources">Sources</h2>
-        <ol class="sources">
-          <li>CERT-FR, alert CERTFR-2026-ALE-012, 12 October 2026 (updated): <a href="https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/">cert.ssi.gouv.fr</a></li>
-          <li>BleepingComputer, "Cyberattack shuts down refrigerators at French supermarkets", 12 October 2026: <a href="https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/">bleepingcomputer.com</a></li>
-          <li>Infosecurity Magazine, "French Supermarket Cyber-Attack Impacts More Refrigeration Controllers", 14 October 2026: <a href="https://www.infosecurity-magazine.com/news/french-supermarket-hack-more/">infosecurity-magazine.com</a></li>
-          <li>SecurityWeek, 15 October 2026: <a href="https://www.securityweek.com/supermarket-refrigeration-attack-widens-to-copeland-dixell-controllers/">securityweek.com</a></li>
-          <li>CSO Online, "When defrost becomes sabotage: 3 OT lessons from France's supermarket attack", 20 October 2026: <a href="https://www.csoonline.com/article/4237172/when-defrost-becomes-sabotage-3-ot-lessons-from-frances-supermarket-attack.html">csoonline.com</a></li>
-          <li>Forescout Research, "Cold chain, open control", 22 October 2026: <a href="https://www.forescout.com/blog/cold-chain-open-control-exposed-refrigeration-systems-reveal-global-risk/">forescout.com</a></li>
-          <li>LeBigData, "La France accuse l'Iran d'avoir saboté 700 sites frigorifiques", 11 November 2026: <a href="https://www.lebigdata.fr/la-france-accuse-liran-davoir-sabote-700-sites-frigorifiques-au-moins-15-departs-de-feu">lebigdata.fr</a></li>
-        </ol>
-      </section>
+        <section class="article-sources" aria-labelledby="sources">
+          <h2 id="sources">Sources</h2>
+          <ol class="sources">
+            <li>CERT-FR, alert CERTFR-2026-ALE-012, 12 October 2026 (updated): <a href="https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/">cert.ssi.gouv.fr</a></li>
+            <li>BleepingComputer, "Cyberattack shuts down refrigerators at French supermarkets", 12 October 2026: <a href="https://www.bleepingcomputer.com/news/security/cyberattack-shuts-down-refrigerators-at-french-supermarkets/">bleepingcomputer.com</a></li>
+            <li>Infosecurity Magazine, "French Supermarket Cyber-Attack Impacts More Refrigeration Controllers", 14 October 2026: <a href="https://www.infosecurity-magazine.com/news/french-supermarket-hack-more/">infosecurity-magazine.com</a></li>
+            <li>SecurityWeek, 15 October 2026: <a href="https://www.securityweek.com/supermarket-refrigeration-attack-widens-to-copeland-dixell-controllers/">securityweek.com</a></li>
+            <li>CSO Online, "When defrost becomes sabotage: 3 OT lessons from France's supermarket attack", 20 October 2026: <a href="https://www.csoonline.com/article/4237172/when-defrost-becomes-sabotage-3-ot-lessons-from-frances-supermarket-attack.html">csoonline.com</a></li>
+            <li>Forescout Research, "Cold chain, open control", 22 October 2026: <a href="https://www.forescout.com/blog/cold-chain-open-control-exposed-refrigeration-systems-reveal-global-risk/">forescout.com</a></li>
+            <li>LeBigData, "La France accuse l'Iran d'avoir saboté 700 sites frigorifiques", 11 November 2026: <a href="https://www.lebigdata.fr/la-france-accuse-liran-davoir-sabote-700-sites-frigorifiques-au-moins-15-departs-de-feu">lebigdata.fr</a></li>
+          </ol>
+        </section>
 
-      <section class="article-cite" aria-labelledby="cite-title">
-        <h2 id="cite-title" class="doc-section-head">Cite this article</h2>
-        <pre class="doc-cite">@misc{liscere_fn_2026_01,
+        <section class="article-cite" aria-labelledby="cite-title">
+          <h2 id="cite-title" class="doc-section-head">Cite this article</h2>
+          <pre class="doc-cite">@misc{liscere_fn_2026_01,
   author       = {{Liscere}},
   title        = {Authorised commands, spoiled food: the October 2026 supermarket refrigeration attack},
   howpublished = {Liscere Field Notes FN-2026-01},
@@ -346,16 +355,16 @@
   month        = nov,
   url          = {https://liscere.com/research/fn-2026-01/}
 }</pre>
-      </section>
+        </section>
 
-      <p class="article-back"><a href="../../research.html">&#8592; All research</a></p>
+        <p class="article-back"><a href="../../research.html" data-back>&#8592; All research</a></p>
       </div>
     </article>
 
     <p class="research-foot"><a href="../../index.html">Home</a> · <a href="../../services.html">Services</a> · <a href="../../about.html">About</a> · <a href="../../faq.html">FAQ</a> · <a href="../../research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="../../privacy.html">Privacy</a> · <a href="../../legal.html">Legal</a> · <a href="../../terms.html">Terms</a><br />© 2026 Liscere sp. z o.o.</p>
   </main>
 
-  <script src="../../assets/js/site.js?v=1" defer></script>
+  <script src="../../assets/js/site.js?v=2" defer></script>
   <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3280d901c4be4657ba0562ac10e607b7"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
