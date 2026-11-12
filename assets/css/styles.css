@@ -3543,3 +3543,21 @@ html.article-view {
   color: #03100b;
   text-decoration: none;
 }
+
+/* Series label (Field Notes, Landscape Briefing, Technical Report): a quiet link back to
+   the research index, filtered to that series. */
+.article .kicker a.series-back,
+.paper-eyebrow a.series-back {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 217, 255, 0.35);
+  transition: border-color 180ms ease;
+}
+
+.article .kicker a.series-back:hover,
+.article .kicker a.series-back:focus-visible,
+.paper-eyebrow a.series-back:hover,
+.paper-eyebrow a.series-back:focus-visible {
+  border-bottom-color: var(--cyan);
+  outline: none;
+}
