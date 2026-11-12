@@ -225,7 +225,7 @@ def render(p, lang):
     <p class="research-foot"><a href="{home}">{L['home']}</a> · <a href="{svc}">{L['services']}</a> · <a href="{about}">{L['about']}</a> · <a href="{faqp}">{L['faq']}</a> · <a href="{research}">{L['research']}</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="{root}privacy.html"{L['enlink']}>{L['privacy']}</a> · <a href="{root}legal.html"{L['enlink']}>{L['legal']}</a> · <a href="{root}terms.html"{L['enlink']}>{L['terms']}</a><br />© 2026 Liscere sp. z o.o.</p>
   </main>
 
-  <script src="{root}assets/js/site.js?v=2" defer></script>
+  <script src="{root}assets/js/site.js?v=3" defer></script>
   <script src="{root}assets/js/contact-form.js?v=20261111-fs1" defer></script>
 </body>
 </html>

@@ -15,6 +15,7 @@ Combinada em 12/11/2026. Este arquivo fica em `tools/`, que não é publicado no
 3. **Organizar a página Research**
    - Converter os relatórios antigos para o formato artigo (texto na página e PDF como link "Baixar PDF").
    - Começar pelos que não dependem do passo 7.4: LB-2026-02 a 05 e LTR-2026-03 a 05.
+   - O gerador precisa de um modo "só em inglês": botão PL apontando para `/pl/tylko-po-angielsku.html?from=...` e sem hreflang pl.
 4. **Palavras-chave e novos artigos**
    - Puxar os preços reais no Keyword Planner (Polônia, idioma polonês).
    - Escrever artigos sobre NIS2 e KSC, em polonês e inglês, para indexar o quanto antes.

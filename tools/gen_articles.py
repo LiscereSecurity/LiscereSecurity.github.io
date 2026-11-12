@@ -329,7 +329,7 @@ def build(art, lang):
 {footer}
   </main>
 
-  <script src="{R}assets/js/site.js?v=2" defer></script>
+  <script src="{R}assets/js/site.js?v=3" defer></script>
   {CF}
 </body>
 </html>

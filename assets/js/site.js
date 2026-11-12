@@ -4,7 +4,8 @@
       and articles, "All research"): when the visitor came from the page the link points to,
       go back in history so the browser restores the exact screen they left; otherwise follow
       the link, which opens the right section or filter.
-   3. Research index filter, kept in the URL hash (#fieldnotes, #landscape, #research). */
+   3. Research index filter, kept in the URL hash (#fieldnotes, #landscape, #research).
+   4. Polish notice page for English only pages: "read in English" returns to the source page. */
 (function () {
   "use strict";
   var root = document.documentElement;
@@ -47,6 +48,19 @@
 
   var ref;
   try { ref = new URL(document.referrer); } catch (e) { ref = null; }
+
+  /* Polish notice for pages that exist only in English (/pl/tylko-po-angielsku.html?from=/path/):
+     the "read in English" links return to the page the visitor came from. Only a path on this
+     site is accepted. */
+  var from = new URLSearchParams(location.search).get("from");
+  if (!(from && /^\/(?![\/\\])[A-Za-z0-9\-._~\/]*$/.test(from))) {
+    from = ref && ref.origin === location.origin && ref.pathname.indexOf("/pl/") !== 0 ? ref.pathname : null;
+  }
+  if (from) {
+    Array.prototype.forEach.call(document.querySelectorAll("a[data-en-return]"), function (a) {
+      a.setAttribute("href", from);
+    });
+  }
   Array.prototype.forEach.call(document.querySelectorAll("a.back-fab, a[data-back]"), function (a) {
     a.addEventListener("click", function (ev) {
       if (!ref || ref.origin !== location.origin || history.length < 2) { return; }
