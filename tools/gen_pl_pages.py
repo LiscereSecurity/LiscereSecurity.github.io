@@ -460,7 +460,7 @@ def prywatnosc():
       <div class="wrap narrow legal">
         <p class="kicker">Informacje prawne</p>
         <h1>Informacja o prywatności</h1>
-        <p class="meta">Wersja 1.4, obowiązuje od 12 listopada 2026</p>
+        <p class="meta">Wersja 1.5, obowiązuje od 12 listopada 2026</p>
         <p class="lead">Ta informacja wyjaśnia, jakie dane osobowe Liscere sp. z o.o. zbiera, gdy odwiedzasz liscere.com lub do nas piszesz, w jakim celu, jak długo je przechowuje i jakie prawa przysługują Ci na podstawie ogólnego rozporządzenia o ochronie danych (RODO).</p>
 
         <h2>1. Administrator danych</h2>
@@ -482,8 +482,8 @@ def prywatnosc():
             <tr>
               <td>Odwiedzasz stronę internetową</td>
               <td>Dane techniczne wysyłane przez przeglądarkę przy pobieraniu strony: adres IP, typ przeglądarki, żądana strona, czas żądania</td>
-              <td>Bezpieczne udostępnianie strony i utrzymanie jej działania (prawnie uzasadniony interes, art. 6 ust. 1 lit. f RODO). W tym celu nasz dostawca hostingu prowadzi standardowe logi serwera.</td>
-              <td>Logi serwera są przechowywane przez dostawcę hostingu przez krótki, ograniczony czas ze względów bezpieczeństwa.</td>
+              <td>Bezpieczne udostępnianie strony i utrzymanie jej działania (prawnie uzasadniony interes, art. 6 ust. 1 lit. f RODO). Strona jest hostowana przez GitHub i udostępniana za pośrednictwem Cloudflare, który ją chroni i przyspiesza; obaj dostawcy prowadzą w tym celu standardowe logi żądań.</td>
+              <td>Logi żądań są przechowywane przez tych dostawców przez krótki, ograniczony czas ze względów bezpieczeństwa.</td>
             </tr>
             <tr>
               <td>Kontaktujesz się z nami przez LinkedIn lub GitHub</td>
@@ -501,7 +501,7 @@ def prywatnosc():
         <p>Kroje pisma używane na stronie są udostępniane z naszego serwisu. Poza opisanym wyżej skryptem analitycznym przy wyświetlaniu strony nie są pobierane żadne czcionki, skrypty ani inne zasoby od podmiotów trzecich. Jedyne inne połączenie z podmiotem trzecim następuje przy wysłaniu formularza kontaktowego (zob. punkt 4).</p>
 
         <h2>4. Odbiorcy danych</h2>
-        <p>Nie sprzedajemy ani nie wynajmujemy danych osobowych. Twoje dane mogą być przetwarzane w naszym imieniu przez dostawców usług, którzy na podstawie umowy przetwarzają je wyłącznie zgodnie z naszymi poleceniami: dostawcę poczty elektronicznej i chmury, dostawcę hostingu strony, dostawcę usługi formularza kontaktowego Formspree, Inc. (Stany Zjednoczone) oraz dostawcę analityki strony Cloudflare, Inc. (Stany Zjednoczone). Po wysłaniu formularza jego treść trafia do Formspree, który przekazuje ją nam e-mailem i przechowuje kopię na naszym koncie; usuwamy te kopie według tego samego harmonogramu co pocztę. Jeśli dostawca przetwarza dane poza Europejskim Obszarem Gospodarczym, opieramy się na zabezpieczeniach przewidzianych w RODO, takich jak decyzja stwierdzająca odpowiedni stopień ochrony lub standardowe klauzule umowne zatwierdzone przez Komisję Europejską.</p>
+        <p>Nie sprzedajemy ani nie wynajmujemy danych osobowych. Twoje dane mogą być przetwarzane w naszym imieniu przez dostawców usług, którzy na podstawie umowy przetwarzają je wyłącznie zgodnie z naszymi poleceniami: dostawcę poczty elektronicznej i chmury, dostawcę hostingu strony GitHub, Inc. (Stany Zjednoczone), dostawcę usługi formularza kontaktowego Formspree, Inc. (Stany Zjednoczone) oraz Cloudflare, Inc. (Stany Zjednoczone), który udostępnia i chroni stronę oraz dostarcza jej analitykę. Po wysłaniu formularza jego treść trafia do Formspree, który przekazuje ją nam e-mailem i przechowuje kopię na naszym koncie; usuwamy te kopie według tego samego harmonogramu co pocztę. Jeśli dostawca przetwarza dane poza Europejskim Obszarem Gospodarczym, opieramy się na zabezpieczeniach przewidzianych w RODO, takich jak decyzja stwierdzająca odpowiedni stopień ochrony lub standardowe klauzule umowne zatwierdzone przez Komisję Europejską.</p>
         <p>Możemy również udostępnić dane, gdy wymagają tego przepisy, na przykład sądowi lub organowi publicznemu na podstawie zgodnego z prawem żądania.</p>
 
         <h2>5. Twoje prawa</h2>
