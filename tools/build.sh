@@ -7,4 +7,5 @@ python3 gen_service_pages.py   # services/*.html and pl/uslugi/*.html (EN + PL s
 python3 gen_pl_pages.py        # pl/uslugi.html, pl/o-nas.html, pl/faq.html
 python3 gen_home_pl.py         # pl/index.html, built from index.html
 python3 gen_articles.py       # research/<id>/ and pl/badania/<id>/ full-text articles (EN + PL)
+python3 gen_sitemap.py         # sitemap.xml from canonical, hreflang and noindex of every page
 python3 csp.py                 # CSP and referrer meta tags on all pages (run last)

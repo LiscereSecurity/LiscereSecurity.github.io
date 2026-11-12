@@ -17,7 +17,7 @@ def rep(en, pl, count=1):
 # ---------- head
 rep('<html lang="en-GB"', '<html lang="pl-PL"')
 title = "Liscere: cyberbezpieczeństwo przemysłowe i OT, bezpieczna automatyka"
-desc = "Cyberbezpieczeństwo przemysłowe dla procesów, które nie mogą się zatrzymać: audyty bezpieczeństwa OT, gotowość do NIS2 i KSC oraz bezpieczna automatyka PLC i HMI."
+desc = "Cyberbezpieczeństwo przemysłowe dla procesów, które nie mogą stanąć: audyty bezpieczeństwa OT, gotowość do NIS2 i KSC oraz bezpieczna automatyka PLC i HMI."
 s = re.sub(r"<title>[^<]*</title>", f"<title>{title}</title>", s, count=1)
 s = re.sub(r'(<meta name="description" content=")[^"]*', lambda m: m.group(1) + desc, s, count=1)
 for k in ("og:title", "twitter:title"):
@@ -43,10 +43,10 @@ s = s.replace('  <link rel="stylesheet" href="./assets/css/fonts.css', ldtxt + '
 s = s.replace('"./assets/', '"../assets/').replace("`./assets/", "`../assets/")
 s = s.replace('href="./services.html"', 'href="./uslugi.html"')
 s = s.replace('href="./about.html"', 'href="./o-nas.html"')
-s = s.replace('href="./research.html"', 'href="../research.html" hreflang="en"')
-s = s.replace('href="./privacy.html"', 'href="../privacy.html" hreflang="en"')
-s = s.replace('href="./legal.html">Legal</a>', 'href="../legal.html" hreflang="en">Dane spółki</a>')
-s = s.replace('href="./terms.html">Terms</a>', 'href="../terms.html" hreflang="en">Warunki korzystania</a>')
+s = s.replace('href="./research.html"', 'href="./badania.html"')
+s = s.replace('href="./privacy.html"', 'href="./prywatnosc.html"')
+s = s.replace('href="./legal.html">Legal</a>', 'href="./dane-spolki.html">Dane spółki</a>')
+s = s.replace('href="./terms.html">Terms</a>', 'href="./warunki.html">Warunki korzystania</a>')
 
 # ---------- header and navigation
 s = s.replace('\n      <a class="lang-switch" href="./pl/index.html" hreflang="pl" lang="pl" aria-label="Polski">PL</a>', '')
@@ -58,8 +58,8 @@ for en, pl in [("Thesis", "Teza"), ("Gap", "Luka"), ("Pressure", "Presja"), ("De
     rep(f'aria-label="{en}"', f'aria-label="{pl}"')
 rep('aria-label="Pages"', 'aria-label="Strony"')
 rep('aria-current="page">Home</a>', 'aria-current="page">Start</a>')
-rep('<a href="./uslugi.html">Services</a>\n      <a href="./o-nas.html">About</a>\n      <a href="../research.html" hreflang="en">Research</a>',
-    '<a href="./uslugi.html">Usługi</a>\n      <a href="./o-nas.html">O nas</a>\n      <a href="../research.html" hreflang="en">Badania</a>\n      <a class="lang-switch" href="../index.html" hreflang="en" lang="en" aria-label="English">EN</a>')
+rep('<a href="./uslugi.html">Services</a>\n      <a href="./o-nas.html">About</a>\n      <a href="./badania.html">Research</a>',
+    '<a href="./uslugi.html">Usługi</a>\n      <a href="./o-nas.html">O nas</a>\n      <a href="./badania.html">Badania</a>\n      <a class="lang-switch" href="../index.html" hreflang="en" lang="en" aria-label="English">EN</a>')
 for en, pl in [("01 / Thesis", "01 / Teza"), ("02 / Missing question", "02 / Brakujące pytanie"), ("03 / Why now", "03 / Dlaczego teraz"),
                ("05 / How it works", "05 / Jak to działa"), ("06 / Evidence", "06 / Dowody")]:
     rep(f'data-page="{en}"', f'data-page="{pl}"')
@@ -177,11 +177,11 @@ rep("We help operators with OT security services and secure automation engineeri
     "Wspieramy operatorów usługami bezpieczeństwa OT i bezpieczną automatyką oraz zapraszamy partnerów badawczych do testowania frameworku. Napisz na hello@liscere.com.")
 rep('>Our services</a>', '>Nasze usługi</a>')
 rep('subject=Collaboration%20with%20Liscere">Collaborate</a>', 'subject=Wsp%C3%B3%C5%82praca%20z%20Liscere">Współpraca</a>')
-rep('hreflang="en">Read the research</a>', 'hreflang="en">Badania</a>')
+rep('href="./badania.html">Read the research</a>', 'href="./badania.html">Badania</a>')
 rep('>See it working</button>', '>Zobacz w działaniu</button>')
-rep('<p class="evidence-foot"><a href="./uslugi.html">Services</a> · <a href="./o-nas.html">About</a> · <a href="./faq.html">FAQ</a> · <a href="../research.html" hreflang="en">Research</a>',
-    '<p class="evidence-foot"><a href="./uslugi.html">Usługi</a> · <a href="./o-nas.html">O nas</a> · <a href="./faq.html">FAQ</a> · <a href="../research.html" hreflang="en">Badania</a>')
-rep('hreflang="en">Privacy</a>', 'hreflang="en">Prywatność</a>')
+rep('<p class="evidence-foot"><a href="./uslugi.html">Services</a> · <a href="./o-nas.html">About</a> · <a href="./faq.html">FAQ</a> · <a href="./badania.html">Research</a>',
+    '<p class="evidence-foot"><a href="./uslugi.html">Usługi</a> · <a href="./o-nas.html">O nas</a> · <a href="./faq.html">FAQ</a> · <a href="./badania.html">Badania</a>')
+rep('href="./prywatnosc.html">Privacy</a>', 'href="./prywatnosc.html">Prywatność</a>')
 rep('aria-label="Liscere demo video"', 'aria-label="Wideo demonstracyjne Liscere"')
 rep('aria-label="Close video"', 'aria-label="Zamknij wideo"')
 rep("Your browser does not support the video tag.", "Twoja przeglądarka nie obsługuje odtwarzania wideo.")

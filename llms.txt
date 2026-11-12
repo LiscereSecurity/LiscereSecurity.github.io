@@ -80,7 +80,7 @@ Liscere welcomes research partners, OT and process engineers, machine builders, 
 
 ## Key pages
 
-- [Polish version (wersja polska)](https://liscere.com/pl/): the home page, services, the seven service pages, About and FAQ in Polish, including NIS2 and the Polish KSC act ([usługi](https://liscere.com/pl/uslugi.html)).
+- [Polish version (wersja polska)](https://liscere.com/pl/): the home page, services, the seven service pages, About, FAQ, the research index ([badania](https://liscere.com/pl/badania.html)), Field Notes FN-2026-01 ([po polsku](https://liscere.com/pl/badania/fn-2026-01/)), the privacy notice, company details and terms of use in Polish, including NIS2 and the Polish KSC act ([usługi](https://liscere.com/pl/uslugi.html)). Technical reports and briefings are in English.
 
 - [Home](https://liscere.com/): Why industrial security needs a new layer, illustrated with real incidents (Oldsmar 2021, Ukraine 2015, Stuxnet), what Liscere is, and the framework it is building, with routes to its services and to research collaboration.
 - [Services](https://liscere.com/services.html): Liscere's industrial security and automation engineering services, each linking to its own page, with a contact form.
