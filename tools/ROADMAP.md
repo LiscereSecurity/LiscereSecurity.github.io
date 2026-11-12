@@ -15,7 +15,7 @@ Combinada em 12/11/2026. Este arquivo fica em `tools/`, que não é publicado no
    - Bing: resultado do Site Scan.
 3. **Organizar a página Research**
    - Converter os relatórios antigos para o formato artigo (texto na página e PDF como link "Baixar PDF").
-   - Todos os 10 relatórios estão liberados (o passo 7.4 foi decidido).
+   - Feito em 12/11: os 10 relatórios convertidos (PR #13), texto idêntico aos PDFs v1.1, gerados por gen_articles.py com dados em tools/data_reports.py.
    - O gerador precisa de um modo "só em inglês": botão PL apontando para `/pl/tylko-po-angielsku.html?from=...` e sem hreflang pl.
 4. **Palavras-chave e novos artigos**
    - Puxar os preços reais no Keyword Planner (Polônia, idioma polonês).

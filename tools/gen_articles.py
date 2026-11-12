@@ -11,11 +11,13 @@ import html
 import json
 import os
 import re
+import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
 ROOT_DIR = os.path.dirname(HERE)
 SITE = "https://liscere.com/"
-CSS_V = "20261112-v11"
+CSS_V = "20261112-a2"
 ORG = {"@id": SITE + "#org"}
 
 CSP = ("<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; script-src 'self' "
@@ -36,6 +38,8 @@ UI = {
         cta_title="Facing something similar?",
         cta_text="We help industrial operators find what is exposed, see what their control network is being told to do, and respond when something goes wrong.",
         cta_button="Talk to us", series="Field Notes", home_name="Home", research_name="Research",
+        cite_report="Cite this report", pdf_title="Full report (PDF)", pdf_text="The same text as a typeset PDF, with page numbers for citation.",
+        pdf_button="Download PDF", references="References",
     ),
     "pl": dict(
         html_lang="pl-PL", og_locale="pl_PL", skip="Przejdź do treści", nav_label="Nawigacja",
@@ -49,6 +53,14 @@ UI = {
 }
 
 
+# Series: filter key on research.html, label shown in the kicker, name in structured data.
+SERIES = {
+    "fieldnotes": ("FIELD NOTES", "Field Notes", "Liscere Field Notes"),
+    "landscape": ("LANDSCAPE BRIEFING", "Landscape Briefing", "Liscere Landscape Briefings"),
+    "research": ("TECHNICAL REPORT", "Technical Report", "Liscere Technical Reports"),
+}
+
+
 def url_of(lang, aid):
     return SITE + (f"research/{aid}/" if lang == "en" else f"pl/badania/{aid}/")
 
@@ -57,15 +69,19 @@ def path_of(lang, aid):
     return os.path.join(ROOT_DIR, *(["research", aid] if lang == "en" else ["pl", "badania", aid]), "index.html")
 
 
-def chrome(lang, aid, R):
-    """Header and footer. R is the relative path to the site root."""
+def chrome(lang, aid, R, has_pl=True):
+    """Header and footer. R is the relative path to the site root. English only pages send the
+    PL switch to the Polish notice page, which links back here."""
     other = (f"{R}pl/badania/{aid}/" if lang == "en" else f"{R}research/{aid}/")
+    pl_attr = ""
+    if not has_pl:
+        other, pl_attr = f"/pl/tylko-po-angielsku.html?from=/research/{aid}/", ' rel="nofollow"'
     if lang == "en":
         nav = (f'      <a href="{R}index.html">Home</a>\n'
                f'      <a href="{R}services.html">Services</a>\n'
                f'      <a href="{R}about.html">About</a>\n'
                f'      <a href="{R}research.html" aria-current="page">Research</a>\n'
-               f'      <a class="lang-switch" href="{other}" hreflang="pl" lang="pl" aria-label="Polski">PL</a>')
+               f'      <a class="lang-switch" href="{other}"{pl_attr} hreflang="pl" lang="pl" aria-label="Polski">PL</a>')
         logo = f"{R}index.html"
         foot = (f'<a href="{R}index.html">Home</a> · <a href="{R}services.html">Services</a> · '
                 f'<a href="{R}about.html">About</a> · <a href="{R}faq.html">FAQ</a> · '
@@ -133,24 +149,59 @@ def build(art, lang):
     fig_part = fig.group(0) if fig else ""
     head_part = head_part.replace(fig_part, "").strip()
     rest = body[i_h2:].strip()
-    head_part = head_part.replace('<p class="kicker">FIELD NOTES',
-        f'<p class="kicker"><a class="series-back" href="{R}research.html#fieldnotes" data-back{"" if lang == "en" else ' hreflang="en"'}>FIELD NOTES</a>', 1)
+    series = art.get("series", "fieldnotes")
+    s_kicker, s_label, s_name = SERIES[series]
+    is_report = series != "fieldnotes"
+    has_pl = "pl" in art.get("langs", ("en", "pl"))
+    head_part = head_part.replace(f'<p class="kicker">{s_kicker}',
+        f'<p class="kicker"><a class="series-back" href="{R}research.html#{series}" data-back{"" if lang == "en" else ' hreflang="en"'}>{s_kicker}</a>', 1)
+    if art.get("byline"):
+        # Author, version, copyright and licence, revision note: between the title and the lede.
+        meta = (f'<p class="article-byline">{art["byline"]}</p>\n'
+                f'<p class="doc-rights">{art["rights"]}</p>\n'
+                f'<p class="doc-revised">{art["revised"]}</p>\n')
+        head_part = re.sub(r"(</h1>\s*)", lambda m: m.group(1) + meta + "\n", head_part, count=1)
 
     # ids on the section headings, for the contents list
     toc = []
     def add_id(m):
         title = m.group(1)
-        hid = slug(title) if title != t["sources"] else "sources"
+        hid = "sources" if title in (t["sources"], t.get("references")) else slug(re.sub(r"^\d+\.\s*", "", title))
         toc.append((hid, title))
         return f'<h2 id="{hid}">{title}</h2>'
     rest = re.sub(r"<h2>(.*?)</h2>", add_id, rest)
     sources_at = rest.index('<h2 id="sources">')
     main_part, sources_part = rest[:sources_at].rstrip(), rest[sources_at:].strip()
-    toc = [x for x in toc if x[0] != "sources"] + [("help", t["help"]), ("questions", t["questions"]), ("sources", t["sources"])]
-    sources = re.findall(r'<li>(.*?): <a href="([^"]+)">', sources_part)
+    nxt = sources_part.find("<h2", 4)
+    if nxt > 0:   # appendices printed after the references go at the end of the text
+        main_part += "\n\n" + sources_part[nxt:].strip()
+        sources_part = sources_part[:nxt].strip()
+    src_title = next(n for i, n in toc if i == "sources")
+    toc = ([x for x in toc if x[0] != "sources"] + [("help", t["help"])]
+           + ([("questions", t["questions"])] if a.get("faq") else []) + [("sources", src_title)])
+    sources = []
+    for li in re.findall(r"<li[^>]*>(.*?)</li>", sources_part, re.S):
+        li = re.sub(r'<span class="ref-label">.*?</span>\s*', "", li)
+        link = re.search(r'<a href="([^"]+)"', li)
+        name = re.sub(r":\s*<a [^>]*>.*?</a>\s*$", "", li).strip()
+        sources.append((name, (SITE + link.group(1).lstrip("/")) if link and link.group(1).startswith("/") else (link.group(1) if link else None)))
+    if is_report:
+        # numbered references: anchors on the list, and in-text [n] markers link to them
+        n = iter(range(1, 1000))
+        sources_part = re.sub(r"<li>", lambda m: f'<li id="ref-{next(n)}">', sources_part)
+        main_part = re.sub(r"\[(\d+(?:, \d+)*)\]", lambda m: "[" + ", ".join(
+            f'<a class="ref" href="#ref-{x}">{x}</a>' for x in m.group(1).split(", ")) + "]", main_part)
 
     kp = "\n".join(f"          <li>{k}</li>" for k in a["key_points"])
     toc_html = "\n".join(f'              <li><a href="#{i}">{html.escape(n, quote=False)}</a></li>' for i, n in toc)
+    pdf_card = ""
+    if art.get("pdf"):
+        pdf_card = f'''
+          <section class="side-pdf" aria-labelledby="side-pdf-title">
+            <h2 id="side-pdf-title">{t["pdf_title"]}</h2>
+            <p>{t["pdf_text"]}</p>
+            <a class="secondary-cta" href="{R}{art["pdf"]}" target="_blank" rel="noopener">{t["pdf_button"]} &#8599;</a>
+          </section>'''
     if fig_part:
         media = ind(fig_part, 10)
         cta = ""
@@ -167,7 +218,26 @@ def build(art, lang):
     faq = "\n".join(f'''        <div class="faq-item">
           <h3 class="faq-q">{html.escape(q, quote=False)}</h3>
           <p class="faq-a">{html.escape(ans, quote=False)}</p>
-        </div>''' for q, ans in a["faq"])
+        </div>''' for q, ans in a.get("faq", []))
+    faq_section = f'''
+
+        <section class="article-faq" aria-labelledby="questions">
+          <h2 id="questions">{t["questions"]}</h2>
+{ind(faq, 2)}
+        </section>''' if a.get("faq") else ""
+    if art.get("bibtex"):
+        cite = f'''<h2 id="cite-title" class="doc-section-head">{t["cite_report"]}</h2>
+          <pre class="doc-cite">{art["bibtex"]}</pre>'''
+    else:
+        cite = f'''<h2 id="cite-title" class="doc-section-head">{t["cite"]}</h2>
+          <pre class="doc-cite">@misc{{liscere_{aid.replace("-", "_")}{"" if lang == "en" else "_pl"},
+  author       = {{{{Liscere}}}},
+  title        = {{{h1}}},
+  howpublished = {{Liscere Field Notes {aid.upper()}}},
+  year         = {{{art["date"][:4]}}},
+  month        = {art["month_bib"]},{"" if lang == "en" else chr(10) + "  language     = {polish},"}
+  url          = {{{URL}}}
+}}</pre>'''
 
     article = f'''    <article class="article">
       <header class="article-head">
@@ -189,7 +259,7 @@ def build(art, lang):
             <ol>
 {toc_html}
             </ol>
-          </nav>{cta}
+          </nav>{pdf_card}{cta}
         </div>
       </aside>
 
@@ -201,27 +271,14 @@ def build(art, lang):
           <ul class="related-links">
 {ind(related, 2)}
           </ul>
-        </section>
-
-        <section class="article-faq" aria-labelledby="questions">
-          <h2 id="questions">{t["questions"]}</h2>
-{ind(faq, 2)}
-        </section>
+        </section>{faq_section}
 
         <section class="article-sources" aria-labelledby="sources">
 {ind(sources_part, 10)}
         </section>
 
         <section class="article-cite" aria-labelledby="cite-title">
-          <h2 id="cite-title" class="doc-section-head">{t["cite"]}</h2>
-          <pre class="doc-cite">@misc{{liscere_{aid.replace("-", "_")}{"" if lang == "en" else "_pl"},
-  author       = {{{{Liscere}}}},
-  title        = {{{h1}}},
-  howpublished = {{Liscere Field Notes {aid.upper()}}},
-  year         = {{{art["date"][:4]}}},
-  month        = {art["month_bib"]},{"" if lang == "en" else chr(10) + "  language     = {polish},"}
-  url          = {{{URL}}}
-}}</pre>
+          {cite}
         </section>
 
         <p class="article-back"><a href="{R}research.html" data-back{"" if lang == "en" else ' hreflang="en"'}>{t["back"]}</a></p>
@@ -234,12 +291,21 @@ def build(art, lang):
         "url": URL, "mainEntityOfPage": URL, "inLanguage": t["html_lang"],
         "datePublished": art["date"], "dateModified": art.get("modified", art["date"]),
         "image": [SITE + art["og_image"], SITE + art["poster"]] if art.get("poster") else [SITE + art["og_image"]],
-        "author": ORG, "publisher": ORG,
-        "isPartOf": {"@type": "CreativeWorkSeries", "name": "Liscere Field Notes", "url": SITE + "research.html"},
-        "articleSection": "Field Notes", "about": a["about"], "keywords": a["keywords"],
-        ("translationOfWork" if lang == "pl" else "workTranslation"): {"@id": url_of(other_lang, aid) + "#article"},
-        "citation": [{"@type": "CreativeWork", "name": html.unescape(re.sub(r"<[^>]+>", "", n)), "url": u} for n, u in sources],
+        "author": art.get("author", ORG), "publisher": ORG,
+        "isPartOf": {"@type": "CreativeWorkSeries", "name": s_name, "url": SITE + "research.html#" + series},
+        "articleSection": s_label, "about": a["about"], "keywords": a["keywords"],
+        "citation": [dict({"@type": "CreativeWork", "name": html.unescape(re.sub(r"<[^>]+>", "", n))}, **({"url": u} if u else {}))
+                     for n, u in sources],
     }
+    if has_pl:
+        graph_article[("translationOfWork" if lang == "pl" else "workTranslation")] = {"@id": url_of(other_lang, aid) + "#article"}
+    if is_report:
+        graph_article["@type"] = "ScholarlyArticle"
+        graph_article["abstract"] = " ".join(html.unescape(re.sub(r"<[^>]+>", "", x)) for x in re.findall(r'<p class="lede">(.*?)</p>', head_part, re.S))
+        graph_article.update({"version": art["version"], "license": "https://creativecommons.org/licenses/by/4.0/",
+                              "copyrightHolder": art.get("copyright_holder", ORG), "identifier": aid.upper()})
+    if art.get("pdf"):
+        graph_article["encoding"] = {"@type": "MediaObject", "contentUrl": SITE + art["pdf"], "encodingFormat": "application/pdf"}
     graph = [graph_article]
     if art.get("video"):
         v = art["video"]
@@ -255,12 +321,20 @@ def build(art, lang):
             {"@type": "ListItem", "position": 1, "name": t["home_name"], "item": SITE if lang == "en" else SITE + "pl/"},
             {"@type": "ListItem", "position": 2, "name": t["research_name"], "item": SITE + "research.html"},
             {"@type": "ListItem", "position": 3, "name": aid.upper(), "item": URL}]},
-        {"@type": "FAQPage", "@id": URL + "#faq", "inLanguage": t["html_lang"], "mainEntity": [
-            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ans}} for q, ans in a["faq"]]},
     ]
+    if a.get("faq"):
+        graph.append({"@type": "FAQPage", "@id": URL + "#faq", "inLanguage": t["html_lang"], "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": ans}} for q, ans in a["faq"]]})
     ld = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, indent=2)
 
-    header, footer = chrome(lang, aid, R)
+    header, footer = chrome(lang, aid, R, has_pl)
+    img_type = "image/png" if art["og_image"].endswith(".png") else "image/jpeg"
+    alternates = (f'''
+  <link rel="alternate" hreflang="en" href="{url_of("en", aid)}" />
+  <link rel="alternate" hreflang="pl" href="{url_of("pl", aid)}" />
+  <link rel="alternate" hreflang="x-default" href="{url_of("en", aid)}" />''' if has_pl else "")
+    locale_alt = f'''
+  <meta property="og:locale:alternate" content="{UI[other_lang]["og_locale"]}" />''' if has_pl else ""
     og_video = ""
     if art.get("video"):
         og_video = f'''
@@ -278,7 +352,7 @@ def build(art, lang):
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{a["title"]}</title>
   <meta name="description" content="{T(a["description"])}" />
-  <meta name="author" content="Liscere" />
+  <meta name="author" content="{art.get("author_name", "Liscere")}" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
   <meta name="theme-color" content="#030405" />
 
@@ -287,15 +361,14 @@ def build(art, lang):
   <meta property="og:type" content="article" />
   <meta property="og:url" content="{URL}" />
   <meta property="og:image" content="{SITE}{art["og_image"]}" />
-  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:type" content="{img_type}" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="{T(a["og_image_alt"])}" />{og_video}
   <meta property="og:site_name" content="Liscere" />
-  <meta property="og:locale" content="{t["og_locale"]}" />
-  <meta property="og:locale:alternate" content="{UI[other_lang]["og_locale"]}" />
+  <meta property="og:locale" content="{t["og_locale"]}" />{locale_alt}
   <meta property="article:published_time" content="{art["date"]}" />
-  <meta property="article:section" content="Field Notes" />
+  <meta property="article:section" content="{s_label}" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{T(h1)}" />
@@ -303,10 +376,7 @@ def build(art, lang):
   <meta name="twitter:image" content="{SITE}{art["og_image"]}" />
   <meta name="twitter:image:alt" content="{T(a["og_image_alt"])}" />
 
-  <link rel="canonical" href="{URL}" />
-  <link rel="alternate" hreflang="en" href="{url_of("en", aid)}" />
-  <link rel="alternate" hreflang="pl" href="{url_of("pl", aid)}" />
-  <link rel="alternate" hreflang="x-default" href="{url_of("en", aid)}" />
+  <link rel="canonical" href="{URL}" />{alternates}
 
   <script type="application/ld+json">
 {ld}
@@ -411,9 +481,216 @@ FN_2026_01 = dict(
     ),
 )
 
-ARTICLES = [FN_2026_01]
+
+CC_BY = '<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a>'
+SALMAZO = {"@type": "Person", "name": "Bruno Salmazo"}
+
+LB_2026_01 = dict(
+    id="lb-2026-01", series="landscape", langs=("en",), date="2026-06-23", modified="2026-10-07",
+    og_image="assets/og-image.png", pdf="assets/papers/liscere-ot-threat-landscape.pdf", version="1.1",
+    author=SALMAZO, author_name="Bruno Salmazo", copyright_holder=SALMAZO,
+    byline="By Bruno Salmazo · Liscere",
+    rights="Version 1.1 · © 2026 Bruno Salmazo · Published by Liscere · Licensed under " + CC_BY,
+    revised="Revised 7 October 2026: date corrected from May to June 2026 (first published 23 June 2026); NIS2 reference added; licence statement added.",
+    bibtex="""@techreport{salmazo_threatlandscape_2026,
+  author      = {Bruno Salmazo},
+  title       = {The Operational Technology Threat Landscape, 2026: From Access to Action},
+  institution = {Liscere},
+  year        = {2026},
+  month       = jun,
+  number      = {LB-2026-01},
+  type        = {Landscape Briefing},
+  url         = {https://liscere.com/research/lb-2026-01/}
+}""",
+    en=dict(
+        title="The OT Threat Landscape 2026: From Access to Action | Liscere",
+        description="Why the centre of gravity in OT attacks has moved from gaining access to issuing valid commands: a Liscere briefing on the 2026 threat landscape.",
+        og_image_alt="Liscere: OT Cybersecurity",
+        about=["Operational technology security", "Industrial control systems", "OT threat landscape", "Ransomware", "NIS2"],
+        keywords="OT threat landscape 2026, ICS security, industrial cyber incidents, OT ransomware, engineering workstation, Modbus, NIS2, IEC 62443, context-aware security",
+        contact="../../services.html#contact",
+        key_points=[
+            "In the 2025 SANS survey, more than one in five organisations reported an OT security incident, and around four in ten of those disrupted operations.",
+            "Dragos tracked 119 ransomware groups affecting roughly 3,300 industrial organisations in 2025, up from 80 groups the year before.",
+            "Attackers increasingly enter through legitimate access and then act like operators, issuing commands that are valid at the protocol level.",
+            "Protocol checks, access control and anomaly detection leave one question open: is this valid action appropriate for the state the plant is in?",
+        ],
+        related=[
+            ("services/ot-security-assessment.html", "OT and ICS security assessment", "Find what is exposed and what an attacker could change."),
+            ("services/ot-visibility-monitoring.html", "OT visibility and monitoring", "See what your control network is actually being told to do."),
+            ("services/nis2-ksc-compliance.html", "NIS2 and KSC readiness", "Turn the directive's expectations into concrete OT controls."),
+        ],
+        faq=[
+            ("How have OT attacks changed?",
+             "Access is increasingly the way in rather than the obstacle. Adversaries reach industrial networks through legitimate access, learn how the control system operates and then issue commands that are valid at the protocol level, so their activity looks like an operator's."),
+            ("Why do current OT defences leave a gap?",
+             "Protocol checks confirm a message is well formed, access control confirms the sender may act, and anomaly detection flags unusual traffic. A command can pass all three and still be wrong for the moment, such as a configuration change during production or a setpoint that is unsafe for the current process state."),
+            ("Do NIS2 and IEC 62443 close this gap?",
+             "They raise expectations for monitoring, segmentation and least privilege in industrial environments, and they motivate context-aware control of individual actions. They do not implement it themselves, so operators still have to close the distance between what is permitted and what is appropriate."),
+        ],
+    ),
+)
+
+# ---------------------------------------------------------------- converted reports (English only)
+from data_reports import REPORT_META
+
+S_ASSESS = ("services/ot-security-assessment.html", "OT and ICS security assessment", "Find what is exposed and what an attacker could change.")
+S_MONITOR = ("services/ot-visibility-monitoring.html", "OT visibility and monitoring", "See what your control network is actually being told to do.")
+S_NIS2 = ("services/nis2-ksc-compliance.html", "NIS2 and KSC readiness", "Turn the directive's expectations into concrete OT controls.")
+S_IR = ("services/ot-incident-response.html", "Incident response for OT", "Contain an incident without stopping the process.")
+S_PROJECTS = ("services/automation-projects.html", "Automation projects", "PLC, HMI and SCADA engineering built secure from the start.")
+
+
+def report(aid, title, about, keywords, key_points, faq, related, holder=None):
+    m = REPORT_META[aid]
+    series = "landscape" if aid.startswith("lb") else "research"
+    return dict(
+        id=aid, series=series, langs=("en",), date=m["date"], modified="2026-10-07",
+        og_image="assets/og-image.png", pdf=m["pdf"], version="1.1",
+        author=SALMAZO, author_name="Bruno Salmazo", copyright_holder=holder or ORG,
+        byline="By Bruno Salmazo · Liscere", rights=m["rights"], revised=m["revised"], bibtex=m["bibtex"],
+        en=dict(title=title, description=m["description"], og_image_alt="Liscere: OT Cybersecurity",
+                about=about, keywords=keywords, contact="../../services.html#contact",
+                key_points=key_points, faq=faq, related=related),
+    )
+
+
+LB_2026_02 = report(
+    "lb-2026-02", "OT Protocol Encryption: A Landscape Survey | Liscere",
+    ["Operational technology security", "Industrial protocols", "Encryption", "OPC UA", "IEC 62351"],
+    "OT protocol encryption, industrial protocols, OPC UA security, IEC 62351, PROFINET security, CIP Security, TLS adoption, passive monitoring",
+    ["Encryption capability and encryption activation are different things: internet-wide scans place TLS adoption on industrial protocols in single-digit percentages.",
+     "OT security standards deliberately favour integrity and authenticity over confidentiality for real-time control data.",
+     "Encryption arrives by functional plane: vendor management channels first, supervisory links slowly, the real-time protection plane last or never.",
+     "An opaque channel with no natural point of legitimate access is confined to a single protocol class, and even there secondary evidence exists."],
+    [("How much OT traffic is encrypted?",
+      "Little, as far as can be measured. Internet-wide scans place TLS adoption on industrial protocols in single-digit percentages, and the OPC UA misconfiguration pattern documented in 2020 is still present in 2025. These scans cover internet-exposed devices; internal networks cannot be measured from outside."),
+     ("Why do OT standards not encrypt everything?",
+      "Where OT security standards land, they prioritise integrity and authenticity over confidentiality for real-time control data. In substations this is codified: the applicable standard stipulates that time-critical protection traffic is not to be encrypted."),
+     ("Does encryption stop passive OT monitoring?",
+      "Mostly not today. Encryption arrives first on vendor management channels and last, if ever, on the real-time plane. The case of an opaque channel with no point of legitimate access is confined to a single protocol class.")],
+    [S_MONITOR, S_ASSESS, S_NIS2])
+
+LB_2026_03 = report(
+    "lb-2026-03", "OT Protocols and Vendors: A Field Guide | Liscere",
+    ["Industrial protocols", "Operational technology", "Industrial control systems", "PLC vendors"],
+    "OT protocols, industrial protocols explained, Modbus, PROFINET, EtherNet/IP, OPC UA, S7, PLC vendors, Purdue model, industrial networks",
+    ["A single industrial facility usually speaks several protocols at once, each serving a different layer of the operation.",
+     "Field devices, engineering stations, supervisory systems and cloud platforms each communicate in their own way.",
+     "The briefing maps which protocols dominate each layer, who the major controller vendors are and how they relate.",
+     "It is a reference map: it argues no thesis and evaluates no product."],
+    [("Why do industrial plants use so many protocols?",
+      "Because each layer of the operation has a different job: field devices exchange real-time signals with controllers, engineering stations program those controllers, supervisory systems collect data from them and cloud platforms receive it all. Each job has its own protocols."),
+     ("Who is this guide for?",
+      "Anyone who needs to reason about OT security without blurring the layers together: what a given protocol actually does and where a given product actually sits.")],
+    [S_ASSESS, S_MONITOR, S_PROJECTS])
+
+LB_2026_04 = report(
+    "lb-2026-04", "The S7 Encryption Gap in the Installed Base | Liscere",
+    ["Siemens S7", "Industrial protocols", "Encryption", "Operational technology security"],
+    "Siemens S7 encryption, S7comm, S7CommPlus, S7-1200, S7-1500, S7-300, S7-400, PLC security, TLS, passive monitoring",
+    ["Current Siemens controllers protect programming and HMI traffic with certificate-based transport security by default.",
+     "Most of the installed S7 base still carries communication that a passive observer can read.",
+     "Three regimes coexist: cleartext S7comm on S7-300 and S7-400, application-layer encrypted S7CommPlus, and S7CommPlus in TLS on current hardware.",
+     "The gap persists through economics rather than ignorance. Encryption is the state of the art, not yet the state of the field."],
+    [("Is Siemens S7 traffic encrypted?",
+      "On current controllers configured with the current engineering toolchain, yes, by default. Across the installed base, mostly not: the widely deployed S7-300 and S7-400 families use cleartext S7comm."),
+     ("Why does the installed base stay unencrypted?",
+      "The briefing finds that the gap persists through economics rather than ignorance, and that the readable regime still dominates the field."),
+     ("What does this mean for passive monitoring of S7 networks?",
+      "Across most of the deployed estate passive observation remains viable because the traffic is readable. Where encryption is in force, it marks the boundary of the passive vantage.")],
+    [S_MONITOR, S_ASSESS, S_NIS2])
+
+LB_2026_05 = report(
+    "lb-2026-05", "Passive vs Active Methods in OT Security | Liscere",
+    ["Operational technology security", "Passive monitoring", "Active scanning", "Asset inventory"],
+    "passive vs active OT, OT asset discovery, OT scanning, passive monitoring, ICS asset inventory, OT network monitoring, encryption",
+    ["Discovery and inventory are one question, continuous monitoring and detection another; the debate usually conflates them.",
+     "Active methods reach silent devices and recover metadata traffic does not carry, at a disruption risk that OT-safe scanners reduce but do not eliminate.",
+     "Passive methods add no traffic and observe continuously, but are blind to silent devices, depend on a vantage point and are increasingly limited by encryption.",
+     "Federal and sector guidance sets passive monitoring as the baseline; the mature pattern is hybrid."],
+    [("Should OT networks be scanned actively or monitored passively?",
+      "Both, for different questions. Passive monitoring is the baseline in federal and sector guidance; active methods reach silent devices and recover metadata, at a disruption risk that must be justified. The mature pattern is hybrid."),
+     ("Why is OT different from IT here?",
+      "For concrete reasons: industrial devices are fragile, priorities do not tolerate unplanned outages, and equipment stays in service for decades."),
+     ("How does encryption affect passive monitoring?",
+      "Hardware measurement shows that what an encrypted channel changes is less the method of observation than its location.")],
+    [S_MONITOR, S_ASSESS, S_IR])
+
+LTR_2026_01 = report(
+    "ltr-2026-01", "Context-Aware Evaluation of Modbus/TCP Actions | Liscere",
+    ["Industrial control systems", "Modbus/TCP", "Context-aware security", "Operational technology security"],
+    "Modbus/TCP security, context-aware evaluation, industrial control actions, maintenance window, OT lab, action-evaluation chain, ICS security",
+    ["Classic Modbus/TCP carries no notion of authorisation or operational appropriateness.",
+     "The Liscere action-evaluation chain assesses an action by protocol operation, automation artefact, operational context and policy constraint.",
+     "The same sensitive configuration write yields an alert in production and an allow during a declared maintenance window.",
+     "Two negative controls show the maintenance window is not a blanket alert suppressor; all four scenarios returned their expected decision."],
+    [("What does this report demonstrate?",
+      "That a protocol-valid write can be judged by context: holding the operation, the target and the value constant, and varying only a declared maintenance window, the same write yields an alert in production and an allow during maintenance."),
+     ("What does it not yet measure?",
+      "Detection performance, robustness, and generality across context dimensions and protocols. It is a feasibility baseline.")],
+    [S_MONITOR, S_ASSESS, S_NIS2], holder=SALMAZO)
+
+LTR_2026_02 = report(
+    "ltr-2026-02", "The Liscere Framework for ICS Control Actions | Liscere",
+    ["Industrial control systems", "Operational technology security", "Context-aware security", "Policy evaluation"],
+    "Liscere framework, operational legitimacy, industrial control actions, ICS security model, Modbus/TCP, automation artefact, operational context, policy",
+    ["An action can be valid at the protocol level, sent over an authorised channel and still be wrong for the plant's operational state.",
+     "The framework evaluates each control action by protocol operation, automation artefact, operational context and policy constraint.",
+     "It reconstructs the action, resolves the artefact, adds declared context, evaluates policy and returns a decision with an evidence record.",
+     "The model sits above protocol encodings; Modbus/TCP is its first instantiation."],
+    [("What is the Liscere framework?",
+      "A protocol-agnostic model for evaluating an industrial control action along four dimensions: the protocol operation, the automation artefact it affects, the operational context in which it occurs and the applicable policy constraint."),
+     ("What decision does it return?",
+      "A decision together with an evidence record. The report defines four decisions: allow, alert, deny and escalate.")],
+    [S_MONITOR, S_ASSESS, S_NIS2], holder=SALMAZO)
+
+LTR_2026_03 = report(
+    "ltr-2026-03", "Contextual ICS Evaluation on a Siemens S7-1200 | Liscere",
+    ["Industrial control systems", "Siemens S7-1200", "Modbus/TCP", "Passive monitoring", "Context-aware security"],
+    "contextual evaluation, Siemens S7-1200, Modbus/TCP, operational phase inference, learned grammar, passive OT monitoring, ICS security",
+    ["Liscere judges not whether an action is permitted but whether it is coherent with the operational phase the process is in.",
+     "Validated on a physical Siemens S7-1200 tank process with a strictly passive observer on mirrored traffic.",
+     "The same valid write is allowed or alerted according to a phase the evaluator infers from observed process state.",
+     "The artefact-to-phase grammar can be learned from observation; decision logs, captures and grammar files are published."],
+    [("How is this different from anomaly detection?",
+      "The approach is structural rather than value-based: it asks whether a given write to a given control artefact is coherent with the current operational phase, not whether values are statistically unusual. It also differs from process interlocks and from formal preventive enforcement."),
+     ("What are its limits?",
+      "The evaluator is still told which signal carries process state, learning assumes a clean and representative baseline, the inferred context is not resistant to forged telemetry, and validation rests on one cyclic process, protocol and controller.")],
+    [S_MONITOR, S_ASSESS, S_NIS2])
+
+LTR_2026_04 = report(
+    "ltr-2026-04", "Passive OT Monitoring under TLS 1.3 | Liscere",
+    ["Encryption", "Siemens S7-1200", "Passive monitoring", "TLS 1.3", "Operational technology security"],
+    "TLS 1.3 OT, encrypted OT traffic, Siemens S7-1200 G2 Web API, passive monitoring encryption, JSON-RPC, traffic metadata, ICS security",
+    ["Under TLS 1.3 a passive observer on a mirror port cannot see the method, target, value or session token of a control action.",
+     "A size and timing sensor detects bursts of activity but is unreliable for an isolated, well-chosen write.",
+     "With a legitimate decryption point, the process variable needed for contextual evaluation is recoverable at a workable rate.",
+     "Encryption changes the observation vantage, not the evaluation core."],
+    [("Can encrypted OT traffic be monitored passively?",
+      "Not its content. On a Siemens S7-1200 G2 Web API over TLS 1.3, a passive observer on a mirror port is blind to the method, the target, the value and the session token. Traffic metadata reveals bursts of activity but not a single well-chosen write."),
+     ("What does this mean for contextual evaluation?",
+      "The evaluation logic is protocol-independent; what encryption changes is where its evidence must come from. The report points to the point of legitimate decryption as the place to position it.")],
+    [S_MONITOR, S_ASSESS, S_NIS2])
+
+LTR_2026_05 = report(
+    "ltr-2026-05", "OPC UA Security Modes and Passive Observation | Liscere",
+    ["OPC UA", "Encryption", "Passive monitoring", "Operational technology security"],
+    "OPC UA security modes, OPC UA Sign, SignAndEncrypt, OPC UA security policy, passive monitoring, OT encryption, IEC 62541",
+    ["OPC UA has three message security modes: None, Sign and SignAndEncrypt. The mode, not the policy, decides what a passive observer recovers.",
+     "Under None and under Sign the full exchange is legible; under SignAndEncrypt only the transport envelope survives.",
+     "Sign gives integrity and authenticity on the wire while leaving traffic visible to a legitimate observer.",
+     "Studies from 2020 and from 2024 to 2025 agree that a large share of observable OPC UA runs without confidentiality."],
+    [("Is OPC UA traffic encrypted?",
+      "Only under the SignAndEncrypt mode. Under None and under Sign the full exchange can be read; Sign adds integrity and authenticity but leaves the payload in clear."),
+     ("How common is unencrypted OPC UA?",
+      "Internet-wide studies five years apart agree that a large and persistent fraction of observable OPC UA runs without confidentiality, because of the configuration burden of activating it rather than any weakness in the cryptography.")],
+    [S_MONITOR, S_ASSESS, S_NIS2])
+
+ARTICLES = [FN_2026_01, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
+            LTR_2026_01, LTR_2026_02, LTR_2026_03, LTR_2026_04, LTR_2026_05]
 
 if __name__ == "__main__":
     for art in ARTICLES:
-        for lang in ("en", "pl"):
+        for lang in art.get("langs", ("en", "pl")):
             print(os.path.relpath(build(art, lang), ROOT_DIR))

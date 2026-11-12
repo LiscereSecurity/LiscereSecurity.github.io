@@ -1,0 +1,202 @@
+<!-- LB-2026-03 v1.1, text identical to the PDF (Markdown source: LiscereSecurity/Research). -->
+<p class="kicker">LANDSCAPE BRIEFING · LB-2026-03 · July 2026</p>
+
+<h1>How Industrial Systems Communicate: A Field Guide to OT Protocols and Vendors</h1>
+
+<p class="lede">Industrial plants do not run on one network protocol. A single facility typically speaks several at once, each serving a different layer of the operation: field devices exchanging real-time signals with controllers, engineering stations programming those controllers, supervisory systems collecting data from them, and cloud platforms receiving it all. Public discussion of OT security often blurs these layers together, which makes it hard to reason about what any given protocol actually does or where any given product actually sits. This briefing is a reference map. It explains, in plain terms, how the layers of an industrial system communicate, which protocols dominate each layer, who the major controller vendors are, and how vendors and protocols relate to each other. It is informational by design: it argues no thesis and evaluates no product.</p>
+
+<h2>1. What this briefing is</h2>
+<p>This is a field guide, not an analysis. It exists because conversations about industrial cybersecurity constantly reference protocols (PROFINET, Modbus, OPC UA) and vendors (Siemens, Rockwell, Mitsubishi) as if the map connecting them were common knowledge. It is not, and the map is genuinely useful: which protocol a system speaks determines what an operator can connect, what an integrator must support, and what a security tool can observe. The companion briefing in this series, LB-2026-02, examines how security and encryption land across these protocols [1]; this one only draws the map.</p>
+<p>A note on numbers. Reliable quantitative data exists for some of this landscape and not for the rest. Where we cite figures, they come from the one recurring industry analysis of network node shares [2] and should be read as directional. Where no measurement exists, notably for vendor market shares, we describe the picture qualitatively rather than lending false precision to diverging analyst estimates.</p>
+<h2>2. How a plant communicates</h2>
+<p>Figure 1 shows the layers of a typical industrial system and the protocol families that connect them.</p>
+<figure>
+<img src="/assets/research/lb-2026-03/fig1.png" width="1600" height="1067" alt="Figure 1: The communication layers of a typical industrial system. Each arrow is a different protocol family serving a different purpose." loading="lazy">
+<figcaption>Figure 1. The communication layers of a typical industrial system. Each arrow is a different protocol family serving a different purpose.</figcaption>
+</figure>
+
+<p>At the bottom sit the <strong>field devices</strong>: the sensors that measure the process, the actuators and valves that act on it, the drives that turn motors, and the remote IO racks that gather signals. They have no intelligence of their own worth speaking of; they report to, and take orders from, the layer above.</p>
+<p>That layer is the <strong>controller</strong>, usually a PLC (programmable logic controller): a rugged industrial computer that runs the control logic in real time. The PLC reads its inputs, executes its program, and writes its outputs, over and over, on a cycle measured in milliseconds. The network between the controller and its field devices is what the industry calls a <strong>fieldbus</strong>, or in its modern Ethernet-based form, <strong>Industrial Ethernet</strong>. Its defining trait is cyclic, deterministic, real-time traffic: the same IO data exchanged continuously on a fixed clock.</p>
+<p>To the side of the controller sit the <strong>engineering station and the HMI</strong>. The engineering station is the PC where an engineer writes and downloads the control program; the HMI (human-machine interface) is the operator's panel, where a person watches the process and adjusts setpoints. Both talk to the controller over what we will call <strong>management channels</strong>: the vendor's own protocol for programming, diagnostics, and operator interaction. This traffic is not cyclic IO; it is commands, parameters, and program transfers.</p>
+<p>Above the controller sits the <strong>supervisory layer</strong>: SCADA systems that monitor and command many controllers at once, MES systems that connect production to business planning, and historians that archive process data. The traffic here is reads and writes of process variables at human timescales, seconds rather than milliseconds, and it increasingly runs over one vendor-neutral protocol, OPC UA.</p>
+<p>In geographically distributed industries, energy and water above all, a further pattern appears: <strong>telecontrol</strong>, where a central control room communicates with remote sites and substations over dedicated protocols built for wide-area links.</p>
+<p>Finally, at the top, the <strong>IIoT layer</strong> carries selected data out of the plant to cloud platforms and enterprise systems, typically through a message broker: a central post office to which devices publish data and from which applications subscribe to it.</p>
+<p>Five layers, five kinds of traffic, and, as the next section shows, largely five different sets of protocols.</p>
+<h2>3. The protocols, layer by layer</h2>
+<p>Table 1 lists the protocols most likely to be encountered at each layer.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Protocol</th>
+<th>What it connects</th>
+<th>Open or proprietary</th>
+<th>Where it is common</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Field</td>
+<td>PROFINET</td>
+<td>PLC to field devices</td>
+<td>Open standard (PI)</td>
+<td>Europe; Siemens ecosystems; ~27% of new nodes [2]</td>
+</tr>
+<tr>
+<td>Field</td>
+<td>EtherNet/IP</td>
+<td>PLC to field devices</td>
+<td>Open standard (ODVA)</td>
+<td>North America; Rockwell ecosystems; ~23% of new nodes [2]</td>
+</tr>
+<tr>
+<td>Field</td>
+<td>EtherCAT</td>
+<td>PLC to field devices</td>
+<td>Open standard (ETG)</td>
+<td>Machine building, motion control; ~17% of new nodes [2]</td>
+</tr>
+<tr>
+<td>Field</td>
+<td>CC-Link IE</td>
+<td>PLC to field devices</td>
+<td>Open standard (CLPA)</td>
+<td>Japan and Asia; Mitsubishi ecosystems</td>
+</tr>
+<tr>
+<td>Field / legacy</td>
+<td>Modbus RTU and TCP</td>
+<td>PLC to devices and to other systems</td>
+<td>Open standard (Modbus Org.)</td>
+<td>Everywhere as a legacy and interoperability workhorse; ~4% of new factory nodes but a very large installed base [2]</td>
+</tr>
+<tr>
+<td>Management</td>
+<td>S7comm-plus</td>
+<td>Siemens engineering and HMI to Siemens PLCs</td>
+<td>Proprietary (Siemens)</td>
+<td>Current Siemens installations (S7-1200, S7-1500); the S7-300 and S7-400 use the older S7comm</td>
+</tr>
+<tr>
+<td>Management</td>
+<td>Vendor channels (CIP explicit messaging, UMAS, and others)</td>
+<td>Each vendor's tools to its own PLCs</td>
+<td>Proprietary per vendor</td>
+<td>Proportional to each vendor's installed base</td>
+</tr>
+<tr>
+<td>Management</td>
+<td>Controller Web APIs</td>
+<td>Browsers and applications to the PLC over HTTPS</td>
+<td>Proprietary per vendor</td>
+<td>Growing class on current controller generations</td>
+</tr>
+<tr>
+<td>Supervisory</td>
+<td>OPC UA</td>
+<td>Controllers and devices to SCADA, MES, historians, cloud</td>
+<td>Open standard (OPC Foundation, IEC 62541)</td>
+<td>The vendor-neutral supervisory standard, across all ecosystems</td>
+</tr>
+<tr>
+<td>Telecontrol</td>
+<td>IEC 60870-5-104</td>
+<td>Control centre to remote sites</td>
+<td>Open standard (IEC)</td>
+<td>Energy and water, Europe and Asia</td>
+</tr>
+<tr>
+<td>Telecontrol</td>
+<td>DNP3</td>
+<td>Control centre to remote sites</td>
+<td>Open standard (IEEE 1815)</td>
+<td>Energy and water, the Americas</td>
+</tr>
+<tr>
+<td>Substation</td>
+<td>IEC 61850</td>
+<td>Protection and control devices within and between substations</td>
+<td>Open standard (IEC)</td>
+<td>Power substations worldwide</td>
+</tr>
+<tr>
+<td>IIoT</td>
+<td>MQTT with Sparkplug B</td>
+<td>Edge devices to broker to cloud</td>
+<td>Open standards (OASIS, Eclipse)</td>
+<td>Edge-to-cloud telemetry across industries</td>
+</tr>
+</tbody>
+</table></div>
+<p>Table 1. The most common OT protocols by layer. Node-share figures are for new factory-automation nodes [2] and are directional.</p>
+<p>A few of these deserve a sentence of plain language.</p>
+<p><strong>Modbus</strong> is the oldest name on the list, dating to 1979, and survives because it is simple and universal: nearly every industrial device can speak it, which makes it the duct tape of industrial integration. <strong>PROFINET, EtherNet/IP, EtherCAT and CC-Link IE</strong> are the four modern Industrial Ethernet families; they do the same job in different ecosystems, and choosing a controller vendor largely chooses among them. <strong>OPC UA</strong> is the one protocol designed to cut across all vendors: it gives every system, from any manufacturer, a common way to expose its data upward, which is why it dominates the supervisory layer and is the closest thing OT has to a lingua franca. <strong>IEC 61850</strong> is a world of its own inside power substations, where protection devices must react to grid faults within milliseconds. And <strong>MQTT</strong> is not an industrial protocol by origin at all; it is internet-era messaging technology that industry adopted for moving data to the cloud, with Sparkplug B as the convention that makes industrial devices speak it consistently.</p>
+<h2>4. Who makes the controllers</h2>
+<p>The controller market is concentrated: a handful of vendors account for the large majority of PLCs sold worldwide, with a long tail of regional and niche players. Analyst estimates of exact market shares diverge considerably, so Table 2 stays qualitative; the regional pattern, by contrast, is consistent across every source [3].</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Flagship controller lines</th>
+<th>Native protocol ecosystem</th>
+<th>Strongest presence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Siemens</td>
+<td>SIMATIC S7-1200, S7-1500 (TIA Portal)</td>
+<td>PROFINET, S7comm-plus, OPC UA</td>
+<td>Global leader; dominant in Europe</td>
+</tr>
+<tr>
+<td>Rockwell Automation (Allen-Bradley)</td>
+<td>ControlLogix, CompactLogix (Studio 5000)</td>
+<td>EtherNet/IP (CIP)</td>
+<td>Leader in North America</td>
+</tr>
+<tr>
+<td>Mitsubishi Electric</td>
+<td>MELSEC iQ-R, iQ-F (GX Works)</td>
+<td>CC-Link IE, SLMP</td>
+<td>Leader in Japan; strong across Asia</td>
+</tr>
+<tr>
+<td>Schneider Electric</td>
+<td>Modicon M340, M580 (EcoStruxure)</td>
+<td>Modbus TCP, UMAS</td>
+<td>Europe; energy and infrastructure</td>
+</tr>
+<tr>
+<td>ABB (including B&amp;R)</td>
+<td>AC500; B&amp;R X20</td>
+<td>ABB protocols; POWERLINK</td>
+<td>Process industries and energy</td>
+</tr>
+<tr>
+<td>Omron</td>
+<td>NX, NJ series (Sysmac)</td>
+<td>EtherNet/IP, EtherCAT</td>
+<td>Asia; compact machine automation</td>
+</tr>
+<tr>
+<td>Others</td>
+<td>Beckhoff, Phoenix Contact, Emerson, Bosch Rexroth, WAGO, Delta and more</td>
+<td>Various</td>
+<td>Regional and application niches</td>
+</tr>
+</tbody>
+</table></div>
+<p>Table 2. The major PLC vendors. Ordering reflects the consistent qualitative picture across analyst sources; precise share figures diverge between analysts and are omitted deliberately.</p>
+<h2>5. Reading the map</h2>
+<p>Three observations tie the two tables together.</p>
+<p>First, <strong>at the field level, the protocol map and the vendor map are largely the same map</strong>. PROFINET tracks Siemens installations, EtherNet/IP tracks Rockwell, CC-Link tracks Mitsubishi, EtherCAT tracks Beckhoff and the machine builders. The protocols are open standards on paper, and genuinely multi-vendor at the device level, but each is anchored to one controller ecosystem, so regional vendor strength and regional protocol share mirror each other.</p>
+<p>Second, <strong>management channels are the invisible layer</strong>. Every controller has one, every vendor's is different, and no industry analysis measures them, because they are not a market anyone buys separately: they come with the PLC. Yet this is the layer that carries program downloads and operator commands, and any statement about how widespread a given management protocol is can only be an inference from controller market shares.</p>
+<p>Third, <strong>OPC UA is the exception to everything above</strong>. It is the one widely deployed protocol that belongs to no vendor ecosystem, appears at the supervisory layer of plants from every manufacturer, and is designed to be the common upward-facing interface of the whole field. Whatever mix of vendors and fieldbuses a facility runs, the layer where its systems meet is increasingly an OPC UA layer.</p>
+<p>How security and encryption are distributed across these same layers, which of this traffic is readable on the network and which is not, and what that means for observing industrial systems, is the subject of the companion briefing LB-2026-02 [1].</p>
+<h2>References</h2>
+<ol class="sources">
+  <li>B. Salmazo. The Encryption of Operational Technology: A Protocol Landscape. Liscere Briefing LB-2026-02, 2026.</li>
+  <li>HMS Networks. Industrial network market shares 2025. Annual analysis, May 2025.</li>
+  <li>Composite of analyst coverage of the PLC market, 2025-2026 (GM Insights; IMARC; Mordor Intelligence; and others). Estimates of vendor shares diverge between sources; this briefing intentionally reports only the qualitative picture on which they agree.</li>
+</ol>

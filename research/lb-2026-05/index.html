@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="en-GB" class="past-hero">
+<html lang="en-GB" class="past-hero article-view">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://formspree.io https://cloudflareinsights.com; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Passive and Active in Operational Technology: A Field Guide to the Trade-offs | Liscere</title>
+  <title>Passive vs Active Methods in OT Security | Liscere</title>
   <meta name="description" content="A field guide to the trade-offs between passive and active methods in operational technology, and when each one is the right tool." />
-  <meta name="author" content="Liscere" />
-  <meta name="robots" content="index,follow" />
+  <meta name="author" content="Bruno Salmazo" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
   <meta name="theme-color" content="#030405" />
 
   <meta property="og:title" content="Passive and Active in Operational Technology: A Field Guide to the Trade-offs" />
@@ -21,47 +21,191 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Liscere: OT Cybersecurity" />
   <meta property="og:site_name" content="Liscere" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="article:published_time" content="2026-07" />
+  <meta property="article:section" content="Landscape Briefing" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Passive and Active in Operational Technology: A Field Guide to the Trade-offs" />
   <meta name="twitter:description" content="A field guide to the trade-offs between passive and active methods in operational technology, and when each one is the right tool." />
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
+  <meta name="twitter:image:alt" content="Liscere: OT Cybersecurity" />
 
   <link rel="canonical" href="https://liscere.com/research/lb-2026-05/" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "Passive and Active in Operational Technology: A Field Guide to the Trade-offs",
-    "name": "Passive and Active in Operational Technology: A Field Guide to the Trade-offs",
-    "author": {
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://liscere.com/research/lb-2026-05/#article",
+      "headline": "Passive and Active in Operational Technology: A Field Guide to the Trade-offs",
+      "name": "Passive and Active in Operational Technology: A Field Guide to the Trade-offs",
+      "description": "A field guide to the trade-offs between passive and active methods in operational technology, and when each one is the right tool.",
+      "url": "https://liscere.com/research/lb-2026-05/",
+      "mainEntityOfPage": "https://liscere.com/research/lb-2026-05/",
+      "inLanguage": "en-GB",
+      "datePublished": "2026-07",
+      "dateModified": "2026-10-07",
+      "image": [
+        "https://liscere.com/assets/og-image.png"
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "Bruno Salmazo"
+      },
+      "publisher": {
+        "@id": "https://liscere.com/#org"
+      },
+      "isPartOf": {
+        "@type": "CreativeWorkSeries",
+        "name": "Liscere Landscape Briefings",
+        "url": "https://liscere.com/research.html#landscape"
+      },
+      "articleSection": "Landscape Briefing",
+      "about": [
+        "Operational technology security",
+        "Passive monitoring",
+        "Active scanning",
+        "Asset inventory"
+      ],
+      "keywords": "passive vs active OT, OT asset discovery, OT scanning, passive monitoring, ICS asset inventory, OT network monitoring, encryption",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "E. Samanis, J. Gardiner, and A. Rashid. A Taxonomy for Contrasting Industrial Control Systems Asset Discovery Tools. arXiv:2202.01604, 2022 (also published as SoK, ARES 2022)."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Field reports on OT devices that fault under IT scanning tools. PLCTalk practitioner forum, 2023."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "International Electrotechnical Commission. IEC 62443, Security for Industrial Automation and Control Systems (series)."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IOActive. Rethinking the CIA Triad in Operational Technology Environments. IOActive, 2026."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Dragos. Passive Monitoring and Active Collection for a Complete OT Asset Inventory. Dragos, 2025."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Nozomi Networks. How to Ensure You Have Complete OT/ICS Asset Visibility. Nozomi Networks, 2026."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Tenable. How to Tackle OT Challenges: Asset Inventory and Vulnerability Assessment. Tenable, 2023."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "runZero. Active Scanning of Industrial Control Systems Safely. runZero, 2024; and Radiflow, on tap/span coverage gaps and baseline accumulation, 2023."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "runZero. Rules for safe active scanning in ICS environments (RFC-compliant traffic, no security probes, per-host rate limiting). runZero, 2024."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "FireMon. Active vs. Passive Scanning: Key Differences. FireMon, 2025."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "National Institute of Standards and Technology. SP 800-82 Revision 3, Guide to Operational Technology (OT) Security. NIST, September 2023."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Reporting on NIST SP 800-82 revision commentary urging a graduated, risk-assessed approach to active scanning with passive as the safe baseline. OT.today, 2026."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "B. Salmazo. Contextual Evaluation under Encryption. Liscere Technical Report LTR-2026-04, 2026. https://liscere.com/assets/papers/liscere-evaluation-encryption.pdf"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "B. Salmazo. Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base. Liscere Briefing LB-2026-04, 2026."
+        }
+      ],
+      "abstract": "Passive and active are often posed as rival methods, but in operational technology they are better understood as tools with different reaches, chosen against a calculation that differs fundamentally from the one made in IT. This briefing separates two questions that the debate usually conflates, discovery and inventory on one axis, continuous monitoring and detection on the other, and weighs the methods on each. The reason OT is not IT is concrete, not cultural: industrial devices are fragile, priorities do not tolerate unplanned outages, and equipment stays in service for decades. Against this backdrop the trade-offs are clear and symmetric. Active methods reach silent devices and recover metadata that traffic does not carry, at a disruption risk that modern OT-safe scanners reduce but do not eliminate. Passive methods introduce no traffic and observe continuously, at the cost of blindness to silent devices, dependence on a vantage point, and, increasingly, opacity under encryption. Federal and sector guidance reflects this by establishing passive monitoring as the baseline and placing the burden of proof on active methods. Encryption adds a further axis, on which hardware measurement shows that what an encrypted channel changes is less the method of observation than its location. The mature pattern is hybrid, and the question each defender is left with is whether the horizon of their chosen method reaches far enough for what their own environment asks of it.",
+      "version": "1.1",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "copyrightHolder": {
+        "@id": "https://liscere.com/#org"
+      },
+      "identifier": "LB-2026-05",
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "https://liscere.com/assets/papers/liscere-passive-active-ot.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
       "@type": "Organization",
       "@id": "https://liscere.com/#org",
       "name": "Liscere",
-      "url": "https://liscere.com/"
+      "legalName": "Liscere sp. z o.o.",
+      "url": "https://liscere.com/",
+      "logo": "https://liscere.com/assets/apple-touch-icon.png"
     },
-    "datePublished": "2026-07",
-    "version": "1.1",
-    "dateModified": "2026-10-07",
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "copyrightHolder": {
-      "@id": "https://liscere.com/#org"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://liscere.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://liscere.com/research.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "LB-2026-05",
+          "item": "https://liscere.com/research/lb-2026-05/"
+        }
+      ]
     },
-    "abstract": "Passive and active are often posed as rival methods, but in operational technology they are better understood as tools with different reaches, chosen against a calculation that differs fundamentally from the one made in IT. This briefing separates two questions that the debate usually conflates, discovery and inventory on one axis, continuous monitoring and detection on the other, and weighs the methods on each. The reason OT is not IT is concrete, not cultural: industrial devices are fragile, priorities do not tolerate unplanned outages, and equipment stays in service for decades. Against this backdrop the trade-offs are clear and symmetric. Active methods reach silent devices and recover metadata that traffic does not carry, at a disruption risk that modern OT-safe scanners reduce but do not eliminate. Passive methods introduce no traffic and observe continuously, at the cost of blindness to silent devices, dependence on a vantage point, and, increasingly, opacity under encryption. Federal and sector guidance reflects this by establishing passive monitoring as the baseline and placing the burden of proof on active methods. Encryption adds a further axis, on which hardware measurement shows that what an encrypted channel changes is less the method of observation than its location. The mature pattern is hybrid, and the question each defender is left with is whether the horizon of their chosen method reaches far enough for what their own environment asks of it.",
-    "publisher": {
-      "@type": "Organization",
-      "@id": "https://liscere.com/#org",
-      "name": "Liscere",
-      "url": "https://liscere.com/"
-    },
-    "url": "https://liscere.com/research/lb-2026-05/",
-    "encoding": {
-      "@type": "MediaObject",
-      "contentUrl": "https://liscere.com/assets/papers/liscere-passive-active-ot.pdf",
-      "encodingFormat": "application/pdf"
+    {
+      "@type": "FAQPage",
+      "@id": "https://liscere.com/research/lb-2026-05/#faq",
+      "inLanguage": "en-GB",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Should OT networks be scanned actively or monitored passively?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both, for different questions. Passive monitoring is the baseline in federal and sector guidance; active methods reach silent devices and recover metadata, at a disruption risk that must be justified. The mature pattern is hybrid."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is OT different from IT here?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For concrete reasons: industrial devices are fragile, priorities do not tolerate unplanned outages, and equipment stays in service for decades."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does encryption affect passive monitoring?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hardware measurement shows that what an encrypted channel changes is less the method of observation than its location."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
 
   <link rel="stylesheet" href="../../assets/css/fonts.css?v=1" />
@@ -70,7 +214,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261112-v11" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261112-a2" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -88,23 +232,148 @@
     </nav>
   </header>
 
-  <main id="main-content" class="research-page">
-    <article class="doc-split">
-      <div class="doc-col">
-        <p class="paper-eyebrow">LB-2026-05 · <a class="series-back" href="../../research.html#landscape" data-back>Landscape Briefing</a> · July 2026</p>
-        <h1 class="doc-title">Passive and Active in Operational Technology: A Field Guide to the Trade-offs</h1>
+  <main id="main-content" class="research-page article-page">
+    <article class="article">
+      <header class="article-head">
+        <p class="kicker"><a class="series-back" href="../../research.html#landscape" data-back>LANDSCAPE BRIEFING</a> · LB-2026-05 · July 2026</p>
+
+        <h1>Passive and Active in Operational Technology: A Field Guide to the Trade-offs</h1>
+
+        <p class="article-byline">By Bruno Salmazo · Liscere</p>
         <p class="doc-rights">Version 1.1 · © 2026 Liscere sp. z o.o. · Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a></p>
         <p class="doc-revised">Revised 7 October 2026: passive-method safety claim made precise; licence statement added.</p>
 
-        <details class="doc-abstract-toggle">
-          <summary>Executive Summary</summary>
-          <p class="doc-abstract">Passive and active are often posed as rival methods, but in operational technology they are better understood as tools with different reaches, chosen against a calculation that differs fundamentally from the one made in IT. This briefing separates two questions that the debate usually conflates, discovery and inventory on one axis, continuous monitoring and detection on the other, and weighs the methods on each. The reason OT is not IT is concrete, not cultural: industrial devices are fragile, priorities do not tolerate unplanned outages, and equipment stays in service for decades. Against this backdrop the trade-offs are clear and symmetric. Active methods reach silent devices and recover metadata that traffic does not carry, at a disruption risk that modern OT-safe scanners reduce but do not eliminate. Passive methods introduce no traffic and observe continuously, at the cost of blindness to silent devices, dependence on a vantage point, and, increasingly, opacity under encryption. Federal and sector guidance reflects this by establishing passive monitoring as the baseline and placing the burden of proof on active methods. Encryption adds a further axis, on which hardware measurement shows that what an encrypted channel changes is less the method of observation than its location. The mature pattern is hybrid, and the question each defender is left with is whether the horizon of their chosen method reaches far enough for what their own environment asks of it.</p>
-        </details>
+        <p class="lede">Passive and active are often posed as rival methods, but in operational technology they are better understood as tools with different reaches, chosen against a calculation that differs fundamentally from the one made in IT. This briefing separates two questions that the debate usually conflates, discovery and inventory on one axis, continuous monitoring and detection on the other, and weighs the methods on each. The reason OT is not IT is concrete, not cultural: industrial devices are fragile, priorities do not tolerate unplanned outages, and equipment stays in service for decades. Against this backdrop the trade-offs are clear and symmetric. Active methods reach silent devices and recover metadata that traffic does not carry, at a disruption risk that modern OT-safe scanners reduce but do not eliminate. Passive methods introduce no traffic and observe continuously, at the cost of blindness to silent devices, dependence on a vantage point, and, increasingly, opacity under encryption. Federal and sector guidance reflects this by establishing passive monitoring as the baseline and placing the burden of proof on active methods. Encryption adds a further axis, on which hardware measurement shows that what an encrypted channel changes is less the method of observation than its location. The mature pattern is hybrid, and the question each defender is left with is whether the horizon of their chosen method reaches far enough for what their own environment asks of it.</p>
+      </header>
 
-        <a class="primary-cta doc-open-mobile" href="../../assets/papers/liscere-passive-active-ot.pdf" target="_blank" rel="noopener">Open the PDF &#8599;</a>
+      <aside class="key-points" aria-labelledby="key-points-title">
+        <h2 id="key-points-title">Key points</h2>
+        <ul>
+          <li>Discovery and inventory are one question, continuous monitoring and detection another; the debate usually conflates them.</li>
+          <li>Active methods reach silent devices and recover metadata traffic does not carry, at a disruption risk that OT-safe scanners reduce but do not eliminate.</li>
+          <li>Passive methods add no traffic and observe continuously, but are blind to silent devices, depend on a vantage point and are increasingly limited by encryption.</li>
+          <li>Federal and sector guidance sets passive monitoring as the baseline; the mature pattern is hybrid.</li>
+        </ul>
+      </aside>
 
-        <h2 class="doc-section-head">Cite this report</h2>
-        <pre class="doc-cite">@techreport{salmazo_passiveactive_2026,
+      <aside class="article-side" aria-label="Video and contents">
+        <div class="side-sticky">
+
+          <nav class="article-toc" aria-labelledby="toc-title">
+            <h2 id="toc-title">On this page</h2>
+            <ol>
+              <li><a href="#two-axes-not-one">1. Two axes, not one</a></li>
+              <li><a href="#why-ot-is-not-it">2. Why OT is not IT</a></li>
+              <li><a href="#what-active-methods-do-well-and-what-they-cost-in-ot">3. What active methods do well, and what they cost in OT</a></li>
+              <li><a href="#what-passive-methods-do-well-and-where-they-are-blind">4. What passive methods do well, and where they are blind</a></li>
+              <li><a href="#what-the-standards-say">5. What the standards say</a></li>
+              <li><a href="#the-encryption-dimension">6. The encryption dimension</a></li>
+              <li><a href="#the-limits-of-any-single-method">7. The limits of any single method</a></li>
+              <li><a href="#help">How Liscere can help</a></li>
+              <li><a href="#questions">Questions</a></li>
+              <li><a href="#sources">References</a></li>
+            </ol>
+          </nav>
+          <section class="side-pdf" aria-labelledby="side-pdf-title">
+            <h2 id="side-pdf-title">Full report (PDF)</h2>
+            <p>The same text as a typeset PDF, with page numbers for citation.</p>
+            <a class="secondary-cta" href="../../assets/papers/liscere-passive-active-ot.pdf" target="_blank" rel="noopener">Download PDF &#8599;</a>
+          </section>
+          <section class="side-cta" aria-labelledby="side-cta-title">
+            <h2 id="side-cta-title">Facing something similar?</h2>
+            <p>We help industrial operators find what is exposed, see what their control network is being told to do, and respond when something goes wrong.</p>
+            <a class="primary-cta" href="../../services.html#contact">Talk to us</a>
+          </section>
+        </div>
+      </aside>
+
+      <div class="article-body">
+        <h2 id="two-axes-not-one">1. Two axes, not one</h2>
+        <p>Discussions of passive versus active in operational technology often collapse two distinct questions into one, and the resulting confusion obscures more than it clarifies. The two belong to different layers of a security programme and are answered by different tools.</p>
+        <p>The first axis is discovery and inventory: establishing what exists on the network, which devices are present, how they are configured, and what firmware they run. This is a periodic question, answered well by a snapshot taken at a point in time.</p>
+        <p>The second axis is monitoring and detection: observing the network continuously to understand how devices behave, what they communicate, and when something departs from the norm. This is a continuous question, answered by an ongoing vantage on traffic rather than a snapshot.</p>
+        <p>Both axes admit passive and active methods, but the trade-offs differ between them. An active discovery scan and an active monitoring probe carry different risks and yield different information; passive discovery and passive monitoring have different blind spots. Treating passive versus active as a single choice forces a decision that should be made twice, once per axis, against different criteria. The remainder of this briefing keeps the two separate, and gives more weight to the monitoring axis, where the continuous vantage on traffic is the defining constraint.</p>
+        <h2 id="why-ot-is-not-it">2. Why OT is not IT</h2>
+        <p>The passive-versus-active calculation is routine in IT and fraught in OT, and the reason is not conservatism. It is that the devices, the priorities, and the timescales are genuinely different.</p>
+        <p>The devices are fragile. Many industrial controllers have constrained processing power and network stacks that were never hardened against unexpected input. Sending them traffic they did not solicit is not a neutral act. The effect is documented rather than hypothetical: in one systematic study of ICS asset-discovery tools, an ordinary Nmap scan against a programmable logic controller drove the device into a failure state, with status lights flashing and a full power cycle required to recover, a result the authors noted was reproducible by anyone using the tool in a standard way with no specialist skill [<a class="ref" href="#ref-1">1</a>]. Field reports describe specific models that reliably fault when interrogated by common IT scanning tools [<a class="ref" href="#ref-2">2</a>]. The vendor response in the first case, that the device was end-of-life, is itself instructive: the model remained widely deployed and available for sale. In IT, a scan that crashes a host is an inconvenience; in OT, the host may be controlling a physical process, and the failure propagates from the network into the world.</p>
+        <p>The priorities are inverted, but the shorthand for this is often overextended, and it is worth stating carefully. IT security conventionally orders its goals as confidentiality, integrity, and availability, and OT is frequently described as reversing this to availability first. The reversal is real enough that IEC 62443 treats the difference explicitly [<a class="ref" href="#ref-3">3</a>]. But the "availability first" ordering began as a corrective for IT practitioners entering OT, not as a security architecture principle, and the major OT attacks, Stuxnet, Triton, and Industroyer, targeted integrity, not merely availability [<a class="ref" href="#ref-4">4</a>]. Neither NIST SP 800-82 nor IEC 62443 endorses a fixed priority ordering of the three properties; both derive their requirements from threat modelling and zone classification rather than from a ranking [<a class="ref" href="#ref-4">4</a>]. The accurate statement is narrower and sufficient here: an OT environment does not tolerate an unplanned outage the way an office network does, and a method that risks causing one is judged against a far less forgiving standard.</p>
+        <p>The timescales are long. IT hardware turns over every three to five years; OT systems are designed to run for two decades or more [<a class="ref" href="#ref-3">3</a>]. A method must therefore work not against the current generation of devices but against generations that predate modern network hardening by many years, and that will remain in service long after they stop receiving updates. The fragility described above is not a transitional problem that replacement will solve; it is a standing property of a field whose installed base is measured in decades.</p>
+        <h2 id="what-active-methods-do-well-and-what-they-cost-in-ot">3. What active methods do well, and what they cost in OT</h2>
+        <p>Active methods send traffic to devices and reason from the responses. Their strength is reach: they can obtain what passive observation cannot, because they do not wait for a device to reveal itself.</p>
+        <p>Three capabilities stand out. Active methods find silent devices, those that are present but generate little or no traffic of their own, and which a passive observer therefore never sees [<a class="ref" href="#ref-5">5</a>][<a class="ref" href="#ref-6">6</a>]. They recover device metadata, firmware version, model, and configuration detail, that is often absent from ordinary network traffic and can only be obtained by asking [<a class="ref" href="#ref-6">6</a>][<a class="ref" href="#ref-7">7</a>]. And they do not depend on a vantage point: where no tap or mirror port exists, an active method can still reach a device across the network, whereas a passive one is simply blind there [<a class="ref" href="#ref-8">8</a>].</p>
+        <p>The cost in OT is the risk described in the previous section, and it is not to be minimised. But a fair account must also record that active methods have evolved. The aggressive, IT-native scanning that gave the approach its reputation, malformed packets, security probes, and high packet rates against fragile hardware, is not the only form active discovery takes today. Purpose-built OT scanners constrain themselves: strictly standard-conforming traffic, no security probes, per-host rate limiting on the order of tens of packets per second, and communication in each device's native industrial protocol rather than generic port interrogation [<a class="ref" href="#ref-9">9</a>][<a class="ref" href="#ref-6">6</a>]. Some vendors extend this to controlled, read-only, protocol-aware queries scheduled within planned maintenance windows [<a class="ref" href="#ref-5">5</a>]. This is a genuine change, not a rebranding: the modern OT-safe active query is a different instrument from the Nmap sweep that crashes a controller.</p>
+        <p>Two qualifications keep this in proportion. First, "OT-safe" is a claim about typical devices and tested conditions, not a guarantee for every controller in every state; the fragility of the oldest hardware means some devices remain unsafe to query at all, and that residual set does not shrink to zero. Second, active methods still miss what is offline or transient at the moment of the scan; a snapshot sees only what is present when it is taken [<a class="ref" href="#ref-10">10</a>]. Reach is real, but it is not completeness.</p>
+        <h2 id="what-passive-methods-do-well-and-where-they-are-blind">4. What passive methods do well, and where they are blind</h2>
+        <p>Passive methods observe traffic without participating in it, typically from a span port or network tap. Their defining strength is the mirror image of the active method's defining cost: they introduce no traffic, and so carry no risk of disrupting the devices or the process through the observation itself. On a network where an unsolicited packet can fault a controller, a method that sends none removes that risk, although installing a tap or configuring a mirror port is itself a change to the network [<a class="ref" href="#ref-5">5</a>].</p>
+        <p>That safety comes with a second advantage suited to the monitoring axis: passive observation is continuous by nature. It does not sample the network at intervals; it watches the traffic as it flows, which is what detection of behaviour over time requires. And it needs no credentials and no access to the devices themselves, only a vantage on the traffic they already exchange.</p>
+        <p>The blind spots are equally definite, and pretending otherwise would weaken the account. A passive method sees only what talks: a device that is silent, dormant, or transmitting infrequently may never appear at all, and the risk it carries goes unobserved [<a class="ref" href="#ref-6">6</a>][<a class="ref" href="#ref-7">7</a>]. Metadata that the devices do not put on the wire, firmware and configuration detail, is not recovered by listening [<a class="ref" href="#ref-7">7</a>]. The method depends on a vantage point, and taps and span ports are not present on every segment, so coverage has gaps wherever the mirror does not reach [<a class="ref" href="#ref-8">8</a>]. And it needs time: a passive baseline accumulates only as traffic is observed, so the picture is partial until enough has flowed [<a class="ref" href="#ref-8">8</a>]. To these must be added the constraint examined in the companion briefing on S7 encryption: where traffic is encrypted, passive observation of the payload recovers only transport metadata, and the substance of the communication is out of reach [<a class="ref" href="#ref-14">14</a>].</p>
+        <p>The pattern across this section and the last is not that one method is sound and the other flawed. It is that each method's strength is the other's blind spot, and that in OT the axis of difference that matters most, whether a method can disturb the process, falls decisively on one side.</p>
+        <h2 id="what-the-standards-say">5. What the standards say</h2>
+        <p>The preference that OT practice shows for passive methods is not merely cultural; it is written into the guidance that governs the field, and reading that guidance precisely matters.</p>
+        <p>The United States federal guidance for operational technology, NIST SP 800-82 in its third revision of 2023, is explicit that active scanning is a hazard on a live network. It advises that owners exercise extreme caution when permitting active scanning on an operational network, on account of device sensitivity, and it recommends passive network monitoring, which captures and analyses traffic without injecting packets, as the baseline for visibility; active scanning is to be avoided unless thoroughly tested in the specific environment [<a class="ref" href="#ref-11">11</a>]. The guidance frames this as a deliberate tailoring of IT-normal controls to an OT context in which safety and continuity weigh as heavily as confidentiality [<a class="ref" href="#ref-11">11</a>]. IEC 62443 sits alongside it, deriving control requirements from zones and threat models rather than from a generic scanning practice imported from IT [<a class="ref" href="#ref-3">3</a>].</p>
+        <p>The guidance is not static, and the direction of its evolution argues against reading the standards as a blanket prohibition on active methods. Commentary in the current revision cycle has urged the standards bodies to move past a binary scan-or-do-not-scan framing, to establish passive assessment as the safe baseline and then define a formal risk-assessment framework under which controlled active scanning can proceed in graduated phases [<a class="ref" href="#ref-12">12</a>]. This is the same conclusion the technical picture points to: passive as the default, active as a deliberate, risk-assessed addition rather than a routine practice or a forbidden one.</p>
+        <p>The standards, in other words, do not resolve the choice by banning one method. They establish a default and a burden of proof. Passive monitoring is the baseline a defender is expected to have; active methods carry the burden of demonstrating that they are safe for the specific devices before they are used.</p>
+        <h2 id="the-encryption-dimension">6. The encryption dimension</h2>
+        <p>There is a further axis of difference that the traditional discussion predates, and on which primary measurement, rather than general argument, is now available for at least one modern encrypted control channel [<a class="ref" href="#ref-13">13</a>].</p>
+        <p>The naive framing is that a passive observer loses the payload under encryption while an active method, able to authenticate and participate in the session, does not. This is true as far as it goes, but hardware measurement on a Siemens S7-1200 G2 Web API carried over TLS 1.3 sharpens it in two ways that matter for OT specifically.</p>
+        <p>First, the passive blindness under strong encryption is close to total, not partial. On that channel a strictly passive observer on a mirror port cannot recover the method, the target of an action, the value written, or the process variable whose trajectory continuous monitoring would depend on; under TLS 1.3 even the server certificate is encrypted, so the endpoint's identity is not passively recoverable either [<a class="ref" href="#ref-13">13</a>]. What survives is metadata alone: the size, direction, and timing of otherwise opaque records.</p>
+        <p>Second, and less obviously, the sensor that does survive encryption fails against precisely the case that matters most. A metadata sensor keyed on record volume and timing detects bursts of activity, but an isolated, well-chosen write is nearly invisible to it: in a controlled test, three of six isolated writes produced no detectable excursion above the polling baseline, with no discernible pattern to which were seen, because an individual write adds only on the order of a dozen bytes to a continuous polling stream [<a class="ref" href="#ref-13">13</a>]. The activity a metadata sensor detects well is not the activity a targeted adversary generates. Under strong encryption, the class of passive signal that remains is the weakest against the single deliberate action.</p>
+        <p>The correct way to state the axis is therefore not that encryption favours active over passive, but that it moves the vantage. The evidence a continuous monitor depends on is available on a clear channel from a passive mirror; on an encrypted channel it is available only where the transport is legitimately terminated, at a gateway, a proxy, or a co-located component at a point that already decrypts [<a class="ref" href="#ref-13">13</a>]. Whether that relocation is acceptable is a question each deployment answers against its own constraints, and it applies to any observing method that depends on reading the traffic, passive or active alike.</p>
+        <p>Two things bound this correctly. The encrypted share of the installed base is still the minority, as the companion landscape briefing on S7 sets out; across most deployed industrial traffic today the payload remains readable [<a class="ref" href="#ref-14">14</a>]. But the direction of travel is towards more encryption, and each increment moves the balance on this axis over equipment that will still be in service long after the choice is made. Encryption is not a reason to prefer one method over another; it is a dimension on which the location of the observation, more than the method of it, is what must change.</p>
+        <h2 id="the-limits-of-any-single-method">7. The limits of any single method</h2>
+        <p>The picture that assembles from the preceding sections is not a verdict for one method over the other. It is a set of trade-offs that fall differently along each axis, and a field in which the honest position is that no single method is complete on its own.</p>
+        <p>The industry has largely converged on this in practice. The mature pattern is hybrid: passive monitoring as the safe baseline a defender is expected to maintain, with controlled, OT-safe active queries added deliberately where the passive picture has gaps, scheduled and risk-assessed rather than run as routine [<a class="ref" href="#ref-5">5</a>][<a class="ref" href="#ref-12">12</a>]. The standards point the same way, establishing passive as the default and placing the burden of proof on active methods to show they are safe for the specific devices before use [<a class="ref" href="#ref-11">11</a>]. Neither the technical picture nor the guidance supports a purist position in either direction.</p>
+        <p>Yet convergence on hybrid does not dissolve the underlying question; it reframes it. Each method has a defined horizon. The passive method sees what talks, and reads what the wire carries in clear; its horizon is drawn by what devices transmit and by whether that transmission is legible. The active method reaches what is silent and recovers what must be asked for; its horizon is drawn by what the devices can safely be made to answer. Encryption redraws both, and moves the useful vantage from the mirror to the point of legitimate termination for anything that depends on reading the payload.</p>
+        <p>The open question that remains is whether a given method's horizon is sufficient for what a given environment asks of it. That is not a question a method answers in advance; it is one each deployment answers for itself, against the devices it actually runs, the traffic they actually generate, the encryption they are actually migrating towards, and the adversary it is actually concerned with. A method sufficient for an estate of clear, chatty, legacy controllers may fall short against one migrating to encrypted channels and worried about the single deliberate action rather than the noisy intrusion. The value of stating the trade-offs precisely is not that they resolve the choice, but that they let each defender see where the horizon of their chosen method lies, and judge honestly whether it reaches far enough.</p>
+
+        <section class="article-related" aria-labelledby="help">
+          <h2 id="help">How Liscere can help</h2>
+          <ul class="related-links">
+            <li><a href="../../services/ot-visibility-monitoring.html">OT visibility and monitoring</a><span>See what your control network is actually being told to do.</span></li>
+            <li><a href="../../services/ot-security-assessment.html">OT and ICS security assessment</a><span>Find what is exposed and what an attacker could change.</span></li>
+            <li><a href="../../services/ot-incident-response.html">Incident response for OT</a><span>Contain an incident without stopping the process.</span></li>
+          </ul>
+        </section>
+
+        <section class="article-faq" aria-labelledby="questions">
+          <h2 id="questions">Questions</h2>
+          <div class="faq-item">
+            <h3 class="faq-q">Should OT networks be scanned actively or monitored passively?</h3>
+            <p class="faq-a">Both, for different questions. Passive monitoring is the baseline in federal and sector guidance; active methods reach silent devices and recover metadata, at a disruption risk that must be justified. The mature pattern is hybrid.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Why is OT different from IT here?</h3>
+            <p class="faq-a">For concrete reasons: industrial devices are fragile, priorities do not tolerate unplanned outages, and equipment stays in service for decades.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">How does encryption affect passive monitoring?</h3>
+            <p class="faq-a">Hardware measurement shows that what an encrypted channel changes is less the method of observation than its location.</p>
+          </div>
+        </section>
+
+        <section class="article-sources" aria-labelledby="sources">
+          <h2 id="sources">References</h2>
+          <ol class="sources">
+            <li id="ref-1">E. Samanis, J. Gardiner, and A. Rashid. A Taxonomy for Contrasting Industrial Control Systems Asset Discovery Tools. arXiv:2202.01604, 2022 (also published as SoK, ARES 2022).</li>
+            <li id="ref-2">Field reports on OT devices that fault under IT scanning tools. PLCTalk practitioner forum, 2023.</li>
+            <li id="ref-3">International Electrotechnical Commission. IEC 62443, Security for Industrial Automation and Control Systems (series).</li>
+            <li id="ref-4">IOActive. Rethinking the CIA Triad in Operational Technology Environments. IOActive, 2026.</li>
+            <li id="ref-5">Dragos. Passive Monitoring and Active Collection for a Complete OT Asset Inventory. Dragos, 2025.</li>
+            <li id="ref-6">Nozomi Networks. How to Ensure You Have Complete OT/ICS Asset Visibility. Nozomi Networks, 2026.</li>
+            <li id="ref-7">Tenable. How to Tackle OT Challenges: Asset Inventory and Vulnerability Assessment. Tenable, 2023.</li>
+            <li id="ref-8">runZero. Active Scanning of Industrial Control Systems Safely. runZero, 2024; and Radiflow, on tap/span coverage gaps and baseline accumulation, 2023.</li>
+            <li id="ref-9">runZero. Rules for safe active scanning in ICS environments (RFC-compliant traffic, no security probes, per-host rate limiting). runZero, 2024.</li>
+            <li id="ref-10">FireMon. Active vs. Passive Scanning: Key Differences. FireMon, 2025.</li>
+            <li id="ref-11">National Institute of Standards and Technology. SP 800-82 Revision 3, Guide to Operational Technology (OT) Security. NIST, September 2023.</li>
+            <li id="ref-12">Reporting on NIST SP 800-82 revision commentary urging a graduated, risk-assessed approach to active scanning with passive as the safe baseline. OT.today, 2026.</li>
+            <li id="ref-13">B. Salmazo. Contextual Evaluation under Encryption. Liscere Technical Report LTR-2026-04, 2026. https://liscere.com/assets/papers/liscere-evaluation-encryption.pdf</li>
+            <li id="ref-14">B. Salmazo. Security by Default, Legacy by Deployment: The Encryption Gap in the Installed S7 Base. Liscere Briefing LB-2026-04, 2026.</li>
+          </ol>
+        </section>
+
+        <section class="article-cite" aria-labelledby="cite-title">
+          <h2 id="cite-title" class="doc-section-head">Cite this report</h2>
+          <pre class="doc-cite">@techreport{salmazo_passiveactive_2026,
   author      = {Bruno Salmazo},
   title       = {Passive and Active in Operational Technology: A Field Guide to the Trade-offs},
   institution = {Liscere},
@@ -114,15 +383,9 @@
   type        = {Landscape Briefing},
   url         = {https://liscere.com/research/lb-2026-05/}
 }</pre>
-      </div>
+        </section>
 
-      <div class="doc-preview-col">
-        <div class="doc-preview">
-          <object class="doc-preview-pdf" data="../../assets/papers/liscere-passive-active-ot.pdf#view=FitH" type="application/pdf" aria-label="Interactive preview of the report; scroll to read, or open the full PDF">
-            <p class="doc-pdf-fallback">Preview unavailable on this device. <a href="../../assets/papers/liscere-passive-active-ot.pdf" target="_blank" rel="noopener">Open the full PDF.</a></p>
-          </object>
-          <a class="doc-preview-open" href="../../assets/papers/liscere-passive-active-ot.pdf" target="_blank" rel="noopener">Open full PDF &#8599;</a>
-        </div>
+        <p class="article-back"><a href="../../research.html" data-back>&#8592; All research</a></p>
       </div>
     </article>
 

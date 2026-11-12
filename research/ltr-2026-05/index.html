@@ -1,14 +1,14 @@
 <!doctype html>
-<html lang="en-GB" class="past-hero">
+<html lang="en-GB" class="past-hero article-view">
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://formspree.io https://cloudflareinsights.com; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers | Liscere</title>
+  <title>OPC UA Security Modes and Passive Observation | Liscere</title>
   <meta name="description" content="What passive observation recovers under each OPC UA message security mode: None, Sign and SignAndEncrypt, measured on physical hardware." />
-  <meta name="author" content="Liscere" />
-  <meta name="robots" content="index,follow" />
+  <meta name="author" content="Bruno Salmazo" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
   <meta name="theme-color" content="#030405" />
 
   <meta property="og:title" content="Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers" />
@@ -21,47 +21,171 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Liscere: OT Cybersecurity" />
   <meta property="og:site_name" content="Liscere" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="article:published_time" content="2026-07" />
+  <meta property="article:section" content="Technical Report" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers" />
   <meta name="twitter:description" content="What passive observation recovers under each OPC UA message security mode: None, Sign and SignAndEncrypt, measured on physical hardware." />
   <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
+  <meta name="twitter:image:alt" content="Liscere: OT Cybersecurity" />
 
   <link rel="canonical" href="https://liscere.com/research/ltr-2026-05/" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers",
-    "name": "Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers",
-    "author": {
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://liscere.com/research/ltr-2026-05/#article",
+      "headline": "Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers",
+      "name": "Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers",
+      "description": "What passive observation recovers under each OPC UA message security mode: None, Sign and SignAndEncrypt, measured on physical hardware.",
+      "url": "https://liscere.com/research/ltr-2026-05/",
+      "mainEntityOfPage": "https://liscere.com/research/ltr-2026-05/",
+      "inLanguage": "en-GB",
+      "datePublished": "2026-07",
+      "dateModified": "2026-10-07",
+      "image": [
+        "https://liscere.com/assets/og-image.png"
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "Bruno Salmazo"
+      },
+      "publisher": {
+        "@id": "https://liscere.com/#org"
+      },
+      "isPartOf": {
+        "@type": "CreativeWorkSeries",
+        "name": "Liscere Technical Reports",
+        "url": "https://liscere.com/research.html#research"
+      },
+      "articleSection": "Technical Report",
+      "about": [
+        "OPC UA",
+        "Encryption",
+        "Passive monitoring",
+        "Operational technology security"
+      ],
+      "keywords": "OPC UA security modes, OPC UA Sign, SignAndEncrypt, OPC UA security policy, passive monitoring, OT encryption, IEC 62541",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "OPC Foundation. OPC Unified Architecture, Part 2: Security Model. IEC 62541-2. OPC Foundation, 2022."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "OPC Foundation. OPC Unified Architecture, Part 4: Services. IEC 62541-4. OPC Foundation, 2022."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "OPC Foundation. OPC Unified Architecture, Part 7: Profiles. IEC 62541-7. OPC Foundation, 2022."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "International Electrotechnical Commission. IEC 62541: OPC Unified Architecture. IEC, Geneva, 2020."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "M. Dahlmanns, J. Lohmöller, I. B. Fink, J. Pennekamp, K. Wehrle, and M. Henze. Easing the Conscience with OPC UA: An Internet-Wide Study on Insecure Deployments. In Proceedings of the ACM Internet Measurement Conference (IMC '20), pages 101–110, 2020. DOI: 10.1145/3419394.3423666."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Bitsight TRACE. OPC UA Server Internet Exposures: 2025 Year in Review. Bitsight Technologies, 2025. https://www.bitsight.com/blog/opc-ua-server-internet-device-exposures-in-2025."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "R. Yaben and E. Vasilomanolakis. Drifting Away: A Cyber-Security Study of Internet-Exposed OPC UA Servers. In Proceedings of the 10th International Workshop on Traffic Measurements for Cybersecurity (WTMC 2025), co-located with IEEE European Symposium on Security and Privacy, 2025."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "A. Erba, A. Müller, and N. O. Tippenhauer. Security Analysis of Vendor Implementations of the OPC UA Protocol for Industrial Control Systems. CISPA Helmholtz Center for Information Security, 2022. arXiv:2104.06051."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "OPC Foundation and M2M Alliance security working group. Practical Security Guidelines for Building OPC UA Applications. OPC Foundation, 2018. https://opcconnect.opcfoundation.org/2018/06/practical-security-guidelines-for-building-opc-ua-applications/."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "FlowFuse. OPC UA Security: How Threat Actors Exploit Industrial Protocol Vulnerabilities. FlowFuse, 2026. https://flowfuse.com/blog/2026/05/opc-ua-security-attack-vectors/."
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "B. Salmazo. Contextual Evaluation under Encryption. Liscere Technical Report LTR-2026-04, 2026."
+        }
+      ],
+      "abstract": "The preceding report in this series [LTR-2026-04] established, on physical hardware, that strong transport encryption removes the vantage from which a passive observer can read an industrial control action, not the logic by which such an action might be evaluated, and it left open how widely that vantage problem bites. This report takes up the question for OPC UA, the vendor-neutral protocol of the supervisory and integration layer, and finds that its answer is a gradient rather than a verdict. OPC UA does not present the binary that a transport such as TLS does. It defines three message security modes, None, Sign, and SignAndEncrypt, negotiated per channel alongside a security policy that names the algorithm suite. We show that the mode alone, not the policy, decides what a passive observer recovers, and we document the result mode by mode with capture evidence: under None the full exchange is legible; under Sign it is equally legible and additionally authenticated; under SignAndEncrypt only the transport envelope survives. The intermediate mode is the finding of interest. Sign delivers integrity and authenticity on the wire while leaving the traffic fully visible to a legitimate observer. Integrity-only configurations exist in transport protocols, among them TLS 1.3 integrity-only cipher suites (RFC 9150), IPsec AH and integrity-only MACsec, but they sit outside those transports' default configuration, whereas in OPC UA this is one of the three modes defined for every secure channel. We place this against the measured state of deployment. Internet-wide studies five years apart, from 2020 and from 2024 to 2025, agree that a large and persistent fraction of observable OPC UA runs without confidentiality, driven not by weakness in the cryptography but by the configuration burden of activating it. The legible case is therefore the common one, and for OPC UA the observation vantage is not fixed but selected, per channel, by a security-mode choice made elsewhere.",
+      "version": "1.1",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "copyrightHolder": {
+        "@id": "https://liscere.com/#org"
+      },
+      "identifier": "LTR-2026-05",
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "https://liscere.com/assets/papers/liscere-opcua-security-modes.pdf",
+        "encodingFormat": "application/pdf"
+      }
+    },
+    {
       "@type": "Organization",
       "@id": "https://liscere.com/#org",
       "name": "Liscere",
-      "url": "https://liscere.com/"
+      "legalName": "Liscere sp. z o.o.",
+      "url": "https://liscere.com/",
+      "logo": "https://liscere.com/assets/apple-touch-icon.png"
     },
-    "datePublished": "2026-07",
-    "version": "1.1",
-    "dateModified": "2026-10-07",
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "copyrightHolder": {
-      "@id": "https://liscere.com/#org"
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://liscere.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://liscere.com/research.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "LTR-2026-05",
+          "item": "https://liscere.com/research/ltr-2026-05/"
+        }
+      ]
     },
-    "abstract": "The preceding report in this series established, on physical hardware, that strong transport encryption removes the vantage from which a passive observer can read an industrial control action, not the logic by which such an action might be evaluated, and it left open how widely that vantage problem bites. This report takes up the question for OPC UA, the vendor-neutral protocol of the supervisory and integration layer, and finds that its answer is a gradient rather than a verdict. OPC UA does not present the binary that a transport such as TLS does. It defines three message security modes, None, Sign, and SignAndEncrypt, negotiated per channel alongside a security policy that names the algorithm suite. We show that the mode alone, not the policy, decides what a passive observer recovers, and we document the result mode by mode with capture evidence: under None the full exchange is legible; under Sign it is equally legible and additionally authenticated; under SignAndEncrypt only the transport envelope survives. The intermediate mode is the finding of interest. Sign delivers integrity and authenticity on the wire while leaving the traffic fully visible to a legitimate observer. Integrity-only configurations exist in transport protocols, among them TLS 1.3 integrity-only cipher suites (RFC 9150), IPsec AH and integrity-only MACsec, but they sit outside those transports' default configuration, whereas in OPC UA this is one of the three modes defined for every secure channel. We place this against the measured state of deployment. Internet-wide studies five years apart, from 2020 and from 2024 to 2025, agree that a large and persistent fraction of observable OPC UA runs without confidentiality, driven not by weakness in the cryptography but by the configuration burden of activating it. The legible case is therefore the common one, and for OPC UA the observation vantage is not fixed but selected, per channel, by a security-mode choice made elsewhere.",
-    "publisher": {
-      "@type": "Organization",
-      "@id": "https://liscere.com/#org",
-      "name": "Liscere",
-      "url": "https://liscere.com/"
-    },
-    "url": "https://liscere.com/research/ltr-2026-05/",
-    "encoding": {
-      "@type": "MediaObject",
-      "contentUrl": "https://liscere.com/assets/papers/liscere-opcua-security-modes.pdf",
-      "encodingFormat": "application/pdf"
+    {
+      "@type": "FAQPage",
+      "@id": "https://liscere.com/research/ltr-2026-05/#faq",
+      "inLanguage": "en-GB",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is OPC UA traffic encrypted?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only under the SignAndEncrypt mode. Under None and under Sign the full exchange can be read; Sign adds integrity and authenticity but leaves the payload in clear."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How common is unencrypted OPC UA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Internet-wide studies five years apart agree that a large and persistent fraction of observable OPC UA runs without confidentiality, because of the configuration burden of activating it rather than any weakness in the cryptography."
+          }
+        }
+      ]
     }
-  }
+  ]
+}
   </script>
 
   <link rel="stylesheet" href="../../assets/css/fonts.css?v=1" />
@@ -70,7 +194,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261112-v11" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261112-a2" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -88,25 +212,516 @@
     </nav>
   </header>
 
-  <main id="main-content" class="research-page">
-    <article class="doc-split">
-      <div class="doc-col">
-        <p class="paper-eyebrow">LTR-2026-05 · <a class="series-back" href="../../research.html#research" data-back>Technical Report</a> · July 2026</p>
-        <h1 class="doc-title">Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers</h1>
+  <main id="main-content" class="research-page article-page">
+    <article class="article">
+      <header class="article-head">
+        <p class="kicker"><a class="series-back" href="../../research.html#research" data-back>TECHNICAL REPORT</a> · LTR-2026-05 · July 2026</p>
+
+        <h1>Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers</h1>
+
+        <p class="article-byline">By Bruno Salmazo · Liscere</p>
         <p class="doc-rights">Version 1.1 · © 2026 Liscere sp. z o.o. · Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a></p>
         <p class="doc-revised">Revised 7 October 2026: addresses, MAC addresses and session tokens redacted in Figures 1 to 3; Sign-mode claims qualified; licence statement added.</p>
 
-        <details class="doc-abstract-toggle">
-          <summary>Abstract</summary>
-          <p class="doc-abstract">The preceding report in this series established, on physical hardware, that strong transport encryption removes the vantage from which a passive observer can read an industrial control action, not the logic by which such an action might be evaluated, and it left open how widely that vantage problem bites. This report takes up the question for OPC UA, the vendor-neutral protocol of the supervisory and integration layer, and finds that its answer is a gradient rather than a verdict.</p>
-          <p class="doc-abstract">OPC UA does not present the binary that a transport such as TLS does. It defines three message security modes, None, Sign, and SignAndEncrypt, negotiated per channel alongside a security policy that names the algorithm suite. We show that the mode alone, not the policy, decides what a passive observer recovers, and we document the result mode by mode with capture evidence: under None the full exchange is legible; under Sign it is equally legible and additionally authenticated; under SignAndEncrypt only the transport envelope survives. The intermediate mode is the finding of interest. Sign delivers integrity and authenticity on the wire while leaving the traffic fully visible to a legitimate observer. Integrity-only configurations exist in transport protocols, among them TLS 1.3 integrity-only cipher suites (RFC 9150), IPsec AH and integrity-only MACsec, but they sit outside those transports' default configuration, whereas in OPC UA this is one of the three modes defined for every secure channel.</p>
-          <p class="doc-abstract">We place this against the measured state of deployment. Internet-wide studies five years apart, from 2020 and from 2024 to 2025, agree that a large and persistent fraction of observable OPC UA runs without confidentiality, driven not by weakness in the cryptography but by the configuration burden of activating it. The legible case is therefore the common one, and for OPC UA the observation vantage is not fixed but selected, per channel, by a security-mode choice made elsewhere.</p>
-        </details>
+        <p class="lede">The preceding report in this series [LTR-2026-04] established, on physical hardware, that strong transport encryption removes the vantage from which a passive observer can read an industrial control action, not the logic by which such an action might be evaluated, and it left open how widely that vantage problem bites. This report takes up the question for OPC UA, the vendor-neutral protocol of the supervisory and integration layer, and finds that its answer is a gradient rather than a verdict.</p>
+        <p class="lede">OPC UA does not present the binary that a transport such as TLS does. It defines three message security modes, None, Sign, and SignAndEncrypt, negotiated per channel alongside a security policy that names the algorithm suite. We show that the mode alone, not the policy, decides what a passive observer recovers, and we document the result mode by mode with capture evidence: under None the full exchange is legible; under Sign it is equally legible and additionally authenticated; under SignAndEncrypt only the transport envelope survives. The intermediate mode is the finding of interest. Sign delivers integrity and authenticity on the wire while leaving the traffic fully visible to a legitimate observer. Integrity-only configurations exist in transport protocols, among them TLS 1.3 integrity-only cipher suites (RFC 9150), IPsec AH and integrity-only MACsec, but they sit outside those transports' default configuration, whereas in OPC UA this is one of the three modes defined for every secure channel.</p>
+        <p class="lede">We place this against the measured state of deployment. Internet-wide studies five years apart, from 2020 and from 2024 to 2025, agree that a large and persistent fraction of observable OPC UA runs without confidentiality, driven not by weakness in the cryptography but by the configuration burden of activating it. The legible case is therefore the common one, and for OPC UA the observation vantage is not fixed but selected, per channel, by a security-mode choice made elsewhere.</p>
+        <p class="keywords"><strong>Keywords:</strong> OPC UA, IEC 62541, industrial protocols, message security mode, encryption adoption, passive monitoring, observation vantage.</p>
+      </header>
 
-        <a class="primary-cta doc-open-mobile" href="../../assets/papers/liscere-opcua-security-modes.pdf" target="_blank" rel="noopener">Open the PDF &#8599;</a>
+      <aside class="key-points" aria-labelledby="key-points-title">
+        <h2 id="key-points-title">Key points</h2>
+        <ul>
+          <li>OPC UA has three message security modes: None, Sign and SignAndEncrypt. The mode, not the policy, decides what a passive observer recovers.</li>
+          <li>Under None and under Sign the full exchange is legible; under SignAndEncrypt only the transport envelope survives.</li>
+          <li>Sign gives integrity and authenticity on the wire while leaving traffic visible to a legitimate observer.</li>
+          <li>Studies from 2020 and from 2024 to 2025 agree that a large share of observable OPC UA runs without confidentiality.</li>
+        </ul>
+      </aside>
 
-        <h2 class="doc-section-head">Cite this report</h2>
-        <pre class="doc-cite">@techreport{salmazo_opcua_2026,
+      <aside class="article-side" aria-label="Video and contents">
+        <div class="side-sticky">
+
+          <nav class="article-toc" aria-labelledby="toc-title">
+            <h2 id="toc-title">On this page</h2>
+            <ol>
+              <li><a href="#introduction">1. Introduction</a></li>
+              <li><a href="#how-opc-ua-communicates">2. How OPC UA Communicates</a></li>
+              <li><a href="#the-three-message-security-modes">3. The Three Message Security Modes</a></li>
+              <li><a href="#encryption-adoption-in-practice">4. Encryption Adoption in Practice</a></li>
+              <li><a href="#what-passive-observation-recovers">5. What Passive Observation Recovers</a></li>
+              <li><a href="#implications">6. Implications</a></li>
+              <li><a href="#conclusion">7. Conclusion</a></li>
+              <li><a href="#help">How Liscere can help</a></li>
+              <li><a href="#questions">Questions</a></li>
+              <li><a href="#sources">References</a></li>
+            </ol>
+          </nav>
+          <section class="side-pdf" aria-labelledby="side-pdf-title">
+            <h2 id="side-pdf-title">Full report (PDF)</h2>
+            <p>The same text as a typeset PDF, with page numbers for citation.</p>
+            <a class="secondary-cta" href="../../assets/papers/liscere-opcua-security-modes.pdf" target="_blank" rel="noopener">Download PDF &#8599;</a>
+          </section>
+          <section class="side-cta" aria-labelledby="side-cta-title">
+            <h2 id="side-cta-title">Facing something similar?</h2>
+            <p>We help industrial operators find what is exposed, see what their control network is being told to do, and respond when something goes wrong.</p>
+            <a class="primary-cta" href="../../services.html#contact">Talk to us</a>
+          </section>
+        </div>
+      </aside>
+
+      <div class="article-body">
+        <h2 id="introduction">1. Introduction</h2>
+        <p>The report that precedes this one in the series examined a single encrypted control
+        channel, the web interface of a Siemens S7-1200 controller carried over TLS 1.3, and drew
+        one architectural conclusion from it. Under strong transport encryption a passive observer
+        positioned on a mirror port sees nothing of the payload. The exchange still crosses the
+        wire, but its contents are opaque, and no amount of positioning or decoding recovers them
+        without the keys. That report [LTR-2026-04] named this the vantage problem: encryption does not defeat
+        the logic by which one might evaluate an industrial action, it removes the vantage from
+        which the action can be seen at all. It also left a question open, namely how much of
+        operational technology is actually encrypted, and therefore how widely the vantage problem
+        bites in practice.</p>
+        <p>This report takes up that question for one protocol, and finds that the answer is more
+        interesting than a straight yes or no. OPC UA is the natural place to look. It is the
+        vendor-neutral protocol of the supervisory and integration layer, the channel over which
+        operator setpoints, HMI writes, and process telemetry increasingly travel, and it is
+        explicitly designed to be secure. Yet its security is not the binary that TLS, as commonly deployed, presents. Where a typical TLS deployment offers a choice between an encrypted channel and none, OPC UA offers three message security modes, and the middle one protects integrity without confidentiality. Transport-layer equivalents exist, among them TLS 1.3 integrity-only cipher suites (RFC 9150), IPsec AH and integrity-only MACsec, but they sit outside those transports' default configuration. That middle mode, Sign, protects a message's integrity and authenticity with a
+        signature while leaving its contents in clear. A deployment running it has made a real
+        security decision and is nonetheless fully legible to a passive observer.</p>
+        <p>This distinction is the organising idea of the report. The vantage problem, as posed for
+        TLS, is all-or-nothing: either the observer sees the exchange or it does not. OPC UA
+        refines the picture into a gradient. There is a mode under which the observer sees
+        everything, a mode under which the observer sees everything and knows the traffic is also
+        authentic, and a mode under which the observer sees only the envelope. Which of the three a
+        given deployment runs is therefore not a detail but the single fact that decides what
+        passive monitoring can achieve against it.</p>
+        <p>The report is deliberately confined to the protocol and the published evidence. It
+        characterises the three modes and the algorithm suites beneath them (Section 3), sets out
+        how much real OPC UA runs in each, and why, from internet-wide measurement (Section 4), and
+        documents what a passive observer recovers under each mode, with capture evidence (Section
+        5). It draws the implications for passive monitoring of OPC UA (Section 6) and closes by
+        placing the result in the wider arc of this series (Section 7). Throughout, the concern is
+        what the protocol exposes and conceals, not any particular system built to consume it. The
+        prior machinery needed to follow the argument, how an OPC UA client and server establish a
+        connection and exchange data, is set out first, in Section 2.</p>
+        <h2 id="how-opc-ua-communicates">2. How OPC UA Communicates</h2>
+        <p>Understanding what a passive observer sees requires a working picture of how an OPC UA
+        client and server actually talk. This section gives only what the rest of the report
+        needs, in the order the exchange unfolds.</p>
+        <p>An OPC UA conversation is built in layers, and the security-relevant structure sits in the
+        first two. When a client approaches a server it begins by asking what the server offers,
+        through the GetEndpoints service. The server replies with a list of endpoints, each
+        describing a supported combination of security mode, security policy, and transport, along
+        with the server's certificate. This exchange is what lets a client discover, before any
+        secure connection exists, which of the modes described in Section 3 a given server will
+        accept. It is also, for the same reason, visible to an observer: the negotiation of
+        security happens in clear, because there is not yet a secure channel to protect it.</p>
+        <p>The client then chooses an endpoint and establishes a <strong>SecureChannel</strong> through the
+        OpenSecureChannel service. The SecureChannel is the cryptographic foundation of everything
+        that follows. During its creation the two sides exchange and validate certificates,
+        agree on the algorithms named by the chosen security policy, and derive the keys used to
+        sign and, where the mode requires it, encrypt every subsequent message. The SecureChannel
+        is maintained by the communication stack rather than the application, and it is at this
+        layer that the message security mode takes effect. Whether the payloads that travel inside
+        the channel are merely signed or also encrypted is fixed here, and it is this single
+        choice that determines everything in Section 5.</p>
+        <p>On top of the SecureChannel the client creates a <strong>Session</strong>, through the CreateSession and
+        ActivateSession services. The distinction between the channel and the session matters. The
+        SecureChannel secures the transport; the Session represents the application-level
+        relationship and carries the user identity, established when the client activates the
+        session and proves who it is. When the server creates a session it returns an
+        authentication token, which the client attaches to every subsequent request so the server
+        can associate that request with the session. Under None and Sign this token travels in
+        clear, which is why, as Section 5 notes, an observer recovers a handle on the acting
+        session and not merely the bare action.</p>
+        <p>With a session active, the actual work is done through a small set of services. The two
+        that concern this report are the ones that read and write data. A <strong>Read</strong> returns the
+        current value of one or more node attributes; a <strong>Write</strong> sets them. When an operator
+        changes a setpoint, or an HMI pushes a new value to a controller, it is a Write that
+        crosses the wire, addressed to a specific node and carrying a specific value. These are the
+        actions a contextual monitor would care about, and under an unencrypted mode they are
+        recovered in full.</p>
+        <p>Process data that changes continuously is usually not polled one Read at a time but
+        delivered through the <strong>publish-subscribe</strong> mechanism. A client creates a subscription and
+        registers monitored items, one per node it wants to watch, and the server thereafter pushes
+        notifications whenever those values change, batched into publish responses. This is the
+        normal way a supervisory client keeps a live view of process variables such as levels,
+        pressures, or temperatures. For an observer it has a useful consequence and one
+        complication. The useful consequence is that, under an unencrypted mode, the stream of
+        notifications lets the observer reconstruct the trajectory of a process variable over time
+        without ever querying the server. The complication is that a notification identifies its
+        monitored item by a client-assigned handle rather than by the node's own identifier, with
+        the association between the two established earlier when the monitored item was created. An
+        observer that joins after that point sees the values but must do additional work to attach
+        each one to the node it belongs to. This detail becomes relevant to any system that
+        consumes the process trajectory, and it is noted here rather than laboured.</p>
+        <p>This is the whole of the machinery the report relies on [<a class="ref" href="#ref-2">2</a>]: a clear-text negotiation of
+        security, a SecureChannel that fixes what protection applies, a Session that carries
+        identity, and Read, Write, and publish-subscribe services that carry the actions and the
+        process state. Everything in the sections that follow concerns what survives of this
+        exchange under each security mode.</p>
+        <h2 id="the-three-message-security-modes">3. The Three Message Security Modes</h2>
+        <p>OPC UA does not treat security as a single on-or-off property. Each communication
+        channel is governed by two parameters that are negotiated separately when a client and
+        server connect. The <em>message security mode</em> determines what cryptographic protection is
+        applied to each message. The <em>security policy</em> names the algorithm suite that provides
+        it. An endpoint advertises a combination of the two, and a client must support the same
+        combination for the connection to succeed. The distinction runs through the rest of this
+        report: the mode decides <em>what</em> is protected, the policy decides <em>how</em>, and the two are
+        chosen independently.</p>
+        <p>Three message security modes are defined: None, Sign, and SignAndEncrypt. They are less
+        three points on one scale of strength than three answers to two separate questions,
+        whether a message's integrity is protected and whether its contents are kept
+        confidential.</p>
+        <p><strong>None</strong> applies no cryptographic protection. Messages travel in clear text, unsigned
+        and unencrypted. The specification and vendor guidance agree that this mode is meant only
+        for development, testing, or debugging, and not for production. Under None, any party that
+        can observe the network reads the full content of every message, and any party that can
+        inject traffic can forge or alter messages undetected.</p>
+        <p><strong>Sign</strong> attaches a cryptographic signature to every message: an asymmetric signature while the secure channel is opened, a keyed message authentication code thereafter. This protects integrity and
+        authenticity: an altered message fails the signature check and is rejected, and the
+        signature binds the message to the sending application's certificate. It does not conceal
+        anything. The payload stays in clear text and remains readable to any party capturing the
+        traffic. Sign thus occupies an intermediate position. A transport such as TLS can be configured for integrity without encryption (RFC 9150), but in ordinary deployment enabling protection means enabling encryption too. It confirms that an observed action is authentic and unmodified while leaving that
+        action fully visible.</p>
+        <p><strong>SignAndEncrypt</strong> applies both protections. Each message is signed for integrity and
+        authenticity, then encrypted for confidentiality, so an observer sees neither the
+        contents nor any usable structure, only the outer envelope of the secure channel. This is
+        the mode that OPC UA guidance and the IEC 62541 standard recommend for production
+        deployments where both integrity and confidentiality are required [<a class="ref" href="#ref-1">1</a>, <a class="ref" href="#ref-4">4</a>].</p>
+        <p>Three modes exist, rather than the familiar secure-or-not pair, because OPC UA separates
+        integrity from confidentiality as independent choices. Signing provides integrity and
+        authenticity; encryption provides confidentiality; and an operator may require the first
+        without the second. This reflects real operational needs. In some settings tampering and
+        impersonation are the primary threats while the data itself is not sensitive, and the
+        cost of encryption, or a deliberate wish to keep traffic visible for monitoring and
+        diagnostics, makes signing without encryption a reasonable choice rather than an
+        oversight.</p>
+        <h3>3.1 Security Policies: the Algorithm Suite</h3>
+        <p>The mode decides whether messages are signed and encrypted; the policy decides which
+        algorithms do it. A security policy is a named bundle that fixes three things at once:
+        the asymmetric algorithm used during the initial handshake to authenticate the parties
+        and agree on keys, the symmetric algorithm that protects the bulk of the traffic
+        thereafter, and the hash function used to build signatures. The name encodes the bundle.
+        <code>Basic256Sha256</code>, the policy most commonly encountered in the field and the current
+        baseline recommendation, pairs RSA-based asymmetric operations with 256-bit symmetric
+        encryption and the SHA-256 hash. The specification classifies it as suitable for
+        configurations with high security needs and, as of the current edition, gives it no
+        published expiry date. Two newer policies, <code>Aes128Sha256RsaOaep</code> and
+        <code>Aes256Sha256RsaPss</code>, keep the SHA-256 hash but use more modern AES-based encryption and
+        updated RSA padding, and are preferred where every device in a deployment supports them.</p>
+        <p>Not every available policy is safe. <code>Basic128Rsa15</code> and <code>Basic256</code> were deprecated
+        because they rely on 1024-bit RSA keys or the SHA-1 hash, neither considered secure
+        today, yet they remain widely supported in deployed equipment for backward
+        compatibility. A server that still advertises them weakens the protection available to
+        any client that negotiates one. The full normative list and the exact primitives of each
+        policy are given in Part 7 of the OPC UA specification [<a class="ref" href="#ref-3">3</a>]. Because mode and policy are set
+        independently, a channel is only as strong as the weaker of the two: a deployment may be
+        sound in mode but rest on a weak policy, or support a strong policy yet default to None.</p>
+        <p>One consequence of this split matters specifically for a passive observer, and is worth
+        stating directly because it is easy to assume otherwise. The policy does not change what
+        an observer can read; only the mode does. Whether a payload is legible on the wire is a
+        property of the mode: Sign leaves it in clear text, SignAndEncrypt conceals it. The
+        policy governs the algorithms that sign and encrypt, not whether encryption is applied.
+        A signed-but-unencrypted message is equally readable whether signed under Basic256Sha256
+        or a newer AES-based policy, and an encrypted message is equally opaque whichever policy
+        produced the ciphertext. For the question this report examines, what a passive observer
+        recovers, the policy axis is orthogonal and can be set aside: the three modes are the
+        only distinction that changes visibility.</p>
+        <p>One narrow exception applies. The negotiated policy is itself observable, because the
+        <code>SecurityPolicyUri</code> is exchanged in clear text during the handshake, before a secure
+        channel exists to protect it. An observer can see which policy and mode a session uses
+        even when it cannot read the session's contents. This is channel metadata, not payload:
+        knowing that a session runs SignAndEncrypt under Basic256Sha256 confirms the traffic is
+        encrypted and identifies the suite, but does not help recover what was sent. The
+        measurements in this report were all taken under Basic256Sha256; that visibility is
+        independent of the policy follows from the clear-versus-encrypted distinction being a
+        property of the mode, and is not expected to vary across policies.</p>
+        <h2 id="encryption-adoption-in-practice">4. Encryption Adoption in Practice</h2>
+        <p>The preceding section describes what OPC UA offers. What deployments actually use is a
+        different matter, and the gap between the two is the reason passive observation of OPC UA
+        traffic is not a niche concern. Two independent measurement efforts, five years apart,
+        give a consistent picture.</p>
+        <p>The first landmark study was carried out by Dahlmanns et al. and published at the ACM
+        Internet Measurement Conference in 2020 [<a class="ref" href="#ref-5">5</a>]. Scanning the reachable IPv4 space weekly from
+        February to August 2020, the authors assessed 1114 reachable OPC UA deployments and found
+        that 92% carried some security misconfiguration. Around a quarter of deployments used no
+        OPC UA security at all, a further quarter that did enable security relied on insecure
+        cryptographic primitives such as SHA-1, roughly a third reused certificates including
+        vendor defaults, and close to half operated without an allow-list restricting which
+        clients could connect. The study also observed several hundred devices across different
+        networks sharing a single certificate, which alone permits impersonation.</p>
+        <p>The weakness is not confined to how deployments are configured; it reaches into the
+        implementations themselves. A systematic study by Erba et al. examined 48 publicly
+        available OPC UA products and libraries and found security issues in 38 of them, with
+        seven supporting none of the protocol's security features at all and most of the remainder
+        shipping incomplete implementations or misleading guidance [<a class="ref" href="#ref-8">8</a>]. An operator who enables
+        security in good faith may therefore still inherit a weak result from the stack beneath.</p>
+        <p>A more recent effort by Bitsight, covering June 2024 to June 2025, shows the problem has
+        not receded as OPC UA adoption has grown [<a class="ref" href="#ref-6">6</a>]. Their monitoring identified 14,220 unique
+        internet-exposed OPC UA devices across 99 countries. Of these, over half allowed
+        unauthenticated access, and 80.26% supported the None mode, meaning they were willing to
+        exchange data in plain text with no integrity protection. Nearly nine in ten supported at
+        least one deprecated security policy of the kind described in the previous section. The
+        overwhelming majority, close to 97%, were reachable on the standard OPC UA port, which
+        makes them trivial to enumerate at internet scale.</p>
+        <p>The two studies measure different things. Dahlmanns et al. assessed the configuration of
+        reachable deployments, while Bitsight measured exposure and what devices were willing to
+        offer. They are not directly comparable figure for figure, and neither claims that a
+        majority of all OPC UA in the world is insecure, since only internet-reachable systems are
+        visible to a scanner. What they establish together is narrower and more durable: across a
+        five-year span and independent methodologies, a large and persistent fraction of
+        observable OPC UA runs without the confidentiality the protocol is capable of providing.</p>
+        <p>The cause is not a weakness in the cryptography. OPC UA is widely regarded as secure by
+        design, and its signing and encryption, correctly configured, are sound. The failure is
+        one of activation rather than capability. Turning on SignAndEncrypt requires a working
+        public-key infrastructure: certificates must be generated, exchanged between client and
+        server, placed in the correct trust stores on both sides, and renewed before they expire.
+        Industry guidance from the OPC Foundation and associated security working groups documents
+        this configuration burden directly, noting that device and machine builders frequently
+        struggle with exactly these steps [<a class="ref" href="#ref-9">9</a>]. Where the secure path demands manual certificate
+        handling and the insecure path demands nothing, deployments drift toward None, and the
+        None mode persists in production long after its intended use in development and testing.</p>
+        <p>This produces a characteristic pattern that recent field reporting captures well:
+        attackers seldom attack the cryptography, because they rarely need to [<a class="ref" href="#ref-10">10</a>]. The vectors that
+        work in practice are anonymous access left enabled, trust lists that do not enforce
+        certificates, deprecated ciphers no one removed, and servers left reachable from the open
+        internet. The protection is present in the specification and absent from the deployment.
+        For the purposes of this report, the same gap that an attacker exploits is what a passive
+        defender observes: a substantial share of real OPC UA traffic is carried in None or Sign,
+        and is therefore legible on the wire. The next section sets out precisely what that
+        legibility amounts to, mode by mode.</p>
+        <h2 id="what-passive-observation-recovers">5. What Passive Observation Recovers</h2>
+        <p>Sections 3 and 4 established two things: that the message security mode, not the policy,
+        decides whether a payload is legible, and that a large and durable fraction of real OPC UA
+        runs in None or, less often, in Sign. This section makes the consequence concrete. It
+        asks what a passive observer actually recovers from OPC UA traffic under each of the three
+        modes, and answers with capture evidence.</p>
+        <p>The observation model is deliberately minimal and entirely passive. Traffic is captured at
+        a network vantage point, for example a mirror or tap that copies frames without
+        participating in the exchange, and decoded with a standard protocol dissector. The
+        observer never connects to the server, never issues a request, and never holds any key
+        material. It sees only what crosses the wire. This is the weakest possible position, and
+        precisely for that reason it establishes a lower bound: whatever is recoverable here is
+        recoverable by any monitoring arrangement with at least this much access.</p>
+        <p><strong>None.</strong> Under the None mode the dissector resolves the message in full. The service
+        being invoked is identified, the target of the operation is resolved to its namespace and
+        identifier, and the written or returned value is decoded with its type. A write operation,
+        for instance, is recovered end to end: the observer learns that a write occurred, which
+        node it addressed, and the value it carried. Figure 1 shows a write request captured
+        under None, with the target node and the value both in clear.</p>
+        <figure>
+        <img src="/assets/research/ltr-2026-05/fig1.png" width="1600" height="1001" alt="Figure 1: A WriteRequest captured under the None mode. The dissector resolves the message in full: the service is identified as a WriteRequest, the request carries a clear-text authentication token identifying the acting session, and the written value (a Float) is decoded end to end. Nothing is concealed on the wire; in this reproduction, IP addresses, MAC addresses and the value of the session token are masked." loading="lazy">
+        <figcaption>Figure 1. A WriteRequest captured under the None mode. The dissector resolves the message in full: the service is identified as a WriteRequest, the request carries a clear-text authentication token identifying the acting session, and the written value (a Float) is decoded end to end. Nothing is concealed on the wire; in this reproduction, IP addresses, MAC addresses and the value of the session token are masked.</figcaption>
+        </figure>
+
+        <p>Two further points are worth noting because they are properties of the protocol structure
+        rather than of any particular deployment. First, a request of this kind also carries the
+        session's authentication token, which travels in clear under None and identifies the
+        acting session, so the observer recovers not only the action but a handle on who performed
+        it. Second, the same clarity applies to the streamed process data delivered by the
+        publish-subscribe mechanism: the values a server pushes to its subscribers are decoded
+        sample by sample, so the observer can reconstruct the trajectory of a monitored variable
+        over time. Under None, in short, the observer sees essentially everything of interest:
+        actions, their targets and values, the acting session, and the evolving process state.</p>
+        <p><strong>Sign.</strong> The Sign mode changes nothing about legibility. Because signing protects
+        integrity without applying encryption, every field that was recoverable under None remains
+        recoverable under Sign. A write request still resolves to its target and value, and the
+        streamed process values still decode sample by sample. Figure 2 shows the same kind of
+        write recovered under Sign: the target node, the attribute, and the value are all in clear,
+        exactly as under None. The one visible difference is the signature. The message is larger
+        than its None counterpart, and the trailing bytes of the frame carry the cryptographic
+        signature that authenticates it. The payload sits in front of that signature, fully
+        readable.</p>
+        <figure>
+        <img src="/assets/research/ltr-2026-05/fig2.png" width="1600" height="1001" alt="Figure 2: The same kind of write captured under the Sign mode. The target node, the attribute, and the value decode in clear exactly as under None. The message is larger than its None counterpart, and the trailing bytes carry the cryptographic signature that authenticates it. The payload precedes the signature and remains fully readable. IP addresses, MAC addresses and the session token bytes are masked in this reproduction." loading="lazy">
+        <figcaption>Figure 2. The same kind of write captured under the Sign mode. The target node, the attribute, and the value decode in clear exactly as under None. The message is larger than its None counterpart, and the trailing bytes carry the cryptographic signature that authenticates it. The payload precedes the signature and remains fully readable. IP addresses, MAC addresses and the session token bytes are masked in this reproduction.</figcaption>
+        </figure>
+
+        <p>This is the intermediate case at the centre of this report. A deployment running Sign has
+        made a genuine security decision: its traffic is protected against tampering and impersonation, provided certificates are validated and trust lists enforced, and under those conditions a forged or altered message is rejected. Yet to a passive
+        observer that traffic is exactly as legible as None. The integrity guarantee and the
+        confidentiality guarantee are decoupled, and Sign takes the first without the second. For
+        a defender observing the network this is the most favourable configuration of all, because
+        it combines authenticity on the wire with full visibility of what is happening.</p>
+        <p><strong>SignAndEncrypt.</strong> The SignAndEncrypt mode collapses this visibility. With the payload
+        encrypted, the dissector resolves none of it: the service, the target node, and the value
+        are all absent. What survives is the outer envelope of the secure channel. The observer
+        can still see that an OPC UA secure-channel message passed between two endpoints, the
+        identifier of the secure channel it belongs to, and the size and timing of each message.
+        Figure 3 shows a message under SignAndEncrypt, where only the envelope fields are
+        populated and the message body is opaque.</p>
+        <figure>
+        <img src="/assets/research/ltr-2026-05/fig3.png" width="1600" height="1001" alt="Figure 3: A message captured under the SignAndEncrypt mode. The dissector resolves none of the payload: the service reads as an unresolved identifier and the message body is opaque. Only the transport envelope survives, namely the message type, the secure-channel identifier, and the message size. The action itself is not recoverable. IP and MAC addresses are masked in this reproduction." loading="lazy">
+        <figcaption>Figure 3. A message captured under the SignAndEncrypt mode. The dissector resolves none of the payload: the service reads as an unresolved identifier and the message body is opaque. Only the transport envelope survives, namely the message type, the secure-channel identifier, and the message size. The action itself is not recoverable. IP and MAC addresses are masked in this reproduction.</figcaption>
+        </figure>
+
+        <p>The residue that survives encryption is metadata rather than content. Message size and
+        timing, the identity of the communicating endpoints, and the sequence of channel activity
+        remain observable, and in some circumstances traffic-analysis techniques can draw limited
+        inferences from them. Whether such inferences are useful is highly situation-dependent and
+        should not be overstated: against a backdrop of continuous, uniform traffic, an individual
+        action of interest may be indistinguishable from routine activity on the basis of size and
+        timing alone. Under SignAndEncrypt the passive observer is reduced to the envelope, and the
+        envelope rarely carries the action itself.</p>
+        <p>These results reduce to a compact observability map, summarised in Table 1. The mode
+        axis, and it alone, determines what a passive observer recovers. None and Sign are
+        equivalent for legibility and expose the full content of the exchange; SignAndEncrypt
+        exposes only the transport envelope. The one field that behaves differently is the
+        negotiated security configuration itself, which, as Section 3.1 noted, is announced in
+        clear during the handshake and is therefore observable under all three modes.</p>
+        <p><strong>Table 1. Observability by security mode.</strong> For each mode, whether a passive observer
+        recovers each element of the exchange.</p>
+        <div class="table-wrap"><table>
+        <thead>
+        <tr>
+        <th>Element</th>
+        <th style="text-align: center;">None</th>
+        <th style="text-align: center;">Sign</th>
+        <th style="text-align: center;">SignAndEncrypt</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td>Service type (read, write, publish)</td>
+        <td style="text-align: center;">Recovered</td>
+        <td style="text-align: center;">Recovered</td>
+        <td style="text-align: center;">Absent</td>
+        </tr>
+        <tr>
+        <td>Target node</td>
+        <td style="text-align: center;">Recovered</td>
+        <td style="text-align: center;">Recovered</td>
+        <td style="text-align: center;">Absent</td>
+        </tr>
+        <tr>
+        <td>Value</td>
+        <td style="text-align: center;">Recovered</td>
+        <td style="text-align: center;">Recovered</td>
+        <td style="text-align: center;">Absent</td>
+        </tr>
+        <tr>
+        <td>Acting session (authentication token)</td>
+        <td style="text-align: center;">Recovered</td>
+        <td style="text-align: center;">Recovered</td>
+        <td style="text-align: center;">Absent</td>
+        </tr>
+        <tr>
+        <td>Process trajectory (publish stream)</td>
+        <td style="text-align: center;">Recovered</td>
+        <td style="text-align: center;">Recovered</td>
+        <td style="text-align: center;">Absent</td>
+        </tr>
+        <tr>
+        <td>Channel metadata (size, timing, endpoints)</td>
+        <td style="text-align: center;">Recovered</td>
+        <td style="text-align: center;">Recovered</td>
+        <td style="text-align: center;">Recovered</td>
+        </tr>
+        <tr>
+        <td>Signature present</td>
+        <td style="text-align: center;">No</td>
+        <td style="text-align: center;">Yes</td>
+        <td style="text-align: center;">Yes (opaque)</td>
+        </tr>
+        </tbody>
+        </table></div>
+        <p>The negotiated mode and policy are announced in clear during the handshake and are
+        observable under all three modes.</p>
+        <h2 id="implications">6. Implications</h2>
+        <p>Three consequences follow from the observability map of Section 5, and they are worth
+        separating because they point in different directions.</p>
+        <p>The first concerns what passive monitoring of OPC UA can and cannot achieve, stated
+        plainly. Against a deployment running None or Sign, a passive observer recovers the full
+        substance of the exchange: the actions, their targets and values, the acting session, and
+        the trajectory of process state. Against a deployment running SignAndEncrypt, it recovers
+        only the envelope. There is no middle ground within a mode and no partial decoding; the
+        mode is the switch. Any monitoring capability that depends on reading OPC UA payloads is
+        therefore contingent on the mode in force, and its coverage is exactly the fraction of
+        observed traffic that runs None or Sign. Section 4 indicates that this fraction is, today,
+        substantial.</p>
+        <p>The second concerns Sign specifically, and it cuts against a common intuition. Sign is
+        often treated as a half-measure, a way station on the road to SignAndEncrypt. From the
+        standpoint of a defender who monitors the network, it is something more particular: the one OPC UA mode that delivers integrity and authenticity on the wire while preserving full visibility of the traffic. With certificates validated and trust lists enforced, a message under Sign cannot be forged or altered undetected, and
+        it can still be read by a legitimate passive monitor. For an operator who wants assurance
+        that observed actions are genuine, without surrendering the ability to observe them, Sign is
+        not a compromise between security and visibility but the point at which both hold at once.
+        This is a property of OPC UA that its three-mode design makes available as a standard per-channel choice; in transport protocols the equivalent integrity-only configurations exist but sit outside their default configuration.</p>
+        <p>The third concerns SignAndEncrypt and is the honest limit of the passive approach. Where a
+        deployment does encrypt, passive observation of payload ends, exactly as it did under TLS in
+        the previous report. What remains is metadata: message sizes, timing, endpoints, and the
+        sequence of channel activity, together with the security configuration announced in clear
+        during the handshake. This residue supports coarse inferences at best, and Section 5 was
+        deliberately cautious about how much can be read from it. Encrypted OPC UA is not, on this
+        evidence, passively monitorable after all; rather, the boundary of passive monitoring is the
+        mode boundary, and recognising which side of it a given channel sits on is itself a useful
+        observation an observer can make without any keys.</p>
+        <p>Taken together these establish that, for OPC UA, the vantage available to passive monitoring
+        is not fixed but selected, per channel, by a configuration choice made elsewhere. This is a
+        sharper and more actionable statement than the one the transport case allowed, where the
+        vantage was simply absent whenever encryption was present.</p>
+        <h2 id="conclusion">7. Conclusion</h2>
+        <p>OPC UA answers the question left open by the previous report with a gradient rather than a
+        verdict. Its three message security modes place a channel in one of three observability
+        states: fully legible under None, fully legible and authenticated under Sign, and reduced to
+        the transport envelope under SignAndEncrypt. The security policy, the algorithm suite beneath
+        the mode, changes the strength of the protection but not what a passive observer recovers;
+        only the mode does that. And the field evidence indicates that a large and durable share of
+        real OPC UA runs in the two legible modes, so the legible case is not a corner case but the
+        common one.</p>
+        <p>The finding of interest is the intermediate mode. Sign occupies a position that a binary encrypted-or-not framing cannot describe, and one that OPC UA, unlike transports in their default configuration, offers as a standard mode:
+        genuine cryptographic protection of integrity and authenticity, combined with complete
+        legibility to a passive observer. For the study of how industrial actions might be observed
+        and understood on the wire, this is the case that matters most, because it is where security
+        and visibility coexist rather than trade off.</p>
+        <p>This report has stayed within the protocol, characterising what OPC UA exposes and conceals
+        under each mode and grounding the account in capture evidence and published measurement. What
+        it has not addressed is what an observer might do with the exchange once recovered: how the
+        actions, values, and process trajectories that survive under None and Sign could be
+        interpreted, and to what end. That is the subject of work to come.</p>
+
+        <section class="article-related" aria-labelledby="help">
+          <h2 id="help">How Liscere can help</h2>
+          <ul class="related-links">
+            <li><a href="../../services/ot-visibility-monitoring.html">OT visibility and monitoring</a><span>See what your control network is actually being told to do.</span></li>
+            <li><a href="../../services/ot-security-assessment.html">OT and ICS security assessment</a><span>Find what is exposed and what an attacker could change.</span></li>
+            <li><a href="../../services/nis2-ksc-compliance.html">NIS2 and KSC readiness</a><span>Turn the directive's expectations into concrete OT controls.</span></li>
+          </ul>
+        </section>
+
+        <section class="article-faq" aria-labelledby="questions">
+          <h2 id="questions">Questions</h2>
+          <div class="faq-item">
+            <h3 class="faq-q">Is OPC UA traffic encrypted?</h3>
+            <p class="faq-a">Only under the SignAndEncrypt mode. Under None and under Sign the full exchange can be read; Sign adds integrity and authenticity but leaves the payload in clear.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">How common is unencrypted OPC UA?</h3>
+            <p class="faq-a">Internet-wide studies five years apart agree that a large and persistent fraction of observable OPC UA runs without confidentiality, because of the configuration burden of activating it rather than any weakness in the cryptography.</p>
+          </div>
+        </section>
+
+        <section class="article-sources" aria-labelledby="sources">
+          <h2 id="sources">References</h2>
+          <ol class="sources">
+            <li id="ref-1">OPC Foundation. OPC Unified Architecture, Part 2: Security Model. IEC 62541-2. OPC Foundation, 2022.</li>
+            <li id="ref-2">OPC Foundation. OPC Unified Architecture, Part 4: Services. IEC 62541-4. OPC Foundation, 2022.</li>
+            <li id="ref-3">OPC Foundation. OPC Unified Architecture, Part 7: Profiles. IEC 62541-7. OPC Foundation, 2022.</li>
+            <li id="ref-4">International Electrotechnical Commission. IEC 62541: OPC Unified Architecture. IEC, Geneva, 2020.</li>
+            <li id="ref-5">M. Dahlmanns, J. Lohmöller, I. B. Fink, J. Pennekamp, K. Wehrle, and M. Henze. Easing the Conscience with OPC UA: An Internet-Wide Study on Insecure Deployments. In Proceedings of the ACM Internet Measurement Conference (IMC '20), pages 101–110, 2020. DOI: 10.1145/3419394.3423666.</li>
+            <li id="ref-6">Bitsight TRACE. OPC UA Server Internet Exposures: 2025 Year in Review. Bitsight Technologies, 2025. https://www.bitsight.com/blog/opc-ua-server-internet-device-exposures-in-2025.</li>
+            <li id="ref-7">R. Yaben and E. Vasilomanolakis. Drifting Away: A Cyber-Security Study of Internet-Exposed OPC UA Servers. In Proceedings of the 10th International Workshop on Traffic Measurements for Cybersecurity (WTMC 2025), co-located with IEEE European Symposium on Security and Privacy, 2025.</li>
+            <li id="ref-8">A. Erba, A. Müller, and N. O. Tippenhauer. Security Analysis of Vendor Implementations of the OPC UA Protocol for Industrial Control Systems. CISPA Helmholtz Center for Information Security, 2022. arXiv:2104.06051.</li>
+            <li id="ref-9">OPC Foundation and M2M Alliance security working group. Practical Security Guidelines for Building OPC UA Applications. OPC Foundation, 2018. https://opcconnect.opcfoundation.org/2018/06/practical-security-guidelines-for-building-opc-ua-applications/.</li>
+            <li id="ref-10">FlowFuse. OPC UA Security: How Threat Actors Exploit Industrial Protocol Vulnerabilities. FlowFuse, 2026. https://flowfuse.com/blog/2026/05/opc-ua-security-attack-vectors/.</li>
+            <li id="ref-11">B. Salmazo. Contextual Evaluation under Encryption. Liscere Technical Report LTR-2026-04, 2026.</li>
+          </ol>
+        </section>
+
+        <section class="article-cite" aria-labelledby="cite-title">
+          <h2 id="cite-title" class="doc-section-head">Cite this report</h2>
+          <pre class="doc-cite">@techreport{salmazo_opcua_2026,
   author      = {Bruno Salmazo},
   title       = {Signed but Readable: OPC UA Security Modes and What Passive Observation Recovers},
   institution = {Liscere},
@@ -116,15 +731,9 @@
   type        = {Technical Report},
   url         = {https://liscere.com/research/ltr-2026-05/}
 }</pre>
-      </div>
+        </section>
 
-      <div class="doc-preview-col">
-        <div class="doc-preview">
-          <object class="doc-preview-pdf" data="../../assets/papers/liscere-opcua-security-modes.pdf#view=FitH" type="application/pdf" aria-label="Interactive preview of the report; scroll to read, or open the full PDF">
-            <p class="doc-pdf-fallback">Preview unavailable on this device. <a href="../../assets/papers/liscere-opcua-security-modes.pdf" target="_blank" rel="noopener">Open the full PDF.</a></p>
-          </object>
-          <a class="doc-preview-open" href="../../assets/papers/liscere-opcua-security-modes.pdf" target="_blank" rel="noopener">Open full PDF &#8599;</a>
-        </div>
+        <p class="article-back"><a href="../../research.html" data-back>&#8592; All research</a></p>
       </div>
     </article>
 
