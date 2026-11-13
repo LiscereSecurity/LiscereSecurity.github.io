@@ -24,6 +24,17 @@ to a sending service (for example Formspree) or add analytics, add that service'
 
 When CSS or JS changes, bump the `?v=` query string on the pages (and `CSSV` in `data_en.py`).
 
+## Zenodo (DOIs for the reports)
+
+    export ZENODO_TOKEN=...                        # zenodo.org, Applications, personal access token
+    python3 tools/zenodo.py --list                 # what would be deposited, nothing sent
+    python3 tools/zenodo.py --draft                # create or update the drafts and upload the PDFs
+    python3 tools/zenodo.py --publish LTR-2026-01  # publish one, which mints a permanent DOI
+
+Metadata comes from `gen_articles.py`, so Zenodo and the site always say the same thing. Drafts can
+be edited or deleted; publishing cannot be undone. Add `--sandbox` to try it against
+sandbox.zenodo.org first, which needs a token from that site.
+
 ## After a deploy
 
 Tell Bing and the other IndexNow search engines about changed pages:
