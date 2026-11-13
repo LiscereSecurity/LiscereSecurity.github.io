@@ -489,7 +489,8 @@ FN_2026_01 = dict(
 
 
 CC_BY = '<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a>'
-SALMAZO = {"@type": "Person", "name": "Bruno Salmazo"}
+SALMAZO = {"@type": "Person", "name": "Bruno Salmazo", "@id": "https://orcid.org/0009-0000-4410-3616",
+           "identifier": "https://orcid.org/0009-0000-4410-3616", "sameAs": "https://orcid.org/0009-0000-4410-3616"}
 
 LB_2026_01 = dict(
     id="lb-2026-01", series="landscape", langs=("en",), date="2026-06-23", modified="2026-10-07",
