@@ -60,7 +60,8 @@ def reports():
                     f"<p>{SERIES_NAME[series]} {aid.upper()}, published by Liscere sp. z o.o. "
                     f"The full text is also readable at <a href=\"https://liscere.com/research/{aid}/\">"
                     f"https://liscere.com/research/{aid}/</a>.</p>"),
-                "creators": [{"name": "Salmazo, Bruno", "affiliation": "Liscere sp. z o.o."}],
+                "creators": [{"name": "Salmazo, Bruno", "affiliation": "Liscere sp. z o.o.",
+                               "orcid": "0009-0000-4410-3616"}],
                 "publication_date": date,
                 "version": art.get("version", "1.1"),
                 "language": "eng",
