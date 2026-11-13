@@ -15,6 +15,7 @@ UI = {
    privacy_page="privacy.html", legal_page="legal.html", terms_page="terms.html",
    logo_label="Liscere home", what="What it is", who="Who it is for", why="Why it is needed",
    scroll="Scroll", qk="Questions we hear", qh="Straight answers.", ck="Contact us",
+   gk="Background reading", gh="Guides on the rules and the standards.",
    ch="Tell us what you need. We will find the solution.",
    cs="Our goal is to keep what is critical protected, and we work hard to make that possible.",
    name="Name", company="Company", email="Work email", interest="What are you interested in?",
@@ -26,6 +27,7 @@ UI = {
    privacy_page="prywatnosc.html", legal_page="dane-spolki.html", terms_page="warunki.html",
    logo_label="Liscere, strona główna", what="Czym jest", who="Dla kogo", why="Dlaczego jest potrzebny",
    scroll="Przewiń", qk="Pytania, które słyszymy", qh="Konkretne odpowiedzi.", ck="Kontakt",
+   gk="Do poczytania", gh="Poradniki o przepisach i normach.",
    ch="Powiedz nam, czego potrzebujesz. Znajdziemy rozwiązanie.",
    cs="Naszym celem jest ochrona tego, co krytyczne, i ciężko pracujemy, aby to było możliwe.",
    name="Imię i nazwisko", company="Firma", email="Służbowy e-mail", interest="Czego dotyczy zapytanie?",
@@ -41,6 +43,68 @@ def urls(slug):
     en = f"{SITE}services/{slug}.html"
     pl = f"{SITE}pl/uslugi/{PL[slug]['pl']}.html"
     return en, pl
+
+# Guides linked from each service page, so a reader who lands on a service can go deeper.
+GUIDES = {
+    "gd-2026-01": {
+        "en": ("research/gd-2026-01/", "NIS2 and Poland's KSC act",
+               "Who is covered, the deadlines, and what the rules mean for control systems."),
+        "pl": ("badania/gd-2026-01/", "NIS2 i ustawa o KSC",
+               "Kogo dotyczą przepisy, jakie są terminy i co z tego wynika dla systemów sterowania."),
+    },
+    "gd-2026-02": {
+        "en": ("research/gd-2026-02/", "Reporting an OT incident",
+               "The 24 hour, 72 hour and one month steps, and what makes them hard in OT."),
+        "pl": ("badania/gd-2026-02/", "Zgłaszanie incydentu w OT",
+               "Terminy 24 godzin, 72 godzin i miesiąca oraz to, co w OT jest najtrudniejsze."),
+    },
+    "gd-2026-03": {
+        "en": ("research/gd-2026-03/", "IEC 62443 in practice",
+               "The parts of the series, zones and conduits, and what SL-T, SL-C and SL-A mean."),
+        "pl": ("badania/gd-2026-03/", "IEC 62443 w praktyce",
+               "Części serii, strefy i kanały oraz znaczenie poziomów SL-T, SL-C i SL-A."),
+    },
+}
+
+PAGE_GUIDES = {
+    "ot-security-assessment": ["gd-2026-03", "gd-2026-01"],
+    "audyt-bezpieczenstwa-ot": ["gd-2026-03", "gd-2026-01"],
+    "ot-visibility-monitoring": ["gd-2026-03", "gd-2026-01"],
+    "widocznosc-i-monitoring-ot": ["gd-2026-03", "gd-2026-01"],
+    "nis2-ksc-compliance": ["gd-2026-01", "gd-2026-02"],
+    "nis2-ksc": ["gd-2026-01", "gd-2026-02"],
+    "ot-incident-response": ["gd-2026-02", "gd-2026-01"],
+    "reagowanie-na-incydenty-ot": ["gd-2026-02", "gd-2026-01"],
+    "automation-projects": ["gd-2026-03"],
+    "projekty-automatyki": ["gd-2026-03"],
+    "automation-modernisation": ["gd-2026-03"],
+    "modernizacja-automatyki": ["gd-2026-03"],
+    "industrial-training": ["gd-2026-01", "gd-2026-03"],
+    "szkolenia-przemyslowe": ["gd-2026-01", "gd-2026-03"],
+}
+
+
+def guides_block(slug, lang, L):
+    ids = PAGE_GUIDES.get(slug, [])
+    if not ids:
+        return ""
+    items = "\n".join(
+        '            <li><a href="../' + GUIDES[g][lang][0] + '">' + esc(GUIDES[g][lang][1])
+        + '</a><span>' + esc(GUIDES[g][lang][2]) + '</span></li>'
+        for g in ids)
+    return (
+        '\n    <section class="section" id="guides">'
+        '\n      <div class="faq-layout">'
+        '\n        <div>'
+        '\n          <p class="kicker">' + L["gk"] + '</p>'
+        '\n          <h2>' + L["gh"] + '</h2>'
+        '\n        </div>'
+        '\n        <div class="service-guides">'
+        '\n          <ul class="related-links">\n' + items +
+        '\n          </ul>'
+        '\n        </div>'
+        '\n      </div>'
+        '\n    </section>\n')
 
 def render(p, lang):
     L = UI[lang]
@@ -174,6 +238,7 @@ def render(p, lang):
       </div>
     </section>
 
+{guides_block(p['slug'], lang, L)}
     <section class="section" id="contact">
       <div class="contact-grid">
         <div class="contact-aside">

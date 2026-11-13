@@ -3494,27 +3494,32 @@ html.article-view {
   overflow-wrap: anywhere;
 }
 
-.article-related .related-links {
+.article-related .related-links,
+.service-guides .related-links {
   list-style: none;
   padding: 0;
   margin-top: 0.9rem;
 }
 
-.article-related .related-links li {
+.article-related .related-links li,
+.service-guides .related-links li {
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
+  margin-bottom: 0.7rem;
   padding: 0.8rem 1rem;
   border: 1px solid var(--line);
   border-radius: 0.5rem;
 }
 
-.article-related .related-links a {
+.article-related .related-links a,
+.service-guides .related-links a {
   font-weight: 600;
   text-decoration: none;
 }
 
-.article-related .related-links span {
+.article-related .related-links span,
+.service-guides .related-links span {
   font-size: 0.92rem;
   color: var(--muted);
 }

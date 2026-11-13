@@ -87,11 +87,19 @@ Liscere welcomes research partners, OT and process engineers, machine builders, 
 - [Services](https://liscere.com/services.html): Liscere's industrial security and automation engineering services, each linking to its own page, with a contact form.
 - [About](https://liscere.com/about.html): What Liscere is, why industrial security matters, the framework Liscere is building, and the independence statement.
 - [FAQ](https://liscere.com/faq.html): Direct answers about working with Liscere (services, automation, NIS2, engagements, contact) and about the framework and research.
-- [Research](https://liscere.com/research.html): Index of Liscere's technical reports (LTR series), landscape briefings (LB series) and Field Notes articles on real incidents (FN series).
+- [Research](https://liscere.com/research.html): Index of Liscere's technical reports (LTR series), landscape briefings (LB series), guides to the rules and standards (GD series) and Field Notes articles on real incidents (FN series).
 - [Privacy notice](https://liscere.com/privacy.html): How Liscere processes personal data under the GDPR.
 - [Legal information](https://liscere.com/legal.html): Company details required by Polish law (registry court, KRS, NIP, REGON, share capital, management board).
 - [Terms of use](https://liscere.com/terms.html): Terms of use of the website; the research publications are licensed under CC BY 4.0.
 - [security.txt](https://liscere.com/.well-known/security.txt): Security contact, per RFC 9116.
+
+## Guides
+
+Plain language guides to the rules and standards that apply to industrial operators. Published in English and Polish.
+
+- [GD-2026-01: NIS2 and Poland's KSC act, who is covered and what the deadlines are](https://liscere.com/research/gd-2026-01/): the sectors of Annexes I and II and the size thresholds, essential and important entities, the Polish amending act of 23 January 2026 (in force 3 April 2026, register applications due 3 October 2026, risk management measures by 3 April 2027), the obligations, management accountability and what the rules mean for controllers and control networks. Also in Polish at https://liscere.com/pl/badania/gd-2026-01/
+- [GD-2026-02: Reporting an OT incident, 24 hours, 72 hours, one month](https://liscere.com/research/gd-2026-02/): the three reporting steps, who receives the report (the sector CSIRT, otherwise CSIRT NASK, CSIRT GOV or CSIRT MON), what counts as a significant incident, why detection and isolation are harder in OT, and what evidence to preserve before a restart. Also in Polish at https://liscere.com/pl/badania/gd-2026-02/
+- [GD-2026-03: IEC 62443 in practice, the parts, zones and security levels](https://liscere.com/research/gd-2026-03/): how the series is organised across the four groups of parts and the three roles, which part an asset owner, an integrator and a product vendor each need, zones and conduits, the seven foundational requirements, the difference between SL-T, SL-C and SL-A, and what can and cannot be certified. Also in Polish at https://liscere.com/pl/badania/gd-2026-03/
 
 ## Research
 

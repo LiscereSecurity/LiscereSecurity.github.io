@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 ROOT_DIR = os.path.dirname(HERE)
 SITE = "https://liscere.com/"
-CSS_V = "20261113-a4"
+CSS_V = "20261113-a5"
 ORG = {"@id": SITE + "#org"}
 
 CSP = ("<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; script-src 'self' "
