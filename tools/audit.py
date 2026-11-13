@@ -117,7 +117,7 @@ for p in PAGES:
         if tgt is None: continue
         if tgt not in ALL:
             E(p, f"broken link {href}")
-        elif frag and tgt.endswith(".html") and frag not in ids_of(tgt) and frag not in ("top", "fieldnotes", "landscape", "research"):
+        elif frag and tgt.endswith(".html") and frag not in ids_of(tgt) and frag not in ("top", "fieldnotes", "landscape", "research", "guides"):
             E(p, f"missing anchor {href}")
     # language switch points to the paired page (or the Polish notice)
     sw = re.search(r'<a class="lang-switch" href="([^"]+)"', s)

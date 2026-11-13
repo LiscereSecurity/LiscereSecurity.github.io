@@ -326,6 +326,12 @@ def faq():
 # ---------------------------------------------------------------- Badania (research index)
 # Field Notes have Polish versions; reports are in English (marked "po angielsku").
 BADANIA = [
+    ("guides", "./badania/gd-2026-02/", "GD-2026-02 · Poradnik · listopad 2026", "Zgłaszanie incydentu w OT",
+     "Terminy zgłoszenia są te same dla biura i dla hali produkcyjnej, ale praca pod nimi wygląda inaczej. Wczesne ostrzeżenie w 24 godziny, zgłoszenie w 72 godziny i sprawozdanie końcowe w miesiąc, wraz z decyzjami, które w OT są najtrudniejsze: izolacja działającego procesu i dowody znikające przy pierwszym restarcie.",
+     False, "Czytaj poradnik"),
+    ("guides", "./badania/gd-2026-01/", "GD-2026-01 · Poradnik · listopad 2026", "NIS2 i ustawa o KSC",
+     "Kogo dotyczą przepisy, co trzeba mieć i do kiedy. Sektory i progi wielkości z dyrektywy, polskie daty, które łatwo pomylić, obowiązki, kary oraz część pomijana w większości projektów zgodności: sterowniki, stacje operatorskie i sieci sterujące procesem fizycznym.",
+     False, "Czytaj poradnik"),
     ("fieldnotes", "./badania/fn-2026-01/", "FN-2026-01 · Field Notes · listopad 2026", "Atak na chłodnie supermarketów",
      "W październiku 2026 atakujący dostali się do sterowników chłodniczych około 700 supermarketów we Francji i za pomocą cykli odszraniania oraz nastaw temperatury ogrzali w nocy lodówki i zamrażarki. Nic nie zostało zepsute: każde polecenie było autoryzowane. Co się stało, co zaleca CERT-FR i dlaczego kontekst jest pytaniem, które pozwoliłoby to wychwycić. Z dwuminutowym filmem.",
      False, "Czytaj artykuł"),
@@ -374,13 +380,14 @@ def badania():
         <span class="paper-cta">{cta} <span class="paper-arrow" aria-hidden="true">&#8594;</span></span>
       </a>""")
     body = f"""    <h1 id="research-title">Badania</h1>
-    <p class="research-intro">Publikujemy wyniki naszej pracy: raporty techniczne z laboratorium, przeglądy rynku i technologii oraz Field Notes o bieżących incydentach. Field Notes są dostępne po polsku; raporty i przeglądy publikujemy po angielsku, z pełnym tekstem na stronie i w PDF, na licencji CC BY 4.0.</p>
+    <p class="research-intro">Publikujemy wyniki naszej pracy: raporty techniczne z laboratorium, przeglądy rynku i technologii, poradniki o NIS2 i ustawie o KSC oraz Field Notes o bieżących incydentach. Poradniki i Field Notes są dostępne po polsku; raporty i przeglądy publikujemy po angielsku, z pełnym tekstem na stronie i w PDF, na licencji CC BY 4.0.</p>
 
     <div class="research-filter" role="group" aria-label="Filtruj publikacje">
       <button type="button" class="research-filter-btn is-active" data-filter="all" aria-pressed="true">Wszystkie</button>
       <button type="button" class="research-filter-btn" data-filter="research" aria-pressed="false">Raporty</button>
       <button type="button" class="research-filter-btn" data-filter="landscape" aria-pressed="false">Przeglądy</button>
       <button type="button" class="research-filter-btn" data-filter="fieldnotes" aria-pressed="false">Field Notes</button>
+      <button type="button" class="research-filter-btn" data-filter="guides" aria-pressed="false">Poradniki</button>
     </div>
 
     <div class="research-cards">

@@ -58,6 +58,7 @@ SERIES = {
     "fieldnotes": ("FIELD NOTES", "Field Notes", "Liscere Field Notes"),
     "landscape": ("LANDSCAPE BRIEFING", "Landscape Briefing", "Liscere Landscape Briefings"),
     "research": ("TECHNICAL REPORT", "Technical Report", "Liscere Technical Reports"),
+    "guides": ({"en": "GUIDE", "pl": "PORADNIK"}, "Guide", "Liscere Guides"),
 }
 
 
@@ -154,7 +155,9 @@ def build(art, lang):
     rest = body[i_h2:].strip()
     series = art.get("series", "fieldnotes")
     s_kicker, s_label, s_name = SERIES[series]
-    is_report = series != "fieldnotes"
+    if isinstance(s_kicker, dict):
+        s_kicker = s_kicker[lang]
+    is_report = series in ("landscape", "research")
     has_pl = "pl" in art.get("langs", ("en", "pl"))
     head_part = head_part.replace(f'<p class="kicker">{s_kicker}',
         f'<p class="kicker"><a class="series-back" href="{R}{"research.html" if lang == "en" else "pl/badania.html"}#{series}" data-back>{s_kicker}</a>', 1)
@@ -236,7 +239,7 @@ def build(art, lang):
           <pre class="doc-cite">@misc{{liscere_{aid.replace("-", "_")}{"" if lang == "en" else "_pl"},
   author       = {{{{Liscere}}}},
   title        = {{{h1}}},
-  howpublished = {{Liscere Field Notes {aid.upper()}}},
+  howpublished = {{{s_name} {aid.upper()}}},
   year         = {{{art["date"][:4]}}},
   month        = {art["month_bib"]},{"" if lang == "en" else chr(10) + "  language     = {polish},"}
   url          = {{{URL}}}
@@ -690,7 +693,137 @@ LTR_2026_05 = report(
       "Internet-wide studies five years apart agree that a large and persistent fraction of observable OPC UA runs without confidentiality, because of the configuration burden of activating it rather than any weakness in the cryptography.")],
     [S_MONITOR, S_ASSESS, S_NIS2])
 
-ARTICLES = [FN_2026_01, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
+
+# ---------------------------------------------------------------- guides (EN + PL)
+GD_2026_01 = dict(
+    id="gd-2026-01", series="guides", date="2026-11-13", month_bib="nov", og_image="assets/og-image.png",
+    en=dict(
+        title="NIS2 and Poland's KSC act: who is covered and by when | Liscere",
+        description="Who NIS2 covers, when Poland's KSC act applies, the deadlines and fines, and what the rules mean for the control systems that run the plant.",
+        og_image_alt="Liscere: industrial cybersecurity",
+        about=["NIS2", "Cybersecurity regulation", "Operational technology security", "Critical infrastructure", "Compliance"],
+        keywords="NIS2, NIS2 scope, KSC act, Poland, 3 April 2026, 3 April 2027, essential entities, important entities, incident reporting, OT security, IEC 62443",
+        contact="../../services.html#contact",
+        key_points=[
+            "NIS2 covers medium and large entities in the sectors of Annexes I and II, and suppliers are increasingly asked for evidence too.",
+            "In Poland the amended KSC act has been in force since 3 April 2026; risk management measures are due by 3 April 2027.",
+            "The deadline to apply for entry in the register of essential and important entities passed on 3 October 2026.",
+            "The obligations cover information systems, and in a plant that includes controllers, operator stations and the control network.",
+        ],
+        related=[
+            ("services/nis2-ksc-compliance.html", "NIS2 readiness", "Turn the directive's expectations into concrete OT controls."),
+            ("services/ot-visibility-monitoring.html", "OT visibility and monitoring", "The asset inventory that risk analysis starts from."),
+            ("services/ot-incident-response.html", "Incident response for OT", "A plan that works when the process cannot simply be stopped."),
+        ],
+        faq=[
+            ("Who does NIS2 cover?",
+             "Medium and large entities, meaning at least 50 staff or more than 10 million euros of turnover or balance sheet, in the sectors listed in Annexes I and II of the directive: energy, transport, banking, financial market infrastructure, health, water, waste water, digital infrastructure, ICT service management, public administration, space, postal services, waste management, chemicals, food, manufacturing, digital providers and research. Some services are covered regardless of size."),
+            ("When did Poland's KSC act start to apply?",
+             "The act of 23 January 2026 amending the national cybersecurity system act was published on 2 March 2026 and entered into force on 3 April 2026. Entities that existed at that point have until 3 April 2027 to put risk management measures in place."),
+            ("Who has to register?",
+             "Entities that meet the criteria apply for entry in the register of essential and important entities. For those covered when the act entered into force, the deadline was 3 October 2026, so a company that has not applied should do so without waiting to be asked."),
+            ("What are the fines?",
+             "The directive sets a maximum of 10 million euros or 2% of total worldwide annual turnover, whichever is higher, for essential entities, and 7 million euros or 1.4% for important entities. Published guidance on the Polish act indicates that administrative fines can in most cases only be imposed from April 2028."),
+            ("Does NIS2 cover OT systems?",
+             "Yes. The obligations apply to information systems, and in an industrial company those include PLCs, operator stations, SCADA and the networks between them. Compliance work that stops at the office network leaves the part that runs the physical process uncovered."),
+        ],
+    ),
+    pl=dict(
+        title="NIS2 i ustawa o KSC: kogo dotyczy i jakie są terminy | Liscere",
+        description="Kogo dotyczy NIS2, od kiedy obowiązuje ustawa o KSC, jakie są terminy i kary oraz co z tego wynika dla systemów sterowania OT w zakładzie.",
+        og_image_alt="Liscere: cyberbezpieczeństwo przemysłowe",
+        about=["NIS2", "Ustawa o KSC", "Bezpieczeństwo OT", "Infrastruktura krytyczna", "Zgodność"],
+        keywords="NIS2, kogo dotyczy NIS2, ustawa o KSC, nowelizacja KSC, 3 kwietnia 2026, 3 kwietnia 2027, podmiot kluczowy, podmiot ważny, wykaz, zgłaszanie incydentów, bezpieczeństwo OT",
+        contact="../../../pl/uslugi.html#contact",
+        key_points=[
+            "NIS2 obejmuje średnie i duże podmioty z sektorów wymienionych w załącznikach I i II, a dostawcy coraz częściej są pytani o dowody przez swoich klientów.",
+            "W Polsce znowelizowana ustawa o KSC obowiązuje od 3 kwietnia 2026 roku, a środki zarządzania ryzykiem trzeba wdrożyć do 3 kwietnia 2027 roku.",
+            "Termin na wniosek o wpis do wykazu podmiotów kluczowych i ważnych upłynął 3 października 2026 roku.",
+            "Obowiązki dotyczą systemów informacyjnych, a w zakładzie należą do nich także sterowniki, stacje operatorskie i sieć sterowania.",
+        ],
+        related=[
+            ("pl/uslugi/nis2-ksc.html", "Gotowość do NIS2 i KSC", "Obowiązki, audyt i plan działań z perspektywą OT."),
+            ("pl/uslugi/widocznosc-i-monitoring-ot.html", "Widoczność i monitoring OT", "Inwentaryzacja, od której zaczyna się analiza ryzyka."),
+            ("pl/uslugi/reagowanie-na-incydenty-ot.html", "Reagowanie na incydenty OT", "Plan, który działa, gdy procesu nie można po prostu zatrzymać."),
+        ],
+        faq=[
+            ("Kogo dotyczy NIS2?",
+             "Średnich i dużych podmiotów, czyli zatrudniających co najmniej 50 osób albo z obrotem lub sumą bilansową powyżej 10 milionów euro, z sektorów wymienionych w załącznikach I i II dyrektywy: energetyka, transport, bankowość, infrastruktura rynków finansowych, ochrona zdrowia, woda, ścieki, infrastruktura cyfrowa, zarządzanie usługami ICT, administracja publiczna, przestrzeń kosmiczna, usługi pocztowe, gospodarowanie odpadami, chemia, żywność, produkcja, dostawcy cyfrowi i badania naukowe. Część usług jest objęta niezależnie od wielkości."),
+            ("Od kiedy obowiązuje ustawa o KSC?",
+             "Ustawa z 23 stycznia 2026 roku o zmianie ustawy o krajowym systemie cyberbezpieczeństwa została ogłoszona 2 marca 2026 roku i weszła w życie 3 kwietnia 2026 roku. Podmioty istniejące w tym dniu mają czas na wdrożenie środków zarządzania ryzykiem do 3 kwietnia 2027 roku."),
+            ("Kto musi zarejestrować się w wykazie?",
+             "Podmioty spełniające kryteria składają wniosek o wpis do wykazu podmiotów kluczowych i ważnych. Dla objętych w dniu wejścia ustawy w życie termin upłynął 3 października 2026 roku, więc firma, która tego nie zrobiła, powinna złożyć wniosek niezwłocznie."),
+            ("Jakie są kary?",
+             "Dyrektywa przewiduje maksymalnie 10 milionów euro lub 2% całkowitego rocznego światowego obrotu, w zależności od tego, która kwota jest wyższa, dla podmiotów kluczowych, oraz 7 milionów euro lub 1,4% dla podmiotów ważnych. Z dostępnych opracowań wynika, że kary administracyjne na gruncie polskiej ustawy mogą być w większości przypadków nakładane dopiero od kwietnia 2028 roku."),
+            ("Czy NIS2 obejmuje systemy OT?",
+             "Tak. Obowiązki dotyczą systemów informacyjnych, a w firmie przemysłowej należą do nich sterowniki PLC, stacje operatorskie, SCADA i łączące je sieci. Projekt zgodności, który kończy się na sieci biurowej, pomija tę część, która steruje procesem fizycznym."),
+        ],
+    ),
+)
+
+GD_2026_02 = dict(
+    id="gd-2026-02", series="guides", date="2026-11-13", month_bib="nov", og_image="assets/og-image.png",
+    en=dict(
+        title="Reporting an OT incident: 24 hours, 72 hours, one month | Liscere",
+        description="How to report a significant incident within 24 hours, 72 hours and one month when it hits the control network: deadlines, recipients and evidence.",
+        og_image_alt="Liscere: industrial cybersecurity",
+        about=["Incident reporting", "NIS2", "Operational technology security", "Incident response", "CSIRT"],
+        keywords="incident reporting, NIS2, KSC act, 24 hours, 72 hours, final report, CSIRT NASK, CSIRT GOV, CSIRT MON, OT incident response, evidence",
+        contact="../../services.html#contact",
+        key_points=[
+            "A significant incident is reported in three steps: an early warning within 24 hours, a notification within 72 hours and a final report within one month.",
+            "Reports go to the sector CSIRT and, until it is operational, to CSIRT NASK, CSIRT GOV or CSIRT MON.",
+            "In OT the hard part is not the form but the decision: isolating a system touches a process that is still running.",
+            "Evidence in OT is fragile, so a packet capture and a copy of the configuration come before any restart.",
+        ],
+        related=[
+            ("services/ot-incident-response.html", "Incident response for OT", "A plan that works when the process cannot simply be stopped."),
+            ("services/nis2-ksc-compliance.html", "NIS2 readiness", "Turn the directive's expectations into concrete OT controls."),
+            ("services/ot-visibility-monitoring.html", "OT visibility and monitoring", "See what the control network is actually being told to do."),
+        ],
+        faq=[
+            ("What are the incident reporting deadlines?",
+             "An early warning within 24 hours of detecting a significant incident, a full notification within 72 hours, and a final report within one month of the notification. If the incident is still ongoing at that point, a progress report is filed and the final report follows once handling is complete. Trust service providers have 24 hours for the notification."),
+            ("Who receives the report?",
+             "The sector CSIRT for the sector concerned. Until it declares operational capability, reports are taken by CSIRT NASK, CSIRT GOV or CSIRT MON, and the information flows through the S46 system. If personal data is involved, a separate 72 hour deadline runs towards the data protection authority."),
+            ("When does the clock start?",
+             "At detection, which is the moment someone recognises the event as an incident, including at night and at the weekend. In OT the event is often noticed first as a process problem, so the recognition point matters more than the alert."),
+            ("What should be preserved before restarting anything?",
+             "A capture of the network traffic, a copy of the controller program and configuration, photographs of the screens and a record of the times. Many controllers keep no logs, and a restart or a restore from backup erases the state that would have been the evidence."),
+        ],
+    ),
+    pl=dict(
+        title="Zgłaszanie incydentu w OT: 24 h, 72 h, miesiąc | Liscere",
+        description="Jak zgłosić incydent poważny w 24 godziny, 72 godziny i miesiąc, gdy dotyczy on sieci sterowania: terminy, adresat, dowody i procedura dla OT.",
+        og_image_alt="Liscere: cyberbezpieczeństwo przemysłowe",
+        about=["Zgłaszanie incydentów", "NIS2", "Ustawa o KSC", "Bezpieczeństwo OT", "CSIRT"],
+        keywords="zgłoszenie incydentu, incydent poważny, NIS2, ustawa o KSC, 24 godziny, 72 godziny, sprawozdanie końcowe, CSIRT NASK, CSIRT GOV, CSIRT MON, reagowanie na incydenty OT",
+        contact="../../../pl/uslugi.html#contact",
+        key_points=[
+            "Incydent poważny zgłasza się w trzech krokach: wczesne ostrzeżenie w 24 godziny, zgłoszenie w 72 godziny i sprawozdanie końcowe w miesiąc.",
+            "Zgłoszenie trafia do CSIRT sektorowego, a zanim ogłosi on zdolność operacyjną, do CSIRT NASK, CSIRT GOV lub CSIRT MON.",
+            "W OT najtrudniejszy nie jest formularz, lecz decyzja: izolacja systemu dotyka procesu, który nadal trwa.",
+            "Dowody w OT są ulotne, więc zrzut ruchu i kopia konfiguracji powinny powstać przed jakimkolwiek restartem.",
+        ],
+        related=[
+            ("pl/uslugi/reagowanie-na-incydenty-ot.html", "Reagowanie na incydenty OT", "Plan, który działa, gdy procesu nie można po prostu zatrzymać."),
+            ("pl/uslugi/nis2-ksc.html", "Gotowość do NIS2 i KSC", "Obowiązki, audyt i plan działań z perspektywą OT."),
+            ("pl/uslugi/widocznosc-i-monitoring-ot.html", "Widoczność i monitoring OT", "Zobacz, co naprawdę trafia do Twojej sieci sterowania."),
+        ],
+        faq=[
+            ("Jakie są terminy zgłoszenia incydentu?",
+             "Wczesne ostrzeżenie w ciągu 24 godzin od wykrycia incydentu poważnego, pełne zgłoszenie w ciągu 72 godzin i sprawozdanie końcowe w ciągu miesiąca od zgłoszenia. Jeżeli incydent nadal trwa, w tym terminie składa się sprawozdanie z postępu, a końcowe po zakończeniu obsługi. Dostawcy usług zaufania mają na zgłoszenie 24 godziny."),
+            ("Do kogo trafia zgłoszenie?",
+             "Do CSIRT sektorowego właściwego dla danego sektora. Zanim ogłosi on zdolność operacyjną, zgłoszenia przyjmują CSIRT NASK, CSIRT GOV i CSIRT MON, a obieg informacji prowadzi system S46. Jeżeli incydent obejmuje dane osobowe, osobno biegnie termin 72 godzin wobec organu ochrony danych."),
+            ("Od kiedy liczy się czas?",
+             "Od wykrycia, czyli od chwili, w której ktoś rozpoznał zdarzenie jako incydent, także w nocy i w weekend. W OT zdarzenie bywa najpierw zauważone jako problem technologiczny, więc moment rozpoznania waży więcej niż sam alarm."),
+            ("Co zabezpieczyć przed restartem?",
+             "Zrzut ruchu sieciowego, kopię programu i konfiguracji sterownika, zdjęcia ekranów oraz zapis czasów. Wiele sterowników nie prowadzi logów, a restart lub przywrócenie z kopii kasuje stan, który byłby dowodem."),
+        ],
+    ),
+)
+
+ARTICLES = [GD_2026_01, GD_2026_02, FN_2026_01, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
             LTR_2026_01, LTR_2026_02, LTR_2026_03, LTR_2026_04, LTR_2026_05]
 
 if __name__ == "__main__":

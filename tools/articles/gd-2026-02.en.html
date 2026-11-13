@@ -1,0 +1,71 @@
+<p class="kicker">GUIDE · GD-2026-02 · 13 November 2026</p>
+
+<h1>Reporting an OT incident: 24 hours, 72 hours, one month</h1>
+
+<p class="lede">The reporting deadlines are the same for the office and for the plant floor, but working under them is not. In OT, isolating a system touches a physical process, evidence disappears when a controller is restarted, and the 24 hour clock starts at detection, including at night and at the weekend. This guide covers how to be ready before that happens.</p>
+
+<h2>The three deadlines</h2>
+<ul>
+  <li><strong>24 hours: early warning.</strong> A short notice from the detection of a significant incident. The cause and the full extent do not have to be known. What is happening, whether a deliberate act is suspected and whether the effects may cross borders is enough.</li>
+  <li><strong>72 hours: incident notification.</strong> A fuller picture: an assessment of severity, the impact and indicators of compromise where they are known.</li>
+  <li><strong>One month: final report.</strong> A description of the incident, the root cause, the measures applied and any cross border effects. If the incident is still ongoing, a progress report is filed at that point and the final report once handling is complete.</li>
+</ul>
+<p>Trust service providers have 24 hours from detection for the notification of a significant incident.</p>
+
+<h2>Where the report goes</h2>
+<p>The intended recipient is the sector CSIRT for the sector concerned. Until it declares operational capability, reports are taken by CSIRT NASK, CSIRT GOV and CSIRT MON, and the information flows through the S46 system. The first thing worth settling before an incident is exactly that: which CSIRT is the right one for this sector today, at which address and with which form.</p>
+<p>A report to a CSIRT does not replace other duties. If the incident involves personal data, a separate 72 hour deadline runs towards the data protection authority.</p>
+
+<h2>What counts as a significant incident</h2>
+<p>The thresholds are set in a regulation for each sector, and the September 2026 draft covered fifteen sectors. Until the new regulation is issued, the existing thresholds apply. In practice the assessment rests on impact: the number of users affected, the duration of the disruption, financial loss, geographic spread and effects on health or safety.</p>
+<p>In a plant those criteria need translating into the language of the process in advance. Questions worth answering before an incident rather than during one:</p>
+<ul>
+  <li>How many hours of line downtime cross the financial threshold?</li>
+  <li>Is losing visibility in SCADA, while the process keeps running, already a significant incident?</li>
+  <li>What if a controller behaves normally but there is no way to confirm that its program was not changed?</li>
+</ul>
+
+<h2>Why OT is harder</h2>
+<ul>
+  <li><strong>Detection comes later.</strong> Control networks are rarely fully monitored. An incident is often noticed as a process problem: odd setpoints, an alarm with no cause, a batch out of specification. The clock runs from detection, so what matters is the moment anyone recognised the event as an incident.</li>
+  <li><strong>Isolation has a physical cost.</strong> Taking an operator station off the network can mean losing supervision of a process that is still running. The decision belongs to process engineering and maintenance, not to IT.</li>
+  <li><strong>Evidence is fragile.</strong> Many controllers keep no logs, and a restart or a restore from backup erases the state that would have been the evidence. A packet capture and a copy of the configuration taken before any intervention are often the only material.</li>
+  <li><strong>Response depends on the shift.</strong> An incident at two in the morning on a Saturday is handled by the maintenance technician on call, not by a security specialist. The procedure has to work under those conditions.</li>
+</ul>
+
+<h2>A procedure that works on the floor</h2>
+<ol>
+  <li><strong>A one sentence test for "this is an incident"</strong> that an operator and a technician on call can both apply. Over reporting beats a missed deadline.</li>
+  <li><strong>One decision maker and a deputy</strong> with phone numbers, reachable around the clock. A name, not a department.</li>
+  <li><strong>A list of steps allowed immediately</strong> without asking anyone: capture network traffic, photograph the screen, record the time, secure a copy of the controller program.</li>
+  <li><strong>The isolation decision</strong> taken together with process engineering, with a safe process state agreed in advance for each installation.</li>
+  <li><strong>A ready early warning template</strong> that takes minutes to fill in, with the contact details of the right CSIRT.</li>
+  <li><strong>One tabletop exercise a year</strong> with production, maintenance, IT and management in the room. The first one usually shows that nobody knows who sends the report.</li>
+</ol>
+
+<h2>What to have ready beforehand</h2>
+<p>Reporting within 24 hours only works if the basics are already in place:</p>
+<ul>
+  <li>an OT inventory: controllers, stations, protocols, remote access,</li>
+  <li>a network diagram that matches reality, not a drawing from years ago,</li>
+  <li>copies of controller programs and configurations, with dates,</li>
+  <li>knowledge of what is normal for the process, so that abnormal can be recognised,</li>
+  <li>contacts: CSIRT, vendors, the integrator, the insurer, legal counsel.</li>
+</ul>
+<p>The same inventory is needed for the risk analysis NIS2 requires, so the work is not duplicated.</p>
+
+<h2>What not to do</h2>
+<ul>
+  <li>Do not wait for certainty. An early warning saying "a possible incident is under investigation" meets the deadline; certainty after 48 hours does not.</li>
+  <li>Do not restart everything in the first hour. It is the fastest way to lose the evidence.</li>
+  <li>Do not assume an IT incident will stay out of OT. The usual path runs through an engineering workstation or a remote maintenance connection.</li>
+  <li>Do not leave the deadlines without an owner. A deadline with no name attached is not met at three in the morning.</li>
+</ul>
+
+<h2>Sources</h2>
+<ul>
+  <li>Directive (EU) 2022/2555 (NIS2), reporting obligations: <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj" target="_blank" rel="noopener">EUR-Lex</a></li>
+  <li>Act of 23 January 2026 amending the act on the national cybersecurity system, Journal of Laws 2026 item 252: <a href="https://eli.gov.pl/eli/DU/2026/252/ogl" target="_blank" rel="noopener">Dziennik Ustaw</a></li>
+  <li>CSIRT NASK, incident reporting: <a href="https://incydent.cert.pl/" target="_blank" rel="noopener">incydent.cert.pl</a></li>
+  <li>National cybersecurity system, information from the Ministry of Digital Affairs: <a href="https://www.gov.pl/web/baza-wiedzy/cyberbezpieczenstwo" target="_blank" rel="noopener">gov.pl</a></li>
+</ul>
