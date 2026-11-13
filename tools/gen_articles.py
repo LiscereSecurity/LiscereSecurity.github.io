@@ -823,7 +823,73 @@ GD_2026_02 = dict(
     ),
 )
 
-ARTICLES = [GD_2026_01, GD_2026_02, FN_2026_01, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
+GD_2026_03 = dict(
+    id="gd-2026-03", series="guides", date="2026-11-13", month_bib="nov", og_image="assets/og-image.png",
+    en=dict(
+        title="IEC 62443 in practice: the parts, zones and security levels | Liscere",
+        description="How the IEC 62443 series is organised, which part a plant should read, what zones and conduits are, and what SL-T, SL-C and SL-A actually mean.",
+        og_image_alt="Liscere: industrial cybersecurity",
+        about=["IEC 62443", "Industrial control systems", "Operational technology security", "Security levels", "Zones and conduits"],
+        keywords="IEC 62443, ISA 62443, 62443-3-3, 62443-4-2, 62443-4-1, 62443-2-4, 62443-3-2, zones and conduits, security levels, SL-T, SL-C, SL-A, foundational requirements, ISASecure",
+        contact="../../services.html#contact",
+        key_points=[
+            "IEC 62443 is a series, not a single standard, and it is organised around three roles: asset owner, service provider and product supplier.",
+            "A plant usually needs 62443-3-2 for zones and risk, 62443-3-3 for system requirements and 62443-2-1 as the organisational frame.",
+            "Security levels only mean something with the variant attached: SL-T is the target, SL-C what a product can deliver, SL-A what the installation actually reaches.",
+            "Products, development processes and service providers can be certified. There is no 62443 certificate for a plant.",
+        ],
+        related=[
+            ("services/ot-security-assessment.html", "OT and ICS security assessment", "An assessment aligned with the IEC 62443 method."),
+            ("services/nis2-ksc-compliance.html", "NIS2 readiness", "Turn the directive's expectations into concrete OT controls."),
+            ("services/ot-visibility-monitoring.html", "OT visibility and monitoring", "The inventory that zones and conduits are drawn from."),
+        ],
+        faq=[
+            ("What is IEC 62443?",
+             "A series of standards for the cybersecurity of industrial automation and control systems, developed jointly by ISA99 and IEC TC 65 and often written ISA/IEC 62443. It is organised in four groups: general concepts (1-x), policies and procedures (2-x), system requirements (3-x) and component requirements (4-x), and it addresses asset owners, service providers and product suppliers separately."),
+            ("Which part of IEC 62443 applies to a plant?",
+             "In practice three: 62443-3-2 for risk assessment and the division into zones and conduits, 62443-3-3 for the system security requirements, which can be written straight into a tender specification, and 62443-2-1 for the security programme itself. Integrators work to 2-4, and product vendors to 4-1 and 4-2."),
+            ("What do SL-T, SL-C and SL-A mean?",
+             "SL-T is the target security level for a zone, taken from the risk assessment. SL-C is the capability a product or system can deliver when it is configured correctly. SL-A is the level actually achieved in the running installation. Saying a site is at SL 2 without naming the variant says very little, and the gap between SL-C and SL-A is usually where the real findings are."),
+            ("Can a plant be certified to IEC 62443?",
+             "Products, vendor development processes and service organisations can be certified, through schemes such as ISASecure. An asset owner builds a security programme in line with 62443-2-1 and can have it assessed, but there is no plant certificate in the sense of ISO 9001. When a supplier claims compliance, ask which part, what SL-C, and whether there is an independent certificate or only a self declaration."),
+            ("Does IEC 62443 help with NIS2?",
+             "The law does not name the standard, but NIS2 requires measures appropriate to the risk, and 62443 is a recognised way of showing what that means in an industrial environment. A zone model under 3-2 evidences the risk analysis, the requirements in 3-3 become concrete technical measures, and 2-4 supports the supply chain obligation."),
+        ],
+    ),
+    pl=dict(
+        title="IEC 62443 w praktyce: części, strefy i poziomy SL | Liscere",
+        description="Z ilu części składa się IEC 62443, którą czytać w zakładzie, czym są strefy i kanały oraz co naprawdę znaczą poziomy SL-T, SL-C i SL-A.",
+        og_image_alt="Liscere: cyberbezpieczeństwo przemysłowe",
+        about=["IEC 62443", "Przemysłowe systemy sterowania", "Bezpieczeństwo OT", "Poziomy bezpieczeństwa", "Strefy i kanały"],
+        keywords="IEC 62443, norma 62443, 62443-3-3, 62443-4-2, 62443-4-1, 62443-2-4, 62443-3-2, strefy i kanały, poziomy bezpieczeństwa, SL-T, SL-C, SL-A, wymagania podstawowe, ISASecure, certyfikat",
+        contact="../../../pl/uslugi.html#contact",
+        key_points=[
+            "IEC 62443 to seria, a nie jedna norma, zbudowana wokół trzech ról: właściciela zasobu, dostawcy usług i producenta.",
+            "Zakładowi zwykle potrzebne są 62443-3-2 (strefy i ryzyko), 62443-3-3 (wymagania dla systemu) oraz 62443-2-1 jako rama organizacyjna.",
+            "Poziomy bezpieczeństwa mają sens dopiero z odmianą: SL-T to cel, SL-C to możliwości produktu, SL-A to stan faktyczny instalacji.",
+            "Certyfikować można produkt, proces rozwoju i firmę usługową. Nie istnieje certyfikat 62443 dla zakładu.",
+        ],
+        related=[
+            ("pl/uslugi/audyt-bezpieczenstwa-ot.html", "Audyt bezpieczeństwa OT i ICS", "Audyt prowadzony zgodnie z metodyką IEC 62443."),
+            ("pl/uslugi/nis2-ksc.html", "Gotowość do NIS2 i KSC", "Obowiązki, audyt i plan działań z perspektywą OT."),
+            ("pl/uslugi/widocznosc-i-monitoring-ot.html", "Widoczność i monitoring OT", "Inwentaryzacja, z której rysuje się strefy i kanały."),
+        ],
+        faq=[
+            ("Czym jest IEC 62443?",
+             "To seria norm dotyczących cyberbezpieczeństwa przemysłowych systemów automatyki i sterowania, tworzona wspólnie przez komitet ISA99 i IEC TC 65, stąd oznaczenie ISA/IEC 62443. Dzieli się na cztery grupy: pojęcia ogólne (1-x), polityki i procedury (2-x), wymagania dla systemu (3-x) i wymagania dla komponentów (4-x), a osobno adresuje właścicieli zasobów, dostawców usług i producentów."),
+            ("Którą część IEC 62443 czytać w zakładzie?",
+             "W praktyce trzy: 62443-3-2 dla oceny ryzyka oraz podziału na strefy i kanały, 62443-3-3 dla wymagań bezpieczeństwa systemu, które można wpisać wprost do specyfikacji przetargowej, oraz 62443-2-1 dla samego programu bezpieczeństwa. Integratorzy pracują według 2-4, a producenci według 4-1 i 4-2."),
+            ("Co oznaczają SL-T, SL-C i SL-A?",
+             "SL-T to docelowy poziom bezpieczeństwa strefy, wynikający z oceny ryzyka. SL-C to poziom, jaki produkt lub system jest w stanie zapewnić przy prawidłowej konfiguracji. SL-A to poziom faktycznie osiągnięty w działającej instalacji. Stwierdzenie „mamy SL 2” bez podania odmiany niewiele znaczy, a różnica między SL-C a SL-A jest zwykle miejscem, w którym znajdują się realne ustalenia audytu."),
+            ("Czy zakład może uzyskać certyfikat IEC 62443?",
+             "Certyfikować można produkty, procesy rozwoju u producenta i firmy usługowe, w schematach takich jak ISASecure. Właściciel zasobu buduje program bezpieczeństwa zgodny z 62443-2-1 i może poddać go ocenie, ale certyfikat dla zakładu w rozumieniu ISO 9001 nie istnieje. Gdy dostawca deklaruje zgodność, warto zapytać: która część, jaki SL-C i czy jest certyfikat niezależnej jednostki, czy deklaracja własna."),
+            ("Czy IEC 62443 pomaga w NIS2?",
+             "Przepisy nie wskazują normy z nazwy, ale NIS2 wymaga środków adekwatnych do ryzyka, a 62443 jest uznanym sposobem pokazania, co to oznacza w środowisku przemysłowym. Model stref według 3-2 stanowi dowód analizy ryzyka, wymagania z 3-3 przekładają się na konkretne środki techniczne, a 2-4 wspiera obowiązek bezpieczeństwa łańcucha dostaw."),
+        ],
+    ),
+)
+
+ARTICLES = [GD_2026_01, GD_2026_02, GD_2026_03, FN_2026_01, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
             LTR_2026_01, LTR_2026_02, LTR_2026_03, LTR_2026_04, LTR_2026_05]
 
 if __name__ == "__main__":

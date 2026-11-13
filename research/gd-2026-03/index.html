@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en-GB" class="past-hero article-view">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://formspree.io https://cloudflareinsights.com; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IEC 62443 in practice: the parts, zones and security levels | Liscere</title>
+  <meta name="description" content="How the IEC 62443 series is organised, which part a plant should read, what zones and conduits are, and what SL-T, SL-C and SL-A actually mean." />
+  <meta name="author" content="Liscere" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
+  <meta name="theme-color" content="#030405" />
+
+  <meta property="og:title" content="IEC 62443 in practice: the parts, zones and security levels" />
+  <meta property="og:description" content="How the IEC 62443 series is organised, which part a plant should read, what zones and conduits are, and what SL-T, SL-C and SL-A actually mean." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://liscere.com/research/gd-2026-03/" />
+  <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Liscere: industrial cybersecurity" />
+  <meta property="og:site_name" content="Liscere" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="pl_PL" />
+  <meta property="article:published_time" content="2026-11-13" />
+  <meta property="article:section" content="Guide" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IEC 62443 in practice: the parts, zones and security levels" />
+  <meta name="twitter:description" content="How the IEC 62443 series is organised, which part a plant should read, what zones and conduits are, and what SL-T, SL-C and SL-A actually mean." />
+  <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
+  <meta name="twitter:image:alt" content="Liscere: industrial cybersecurity" />
+
+  <link rel="canonical" href="https://liscere.com/research/gd-2026-03/" />
+  <link rel="alternate" hreflang="en" href="https://liscere.com/research/gd-2026-03/" />
+  <link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/gd-2026-03/" />
+  <link rel="alternate" hreflang="x-default" href="https://liscere.com/research/gd-2026-03/" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://liscere.com/research/gd-2026-03/#article",
+      "headline": "IEC 62443 in practice: the parts, zones and security levels",
+      "name": "IEC 62443 in practice: the parts, zones and security levels",
+      "description": "How the IEC 62443 series is organised, which part a plant should read, what zones and conduits are, and what SL-T, SL-C and SL-A actually mean.",
+      "url": "https://liscere.com/research/gd-2026-03/",
+      "mainEntityOfPage": "https://liscere.com/research/gd-2026-03/",
+      "inLanguage": "en-GB",
+      "datePublished": "2026-11-13",
+      "dateModified": "2026-11-13",
+      "image": [
+        "https://liscere.com/assets/og-image.png"
+      ],
+      "author": {
+        "@id": "https://liscere.com/#org"
+      },
+      "publisher": {
+        "@id": "https://liscere.com/#org"
+      },
+      "isPartOf": {
+        "@type": "CreativeWorkSeries",
+        "name": "Liscere Guides",
+        "url": "https://liscere.com/research.html#guides"
+      },
+      "articleSection": "Guide",
+      "about": [
+        "IEC 62443",
+        "Industrial control systems",
+        "Operational technology security",
+        "Security levels",
+        "Zones and conduits"
+      ],
+      "keywords": "IEC 62443, ISA 62443, 62443-3-3, 62443-4-2, 62443-4-1, 62443-2-4, 62443-3-2, zones and conduits, security levels, SL-T, SL-C, SL-A, foundational requirements, ISASecure",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "IEC, the IEC 62443 series in the cybersecurity guidelines",
+          "url": "https://syc-se.iec.ch/deliveries/cybersecurity-guidelines/security-standards-and-best-practices/iec-62443/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IEC Webstore, current editions of each part",
+          "url": "https://webstore.iec.ch/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ISA Global Cybersecurity Alliance, material on the ISA/IEC 62443 series",
+          "url": "https://gca.isa.org/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ISASecure, the certification scheme for products and suppliers",
+          "url": "https://www.isasecure.org/"
+        }
+      ],
+      "workTranslation": {
+        "@id": "https://liscere.com/pl/badania/gd-2026-03/#article"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://liscere.com/#org",
+      "name": "Liscere",
+      "legalName": "Liscere sp. z o.o.",
+      "url": "https://liscere.com/",
+      "logo": "https://liscere.com/assets/apple-touch-icon.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://liscere.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://liscere.com/research.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "GD-2026-03",
+          "item": "https://liscere.com/research/gd-2026-03/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://liscere.com/research/gd-2026-03/#faq",
+      "inLanguage": "en-GB",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is IEC 62443?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A series of standards for the cybersecurity of industrial automation and control systems, developed jointly by ISA99 and IEC TC 65 and often written ISA/IEC 62443. It is organised in four groups: general concepts (1-x), policies and procedures (2-x), system requirements (3-x) and component requirements (4-x), and it addresses asset owners, service providers and product suppliers separately."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which part of IEC 62443 applies to a plant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In practice three: 62443-3-2 for risk assessment and the division into zones and conduits, 62443-3-3 for the system security requirements, which can be written straight into a tender specification, and 62443-2-1 for the security programme itself. Integrators work to 2-4, and product vendors to 4-1 and 4-2."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What do SL-T, SL-C and SL-A mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SL-T is the target security level for a zone, taken from the risk assessment. SL-C is the capability a product or system can deliver when it is configured correctly. SL-A is the level actually achieved in the running installation. Saying a site is at SL 2 without naming the variant says very little, and the gap between SL-C and SL-A is usually where the real findings are."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a plant be certified to IEC 62443?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Products, vendor development processes and service organisations can be certified, through schemes such as ISASecure. An asset owner builds a security programme in line with 62443-2-1 and can have it assessed, but there is no plant certificate in the sense of ISO 9001. When a supplier claims compliance, ask which part, what SL-C, and whether there is an independent certificate or only a self declaration."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does IEC 62443 help with NIS2?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The law does not name the standard, but NIS2 requires measures appropriate to the risk, and 62443 is a recognised way of showing what that means in an industrial environment. A zone model under 3-2 evidences the risk analysis, the requirements in 3-3 become concrete technical measures, and 2-4 supports the supply chain obligation."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="../../assets/css/fonts.css?v=1" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg?v=4" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=4" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261112-a3" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-chrome" aria-label="Site navigation">
+    <a class="site-logo" href="../../index.html" aria-label="Liscere home">
+      <img class="wordmark-svg" src="../../assets/liscere-wordmark-dark.svg?v=3" alt="Liscere" width="1040" height="216" />
+    </a>
+    <nav class="site-nav" aria-label="Pages">
+      <a href="../../index.html">Home</a>
+      <a href="../../services.html">Services</a>
+      <a href="../../about.html">About</a>
+      <a href="../../research.html" aria-current="page">Research</a>
+      <a class="lang-switch" href="../../pl/badania/gd-2026-03/" hreflang="pl" lang="pl" aria-label="Polski">PL</a>
+    </nav>
+  </header>
+
+  <main id="main-content" class="research-page article-page">
+    <article class="article">
+      <header class="article-head">
+        <p class="kicker"><a class="series-back" href="../../research.html#guides" data-back>GUIDE</a> · GD-2026-03 · 13 November 2026</p>
+
+        <h1>IEC 62443 in practice: the parts, zones and security levels</h1>
+
+        <p class="lede">IEC 62443 is not one standard but a series of more than a dozen documents. That is why "are we compliant with 62443" rarely means anything, while "which part applies to us, and at what level" does. This guide sets out the structure of the series, explains zones and conduits, the seven foundational requirements and the security levels, and what each means for a plant, an integrator and a product vendor.</p>
+      </header>
+
+      <aside class="key-points" aria-labelledby="key-points-title">
+        <h2 id="key-points-title">Key points</h2>
+        <ul>
+          <li>IEC 62443 is a series, not a single standard, and it is organised around three roles: asset owner, service provider and product supplier.</li>
+          <li>A plant usually needs 62443-3-2 for zones and risk, 62443-3-3 for system requirements and 62443-2-1 as the organisational frame.</li>
+          <li>Security levels only mean something with the variant attached: SL-T is the target, SL-C what a product can deliver, SL-A what the installation actually reaches.</li>
+          <li>Products, development processes and service providers can be certified. There is no 62443 certificate for a plant.</li>
+        </ul>
+      </aside>
+
+      <aside class="article-side" aria-label="Video and contents">
+        <div class="side-sticky">
+
+          <nav class="article-toc" aria-labelledby="toc-title">
+            <h2 id="toc-title">On this page</h2>
+            <ol>
+              <li><a href="#what-iec-62443-is">What IEC 62443 is</a></li>
+              <li><a href="#the-four-groups-of-parts">The four groups of parts</a></li>
+              <li><a href="#which-part-to-read">Which part to read</a></li>
+              <li><a href="#zones-and-conduits">Zones and conduits</a></li>
+              <li><a href="#the-seven-foundational-requirements">The seven foundational requirements</a></li>
+              <li><a href="#security-levels">Security levels</a></li>
+              <li><a href="#certification-what-can-and-cannot-be-certified">Certification: what can and cannot be certified</a></li>
+              <li><a href="#iec-62443-nis2-and-the-polish-ksc-act">IEC 62443, NIS2 and the Polish KSC act</a></li>
+              <li><a href="#where-to-start">Where to start</a></li>
+              <li><a href="#help">How Liscere can help</a></li>
+              <li><a href="#questions">Questions</a></li>
+              <li><a href="#sources">Sources</a></li>
+            </ol>
+          </nav>
+          <section class="side-cta" aria-labelledby="side-cta-title">
+            <h2 id="side-cta-title">Facing something similar?</h2>
+            <p>We help industrial operators find what is exposed, see what their control network is being told to do, and respond when something goes wrong.</p>
+            <a class="primary-cta" href="../../services.html#contact">Talk to us</a>
+          </section>
+        </div>
+      </aside>
+
+      <div class="article-body">
+        <h2 id="what-iec-62443-is">What IEC 62443 is</h2>
+        <p>The series is developed jointly by ISA99 and IEC TC 65, which is why it is often written ISA/IEC 62443. It covers the cybersecurity of industrial automation and control systems (IACS) not from the angle of one product but across the whole lifecycle and three roles:</p>
+        <ul>
+          <li><strong>Asset owner:</strong> the plant that operates the installation.</li>
+          <li><strong>Service provider:</strong> the system integrator and the maintenance organisation.</li>
+          <li><strong>Product supplier:</strong> the maker of a controller, an application or a network device.</li>
+        </ul>
+        <p>That split is the key to the whole series. Most confusion comes from reading a part written for a different role.</p>
+
+        <h2 id="the-four-groups-of-parts">The four groups of parts</h2>
+        <ul>
+          <li><strong>62443-1-x, general.</strong> Concepts, models and terminology. Part 1-1 introduces the base definitions, including zones, conduits and security levels.</li>
+          <li><strong>62443-2-x, policies and procedures.</strong> Part 2-1 describes the security programme for the asset owner. Part 2-3 covers patch management, and 2-4 the requirements for service providers, meaning integrators and maintenance.</li>
+          <li><strong>62443-3-x, system.</strong> Part 3-1 reviews security technologies. Part 3-2 covers risk assessment and the division of an installation into zones and conduits. Part 3-3 holds the system security requirements together with the security levels.</li>
+          <li><strong>62443-4-x, component.</strong> Part 4-1 is the secure product development lifecycle at the vendor. Part 4-2 is the technical requirements for individual components: controllers, applications, network devices and workstations.</li>
+        </ul>
+        <p>Individual parts have their own editions and are revised over time, so when citing a specific requirement it is worth checking the current edition in the IEC webstore.</p>
+
+        <h2 id="which-part-to-read">Which part to read</h2>
+        <ul>
+          <li><strong>A plant:</strong> 62443-2-1 (security programme), 62443-3-2 (zones, conduits and risk assessment), 62443-3-3 (system requirements, which can go straight into a tender specification).</li>
+          <li><strong>An integrator or maintenance provider:</strong> 62443-2-4 (requirements on the service provider), 62443-3-3, and 62443-4-2 when selecting components.</li>
+          <li><strong>A device or software vendor:</strong> 62443-4-1 (development process) and 62443-4-2 (technical product requirements).</li>
+        </ul>
+        <p>For a plant the practical order is 3-2, then 3-3, with 2-1 as the organisational frame. The risk assessment sets the zones and the target levels, and only then is it clear which requirements to look up.</p>
+
+        <h2 id="zones-and-conduits">Zones and conduits</h2>
+        <p>A zone is a set of assets with common security requirements, such as a packaging line, a boiler control system or the office network. A conduit is a connection between zones, meaning every path data takes: a fibre link, a maintenance VPN, a firewall, and the technician's USB stick as well.</p>
+        <p>The exercise is not about drawings. Each zone gets a target security level, and each conduit becomes a place where requirements can be enforced. In practice the first attempt almost always surfaces connections nobody remembered: a vendor's service modem, a switch shared between two installations, an engineering workstation with access to everything.</p>
+
+        <h2 id="the-seven-foundational-requirements">The seven foundational requirements</h2>
+        <p>The whole series rests on seven foundational requirements (FR), which the detailed requirements roll up into:</p>
+        <ol>
+          <li><strong>Identification and authentication control</strong> (IAC): who and what connects to the system.</li>
+          <li><strong>Use control</strong> (UC): what is permitted once authenticated.</li>
+          <li><strong>System integrity</strong> (SI): whether software and data have been altered.</li>
+          <li><strong>Data confidentiality</strong> (DC): protecting information from being read by the wrong party.</li>
+          <li><strong>Restricted data flow</strong> (RDF): segmentation and control of traffic between zones.</li>
+          <li><strong>Timely response to events</strong> (TRE): detection, logging and response.</li>
+          <li><strong>Resource availability</strong> (RA): resistance to overload and recovery after a failure.</li>
+        </ol>
+        <p>In OT the order of importance is often the reverse of IT: availability and integrity usually come before confidentiality, because a stopped process costs money immediately.</p>
+
+        <h2 id="security-levels">Security levels</h2>
+        <p>The levels describe who the system should hold off, not how secure it is in the abstract:</p>
+        <ul>
+          <li><strong>SL 1:</strong> protection against casual or coincidental violation.</li>
+          <li><strong>SL 2:</strong> against intentional violation using simple means, with low resources and generic skills.</li>
+          <li><strong>SL 3:</strong> against sophisticated means, with moderate resources and knowledge of industrial systems.</li>
+          <li><strong>SL 4:</strong> against sophisticated means, with extended resources and high motivation.</li>
+        </ul>
+        <p>Three variants go with them, and they are the ones most often confused:</p>
+        <ul>
+          <li><strong>SL-T</strong> (target): the level a zone should reach, taken from the risk assessment.</li>
+          <li><strong>SL-C</strong> (capability): the level a product or system can deliver when configured correctly.</li>
+          <li><strong>SL-A</strong> (achieved): the level actually reached in the running installation.</li>
+        </ul>
+        <p>"We are SL 2" on its own says nothing. What carries meaning is "the packaging zone has SL-T 2, the chosen controller has SL-C 2, and the measurement after commissioning showed SL-A 1, because authentication was switched off during start up". The gap between SL-C and SL-A is usually the most interesting part of an assessment.</p>
+
+        <h2 id="certification-what-can-and-cannot-be-certified">Certification: what can and cannot be certified</h2>
+        <p>A product can be certified (against 4-1 and 4-2), as can a vendor's development process and a service organisation (against 2-4). Schemes exist for this, including ISASecure and programmes run by certification bodies.</p>
+        <p>There is no "62443 certificate for a plant" in the sense that an ISO 9001 certificate exists. An asset owner builds a security programme in line with 2-1 and can have it assessed, but that assesses the programme rather than stamping the installation. When a supplier says a device "complies with 62443", the useful follow up is specific: which part, what SL-C, and is there an independent certificate or only a self declaration.</p>
+
+        <h2 id="iec-62443-nis2-and-the-polish-ksc-act">IEC 62443, NIS2 and the Polish KSC act</h2>
+        <p>The law does not name the standard. NIS2 requires measures appropriate to the risk, and 62443 is a recognised way of showing what that means in an industrial environment. In practice the pieces line up like this:</p>
+        <ul>
+          <li>a risk assessment and zone model under 3-2 serves as evidence of the risk analysis NIS2 requires,</li>
+          <li>the requirements in 3-3 translate into concrete technical measures and into purchasing specifications,</li>
+          <li>the requirements on integrators in 2-4 are a natural tool for the supply chain security obligation,</li>
+          <li>4-1 and 4-2 are increasingly the reference when assessing products, including in the context of EU rules on the cyber resilience of products.</li>
+        </ul>
+
+        <h2 id="where-to-start">Where to start</h2>
+        <ol>
+          <li><strong>Draw the zones and conduits</strong> for one installation, as it is rather than as designed. The exercise usually points at the largest risks by itself.</li>
+          <li><strong>Set SL-T</strong> for each zone from the consequences, not from ambition. SL 3 everywhere is expensive and rarely justified.</li>
+          <li><strong>Check the SL-C</strong> of the equipment already installed by asking the vendors directly.</li>
+          <li><strong>Measure the gap</strong> between SL-T and reality, and turn that into a plan.</li>
+          <li><strong>Put the requirements into the specification</strong> for the next project, because requiring is cheaper than retrofitting.</li>
+        </ol>
+        <p>Liscere's OT security assessment follows the IEC 62443 method and ends with a list of findings ordered by risk to the process, with the evidence attached.</p>
+
+        <section class="article-related" aria-labelledby="help">
+          <h2 id="help">How Liscere can help</h2>
+          <ul class="related-links">
+            <li><a href="../../services/ot-security-assessment.html">OT and ICS security assessment</a><span>An assessment aligned with the IEC 62443 method.</span></li>
+            <li><a href="../../services/nis2-ksc-compliance.html">NIS2 readiness</a><span>Turn the directive's expectations into concrete OT controls.</span></li>
+            <li><a href="../../services/ot-visibility-monitoring.html">OT visibility and monitoring</a><span>The inventory that zones and conduits are drawn from.</span></li>
+          </ul>
+        </section>
+
+        <section class="article-faq" aria-labelledby="questions">
+          <h2 id="questions">Questions</h2>
+          <div class="faq-item">
+            <h3 class="faq-q">What is IEC 62443?</h3>
+            <p class="faq-a">A series of standards for the cybersecurity of industrial automation and control systems, developed jointly by ISA99 and IEC TC 65 and often written ISA/IEC 62443. It is organised in four groups: general concepts (1-x), policies and procedures (2-x), system requirements (3-x) and component requirements (4-x), and it addresses asset owners, service providers and product suppliers separately.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Which part of IEC 62443 applies to a plant?</h3>
+            <p class="faq-a">In practice three: 62443-3-2 for risk assessment and the division into zones and conduits, 62443-3-3 for the system security requirements, which can be written straight into a tender specification, and 62443-2-1 for the security programme itself. Integrators work to 2-4, and product vendors to 4-1 and 4-2.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">What do SL-T, SL-C and SL-A mean?</h3>
+            <p class="faq-a">SL-T is the target security level for a zone, taken from the risk assessment. SL-C is the capability a product or system can deliver when it is configured correctly. SL-A is the level actually achieved in the running installation. Saying a site is at SL 2 without naming the variant says very little, and the gap between SL-C and SL-A is usually where the real findings are.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Can a plant be certified to IEC 62443?</h3>
+            <p class="faq-a">Products, vendor development processes and service organisations can be certified, through schemes such as ISASecure. An asset owner builds a security programme in line with 62443-2-1 and can have it assessed, but there is no plant certificate in the sense of ISO 9001. When a supplier claims compliance, ask which part, what SL-C, and whether there is an independent certificate or only a self declaration.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Does IEC 62443 help with NIS2?</h3>
+            <p class="faq-a">The law does not name the standard, but NIS2 requires measures appropriate to the risk, and 62443 is a recognised way of showing what that means in an industrial environment. A zone model under 3-2 evidences the risk analysis, the requirements in 3-3 become concrete technical measures, and 2-4 supports the supply chain obligation.</p>
+          </div>
+        </section>
+
+        <section class="article-sources" aria-labelledby="sources">
+          <h2 id="sources">Sources</h2>
+          <ul>
+            <li>IEC, the IEC 62443 series in the cybersecurity guidelines: <a href="https://syc-se.iec.ch/deliveries/cybersecurity-guidelines/security-standards-and-best-practices/iec-62443/" target="_blank" rel="noopener">syc-se.iec.ch</a></li>
+            <li>IEC Webstore, current editions of each part: <a href="https://webstore.iec.ch/" target="_blank" rel="noopener">webstore.iec.ch</a></li>
+            <li>ISA Global Cybersecurity Alliance, material on the ISA/IEC 62443 series: <a href="https://gca.isa.org/" target="_blank" rel="noopener">gca.isa.org</a></li>
+            <li>ISASecure, the certification scheme for products and suppliers: <a href="https://www.isasecure.org/" target="_blank" rel="noopener">isasecure.org</a></li>
+          </ul>
+        </section>
+
+        <section class="article-cite" aria-labelledby="cite-title">
+          <h2 id="cite-title" class="doc-section-head">Cite this article</h2>
+          <pre class="doc-cite">@misc{liscere_gd_2026_03,
+  author       = {{Liscere}},
+  title        = {IEC 62443 in practice: the parts, zones and security levels},
+  howpublished = {Liscere Guides GD-2026-03},
+  year         = {2026},
+  month        = nov,
+  url          = {https://liscere.com/research/gd-2026-03/}
+}</pre>
+        </section>
+
+        <p class="article-back"><a href="../../research.html" data-back>&#8592; All research</a></p>
+      </div>
+    </article>
+
+    <p class="research-foot"><a href="../../index.html">Home</a> · <a href="../../services.html">Services</a> · <a href="../../about.html">About</a> · <a href="../../faq.html">FAQ</a> · <a href="../../research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="../../privacy.html">Privacy</a> · <a href="../../legal.html">Legal</a> · <a href="../../terms.html">Terms</a><br />Based in Poland, working across Europe and worldwide.<br />© 2026 Liscere sp. z o.o.</p>
+  </main>
+
+  <script src="../../assets/js/site.js?v=3" defer></script>
+  <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3280d901c4be4657ba0562ac10e607b7"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

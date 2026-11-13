@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="pl-PL" class="past-hero article-view">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://formspree.io https://cloudflareinsights.com; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IEC 62443 w praktyce: części, strefy i poziomy SL | Liscere</title>
+  <meta name="description" content="Z ilu części składa się IEC 62443, którą czytać w zakładzie, czym są strefy i kanały oraz co naprawdę znaczą poziomy SL-T, SL-C i SL-A." />
+  <meta name="author" content="Liscere" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
+  <meta name="theme-color" content="#030405" />
+
+  <meta property="og:title" content="IEC 62443 w praktyce: części normy, strefy i poziomy SL" />
+  <meta property="og:description" content="Z ilu części składa się IEC 62443, którą czytać w zakładzie, czym są strefy i kanały oraz co naprawdę znaczą poziomy SL-T, SL-C i SL-A." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://liscere.com/pl/badania/gd-2026-03/" />
+  <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Liscere: cyberbezpieczeństwo przemysłowe" />
+  <meta property="og:site_name" content="Liscere" />
+  <meta property="og:locale" content="pl_PL" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="article:published_time" content="2026-11-13" />
+  <meta property="article:section" content="Guide" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IEC 62443 w praktyce: części normy, strefy i poziomy SL" />
+  <meta name="twitter:description" content="Z ilu części składa się IEC 62443, którą czytać w zakładzie, czym są strefy i kanały oraz co naprawdę znaczą poziomy SL-T, SL-C i SL-A." />
+  <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
+  <meta name="twitter:image:alt" content="Liscere: cyberbezpieczeństwo przemysłowe" />
+
+  <link rel="canonical" href="https://liscere.com/pl/badania/gd-2026-03/" />
+  <link rel="alternate" hreflang="en" href="https://liscere.com/research/gd-2026-03/" />
+  <link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/gd-2026-03/" />
+  <link rel="alternate" hreflang="x-default" href="https://liscere.com/research/gd-2026-03/" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://liscere.com/pl/badania/gd-2026-03/#article",
+      "headline": "IEC 62443 w praktyce: części normy, strefy i poziomy SL",
+      "name": "IEC 62443 w praktyce: części normy, strefy i poziomy SL",
+      "description": "Z ilu części składa się IEC 62443, którą czytać w zakładzie, czym są strefy i kanały oraz co naprawdę znaczą poziomy SL-T, SL-C i SL-A.",
+      "url": "https://liscere.com/pl/badania/gd-2026-03/",
+      "mainEntityOfPage": "https://liscere.com/pl/badania/gd-2026-03/",
+      "inLanguage": "pl-PL",
+      "datePublished": "2026-11-13",
+      "dateModified": "2026-11-13",
+      "image": [
+        "https://liscere.com/assets/og-image.png"
+      ],
+      "author": {
+        "@id": "https://liscere.com/#org"
+      },
+      "publisher": {
+        "@id": "https://liscere.com/#org"
+      },
+      "isPartOf": {
+        "@type": "CreativeWorkSeries",
+        "name": "Liscere Guides",
+        "url": "https://liscere.com/research.html#guides"
+      },
+      "articleSection": "Guide",
+      "about": [
+        "IEC 62443",
+        "Przemysłowe systemy sterowania",
+        "Bezpieczeństwo OT",
+        "Poziomy bezpieczeństwa",
+        "Strefy i kanały"
+      ],
+      "keywords": "IEC 62443, norma 62443, 62443-3-3, 62443-4-2, 62443-4-1, 62443-2-4, 62443-3-2, strefy i kanały, poziomy bezpieczeństwa, SL-T, SL-C, SL-A, wymagania podstawowe, ISASecure, certyfikat",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "IEC, seria IEC 62443 w wytycznych cyberbezpieczeństwa",
+          "url": "https://syc-se.iec.ch/deliveries/cybersecurity-guidelines/security-standards-and-best-practices/iec-62443/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IEC Webstore, aktualne wydania poszczególnych części",
+          "url": "https://webstore.iec.ch/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ISA Global Cybersecurity Alliance, materiały o serii ISA/IEC 62443",
+          "url": "https://gca.isa.org/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "ISASecure, schemat certyfikacji produktów i dostawców",
+          "url": "https://www.isasecure.org/"
+        }
+      ],
+      "translationOfWork": {
+        "@id": "https://liscere.com/research/gd-2026-03/#article"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://liscere.com/#org",
+      "name": "Liscere",
+      "legalName": "Liscere sp. z o.o.",
+      "url": "https://liscere.com/",
+      "logo": "https://liscere.com/assets/apple-touch-icon.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Start",
+          "item": "https://liscere.com/pl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Badania",
+          "item": "https://liscere.com/pl/badania.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "GD-2026-03",
+          "item": "https://liscere.com/pl/badania/gd-2026-03/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://liscere.com/pl/badania/gd-2026-03/#faq",
+      "inLanguage": "pl-PL",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Czym jest IEC 62443?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To seria norm dotyczących cyberbezpieczeństwa przemysłowych systemów automatyki i sterowania, tworzona wspólnie przez komitet ISA99 i IEC TC 65, stąd oznaczenie ISA/IEC 62443. Dzieli się na cztery grupy: pojęcia ogólne (1-x), polityki i procedury (2-x), wymagania dla systemu (3-x) i wymagania dla komponentów (4-x), a osobno adresuje właścicieli zasobów, dostawców usług i producentów."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Którą część IEC 62443 czytać w zakładzie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "W praktyce trzy: 62443-3-2 dla oceny ryzyka oraz podziału na strefy i kanały, 62443-3-3 dla wymagań bezpieczeństwa systemu, które można wpisać wprost do specyfikacji przetargowej, oraz 62443-2-1 dla samego programu bezpieczeństwa. Integratorzy pracują według 2-4, a producenci według 4-1 i 4-2."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Co oznaczają SL-T, SL-C i SL-A?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "SL-T to docelowy poziom bezpieczeństwa strefy, wynikający z oceny ryzyka. SL-C to poziom, jaki produkt lub system jest w stanie zapewnić przy prawidłowej konfiguracji. SL-A to poziom faktycznie osiągnięty w działającej instalacji. Stwierdzenie „mamy SL 2” bez podania odmiany niewiele znaczy, a różnica między SL-C a SL-A jest zwykle miejscem, w którym znajdują się realne ustalenia audytu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy zakład może uzyskać certyfikat IEC 62443?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Certyfikować można produkty, procesy rozwoju u producenta i firmy usługowe, w schematach takich jak ISASecure. Właściciel zasobu buduje program bezpieczeństwa zgodny z 62443-2-1 i może poddać go ocenie, ale certyfikat dla zakładu w rozumieniu ISO 9001 nie istnieje. Gdy dostawca deklaruje zgodność, warto zapytać: która część, jaki SL-C i czy jest certyfikat niezależnej jednostki, czy deklaracja własna."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy IEC 62443 pomaga w NIS2?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Przepisy nie wskazują normy z nazwy, ale NIS2 wymaga środków adekwatnych do ryzyka, a 62443 jest uznanym sposobem pokazania, co to oznacza w środowisku przemysłowym. Model stref według 3-2 stanowi dowód analizy ryzyka, wymagania z 3-3 przekładają się na konkretne środki techniczne, a 2-4 wspiera obowiązek bezpieczeństwa łańcucha dostaw."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="../../../assets/css/fonts.css?v=1" />
+  <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg?v=4" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon-32.png?v=4" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/favicon-16.png?v=4" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../../../assets/favicon-48.png?v=4" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/apple-touch-icon.png?v=4" />
+  <link rel="stylesheet" href="../../../assets/css/styles.css?v=20261112-a3" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Przejdź do treści</a>
+
+  <header class="site-chrome" aria-label="Nawigacja">
+    <a class="site-logo" href="../../../pl/index.html" aria-label="Liscere, strona główna">
+      <img class="wordmark-svg" src="../../../assets/liscere-wordmark-dark.svg?v=3" alt="Liscere" width="1040" height="216" />
+    </a>
+    <nav class="site-nav" aria-label="Strony">
+      <a href="../../../pl/index.html">Start</a>
+      <a href="../../../pl/uslugi.html">Usługi</a>
+      <a href="../../../pl/o-nas.html">O nas</a>
+      <a href="../../../pl/badania.html" aria-current="page">Badania</a>
+      <a class="lang-switch" href="../../../research/gd-2026-03/" hreflang="en" lang="en" aria-label="English">EN</a>
+    </nav>
+  </header>
+
+  <main id="main-content" class="research-page article-page">
+    <article class="article">
+      <header class="article-head">
+        <p class="kicker"><a class="series-back" href="../../../pl/badania.html#guides" data-back>PORADNIK</a> · GD-2026-03 · 13 listopada 2026</p>
+
+        <h1>IEC 62443 w praktyce: części normy, strefy i poziomy SL</h1>
+
+        <p class="lede">IEC 62443 to nie jedna norma, lecz seria kilkunastu dokumentów. Dlatego pytanie „czy jesteśmy zgodni z 62443” rzadko ma sens, a pytanie „która część nas dotyczy i na jakim poziomie” ma. Ten poradnik porządkuje strukturę serii, wyjaśnia strefy i kanały, siedem wymagań podstawowych oraz poziomy SL, i pokazuje, co z tego wynika dla zakładu, integratora i producenta.</p>
+      </header>
+
+      <aside class="key-points" aria-labelledby="key-points-title">
+        <h2 id="key-points-title">Najważniejsze punkty</h2>
+        <ul>
+          <li>IEC 62443 to seria, a nie jedna norma, zbudowana wokół trzech ról: właściciela zasobu, dostawcy usług i producenta.</li>
+          <li>Zakładowi zwykle potrzebne są 62443-3-2 (strefy i ryzyko), 62443-3-3 (wymagania dla systemu) oraz 62443-2-1 jako rama organizacyjna.</li>
+          <li>Poziomy bezpieczeństwa mają sens dopiero z odmianą: SL-T to cel, SL-C to możliwości produktu, SL-A to stan faktyczny instalacji.</li>
+          <li>Certyfikować można produkt, proces rozwoju i firmę usługową. Nie istnieje certyfikat 62443 dla zakładu.</li>
+        </ul>
+      </aside>
+
+      <aside class="article-side" aria-label="Film i spis treści">
+        <div class="side-sticky">
+
+          <nav class="article-toc" aria-labelledby="toc-title">
+            <h2 id="toc-title">Na tej stronie</h2>
+            <ol>
+              <li><a href="#czym-jest-iec-62443">Czym jest IEC 62443</a></li>
+              <li><a href="#cztery-grupy-czesci">Cztery grupy części</a></li>
+              <li><a href="#ktora-czesc-czytac">Którą część czytać</a></li>
+              <li><a href="#strefy-i-kanaly">Strefy i kanały</a></li>
+              <li><a href="#siedem-wymagan-podstawowych">Siedem wymagań podstawowych</a></li>
+              <li><a href="#poziomy-bezpieczenstwa-sl">Poziomy bezpieczeństwa SL</a></li>
+              <li><a href="#certyfikacja-co-mozna-a-czego-nie">Certyfikacja: co można, a czego nie</a></li>
+              <li><a href="#iec-62443-a-nis2-i-ustawa-o-ksc">IEC 62443 a NIS2 i ustawa o KSC</a></li>
+              <li><a href="#od-czego-zaczac">Od czego zacząć</a></li>
+              <li><a href="#help">Jak Liscere może pomóc</a></li>
+              <li><a href="#questions">Pytania</a></li>
+              <li><a href="#sources">Źródła</a></li>
+            </ol>
+          </nav>
+          <section class="side-cta" aria-labelledby="side-cta-title">
+            <h2 id="side-cta-title">Podobny problem?</h2>
+            <p>Pomagamy operatorom przemysłowym sprawdzić, co jest wystawione na zewnątrz, zobaczyć, co trafia do ich sieci sterowania, i reagować, gdy coś pójdzie nie tak.</p>
+            <a class="primary-cta" href="../../../pl/uslugi.html#contact">Porozmawiaj z nami</a>
+          </section>
+        </div>
+      </aside>
+
+      <div class="article-body">
+        <h2 id="czym-jest-iec-62443">Czym jest IEC 62443</h2>
+        <p>Seria powstaje wspólnie: komitet ISA99 i IEC TC 65, stąd spotykane oznaczenie ISA/IEC 62443. Opisuje cyberbezpieczeństwo przemysłowych systemów automatyki i sterowania (IACS) nie od strony jednego produktu, lecz całego cyklu życia i trzech ról:</p>
+        <ul>
+          <li><strong>Właściciel zasobu</strong> (asset owner): zakład, który eksploatuje instalację.</li>
+          <li><strong>Dostawca usług</strong> (service provider): integrator systemu i firma utrzymania ruchu.</li>
+          <li><strong>Producent</strong> (product supplier): wytwórca sterownika, oprogramowania lub urządzenia sieciowego.</li>
+        </ul>
+        <p>Ten podział jest kluczem do całej serii. Większość nieporozumień bierze się z czytania części napisanej dla innej roli.</p>
+
+        <h2 id="cztery-grupy-czesci">Cztery grupy części</h2>
+        <ul>
+          <li><strong>62443-1-x, ogólne.</strong> Pojęcia, modele i terminologia. Część 1-1 wprowadza podstawowe definicje, w tym strefy, kanały i poziomy bezpieczeństwa.</li>
+          <li><strong>62443-2-x, polityki i procedury.</strong> Część 2-1 opisuje program bezpieczeństwa dla właściciela zasobu. Część 2-3 dotyczy zarządzania aktualizacjami, a 2-4 wymagań dla dostawców usług, czyli integratorów i serwisu.</li>
+          <li><strong>62443-3-x, system.</strong> Część 3-1 omawia technologie zabezpieczeń. Część 3-2 opisuje ocenę ryzyka i podział instalacji na strefy i kanały. Część 3-3 zawiera wymagania bezpieczeństwa dla systemu wraz z poziomami SL.</li>
+          <li><strong>62443-4-x, komponent.</strong> Część 4-1 to bezpieczny cykl rozwoju produktu u producenta. Część 4-2 to wymagania techniczne dla pojedynczych komponentów: sterowników, aplikacji, urządzeń sieciowych i stacji.</li>
+        </ul>
+        <p>Poszczególne części mają własne wydania i bywają nowelizowane, więc przy powoływaniu się na konkretne wymaganie warto sprawdzić aktualną edycję w sklepie IEC.</p>
+
+        <h2 id="ktora-czesc-czytac">Którą część czytać</h2>
+        <ul>
+          <li><strong>Zakład produkcyjny:</strong> 62443-2-1 (program bezpieczeństwa), 62443-3-2 (strefy, kanały i ocena ryzyka), 62443-3-3 (wymagania dla systemu, które można wpisać do specyfikacji przetargowej).</li>
+          <li><strong>Integrator i utrzymanie ruchu:</strong> 62443-2-4 (wymagania wobec dostawcy usług), 62443-3-3 oraz 62443-4-2, jeżeli dobiera komponenty.</li>
+          <li><strong>Producent urządzeń i oprogramowania:</strong> 62443-4-1 (proces rozwoju) i 62443-4-2 (wymagania techniczne produktu).</li>
+        </ul>
+        <p>Dla zakładu najbardziej praktyczna jest kolejność 3-2, potem 3-3, a 2-1 jako rama organizacyjna. Ocena ryzyka wyznacza strefy i poziomy docelowe, a dopiero potem wiadomo, których wymagań szukać.</p>
+
+        <h2 id="strefy-i-kanaly">Strefy i kanały</h2>
+        <p>Strefa to zbiór zasobów o wspólnych wymaganiach bezpieczeństwa, na przykład linia pakowania, system sterowania kotłem albo sieć biurowa. Kanał to połączenie między strefami, czyli każda droga, którą przechodzą dane: łącze światłowodowe, VPN serwisowy, zapora, a także pendrive technika.</p>
+        <p>Podział nie jest ćwiczeniem rysunkowym. Dla każdej strefy ustala się docelowy poziom bezpieczeństwa, a każdy kanał staje się miejscem, w którym wymagania da się wyegzekwować. W praktyce pierwszy taki podział niemal zawsze ujawnia połączenia, o których nikt nie pamiętał: modem serwisowy producenta, wspólny przełącznik dla dwóch instalacji, stację inżynierską z dostępem do wszystkiego.</p>
+
+        <h2 id="siedem-wymagan-podstawowych">Siedem wymagań podstawowych</h2>
+        <p>Cała seria opiera się na siedmiu wymaganiach podstawowych (FR), do których sprowadzają się wymagania szczegółowe:</p>
+        <ol>
+          <li><strong>Identyfikacja i uwierzytelnianie</strong> (IAC): kto i co łączy się z systemem.</li>
+          <li><strong>Kontrola użycia</strong> (UC): co wolno zrobić po uwierzytelnieniu.</li>
+          <li><strong>Integralność systemu</strong> (SI): czy oprogramowanie i dane nie zostały zmienione.</li>
+          <li><strong>Poufność danych</strong> (DC): ochrona informacji przed nieuprawnionym odczytem.</li>
+          <li><strong>Ograniczony przepływ danych</strong> (RDF): segmentacja i kontrola ruchu między strefami.</li>
+          <li><strong>Terminowa reakcja na zdarzenia</strong> (TRE): wykrywanie, rejestrowanie i reagowanie.</li>
+          <li><strong>Dostępność zasobów</strong> (RA): odporność na przeciążenie i odtwarzanie po awarii.</li>
+        </ol>
+        <p>W środowisku OT kolejność ważności bywa odwrotna niż w IT: dostępność i integralność zwykle wyprzedzają poufność, bo zatrzymany proces kosztuje natychmiast.</p>
+
+        <h2 id="poziomy-bezpieczenstwa-sl">Poziomy bezpieczeństwa SL</h2>
+        <p>Poziomy opisują, przed kim system ma się obronić, a nie „jak bardzo jest bezpieczny”:</p>
+        <ul>
+          <li><strong>SL 1:</strong> ochrona przed przypadkowym lub niezamierzonym naruszeniem.</li>
+          <li><strong>SL 2:</strong> przed celowym działaniem prostymi środkami, przy niewielkich zasobach i ogólnych umiejętnościach.</li>
+          <li><strong>SL 3:</strong> przed działaniem zaawansowanymi środkami, przy umiarkowanych zasobach i wiedzy o systemach przemysłowych.</li>
+          <li><strong>SL 4:</strong> przed działaniem zaawansowanymi środkami, przy rozbudowanych zasobach i wysokiej motywacji.</li>
+        </ul>
+        <p>Do tego trzy odmiany, które najczęściej są mylone:</p>
+        <ul>
+          <li><strong>SL-T</strong> (target): poziom docelowy, wynik oceny ryzyka dla danej strefy.</li>
+          <li><strong>SL-C</strong> (capability): poziom, jaki produkt lub system jest w stanie zapewnić przy prawidłowej konfiguracji.</li>
+          <li><strong>SL-A</strong> (achieved): poziom faktycznie osiągnięty w działającej instalacji.</li>
+        </ul>
+        <p>Zdanie „mamy SL 2” samo w sobie nic nie znaczy. Sens ma dopiero: „strefa pakowni ma SL-T 2, dobrany sterownik ma SL-C 2, a pomiar po uruchomieniu wykazał SL-A 1, bo uwierzytelnianie zostało wyłączone podczas rozruchu”. Różnica między SL-C a SL-A to zwykle najciekawsza część audytu.</p>
+
+        <h2 id="certyfikacja-co-mozna-a-czego-nie">Certyfikacja: co można, a czego nie</h2>
+        <p>Certyfikować można produkt (według 4-1 i 4-2), proces rozwoju u producenta oraz firmę usługową (według 2-4). Istnieją na to schematy, między innymi ISASecure i programy jednostek certyfikujących.</p>
+        <p>Nie istnieje natomiast „certyfikat 62443 dla zakładu” w takim sensie, w jakim istnieje certyfikat ISO 9001. Zakład buduje program bezpieczeństwa zgodny z 2-1 i może poddać go ocenie, ale to ocena programu, a nie pieczątka na instalacji. Jeżeli dostawca twierdzi, że jego urządzenie „jest zgodne z 62443”, warto zapytać o konkret: która część, jaki poziom SL-C i czy jest certyfikat niezależnej jednostki, czy deklaracja własna.</p>
+
+        <h2 id="iec-62443-a-nis2-i-ustawa-o-ksc">IEC 62443 a NIS2 i ustawa o KSC</h2>
+        <p>Przepisy nie wskazują normy z nazwy. NIS2 wymaga środków adekwatnych do ryzyka, a 62443 jest uznanym sposobem pokazania, co to znaczy w środowisku przemysłowym. W praktyce dobrze układa się to tak:</p>
+        <ul>
+          <li>ocena ryzyka i podział na strefy według 3-2 stanowi dowód analizy ryzyka wymaganej przez NIS2,</li>
+          <li>wymagania z 3-3 przekładają się na konkretne środki techniczne i na zapisy w specyfikacjach zakupowych,</li>
+          <li>wymagania z 2-4 wobec integratorów są naturalnym narzędziem dla obowiązku bezpieczeństwa łańcucha dostaw,</li>
+          <li>4-1 i 4-2 są coraz częściej punktem odniesienia przy ocenie produktów, także w kontekście unijnych przepisów o odporności cyfrowej produktów.</li>
+        </ul>
+
+        <h2 id="od-czego-zaczac">Od czego zacząć</h2>
+        <ol>
+          <li><strong>Narysuj strefy i kanały</strong> dla jednej instalacji, zgodnie ze stanem faktycznym, nie z projektem. To ćwiczenie zwykle samo wskazuje największe ryzyka.</li>
+          <li><strong>Ustal SL-T</strong> dla każdej strefy na podstawie skutków, a nie ambicji. SL 3 wszędzie jest kosztowne i rzadko uzasadnione.</li>
+          <li><strong>Sprawdź SL-C</strong> posiadanych urządzeń, pytając producentów wprost.</li>
+          <li><strong>Zmierz różnicę</strong> między SL-T a stanem faktycznym i z tego zrób plan.</li>
+          <li><strong>Wpisz wymagania do specyfikacji</strong> kolejnych projektów, bo taniej jest wymagać niż poprawiać.</li>
+        </ol>
+        <p>Audyt bezpieczeństwa OT prowadzony przez Liscere jest zgodny z metodyką IEC 62443 i kończy się listą ustaleń uporządkowaną według ryzyka dla procesu, z dowodami.</p>
+
+        <section class="article-related" aria-labelledby="help">
+          <h2 id="help">Jak Liscere może pomóc</h2>
+          <ul class="related-links">
+            <li><a href="../../../pl/uslugi/audyt-bezpieczenstwa-ot.html">Audyt bezpieczeństwa OT i ICS</a><span>Audyt prowadzony zgodnie z metodyką IEC 62443.</span></li>
+            <li><a href="../../../pl/uslugi/nis2-ksc.html">Gotowość do NIS2 i KSC</a><span>Obowiązki, audyt i plan działań z perspektywą OT.</span></li>
+            <li><a href="../../../pl/uslugi/widocznosc-i-monitoring-ot.html">Widoczność i monitoring OT</a><span>Inwentaryzacja, z której rysuje się strefy i kanały.</span></li>
+          </ul>
+        </section>
+
+        <section class="article-faq" aria-labelledby="questions">
+          <h2 id="questions">Pytania</h2>
+          <div class="faq-item">
+            <h3 class="faq-q">Czym jest IEC 62443?</h3>
+            <p class="faq-a">To seria norm dotyczących cyberbezpieczeństwa przemysłowych systemów automatyki i sterowania, tworzona wspólnie przez komitet ISA99 i IEC TC 65, stąd oznaczenie ISA/IEC 62443. Dzieli się na cztery grupy: pojęcia ogólne (1-x), polityki i procedury (2-x), wymagania dla systemu (3-x) i wymagania dla komponentów (4-x), a osobno adresuje właścicieli zasobów, dostawców usług i producentów.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Którą część IEC 62443 czytać w zakładzie?</h3>
+            <p class="faq-a">W praktyce trzy: 62443-3-2 dla oceny ryzyka oraz podziału na strefy i kanały, 62443-3-3 dla wymagań bezpieczeństwa systemu, które można wpisać wprost do specyfikacji przetargowej, oraz 62443-2-1 dla samego programu bezpieczeństwa. Integratorzy pracują według 2-4, a producenci według 4-1 i 4-2.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Co oznaczają SL-T, SL-C i SL-A?</h3>
+            <p class="faq-a">SL-T to docelowy poziom bezpieczeństwa strefy, wynikający z oceny ryzyka. SL-C to poziom, jaki produkt lub system jest w stanie zapewnić przy prawidłowej konfiguracji. SL-A to poziom faktycznie osiągnięty w działającej instalacji. Stwierdzenie „mamy SL 2” bez podania odmiany niewiele znaczy, a różnica między SL-C a SL-A jest zwykle miejscem, w którym znajdują się realne ustalenia audytu.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Czy zakład może uzyskać certyfikat IEC 62443?</h3>
+            <p class="faq-a">Certyfikować można produkty, procesy rozwoju u producenta i firmy usługowe, w schematach takich jak ISASecure. Właściciel zasobu buduje program bezpieczeństwa zgodny z 62443-2-1 i może poddać go ocenie, ale certyfikat dla zakładu w rozumieniu ISO 9001 nie istnieje. Gdy dostawca deklaruje zgodność, warto zapytać: która część, jaki SL-C i czy jest certyfikat niezależnej jednostki, czy deklaracja własna.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Czy IEC 62443 pomaga w NIS2?</h3>
+            <p class="faq-a">Przepisy nie wskazują normy z nazwy, ale NIS2 wymaga środków adekwatnych do ryzyka, a 62443 jest uznanym sposobem pokazania, co to oznacza w środowisku przemysłowym. Model stref według 3-2 stanowi dowód analizy ryzyka, wymagania z 3-3 przekładają się na konkretne środki techniczne, a 2-4 wspiera obowiązek bezpieczeństwa łańcucha dostaw.</p>
+          </div>
+        </section>
+
+        <section class="article-sources" aria-labelledby="sources">
+          <h2 id="sources">Źródła</h2>
+          <ul>
+            <li>IEC, seria IEC 62443 w wytycznych cyberbezpieczeństwa: <a href="https://syc-se.iec.ch/deliveries/cybersecurity-guidelines/security-standards-and-best-practices/iec-62443/" target="_blank" rel="noopener">syc-se.iec.ch</a></li>
+            <li>IEC Webstore, aktualne wydania poszczególnych części: <a href="https://webstore.iec.ch/" target="_blank" rel="noopener">webstore.iec.ch</a></li>
+            <li>ISA Global Cybersecurity Alliance, materiały o serii ISA/IEC 62443: <a href="https://gca.isa.org/" target="_blank" rel="noopener">gca.isa.org</a></li>
+            <li>ISASecure, schemat certyfikacji produktów i dostawców: <a href="https://www.isasecure.org/" target="_blank" rel="noopener">isasecure.org</a></li>
+          </ul>
+        </section>
+
+        <section class="article-cite" aria-labelledby="cite-title">
+          <h2 id="cite-title" class="doc-section-head">Cytowanie</h2>
+          <pre class="doc-cite">@misc{liscere_gd_2026_03_pl,
+  author       = {{Liscere}},
+  title        = {IEC 62443 w praktyce: części normy, strefy i poziomy SL},
+  howpublished = {Liscere Guides GD-2026-03},
+  year         = {2026},
+  month        = nov,
+  language     = {polish},
+  url          = {https://liscere.com/pl/badania/gd-2026-03/}
+}</pre>
+        </section>
+
+        <p class="article-back"><a href="../../../pl/badania.html" data-back>&#8592; Wszystkie badania</a></p>
+      </div>
+    </article>
+
+    <p class="research-foot"><a href="../../../pl/index.html">Start</a> · <a href="../../../pl/uslugi.html">Usługi</a> · <a href="../../../pl/o-nas.html">O nas</a> · <a href="../../../pl/faq.html">FAQ</a> · <a href="../../../pl/badania.html">Badania</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="../../../pl/prywatnosc.html">Prywatność</a> · <a href="../../../pl/dane-spolki.html">Dane spółki</a> · <a href="../../../pl/warunki.html">Warunki korzystania</a><br />Siedziba w Polsce, działamy w całej Europie i na świecie.<br />© 2026 Liscere sp. z o.o.</p>
+  </main>
+
+  <script src="../../../assets/js/site.js?v=3" defer></script>
+  <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3280d901c4be4657ba0562ac10e607b7"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

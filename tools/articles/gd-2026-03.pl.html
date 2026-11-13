@@ -1,0 +1,95 @@
+<p class="kicker">PORADNIK · GD-2026-03 · 13 listopada 2026</p>
+
+<h1>IEC 62443 w praktyce: części normy, strefy i poziomy SL</h1>
+
+<p class="lede">IEC 62443 to nie jedna norma, lecz seria kilkunastu dokumentów. Dlatego pytanie „czy jesteśmy zgodni z 62443” rzadko ma sens, a pytanie „która część nas dotyczy i na jakim poziomie” ma. Ten poradnik porządkuje strukturę serii, wyjaśnia strefy i kanały, siedem wymagań podstawowych oraz poziomy SL, i pokazuje, co z tego wynika dla zakładu, integratora i producenta.</p>
+
+<h2>Czym jest IEC 62443</h2>
+<p>Seria powstaje wspólnie: komitet ISA99 i IEC TC 65, stąd spotykane oznaczenie ISA/IEC 62443. Opisuje cyberbezpieczeństwo przemysłowych systemów automatyki i sterowania (IACS) nie od strony jednego produktu, lecz całego cyklu życia i trzech ról:</p>
+<ul>
+  <li><strong>Właściciel zasobu</strong> (asset owner): zakład, który eksploatuje instalację.</li>
+  <li><strong>Dostawca usług</strong> (service provider): integrator systemu i firma utrzymania ruchu.</li>
+  <li><strong>Producent</strong> (product supplier): wytwórca sterownika, oprogramowania lub urządzenia sieciowego.</li>
+</ul>
+<p>Ten podział jest kluczem do całej serii. Większość nieporozumień bierze się z czytania części napisanej dla innej roli.</p>
+
+<h2>Cztery grupy części</h2>
+<ul>
+  <li><strong>62443-1-x, ogólne.</strong> Pojęcia, modele i terminologia. Część 1-1 wprowadza podstawowe definicje, w tym strefy, kanały i poziomy bezpieczeństwa.</li>
+  <li><strong>62443-2-x, polityki i procedury.</strong> Część 2-1 opisuje program bezpieczeństwa dla właściciela zasobu. Część 2-3 dotyczy zarządzania aktualizacjami, a 2-4 wymagań dla dostawców usług, czyli integratorów i serwisu.</li>
+  <li><strong>62443-3-x, system.</strong> Część 3-1 omawia technologie zabezpieczeń. Część 3-2 opisuje ocenę ryzyka i podział instalacji na strefy i kanały. Część 3-3 zawiera wymagania bezpieczeństwa dla systemu wraz z poziomami SL.</li>
+  <li><strong>62443-4-x, komponent.</strong> Część 4-1 to bezpieczny cykl rozwoju produktu u producenta. Część 4-2 to wymagania techniczne dla pojedynczych komponentów: sterowników, aplikacji, urządzeń sieciowych i stacji.</li>
+</ul>
+<p>Poszczególne części mają własne wydania i bywają nowelizowane, więc przy powoływaniu się na konkretne wymaganie warto sprawdzić aktualną edycję w sklepie IEC.</p>
+
+<h2>Którą część czytać</h2>
+<ul>
+  <li><strong>Zakład produkcyjny:</strong> 62443-2-1 (program bezpieczeństwa), 62443-3-2 (strefy, kanały i ocena ryzyka), 62443-3-3 (wymagania dla systemu, które można wpisać do specyfikacji przetargowej).</li>
+  <li><strong>Integrator i utrzymanie ruchu:</strong> 62443-2-4 (wymagania wobec dostawcy usług), 62443-3-3 oraz 62443-4-2, jeżeli dobiera komponenty.</li>
+  <li><strong>Producent urządzeń i oprogramowania:</strong> 62443-4-1 (proces rozwoju) i 62443-4-2 (wymagania techniczne produktu).</li>
+</ul>
+<p>Dla zakładu najbardziej praktyczna jest kolejność 3-2, potem 3-3, a 2-1 jako rama organizacyjna. Ocena ryzyka wyznacza strefy i poziomy docelowe, a dopiero potem wiadomo, których wymagań szukać.</p>
+
+<h2>Strefy i kanały</h2>
+<p>Strefa to zbiór zasobów o wspólnych wymaganiach bezpieczeństwa, na przykład linia pakowania, system sterowania kotłem albo sieć biurowa. Kanał to połączenie między strefami, czyli każda droga, którą przechodzą dane: łącze światłowodowe, VPN serwisowy, zapora, a także pendrive technika.</p>
+<p>Podział nie jest ćwiczeniem rysunkowym. Dla każdej strefy ustala się docelowy poziom bezpieczeństwa, a każdy kanał staje się miejscem, w którym wymagania da się wyegzekwować. W praktyce pierwszy taki podział niemal zawsze ujawnia połączenia, o których nikt nie pamiętał: modem serwisowy producenta, wspólny przełącznik dla dwóch instalacji, stację inżynierską z dostępem do wszystkiego.</p>
+
+<h2>Siedem wymagań podstawowych</h2>
+<p>Cała seria opiera się na siedmiu wymaganiach podstawowych (FR), do których sprowadzają się wymagania szczegółowe:</p>
+<ol>
+  <li><strong>Identyfikacja i uwierzytelnianie</strong> (IAC): kto i co łączy się z systemem.</li>
+  <li><strong>Kontrola użycia</strong> (UC): co wolno zrobić po uwierzytelnieniu.</li>
+  <li><strong>Integralność systemu</strong> (SI): czy oprogramowanie i dane nie zostały zmienione.</li>
+  <li><strong>Poufność danych</strong> (DC): ochrona informacji przed nieuprawnionym odczytem.</li>
+  <li><strong>Ograniczony przepływ danych</strong> (RDF): segmentacja i kontrola ruchu między strefami.</li>
+  <li><strong>Terminowa reakcja na zdarzenia</strong> (TRE): wykrywanie, rejestrowanie i reagowanie.</li>
+  <li><strong>Dostępność zasobów</strong> (RA): odporność na przeciążenie i odtwarzanie po awarii.</li>
+</ol>
+<p>W środowisku OT kolejność ważności bywa odwrotna niż w IT: dostępność i integralność zwykle wyprzedzają poufność, bo zatrzymany proces kosztuje natychmiast.</p>
+
+<h2>Poziomy bezpieczeństwa SL</h2>
+<p>Poziomy opisują, przed kim system ma się obronić, a nie „jak bardzo jest bezpieczny”:</p>
+<ul>
+  <li><strong>SL 1:</strong> ochrona przed przypadkowym lub niezamierzonym naruszeniem.</li>
+  <li><strong>SL 2:</strong> przed celowym działaniem prostymi środkami, przy niewielkich zasobach i ogólnych umiejętnościach.</li>
+  <li><strong>SL 3:</strong> przed działaniem zaawansowanymi środkami, przy umiarkowanych zasobach i wiedzy o systemach przemysłowych.</li>
+  <li><strong>SL 4:</strong> przed działaniem zaawansowanymi środkami, przy rozbudowanych zasobach i wysokiej motywacji.</li>
+</ul>
+<p>Do tego trzy odmiany, które najczęściej są mylone:</p>
+<ul>
+  <li><strong>SL-T</strong> (target): poziom docelowy, wynik oceny ryzyka dla danej strefy.</li>
+  <li><strong>SL-C</strong> (capability): poziom, jaki produkt lub system jest w stanie zapewnić przy prawidłowej konfiguracji.</li>
+  <li><strong>SL-A</strong> (achieved): poziom faktycznie osiągnięty w działającej instalacji.</li>
+</ul>
+<p>Zdanie „mamy SL 2” samo w sobie nic nie znaczy. Sens ma dopiero: „strefa pakowni ma SL-T 2, dobrany sterownik ma SL-C 2, a pomiar po uruchomieniu wykazał SL-A 1, bo uwierzytelnianie zostało wyłączone podczas rozruchu”. Różnica między SL-C a SL-A to zwykle najciekawsza część audytu.</p>
+
+<h2>Certyfikacja: co można, a czego nie</h2>
+<p>Certyfikować można produkt (według 4-1 i 4-2), proces rozwoju u producenta oraz firmę usługową (według 2-4). Istnieją na to schematy, między innymi ISASecure i programy jednostek certyfikujących.</p>
+<p>Nie istnieje natomiast „certyfikat 62443 dla zakładu” w takim sensie, w jakim istnieje certyfikat ISO 9001. Zakład buduje program bezpieczeństwa zgodny z 2-1 i może poddać go ocenie, ale to ocena programu, a nie pieczątka na instalacji. Jeżeli dostawca twierdzi, że jego urządzenie „jest zgodne z 62443”, warto zapytać o konkret: która część, jaki poziom SL-C i czy jest certyfikat niezależnej jednostki, czy deklaracja własna.</p>
+
+<h2>IEC 62443 a NIS2 i ustawa o KSC</h2>
+<p>Przepisy nie wskazują normy z nazwy. NIS2 wymaga środków adekwatnych do ryzyka, a 62443 jest uznanym sposobem pokazania, co to znaczy w środowisku przemysłowym. W praktyce dobrze układa się to tak:</p>
+<ul>
+  <li>ocena ryzyka i podział na strefy według 3-2 stanowi dowód analizy ryzyka wymaganej przez NIS2,</li>
+  <li>wymagania z 3-3 przekładają się na konkretne środki techniczne i na zapisy w specyfikacjach zakupowych,</li>
+  <li>wymagania z 2-4 wobec integratorów są naturalnym narzędziem dla obowiązku bezpieczeństwa łańcucha dostaw,</li>
+  <li>4-1 i 4-2 są coraz częściej punktem odniesienia przy ocenie produktów, także w kontekście unijnych przepisów o odporności cyfrowej produktów.</li>
+</ul>
+
+<h2>Od czego zacząć</h2>
+<ol>
+  <li><strong>Narysuj strefy i kanały</strong> dla jednej instalacji, zgodnie ze stanem faktycznym, nie z projektem. To ćwiczenie zwykle samo wskazuje największe ryzyka.</li>
+  <li><strong>Ustal SL-T</strong> dla każdej strefy na podstawie skutków, a nie ambicji. SL 3 wszędzie jest kosztowne i rzadko uzasadnione.</li>
+  <li><strong>Sprawdź SL-C</strong> posiadanych urządzeń, pytając producentów wprost.</li>
+  <li><strong>Zmierz różnicę</strong> między SL-T a stanem faktycznym i z tego zrób plan.</li>
+  <li><strong>Wpisz wymagania do specyfikacji</strong> kolejnych projektów, bo taniej jest wymagać niż poprawiać.</li>
+</ol>
+<p>Audyt bezpieczeństwa OT prowadzony przez Liscere jest zgodny z metodyką IEC 62443 i kończy się listą ustaleń uporządkowaną według ryzyka dla procesu, z dowodami.</p>
+
+<h2>Źródła</h2>
+<ul>
+  <li>IEC, seria IEC 62443 w wytycznych cyberbezpieczeństwa: <a href="https://syc-se.iec.ch/deliveries/cybersecurity-guidelines/security-standards-and-best-practices/iec-62443/" target="_blank" rel="noopener">syc-se.iec.ch</a></li>
+  <li>IEC Webstore, aktualne wydania poszczególnych części: <a href="https://webstore.iec.ch/" target="_blank" rel="noopener">webstore.iec.ch</a></li>
+  <li>ISA Global Cybersecurity Alliance, materiały o serii ISA/IEC 62443: <a href="https://gca.isa.org/" target="_blank" rel="noopener">gca.isa.org</a></li>
+  <li>ISASecure, schemat certyfikacji produktów i dostawców: <a href="https://www.isasecure.org/" target="_blank" rel="noopener">isasecure.org</a></li>
+</ul>
