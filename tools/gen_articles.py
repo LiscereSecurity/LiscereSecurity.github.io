@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 ROOT_DIR = os.path.dirname(HERE)
 SITE = "https://liscere.com/"
-CSS_V = "20261113-a5"
+CSS_V = "20261113-a6"
 ORG = {"@id": SITE + "#org"}
 
 CSP = ("<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; script-src 'self' "
@@ -39,7 +39,7 @@ UI = {
         cta_text="We help industrial operators find what is exposed, see what their control network is being told to do, and respond when something goes wrong.",
         cta_button="Talk to us", series="Field Notes", home_name="Home", research_name="Research",
         cite_report="Cite this report", pdf_title="Full report (PDF)", pdf_text="The same text as a typeset PDF, with page numbers for citation.",
-        pdf_button="Download PDF", references="References",
+        pdf_button="Download PDF", references="References", doi_all="all versions",
     ),
     "pl": dict(
         html_lang="pl-PL", og_locale="pl_PL", skip="Przejdź do treści", nav_label="Nawigacja",
@@ -163,8 +163,15 @@ def build(art, lang):
         f'<p class="kicker"><a class="series-back" href="{R}{"research.html" if lang == "en" else "pl/badania.html"}#{series}" data-back>{s_kicker}</a>', 1)
     if art.get("byline"):
         # Author, version, copyright and licence, revision note: between the title and the lede.
+        doi_line = ""
+        if art.get("doi"):
+            doi_line = (f'<p class="doc-doi">DOI: <a href="https://doi.org/{art["doi"]}" '
+                        f'target="_blank" rel="noopener">{art["doi"]}</a>'
+                        f' &middot; {t["doi_all"]}: <a href="https://doi.org/{art["concept_doi"]}" '
+                        f'target="_blank" rel="noopener">{art["concept_doi"]}</a></p>\n')
         meta = (f'<p class="article-byline">{art["byline"]}</p>\n'
                 f'<p class="doc-rights">{art["rights"]}</p>\n'
+                + doi_line +
                 f'<p class="doc-revised">{art["revised"]}</p>\n')
         head_part = re.sub(r"(</h1>\s*)", lambda m: m.group(1) + meta + "\n", head_part, count=1)
 
@@ -231,9 +238,12 @@ def build(art, lang):
           <h2 id="questions">{t["questions"]}</h2>
 {ind(faq, 2)}
         </section>''' if a.get("faq") else ""
-    if art.get("bibtex"):
+    bibtex = art.get("bibtex")
+    if bibtex and art.get("doi"):
+        bibtex = bibtex.replace("\n  url ", "\n  doi         = {" + art["doi"] + "},\n  url ", 1)
+    if bibtex:
         cite = f'''<h2 id="cite-title" class="doc-section-head">{t["cite_report"]}</h2>
-          <pre class="doc-cite">{art["bibtex"]}</pre>'''
+          <pre class="doc-cite">{bibtex}</pre>'''
     else:
         cite = f'''<h2 id="cite-title" class="doc-section-head">{t["cite"]}</h2>
           <pre class="doc-cite">@misc{{liscere_{aid.replace("-", "_")}{"" if lang == "en" else "_pl"},
@@ -310,6 +320,12 @@ def build(art, lang):
         graph_article["abstract"] = " ".join(html.unescape(re.sub(r"<[^>]+>", "", x)) for x in re.findall(r'<p class="lede">(.*?)</p>', head_part, re.S))
         graph_article.update({"version": art["version"], "license": "https://creativecommons.org/licenses/by/4.0/",
                               "copyrightHolder": art.get("copyright_holder", ORG), "identifier": aid.upper()})
+        if art.get("doi"):
+            graph_article["identifier"] = [
+                {"@type": "PropertyValue", "propertyID": "DOI", "value": art["doi"]},
+                {"@type": "PropertyValue", "propertyID": "DOI", "value": art["concept_doi"]},
+                {"@type": "PropertyValue", "propertyID": "Report number", "value": aid.upper()}]
+            graph_article["sameAs"] = "https://doi.org/" + art["doi"]
     if art.get("pdf"):
         graph_article["encoding"] = {"@type": "MediaObject", "contentUrl": SITE + art["pdf"], "encodingFormat": "application/pdf"}
     graph = [graph_article]
@@ -548,6 +564,21 @@ S_IR = ("services/ot-incident-response.html", "Incident response for OT", "Conta
 S_PROJECTS = ("services/automation-projects.html", "Automation projects", "PLC, HMI and SCADA engineering built secure from the start.")
 
 
+# Zenodo DOIs: the version DOI for this edition, the concept DOI for "all versions".
+DOIS = {
+    "lb-2026-01": ("10.5281/zenodo.24203895", "10.5281/zenodo.24203894"),
+    "lb-2026-02": ("10.5281/zenodo.24203897", "10.5281/zenodo.24203896"),
+    "lb-2026-03": ("10.5281/zenodo.24203899", "10.5281/zenodo.24203898"),
+    "lb-2026-04": ("10.5281/zenodo.24203901", "10.5281/zenodo.24203900"),
+    "lb-2026-05": ("10.5281/zenodo.24203903", "10.5281/zenodo.24203902"),
+    "ltr-2026-01": ("10.5281/zenodo.24203905", "10.5281/zenodo.24203904"),
+    "ltr-2026-02": ("10.5281/zenodo.24203907", "10.5281/zenodo.24203906"),
+    "ltr-2026-03": ("10.5281/zenodo.24203909", "10.5281/zenodo.24203908"),
+    "ltr-2026-04": ("10.5281/zenodo.24203911", "10.5281/zenodo.24203910"),
+    "ltr-2026-05": ("10.5281/zenodo.24203913", "10.5281/zenodo.24203912"),
+}
+
+
 def report(aid, title, about, keywords, key_points, faq, related, holder=None):
     m = REPORT_META[aid]
     series = "landscape" if aid.startswith("lb") else "research"
@@ -555,6 +586,7 @@ def report(aid, title, about, keywords, key_points, faq, related, holder=None):
         id=aid, series=series, langs=("en",), date=m["date"], modified="2026-10-07",
         og_image="assets/og-image.png", pdf=m["pdf"], version="1.1",
         author=SALMAZO, author_name="Bruno Salmazo", copyright_holder=holder or ORG,
+        doi=DOIS[aid][0], concept_doi=DOIS[aid][1],
         byline="By Bruno Salmazo · Liscere", rights=m["rights"], revised=m["revised"], bibtex=m["bibtex"],
         en=dict(title=title, description=m["description"], og_image_alt="Liscere: OT Cybersecurity",
                 about=about, keywords=keywords, contact="../../services.html#contact",
