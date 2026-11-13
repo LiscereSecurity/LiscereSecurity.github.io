@@ -153,16 +153,41 @@
 
   <main id="main-content" class="research-page">
     <h1 id="research-title">Research</h1>
-    <p class="research-intro">Liscere publishes its work: technical reports from the OT Lab, landscape briefings on protocols, encryption and threats, and Field Notes on current incidents. Every report is readable in full on its page and as a PDF, licensed under CC BY 4.0.</p>
+    <p class="research-intro">Liscere publishes its work: technical reports from the OT Lab, landscape briefings on protocols, encryption and threats, guides to NIS2 and the Polish KSC act, and Field Notes on current incidents. Every report is readable in full on its page and as a PDF, licensed under CC BY 4.0.</p>
 
     <div class="research-filter" role="group" aria-label="Filter research outputs">
       <button type="button" class="research-filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
       <button type="button" class="research-filter-btn" data-filter="research" aria-pressed="false">Research</button>
       <button type="button" class="research-filter-btn" data-filter="landscape" aria-pressed="false">Landscape</button>
       <button type="button" class="research-filter-btn" data-filter="fieldnotes" aria-pressed="false">Field Notes</button>
+      <button type="button" class="research-filter-btn" data-filter="guides" aria-pressed="false">Guides</button>
     </div>
 
     <div class="research-cards">
+      <a class="paper-card" data-group="guides" href="./research/gd-2026-02/">
+        <p class="paper-eyebrow">GD-2026-02 · Guide · November 2026</p>
+        <h2 class="paper-title">Reporting an OT Incident</h2>
+        <p class="paper-body">
+          The reporting deadlines are the same for the office and for the plant floor, but working under
+          them is not. An early warning within 24 hours, a notification within 72 hours and a final report
+          within one month, with the decisions that make those deadlines hard when a process is still
+          running and the evidence disappears at the first restart.
+        </p>
+        <span class="paper-cta">Read guide <span class="paper-arrow" aria-hidden="true">&#8594;</span></span>
+      </a>
+
+      <a class="paper-card" data-group="guides" href="./research/gd-2026-01/">
+        <p class="paper-eyebrow">GD-2026-01 · Guide · November 2026</p>
+        <h2 class="paper-title">NIS2 and Poland's KSC Act</h2>
+        <p class="paper-body">
+          Who is covered, what has to be in place and by when. The sectors and size thresholds of the
+          directive, the Polish dates that are easy to confuse, the obligations, the fines, and the part
+          most compliance projects leave out: the controllers, operator stations and networks that run the
+          physical process.
+        </p>
+        <span class="paper-cta">Read guide <span class="paper-arrow" aria-hidden="true">&#8594;</span></span>
+      </a>
+
       <a class="paper-card" data-group="fieldnotes" href="./research/fn-2026-01/">
         <p class="paper-eyebrow">FN-2026-01 · Field Notes · November 2026</p>
         <h2 class="paper-title">The Supermarket Refrigeration Attack</h2>

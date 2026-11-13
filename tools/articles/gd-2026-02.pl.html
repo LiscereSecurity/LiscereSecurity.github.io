@@ -1,0 +1,71 @@
+<p class="kicker">PORADNIK · GD-2026-02 · 13 listopada 2026</p>
+
+<h1>Zgłaszanie incydentu w OT: 24 godziny, 72 godziny, miesiąc</h1>
+
+<p class="lede">Terminy zgłaszania incydentów są te same dla biura i dla hali produkcyjnej, ale praca pod nimi wygląda zupełnie inaczej. W OT decyzja o odłączeniu systemu dotyka procesu fizycznego, dowody znikają po restarcie sterownika, a zegar 24 godzin zaczyna biec w momencie wykrycia, także w nocy i w weekend. Ten poradnik opisuje, jak przygotować się na to z wyprzedzeniem.</p>
+
+<h2>Trzy terminy</h2>
+<ul>
+  <li><strong>24 godziny: wczesne ostrzeżenie.</strong> Krótka informacja od wykrycia incydentu poważnego. Nie trzeba znać przyczyny ani pełnego zakresu. Wystarczy, co się dzieje, czy podejrzewa się działanie celowe i czy skutki mogą być transgraniczne.</li>
+  <li><strong>72 godziny: zgłoszenie incydentu.</strong> Pełniejszy obraz: ocena powagi, skutki, wskaźniki kompromitacji, jeśli są znane.</li>
+  <li><strong>Miesiąc: sprawozdanie końcowe.</strong> Opis incydentu, przyczyna źródłowa, zastosowane środki i skutki transgraniczne. Jeżeli incydent nadal trwa, w tym terminie składa się sprawozdanie z postępu, a końcowe po zakończeniu obsługi.</li>
+</ul>
+<p>Dostawcy usług zaufania mają na zgłoszenie incydentu poważnego 24 godziny od wykrycia.</p>
+
+<h2>Gdzie trafia zgłoszenie</h2>
+<p>Docelowym adresatem jest CSIRT sektorowy właściwy dla danego sektora. Zanim ogłosi on zdolność operacyjną, zgłoszenia przyjmują CSIRT NASK, CSIRT GOV i CSIRT MON, a obieg informacji prowadzi system S46. Pierwszą rzeczą, którą warto ustalić przed incydentem, jest właśnie to: który CSIRT jest właściwy dla naszego sektora dzisiaj, pod jakim adresem i jakim formularzem.</p>
+<p>Zgłoszenie do CSIRT nie zastępuje innych obowiązków. Jeżeli incydent obejmuje dane osobowe, osobno biegnie termin 72 godzin wobec organu ochrony danych.</p>
+
+<h2>Co liczy się jako incydent poważny</h2>
+<p>Progi istotności określa rozporządzenie dla poszczególnych sektorów, a projekt z września 2026 roku obejmował piętnaście sektorów. Do czasu wydania nowego aktu obowiązują progi dotychczasowe. W praktyce ocena opiera się na skutkach: liczbie odbiorców, czasie przerwy, stratach finansowych, zasięgu geograficznym i skutkach dla zdrowia lub bezpieczeństwa.</p>
+<p>W zakładzie przemysłowym te kryteria należy przełożyć na język procesu z wyprzedzeniem. Przykłady pytań, na które warto mieć odpowiedź przed incydentem, a nie w jego trakcie:</p>
+<ul>
+  <li>Ile godzin postoju linii oznacza przekroczenie progu finansowego?</li>
+  <li>Czy utrata widoczności w SCADA, przy działającym procesie, jest już incydentem poważnym?</li>
+  <li>Co, jeżeli sterownik pracuje normalnie, ale nie można potwierdzić, że jego program nie został zmieniony?</li>
+</ul>
+
+<h2>Dlaczego w OT jest trudniej</h2>
+<ul>
+  <li><strong>Wykrycie jest późniejsze.</strong> W sieciach sterowania rzadko działa pełne monitorowanie. Incydent bywa zauważony jako problem technologiczny: dziwne nastawy, alarm bez powodu, partia produktu poza specyfikacją. Zegar biegnie od wykrycia, więc liczy się moment, w którym ktokolwiek rozpoznał zdarzenie jako incydent.</li>
+  <li><strong>Izolacja ma koszt fizyczny.</strong> Odłączenie stacji operatorskiej od sieci może oznaczać utratę nadzoru nad procesem, który nadal trwa. Decyzja należy do technologa i służb utrzymania ruchu, a nie do działu IT.</li>
+  <li><strong>Dowody są ulotne.</strong> Wiele sterowników nie prowadzi logów, a restart lub przywrócenie z kopii kasuje stan, który byłby dowodem. Zrzut ruchu sieciowego i zapis konfiguracji przed interwencją są często jedynym materiałem.</li>
+  <li><strong>Czas reakcji zależy od zmiany.</strong> Incydent o 2 w nocy w sobotę obsługuje dyżurny utrzymania ruchu, a nie specjalista od bezpieczeństwa. Procedura musi działać w tych warunkach.</li>
+</ul>
+
+<h2>Procedura, która działa na hali</h2>
+<ol>
+  <li><strong>Kryterium „to jest incydent”</strong> zapisane w jednym zdaniu, zrozumiałe dla operatora i dyżurnego. Lepsze jest zgłoszenie nadmiarowe niż przegapiony termin.</li>
+  <li><strong>Jedna osoba decyzyjna i jej zastępca</strong> z numerami telefonów, dostępne całą dobę. Nazwisko, nie nazwa działu.</li>
+  <li><strong>Lista kroków, które wolno wykonać od razu</strong> bez pytania nikogo o zgodę: zapis ruchu sieciowego, fotografia ekranu, odnotowanie czasu, zabezpieczenie kopii programu sterownika.</li>
+  <li><strong>Decyzja o izolacji</strong> podejmowana wspólnie z technologiem, z wcześniej uzgodnionym, bezpiecznym stanem procesu dla każdej instalacji.</li>
+  <li><strong>Gotowy szablon wczesnego ostrzeżenia</strong>, wypełniany w kilka minut, z danymi kontaktowymi właściwego CSIRT.</li>
+  <li><strong>Ćwiczenie raz w roku</strong>, przy stole, z udziałem produkcji, utrzymania ruchu, IT i zarządu. Pierwsze takie ćwiczenie zwykle pokazuje, że nikt nie wie, kto wysyła zgłoszenie.</li>
+</ol>
+
+<h2>Co zebrać, zanim coś się stanie</h2>
+<p>Zgłoszenie w 24 godziny jest wykonalne tylko wtedy, gdy podstawowe informacje są już gotowe:</p>
+<ul>
+  <li>inwentaryzacja OT: sterowniki, stacje, protokoły, dostępy zdalne,</li>
+  <li>schemat sieci zgodny ze stanem faktycznym, nie z projektem sprzed lat,</li>
+  <li>kopie programów sterowników i konfiguracji, z datami,</li>
+  <li>wiedza, co jest normalne dla procesu, żeby dało się stwierdzić, że coś normalne nie jest,</li>
+  <li>kontakty: CSIRT, producenci, integrator, ubezpieczyciel, dział prawny.</li>
+</ul>
+<p>Ta sama inwentaryzacja jest potrzebna do analizy ryzyka wymaganej przez NIS2, więc praca nie dubluje się z resztą wdrożenia.</p>
+
+<h2>Czego nie robić</h2>
+<ul>
+  <li>Nie czekać na pewność. Wczesne ostrzeżenie z informacją „podejrzewamy incydent, badamy” mieści się w terminie; pewność po 48 godzinach już nie.</li>
+  <li>Nie restartować wszystkiego w pierwszej godzinie. To najszybszy sposób na utratę dowodów.</li>
+  <li>Nie zakładać, że incydent w IT nie dotknie OT. Najczęstsza droga prowadzi przez stację inżynierską lub zdalny dostęp serwisowy.</li>
+  <li>Nie pozostawiać terminów bez właściciela. Termin bez nazwiska nie zostanie dotrzymany o trzeciej w nocy.</li>
+</ul>
+
+<h2>Źródła</h2>
+<ul>
+  <li>Dyrektywa Parlamentu Europejskiego i Rady (UE) 2022/2555 (NIS2), obowiązki zgłoszeniowe: <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj" target="_blank" rel="noopener">EUR-Lex</a></li>
+  <li>Ustawa z 23 stycznia 2026 r. o zmianie ustawy o krajowym systemie cyberbezpieczeństwa oraz niektórych innych ustaw, Dz.U. 2026 poz. 252: <a href="https://eli.gov.pl/eli/DU/2026/252/ogl" target="_blank" rel="noopener">Dziennik Ustaw</a></li>
+  <li>CSIRT NASK, zgłaszanie incydentów: <a href="https://incydent.cert.pl/" target="_blank" rel="noopener">incydent.cert.pl</a></li>
+  <li>Krajowy system cyberbezpieczeństwa, informacje Ministerstwa Cyfryzacji: <a href="https://www.gov.pl/web/baza-wiedzy/cyberbezpieczenstwo" target="_blank" rel="noopener">gov.pl</a></li>
+</ul>
