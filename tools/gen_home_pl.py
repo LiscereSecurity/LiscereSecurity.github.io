@@ -14,10 +14,12 @@ def rep(en, pl, count=1):
         sys.exit("NOT FOUND: " + en[:80])
     s = new
 
+rep('<p class="evidence-foot">Based in Poland, working across Europe and worldwide.<br />', '<p class="evidence-foot">Siedziba w Polsce, działamy w całej Europie i na świecie.<br />')
+
 # ---------- head
 rep('<html lang="en-GB"', '<html lang="pl-PL"')
 title = "Liscere: cyberbezpieczeństwo przemysłowe i OT, bezpieczna automatyka"
-desc = "Cyberbezpieczeństwo przemysłowe dla procesów, które nie mogą stanąć: audyty bezpieczeństwa OT, gotowość do NIS2 i KSC oraz bezpieczna automatyka PLC i HMI."
+desc = "Europejska firma cyberbezpieczeństwa przemysłowego z siedzibą w Polsce, działająca na całym świecie: audyty OT, NIS2 i KSC oraz bezpieczna automatyka PLC i HMI."
 s = re.sub(r"<title>[^<]*</title>", f"<title>{title}</title>", s, count=1)
 s = re.sub(r'(<meta name="description" content=")[^"]*', lambda m: m.group(1) + desc, s, count=1)
 for k in ("og:title", "twitter:title"):

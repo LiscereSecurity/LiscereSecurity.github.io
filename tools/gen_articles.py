@@ -69,6 +69,9 @@ def path_of(lang, aid):
     return os.path.join(ROOT_DIR, *(["research", aid] if lang == "en" else ["pl", "badania", aid]), "index.html")
 
 
+REACH = {"en": "Based in Poland, working across Europe and worldwide.", "pl": "Siedziba w Polsce, działamy w całej Europie i na świecie."}
+
+
 def chrome(lang, aid, R, has_pl=True):
     """Header and footer. R is the relative path to the site root. English only pages send the
     PL switch to the Polish notice page, which links back here."""
@@ -116,7 +119,7 @@ def chrome(lang, aid, R, has_pl=True):
 {nav}
     </nav>
   </header>'''
-    footer = f'    <p class="research-foot">{foot}<br />© 2026 Liscere sp. z o.o.</p>'
+    footer = f'    <p class="research-foot">{foot}<br />{REACH[lang]}<br />© 2026 Liscere sp. z o.o.</p>'
     return header, footer
 
 

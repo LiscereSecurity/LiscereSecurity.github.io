@@ -11,7 +11,7 @@ AUTO = {"automation-projects", "automation-modernisation", "industrial-training"
 
 UI = {
  "en": dict(lang="en-GB", ogloc="en_GB", skip="Skip to content", navlabel="Site navigation", pages="Pages",
-   home="Home", services="Services", about="About", research="Research", faq="FAQ", privacy="Privacy", legal="Legal", terms="Terms", enlink="",
+   home="Home", reach="Based in Poland, working across Europe and worldwide.", services="Services", about="About", research="Research", faq="FAQ", privacy="Privacy", legal="Legal", terms="Terms", enlink="",
    privacy_page="privacy.html", legal_page="legal.html", terms_page="terms.html",
    logo_label="Liscere home", what="What it is", who="Who it is for", why="Why it is needed",
    scroll="Scroll", qk="Questions we hear", qh="Straight answers.", ck="Contact us",
@@ -22,7 +22,7 @@ UI = {
    consent='I agree that Liscere sp. z o.o. may process the data in this form to answer my enquiry, as described in the <a href="{root}privacy.html">privacy notice</a>.',
    send="Send message", back_label="Back to services", switch="PL", switch_label="Polski", switch_lang="pl"),
  "pl": dict(lang="pl-PL", ogloc="pl_PL", skip="Przejdź do treści", navlabel="Nawigacja", pages="Strony",
-   home="Start", services="Usługi", about="O nas", research="Badania", faq="FAQ", privacy="Prywatność", legal="Dane spółki", terms="Warunki korzystania", enlink=' hreflang="en"',
+   home="Start", reach="Siedziba w Polsce, działamy w całej Europie i na świecie.", services="Usługi", about="O nas", research="Badania", faq="FAQ", privacy="Prywatność", legal="Dane spółki", terms="Warunki korzystania", enlink=' hreflang="en"',
    privacy_page="prywatnosc.html", legal_page="dane-spolki.html", terms_page="warunki.html",
    logo_label="Liscere, strona główna", what="Czym jest", who="Dla kogo", why="Dlaczego jest potrzebny",
    scroll="Przewiń", qk="Pytania, które słyszymy", qh="Konkretne odpowiedzi.", ck="Kontakt",
@@ -225,7 +225,7 @@ def render(p, lang):
       </div>
     </section>
 
-    <p class="research-foot"><a href="{home}">{L['home']}</a> · <a href="{svc}">{L['services']}</a> · <a href="{about}">{L['about']}</a> · <a href="{faqp}">{L['faq']}</a> · <a href="{research}">{L['research']}</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="{lroot}{L['privacy_page']}">{L['privacy']}</a> · <a href="{lroot}{L['legal_page']}">{L['legal']}</a> · <a href="{lroot}{L['terms_page']}">{L['terms']}</a><br />© 2026 Liscere sp. z o.o.</p>
+    <p class="research-foot"><a href="{home}">{L['home']}</a> · <a href="{svc}">{L['services']}</a> · <a href="{about}">{L['about']}</a> · <a href="{faqp}">{L['faq']}</a> · <a href="{research}">{L['research']}</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="{lroot}{L['privacy_page']}">{L['privacy']}</a> · <a href="{lroot}{L['legal_page']}">{L['legal']}</a> · <a href="{lroot}{L['terms_page']}">{L['terms']}</a><br />{L['reach']}<br />© 2026 Liscere sp. z o.o.</p>
   </main>
 
   <script src="{root}assets/js/site.js?v=3" defer></script>
