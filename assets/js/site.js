@@ -68,4 +68,37 @@
       if (ref.pathname === target.pathname) { ev.preventDefault(); history.back(); }
     });
   });
+
+  /* Contents: mark the section the reader is in, so the side column shows where they are. */
+  var toc = document.querySelector(".article-toc");
+  if (toc) {
+    var links = [], seen = {};
+    Array.prototype.forEach.call(toc.querySelectorAll("a[href^='#']"), function (a) {
+      var id = a.getAttribute("href").slice(1);
+      var target = id && document.getElementById(id);
+      if (target && !seen[id]) { seen[id] = 1; links.push({ a: a, target: target }); }
+    });
+    if (links.length) {
+      var current = null, ticking = false;
+      var mark = function () {
+        ticking = false;
+        var line = 140, found = null;
+        for (var i = 0; i < links.length; i++) {
+          if (links[i].target.getBoundingClientRect().top <= line) { found = links[i]; } else { break; }
+        }
+        if (found === current) { return; }
+        if (current) { current.a.classList.remove("is-current"); current.a.removeAttribute("aria-current"); }
+        current = found;
+        if (current) { current.a.classList.add("is-current"); current.a.setAttribute("aria-current", "true"); }
+      };
+      var onScroll = function () {
+        if (!ticking) { ticking = true; window.requestAnimationFrame(mark); }
+      };
+      /* The page scrolls inside the body on article pages, and scroll events do not bubble,
+         so the listener is registered in the capture phase to catch either scroller. */
+      window.addEventListener("scroll", onScroll, { capture: true, passive: true });
+      window.addEventListener("resize", onScroll, { passive: true });
+      mark();
+    }
+  }
 }());
