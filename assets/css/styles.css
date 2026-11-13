@@ -3333,6 +3333,26 @@ html.article-view {
   color: var(--cyan);
 }
 
+/* The section the reader is in, marked in the contents. */
+.article .article-toc li {
+  position: relative;
+}
+
+.article .article-toc a.is-current {
+  color: var(--cyan);
+}
+
+.article .article-toc a.is-current::before {
+  content: "";
+  position: absolute;
+  left: -0.9rem;
+  top: 0.15em;
+  bottom: 0.15em;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--cyan);
+}
+
 .article .kicker {
   margin: 0;
   color: var(--cyan);
