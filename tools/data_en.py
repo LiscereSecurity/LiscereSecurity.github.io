@@ -1,6 +1,6 @@
 import os as _os
 ROOT = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))) + "/"
-CSSV = "20261113-a4"
+CSSV = "20261113-a5"
 SERVICES = [  # (option value, slug)
   ("OT and ICS security assessment", "ot-security-assessment"),
   ("OT visibility and monitoring", "ot-visibility-monitoring"),
