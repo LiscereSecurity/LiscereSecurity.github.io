@@ -82,9 +82,9 @@ for p in PAGES:
     else:
         tt = html.unescape(t.group(1)); titles[tt].append(p)
         if not noindex and len(tt) > 70: W(p, f"title {len(tt)} chars: {tt}")
+    if not d: E(p, "no meta description")
     if not noindex:
-        if not d: E(p, "no meta description")
-        else:
+        if d:
             dd = html.unescape(d.group(1)); descs[dd].append(p)
             if not 70 <= len(dd) <= 160: W(p, f"description {len(dd)} chars")
     if "Content-Security-Policy" not in head: E(p, "no CSP")

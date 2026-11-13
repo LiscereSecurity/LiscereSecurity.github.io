@@ -12,6 +12,7 @@ Combinada em 12/11/2026. Este arquivo fica em `tools/`, que não é publicado no
    - ~~Passo 7.5~~ decidido em 12/11: sem LinkedIn pessoal por enquanto; tudo pela página da Liscere.
    - Post do FN-2026-01 em polonês (1 ou 2 dias depois do inglês).
    - Passos 8 a 12: diretórios, associações, DOIs no Zenodo, posts no LinkedIn, prospecção.
+   - Diretórios (ordem): ~~Crunchbase~~ (13/11, no sameAs); ~~NCC-PL / ECCC Atlas~~ (pedido enviado 12/11, aguardando); aleo; Google Business Profile e Bing Places; Clutch; Panorama Firm. Wikidata depois do Zenodo. Cada perfil novo entra no `sameAs` (index, about, services, faq) e no `llms.txt`.
    - Bing: resultado do Site Scan.
 3. **Organizar a página Research**
    - Converter os relatórios antigos para o formato artigo (texto na página e PDF como link "Baixar PDF").
@@ -21,7 +22,8 @@ Combinada em 12/11/2026. Este arquivo fica em `tools/`, que não é publicado no
    - Badania, Prywatność, Dane spółki e Warunki em polonês, ligadas às versões em inglês.
    - `tools/gen_sitemap.py` gera o sitemap a partir das páginas; `tools/audit.py` confere SEO, links, idiomas e dados estruturados (rodar antes de cada PR).
    - Testado em WebKit (Safari) e Chromium, desktop e celular.
-   - Pendente: revisão do texto jurídico em polonês por alguém fluente; Cloudflare (HSTS e frame-ancestors).
+   - Cloudflare feito em 12/11: proxy ligado, SSL Full, HSTS 6 meses, cabeçalhos de segurança por Transform Rule (PR #15).
+   - Pendente: revisão do texto jurídico em polonês por alguém fluente.
 4. **Palavras-chave e novos artigos**
    - Puxar os preços reais no Keyword Planner (Polônia, idioma polonês).
    - Escrever artigos sobre NIS2 e KSC, em polonês e inglês, para indexar o quanto antes.
