@@ -53,6 +53,7 @@ def reports():
             "url": f"https://liscere.com/research/{aid}/",
             "meta": {
                 "upload_type": "publication",
+                "prereserve_doi": True,
                 "publication_type": "report",
                 "title": f"{aid.upper()}: {title}",
                 "description": (

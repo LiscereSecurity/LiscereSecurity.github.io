@@ -3593,6 +3593,7 @@ html.article-view {
 
 /* Research report pages: version, copyright and licence line, and the revision note. */
 .doc-rights,
+.doc-doi,
 .doc-revised {
   margin: 0;
   color: var(--muted);
@@ -3601,12 +3602,16 @@ html.article-view {
   line-height: 1.5;
 }
 .doc-revised { font-style: italic; }
-.doc-rights a {
+.doc-doi { font-family: var(--font-mono); font-size: 0.8rem; }
+.doc-rights a,
+.doc-doi a {
   color: var(--ink);
   border-bottom: 1px solid rgba(0, 217, 255, 0.35);
 }
 .doc-rights a:hover,
-.doc-rights a:focus-visible {
+.doc-rights a:focus-visible,
+.doc-doi a:hover,
+.doc-doi a:focus-visible {
   border-bottom-color: var(--cyan);
   outline: none;
 }

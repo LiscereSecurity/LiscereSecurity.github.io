@@ -134,7 +134,24 @@
         "identifier": "https://orcid.org/0009-0000-4410-3616",
         "sameAs": "https://orcid.org/0009-0000-4410-3616"
       },
-      "identifier": "LTR-2026-02",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "DOI",
+          "value": "10.5281/zenodo.24203907"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "DOI",
+          "value": "10.5281/zenodo.24203906"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "Report number",
+          "value": "LTR-2026-02"
+        }
+      ],
+      "sameAs": "https://doi.org/10.5281/zenodo.24203907",
       "encoding": {
         "@type": "MediaObject",
         "contentUrl": "https://liscere.com/assets/papers/liscere-framework.pdf",
@@ -205,7 +222,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261113-a5" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261113-a6" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -232,6 +249,7 @@
 
         <p class="article-byline">By Bruno Salmazo · Liscere</p>
         <p class="doc-rights">Version 1.1 · © 2026 Bruno Salmazo · Published by Liscere · Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a></p>
+        <p class="doc-doi">DOI: <a href="https://doi.org/10.5281/zenodo.24203907" target="_blank" rel="noopener">10.5281/zenodo.24203907</a> &middot; all versions: <a href="https://doi.org/10.5281/zenodo.24203906" target="_blank" rel="noopener">10.5281/zenodo.24203906</a></p>
         <p class="doc-revised">Revised 7 October 2026: protocol-authentication claim narrowed to classic protocols; licence statement added.</p>
 
         <p class="lede">Classic industrial control protocols such as Modbus/TCP authenticate neither the sender nor the appropriateness of a command [1, 2]. An action can therefore be valid at the protocol level, issued over an authorised channel, and still be inappropriate for the operational state of the plant. This report presents the Liscere framework, a protocol-agnostic model for evaluating an industrial control action along four dimensions: the protocol operation, the automation artefact it affects, the operational context in which it occurs, and the applicable policy constraint. The framework reconstructs an observed protocol event as an industrial action, resolves the affected artefact, enriches the action with declared operational context, evaluates it against explicit policy, and returns a decision together with an evidence record. The model is defined above protocol-specific encodings, with Modbus/TCP as its first instantiation. An initial feasibility demonstration is reported separately [11]; this report sets out the framework, its definitions, and its scope. A peer-reviewed treatment is in preparation. We are explicit about the boundary between what the model defines and what the current implementation evaluates.</p>
@@ -459,6 +477,7 @@
   month       = jun,
   number      = {LTR-2026-02},
   type        = {Technical Report},
+  doi         = {10.5281/zenodo.24203907},
   url         = {https://liscere.com/research/ltr-2026-02/}
 }</pre>
         </section>

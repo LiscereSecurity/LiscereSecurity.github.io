@@ -142,7 +142,24 @@
         "identifier": "https://orcid.org/0009-0000-4410-3616",
         "sameAs": "https://orcid.org/0009-0000-4410-3616"
       },
-      "identifier": "LTR-2026-01",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "DOI",
+          "value": "10.5281/zenodo.24203905"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "DOI",
+          "value": "10.5281/zenodo.24203904"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "Report number",
+          "value": "LTR-2026-01"
+        }
+      ],
+      "sameAs": "https://doi.org/10.5281/zenodo.24203905",
       "encoding": {
         "@type": "MediaObject",
         "contentUrl": "https://liscere.com/assets/papers/liscere-evaluation-modbus-tcp.pdf",
@@ -213,7 +230,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
   <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
   <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
-  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261113-a5" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261113-a6" />
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -240,6 +257,7 @@
 
         <p class="article-byline">By Bruno Salmazo · Liscere</p>
         <p class="doc-rights">Version 1.1 · © 2026 Bruno Salmazo · Published by Liscere · Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a></p>
+        <p class="doc-doi">DOI: <a href="https://doi.org/10.5281/zenodo.24203905" target="_blank" rel="noopener">10.5281/zenodo.24203905</a> &middot; all versions: <a href="https://doi.org/10.5281/zenodo.24203904" target="_blank" rel="noopener">10.5281/zenodo.24203904</a></p>
         <p class="doc-revised">Revised 7 October 2026: evidence description and Appendix A aligned with the published scenario summary; protocol claim narrowed to classic protocols; licence statement added.</p>
 
         <p class="lede">Industrial control protocols such as Modbus/TCP were designed for reliability in trusted networks and, in their classic form, carry no native notion of authorisation or operational appropriateness [1, 2]. An action can therefore be valid at the protocol level, and issued over an authorised channel, yet still be inappropriate for the operational state of the plant. This report introduces the Liscere action-evaluation chain, a protocol-agnostic method that assesses an industrial action along four dimensions: protocol operation, automation artefact, operational context, and policy constraint. We instantiate the chain for Modbus/TCP over a controlled process model in the OT Lab and report an initial feasibility demonstration. Using a control pair that holds the protocol operation, target artefact, and written value constant and varies only a declared maintenance window, we show that the same sensitive configuration write yields an alert in production and an allow during maintenance. Two negative controls confirm that the maintenance window is not a blanket alert suppressor; all four constructed scenarios returned their expected decision and matched rule. We are explicit about what the baseline does not yet measure: detection performance, robustness, and generality across context dimensions and protocols.</p>
@@ -456,6 +474,7 @@
   month       = jun,
   number      = {LTR-2026-01},
   type        = {Technical Report},
+  doi         = {10.5281/zenodo.24203905},
   url         = {https://liscere.com/research/ltr-2026-01/}
 }</pre>
         </section>
