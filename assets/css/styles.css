@@ -3732,3 +3732,107 @@ html.article-view {
   color: var(--muted);
   letter-spacing: 0.08em;
 }
+
+/* =====================================================================
+   Header menu on phones: the five links collapse behind one button on the
+   opposite side of the wordmark, so the header is one row again instead of
+   taking a band of every screen. The button is created by assets/js/nav.js,
+   which sets .has-nav-toggle; without JavaScript the links stay visible.
+   ===================================================================== */
+.nav-toggle { display: none; }
+
+@media (max-width: 720px) {
+  /* one row again: the links no longer need a second one */
+  .has-nav-toggle .site-chrome { --chrome-h: calc(var(--cu) * 4); }
+
+  .has-nav-toggle .nav-toggle {
+    position: fixed;
+    top: calc(var(--cu) * 1.05);
+    right: var(--gutter);
+    z-index: 45;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: calc(var(--cu) * 0.32);
+    width: calc(var(--cu) * 1.9);
+    height: calc(var(--cu) * 1.9);
+    padding: 0;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    pointer-events: auto;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .has-nav-toggle .nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background: var(--muted);
+    transition: transform 220ms ease, opacity 140ms ease, background 180ms ease;
+  }
+
+  .has-nav-toggle .nav-toggle:hover span,
+  .has-nav-toggle .nav-toggle:focus-visible span { background: var(--cyan); }
+  .has-nav-toggle .nav-toggle:focus-visible { outline: 1px solid var(--cyan); outline-offset: 4px; }
+
+  /* open: the three bars become a cross */
+  .has-nav-toggle .nav-toggle[aria-expanded="true"] span { background: var(--cyan); }
+  .has-nav-toggle .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(calc(var(--cu) * 0.32 + 1.5px)) rotate(45deg);
+  }
+  .has-nav-toggle .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .has-nav-toggle .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(calc(var(--cu) * -0.32 - 1.5px)) rotate(-45deg);
+  }
+
+  /* the links, as a panel under the bar */
+  .has-nav-toggle .site-nav {
+    top: calc(var(--cu) * 4);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 var(--gutter) calc(var(--cu) * 0.5);
+    background: rgba(3, 4, 5, 0.94);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    transform: translateY(calc(var(--cu) * -0.5));
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 200ms ease, transform 200ms ease, visibility 0s linear 200ms;
+  }
+
+  .has-nav-toggle .site-nav[data-open="true"] {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 200ms ease, transform 200ms ease;
+  }
+
+  .has-nav-toggle .site-nav a {
+    padding: calc(var(--cu) * 0.72) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .has-nav-toggle .site-nav a:last-child { border-bottom: 0; }
+  .has-nav-toggle .site-nav a[aria-current="page"] { border-bottom-color: var(--cyan); }
+}
+
+/* the home page keeps its header hidden on the hero, so the button goes with it */
+html:has(main.page-stack):not(.past-hero) .nav-toggle {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  /* in the panel the language switch is a row like the others, set apart above
+     instead of beside, and the list keeps a little air under the last item */
+  .has-nav-toggle .site-nav { padding-bottom: calc(var(--cu) * 0.9); }
+  .has-nav-toggle .site-nav a.lang-switch {
+    padding-left: 0;
+    border-left: 0;
+    border-bottom: 0;
+    margin-top: calc(var(--cu) * 0.15);
+  }
+}

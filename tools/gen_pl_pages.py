@@ -76,6 +76,7 @@ def shell(*, title, desc, path, en_path, current, main_class, body, ld, scripts=
     <p class="research-foot"><a href="./index.html">Start</a> · <a href="./uslugi.html">Usługi</a> · <a href="./o-nas.html">O nas</a> · <a href="./faq.html">FAQ</a> · <a href="./badania.html">Badania</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="./prywatnosc.html">Prywatność</a> · <a href="./dane-spolki.html">Dane spółki</a> · <a href="./warunki.html">Warunki korzystania</a><br />Siedziba w Polsce, działamy w całej Europie i na świecie.<br />© 2026 Liscere sp. z o.o.</p>
   </main>
 
+  <script src="{R}assets/js/nav.js?v=1" defer></script>
   <script src="{R}assets/js/site.js?v=4" defer></script>
 {scripts}</body>
 </html>
