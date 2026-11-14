@@ -65,6 +65,8 @@ Liscere welcomes research partners, OT and process engineers, machine builders, 
 - LinkedIn: https://www.linkedin.com/company/liscere
 - GitHub: https://github.com/LiscereSecurity
 - Crunchbase: https://www.crunchbase.com/organization/liscere
+- Wikidata: https://www.wikidata.org/wiki/Q141017853
+- Zenodo (the reports, with DOIs): https://zenodo.org/communities/liscere/
 
 ## Entity
 
@@ -78,6 +80,7 @@ Liscere welcomes research partners, OT and process engineers, machine builders, 
 - Share capital: PLN 5,000.00
 - Founder and President of the Management Board: Bruno Salmazo (ORCID https://orcid.org/0009-0000-4410-3616)
 - Website: https://liscere.com
+- Wikidata item: Q141017853
 
 ## Key pages
 
@@ -103,7 +106,7 @@ Plain language guides to the rules and standards that apply to industrial operat
 
 ## Research
 
-The research publications are licensed under CC BY 4.0: they may be shared and adapted for any purpose with credit to the author and Liscere. Each report has a DOI on Zenodo, so it can be cited; the DOI resolves to the archived PDF and the metadata.
+Every report is also archived on Zenodo in the Liscere community (https://zenodo.org/communities/liscere/), where it has a DOI and a persistent copy of the PDF. The research publications are licensed under CC BY 4.0: they may be shared and adapted for any purpose with credit to the author and Liscere. Each report has a DOI on Zenodo, so it can be cited; the DOI resolves to the archived PDF and the metadata.
 
 - [FN-2026-01: Authorised commands, spoiled food: the October 2026 supermarket refrigeration attack](https://liscere.com/research/fn-2026-01/): Field Notes article with a two minute video; also in Polish at https://liscere.com/pl/badania/fn-2026-01/. Around 700 supermarkets in France had their refrigeration controllers used against them through authorised defrost and setpoint commands; what happened, what CERT-FR recommends, and why the question is whether a command makes sense for the process at that moment.
 - [LTR-2026-01: A Modbus/TCP Baseline in the OT Lab](https://liscere.com/research/ltr-2026-01/): The first laboratory feasibility demonstration that the same configuration write is judged differently depending on a declared maintenance window. Full text on the page, PDF available. DOI: 10.5281/zenodo.24203905 (all versions: 10.5281/zenodo.24203904).

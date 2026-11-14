@@ -365,6 +365,26 @@ def build(art, lang):
   <meta property="og:video:width" content="{art["video"]["size"]}" />
   <meta property="og:video:height" content="{art["video"]["size"]}" />'''
     T = lambda s: html.escape(s, quote=True)
+
+    # Highwire Press tags: what Google Scholar reads. Only the English reports carry them,
+    # because they are the edition with a DOI and a PDF; the Polish page is a translation.
+    scholar = ""
+    if is_report and lang == "en" and art.get("doi") and art.get("pdf"):
+        cdate = art["date"].replace("-", "/")
+        tags = [
+            ("citation_title", h1),
+            ("citation_author", art.get("author_name", "Bruno Salmazo")),
+            ("citation_author_institution", "Liscere sp. z o.o."),
+            ("citation_publication_date", cdate),
+            ("citation_technical_report_institution", "Liscere sp. z o.o."),
+            ("citation_technical_report_number", aid.upper()),
+            ("citation_doi", art["doi"]),
+            ("citation_abstract_html_url", URL),
+            ("citation_pdf_url", SITE + art["pdf"]),
+            ("citation_language", "en"),
+            ("citation_keywords", "; ".join(k.strip() for k in a["keywords"].split(",") if k.strip())),
+        ]
+        scholar = "\n" + "\n".join(f'  <meta name="{k}" content="{T(v)}" />' for k, v in tags)
     page = f'''<!doctype html>
 <html lang="{t["html_lang"]}" class="past-hero article-view">
 <head>
@@ -376,7 +396,7 @@ def build(art, lang):
   <meta name="description" content="{T(a["description"])}" />
   <meta name="author" content="{art.get("author_name", "Liscere")}" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
-  <meta name="theme-color" content="#030405" />
+  <meta name="theme-color" content="#030405" />{scholar}
 
   <meta property="og:title" content="{T(h1)}" />
   <meta property="og:description" content="{T(a["description"])}" />
@@ -512,6 +532,7 @@ LB_2026_01 = dict(
     id="lb-2026-01", series="landscape", langs=("en",), date="2026-06-23", modified="2026-10-07",
     og_image="assets/og-image.png", pdf="assets/papers/liscere-ot-threat-landscape.pdf", version="1.1",
     author=SALMAZO, author_name="Bruno Salmazo", copyright_holder=SALMAZO,
+    doi="10.5281/zenodo.24203895", concept_doi="10.5281/zenodo.24203894",
     byline="By Bruno Salmazo · Liscere",
     rights="Version 1.1 · © 2026 Bruno Salmazo · Published by Liscere · Licensed under " + CC_BY,
     revised="Revised 7 October 2026: date corrected from May to June 2026 (first published 23 June 2026); NIS2 reference added; licence statement added.",
