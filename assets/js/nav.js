@@ -42,7 +42,8 @@
   /* A link closes the panel: most of them navigate away, but the research filters and the
      in-page anchors stay on the page. */
   nav.addEventListener("click", function (e) {
-    if (e.target.closest("a")) { setOpen(false); }
+    /* a link, or the dimmed area under the panel, which is drawn as the nav's own ::after */
+    if (e.target === nav || e.target.closest("a")) { setOpen(false); }
   });
 
   document.addEventListener("click", function (e) {

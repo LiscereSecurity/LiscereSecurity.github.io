@@ -3794,7 +3794,7 @@ html.article-view {
     flex-direction: column;
     gap: 0;
     padding: 0 var(--gutter) calc(var(--cu) * 0.5);
-    background: rgba(3, 4, 5, 0.94);
+    background: rgba(3, 4, 5, 0.985);
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
@@ -3835,4 +3835,21 @@ html:has(main.page-stack):not(.past-hero) .nav-toggle {
     border-bottom: 0;
     margin-top: calc(var(--cu) * 0.15);
   }
+}
+
+@media (max-width: 720px) {
+  /* the page dims behind the open panel, so the text under it reads as background
+     instead of as a line cut in half by the panel's edge */
+  .has-nav-toggle .site-nav::after {
+    content: "";
+    position: fixed;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background: rgba(3, 4, 5, 0.72);
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+  .has-nav-toggle .site-nav[data-open="true"]::after { opacity: 1; }
 }
