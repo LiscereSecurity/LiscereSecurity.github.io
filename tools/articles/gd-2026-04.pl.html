@@ -1,0 +1,75 @@
+<p class="kicker">PORADNIK · GD-2026-04 · 15 listopada 2026</p>
+
+<h1>CRA i IEC 62443: gdzie kończą się normy</h1>
+
+<p class="lede">Zakład, który dobrze zna IEC 62443, nadal może być nieprzygotowany na rozporządzenie o cyberodporności. Instytucje europejskie zapisały to wprost: wspólna analiza Wspólnego Centrum Badawczego Komisji i ENISA stwierdza, że żadna pojedyncza norma nie pokrywa wszystkich wymagań rozporządzenia, a każda zmapowana część serii 62443 jest opatrzona zastrzeżeniem zakresu ograniczającym ją do przemysłowych systemów automatyki i sterowania. Ten poradnik pokazuje, czego wymaga CRA, które terminy są pewne, w którym dokładnie miejscu seria 62443 nie wystarcza i co buduje teraz CENELEC, żeby tę lukę zamknąć.</p>
+
+<h2>Czym jest CRA i kogo wiąże</h2>
+<p>Rozporządzenie (UE) 2024/2847, zwane Cyber Resilience Act, ustanawia wymagania cyberbezpieczeństwa dla produktów z elementami cyfrowymi wprowadzanych na rynek unijny. To prawo produktowe, z tej samej rodziny co przepisy maszynowe i dotyczące urządzeń radiowych, więc działa przez oznakowanie CE, ocenę zgodności i normy zharmonizowane, a nie przez obowiązki operatora.</p>
+<p>Od tego trzeba zacząć, bo to przesądza, czy rozporządzenie w ogóle ma zastosowanie. Zobowiązanym jest producent: według podsumowania Komisji osoba fizyczna lub prawna, która opracowuje lub wytwarza produkty z elementami cyfrowymi albo zleca ich zaprojektowanie, opracowanie lub wytworzenie i wprowadza je na rynek pod własną nazwą lub znakiem towarowym, odpłatnie, w zamian za monetyzację albo nieodpłatnie. Importerzy i dystrybutorzy mają własne, lżejsze obowiązki.</p>
+<p>Zakład, który kupuje i eksploatuje urządzenia, nie jest producentem w rozumieniu CRA. Nie jest nim także integrator instalujący cudze produkty bez zmian. Dwie rzeczy wciągają jednak firmy przemysłowe w zakres rozporządzenia. Firma, która umieszcza własną nazwę na szafie sterowniczej, bramce lub aplikacji, staje się jej producentem. A konsekwencje dotyczą każdego kupującego, bo od daty stosowania produkt bez ważnego oznakowania CE zgodnie z CRA nie może być legalnie wprowadzony na rynek.</p>
+
+<h2>Terminy, które są pewne</h2>
+<p>Rozporządzenie weszło w życie 10 grudnia 2024 roku i jest stosowane etapami:</p>
+<ul>
+  <li><strong>11 czerwca 2026:</strong> stosuje się rozdział o notyfikacji jednostek oceniających zgodność, a państwa członkowskie miały wyznaczyć organy notyfikujące.</li>
+  <li><strong>11 września 2026:</strong> stosuje się obowiązki zgłoszeniowe z artykułu 14, a jednolita platforma zgłoszeniowa CRA stała się operacyjna.</li>
+  <li><strong>11 grudnia 2027:</strong> stosuje się główne obowiązki. Obowiązki zgłoszeniowe obejmują także produkty udostępnione na rynku przed tą datą.</li>
+  <li><strong>11 czerwca 2028:</strong> certyfikaty badania typu UE i decyzje zatwierdzające dotyczące wymagań cyberbezpieczeństwa, wydane w poprzednim reżimie, zachowują ważność do tego dnia, chyba że wygasną wcześniej.</li>
+</ul>
+<p>Obowiązki zgłoszeniowe już obowiązują i są ostrzejsze niż te, które firmy przemysłowe znają z NIS2. Dla aktywnie wykorzystywanej podatności: wczesne ostrzeżenie w ciągu 24 godzin od powzięcia wiedzy, pełne zgłoszenie w ciągu 72 godzin i sprawozdanie końcowe nie później niż 14 dni po udostępnieniu środka naprawczego lub ograniczającego. Dla poważnego incydentu mającego wpływ na bezpieczeństwo produktu: 24 godziny, 72 godziny i sprawozdanie końcowe w ciągu miesiąca od zgłoszenia 72 godzinnego. Zgłoszenia trafiają do CSIRT państwa członkowskiego głównej siedziby producenta i równocześnie do ENISA, przez jednolitą platformę zgłoszeniową.</p>
+<p>Warto zauważyć, co to oznacza dla producenta, który jednocześnie prowadzi zakład: zegar CRA rusza od powzięcia wiedzy o podatności w produkcie, a nie od incydentu w procesie. To różne przesłanki i różni adresaci, a oba terminy mogą biec jednocześnie.</p>
+
+<h2>Dlaczego sama IEC 62443 nie jest odpowiedzią na CRA</h2>
+<p>To jest część, którą się zakłada, zamiast sprawdzić, a założenie zostało odnotowane jako błędne w dokumencie publicznym.</p>
+<p>Wspólne Centrum Badawcze i ENISA opublikowały analizę mapującą istniejące normy na wymagania CRA (EUR 31892 EN, JRC137340). Wniosek jest jednoznaczny: nie istnieje pojedyncza norma zdolna pokryć wszystkie wymagania wyrażone w akcie prawnym, potrzebna jest harmonizacja, a część luk nadal wymaga zaadresowania.</p>
+<p>Seria 62443 zajmuje w tym mapowaniu ważne miejsce. Części 3-2, 4-1, 4-2 i 2-1 zostały odniesione do załącznika I rozporządzenia, przy czym 4-2 odpowiada ośmiu wymaganiom produktowym, czyli więcej niż większość innych norm. Każdy wpis dotyczący 62443 opatrzono jednak tym samym zastrzeżeniem: notą o zakresie wskazującą, że norma dotyczy przemysłowych systemów automatyki i sterowania.</p>
+<p>Ta nota mieści w jednym zdaniu cały problem. CRA jest regulacją horyzontalną. Dotyczy produktów z elementami cyfrowymi w całym rynku, a jego wymagania napisano bez ram przemysłowych. Norma, której zakres zadeklarowano jako IACS, może wspierać argumentację zgodności wewnątrz tych ram i zostawić dziurę poza nimi. Głęboka znajomość 62443 jest więc konieczna, ale niewystarczająca, a dostawca, który na pytanie o CRA odpowiada certyfikatem 62443, na nie nie odpowiedział.</p>
+<p>Załącznik I rozporządzenia ma dwie części: część I dotyczy właściwości produktu, część II obsługi podatności. Druga część boli w praktyce najbardziej, bo obowiązki dotyczące podatności są ciągłe i trwają przez okres wsparcia, a nie są właściwością projektową, którą da się zamknąć jednorazową oceną.</p>
+
+<h2>Co buduje CENELEC</h2>
+<p>Most powstaje teraz i da się go nazwać po imieniu. W ramach wniosku normalizacyjnego M/606 komitet techniczny CENELEC TC 65X, obejmujący przemysłowe pomiary, sterowanie i automatykę, prowadzi grupę roboczą WG3 do spraw cyberbezpieczeństwa. Jej deklarowane cele to ponowne wykorzystanie EN IEC 62443-4-2, EN IEC 62443-3-3 i EN IEC 62443-4-1 jako bezpiecznego cyklu życia produktu, oparcie podejścia do oceny na EN IEC TS 62443-6-2 oraz wyprowadzanie norm wertykalnych dla konkretnych produktów na podstawie EN IEC TS 62443-1-5.</p>
+<p>Mechanizm jest równie ważny jak lista. Zamiast pisać nowe normy, grupa dostosowuje istniejące przez europejską modyfikację wspólną, którą CENELEC definiuje jako zmianę, uzupełnienie lub usunięcie treści normy międzynarodowej, zatwierdzone przez komitety krajowe i stanowiące część normy EN. W praktyce powstają z tego zmiany: EN IEC 62443-4-2:2019 staje się EN IEC 62443-4-2:2019/A11:2026, a EN IEC 62443-4-1:2018 staje się EN IEC 62443-4-1:2018/A11:2026.</p>
+<p>Warto uważnie przeczytać, co dodaje zmiana do 4-2, bo opisuje ona, czego zgodność będzie realnie wymagać: dostosowanie wymagań i ich rozszerzeń, uzasadnienia dla każdego z nich, nowe rozszerzenia odpowiadające zasadniczym wymaganiom cyberbezpieczeństwa z CRA, kryteria stosowalności dla każdego wymagania, podejście oceny z TS 62443-6-2, oczekiwane artefakty oceny dla każdego wymagania oraz kryteria akceptacji oparte na poziomach bezpieczeństwa. Zmiana do 4-1 dodaje dokumentowanie przeznaczenia i kontekstu bezpieczeństwa oraz uzgodnienie z pracami horyzontalnymi nad ogólnymi zasadami cyberodporności.</p>
+
+<h2>Sześć przemysłowych kategorii produktów</h2>
+<p>Z projektu zmiany do 4-2 wyprowadzanych jest sześć norm wertykalnych, każda przypisana do kategorii z załącznika III rozporządzenia. Dostawca przemysłowy powinien sprawdzić te pozycje najpierw, bo wymieniają produkty z nazwy:</p>
+<ul>
+  <li>produkty pełniące funkcję wirtualnej sieci prywatnej (#20),</li>
+  <li>systemy zarządzania siecią (#21),</li>
+  <li>systemy zarządzania informacjami i zdarzeniami bezpieczeństwa (#22),</li>
+  <li>fizyczne i wirtualne interfejsy sieciowe (#25),</li>
+  <li>routery, modemy przeznaczone do łączenia z internetem oraz przełączniki (#27),</li>
+  <li>zapory sieciowe oraz systemy wykrywania i zapobiegania włamaniom, w tym w szczególności przeznaczone do zastosowań przemysłowych (#36).</li>
+</ul>
+<p>Ostatnia pozycja jest najwyraźniejszym sygnałem, że przypadek przemysłowy jest traktowany wprost, a nie przez analogię.</p>
+
+<h2>Ostrzeżenie co do kalendarza</h2>
+<p>Wszystko z dwóch poprzednich sekcji jest pracą w toku, a harmonogram już się przesuwał. Daty docelowe w programie prac CEN i CENELEC dla zmian bazowych wskazywały 30 października 2026 roku, a terminy wniosku normalizacyjnego już wcześniej się przesunęły. Projekty nie są publicznie dostępne.</p>
+<p>Harmonogram norm należy więc traktować jako ruchomy, a daty rozporządzenia jako pewne. Kto twierdzi, że norma zharmonizowana na pewno będzie dostępna w danym miesiącu, mówi o czymś, czego dziś nikt nie wie. Ta strona nosi datę właśnie z tego powodu i będzie aktualizowana jawnie, a nie po cichu.</p>
+
+<h2>Co powinien z tym zrobić zakład</h2>
+<ol>
+  <li><strong>Rozdzielić dwa pytania.</strong> „Czy to urządzenie spełnia 62443” i „czy to urządzenie będzie zgodne z CRA” to różne pytania, a drugie przesądza, czy po grudniu 2027 roku nadal będzie można je kupić.</li>
+  <li><strong>Zadawać dostawcom pytanie konkretne.</strong> Nie „czy jesteście gotowi na CRA”, tylko: do której kategorii z załącznika III należy produkt, jaką ścieżkę oceny zgodności zamierzacie wybrać i jak zrealizujecie część II załącznika I przez cały okres wsparcia.</li>
+  <li><strong>Zapisać okres wsparcia w umowie.</strong> Obowiązki CRA dotyczące podatności trwają przez zdefiniowany okres wsparcia. Przy urządzeniach o dwudziestoletniej żywotności różnica między tym okresem a horyzontem zakładu jest ryzykiem handlowym, a negocjacje przed zakupem są tańsze.</li>
+  <li><strong>Sprawdzić, gdzie samemu jest się producentem.</strong> Szafa sterownicza zmontowana i oznaczona we własnym zakresie, aplikacja napisana na użytek wewnętrzny i potem sprzedana, bramka przemarkowana dla klienta: każdy z tych przypadków może uczynić firmę przemysłową zobowiązanym.</li>
+</ol>
+
+<h2>Co powinien zrobić producent</h2>
+<ol>
+  <li><strong>Zacząć od luki, a nie od normy.</strong> Jeżeli 62443-4-2 jest już wdrożona, pracą jest różnica opisana w zmianie A11: kryteria stosowalności, artefakty oceny i kryteria akceptacji dla każdego wymagania.</li>
+  <li><strong>Traktować część II załącznika I jako proces, nie dokument.</strong> Skoordynowane ujawnianie podatności, wykaz komponentów oprogramowania, kanał aktualizacji bezpieczeństwa i zdolność do działania w rygorze 24 i 72 godzin to zdolności operacyjne, których budowa zajmuje miesiące.</li>
+  <li><strong>Przygotować się do obowiązku zgłoszeniowego już teraz.</strong> Obowiązuje od 11 września 2026 roku, przez jednolitą platformę zgłoszeniową, a pierwszy raz nie powinien wypaść w trakcie incydentu.</li>
+</ol>
+<p>Audyt bezpieczeństwa OT prowadzony przez Liscere jest zgodny z metodyką IEC 62443 i wprost wskazuje, które ustalenia mają znaczenie dla CRA, a które nie, ponieważ to nie są te same ramy, a traktowanie ich jako jednej jest sposobem na dziurę w programie zgodności.</p>
+
+<h2>Źródła</h2>
+<ul>
+  <li>Rozporządzenie (UE) 2024/2847, Cyber Resilience Act, w Dzienniku Urzędowym: <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj/pol" target="_blank" rel="noopener">eur-lex.europa.eu</a></li>
+  <li>Komisja Europejska, strona polityki dotyczącej Cyber Resilience Act i podsumowanie: <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act" target="_blank" rel="noopener">digital-strategy.ec.europa.eu</a></li>
+  <li>Komisja Europejska, obowiązki zgłoszeniowe i jednolita platforma zgłoszeniowa: <a href="https://digital-strategy.ec.europa.eu/en/policies/cra-reporting" target="_blank" rel="noopener">digital-strategy.ec.europa.eu/en/policies/cra-reporting</a></li>
+  <li>Wspólne Centrum Badawcze i ENISA, mapowanie wymagań CRA na normy, EUR 31892 EN (JRC137340): <a href="https://publications.jrc.ec.europa.eu/repository/handle/JRC137340" target="_blank" rel="noopener">publications.jrc.ec.europa.eu</a></li>
+  <li>CEN i CENELEC, webinarium z 8 września 2025 roku, From EN IEC 62443 to CRA: <a href="https://www.cencenelec.eu/media/CEN-CENELEC/Events/Webinars/2025/2025-09-08_webinar_unlocking_cra_iec62443-series-for-cra.pdf" target="_blank" rel="noopener">cencenelec.eu</a></li>
+  <li>CEN, CENELEC i ETSI, program prac dla wniosku normalizacyjnego M/606: <a href="https://www.cencenelec.eu/media/CEN-CENELEC/News/Newsletters/2025/m_606_work_programme_final.pdf" target="_blank" rel="noopener">cencenelec.eu</a></li>
+</ul>

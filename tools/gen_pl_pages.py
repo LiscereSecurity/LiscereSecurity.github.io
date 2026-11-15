@@ -327,6 +327,9 @@ def faq():
 # ---------------------------------------------------------------- Badania (research index)
 # Field Notes have Polish versions; reports are in English (marked "po angielsku").
 BADANIA = [
+    ("guides", "./badania/gd-2026-04/", "GD-2026-04 · Poradnik · listopad 2026", "CRA i IEC 62443",
+     "Dobra znajomość IEC 62443 to nie to samo co gotowość na rozporządzenie o cyberodporności, i instytucje europejskie zapisały to wprost. Które terminy są pewne, dlaczego żadna pojedyncza norma nie pokrywa aktu, co znaczy nota o zakresie przemysłowym przy każdej zmapowanej części serii i co buduje teraz CENELEC, żeby tę lukę zamknąć.",
+     False, "Czytaj poradnik"),
     ("guides", "./badania/gd-2026-03/", "GD-2026-03 · Poradnik · listopad 2026", "IEC 62443 w praktyce",
      "Seria liczy kilkanaście dokumentów, więc pytanie „czy jesteśmy zgodni z 62443” rzadko ma sens. Jak zbudowane są części i którą naprawdę czytać w zakładzie, czym są strefy i kanały, siedem wymagań podstawowych oraz dlaczego SL-T, SL-C i SL-A dzielą deklarację od ustalenia audytu.",
      False, "Czytaj poradnik"),
