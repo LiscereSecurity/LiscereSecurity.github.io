@@ -426,6 +426,7 @@ def dane_spolki():
           <li><strong>KRS:</strong> 0001256054</li>
           <li><strong>NIP:</strong> 7252369168</li>
           <li><strong>REGON:</strong> 545329293</li>
+          <li><strong>Kod identyfikacyjny uczestnika UE (PIC):</strong> 859959806</li>
           <li><strong>Kapitał zakładowy:</strong> 5 000,00 zł</li>
           <li><strong>Data rejestracji:</strong> 27 lipca 2026</li>
         </ul>
