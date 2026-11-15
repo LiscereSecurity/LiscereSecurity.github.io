@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en-GB" class="past-hero article-view">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://formspree.io https://cloudflareinsights.com; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The CRA and IEC 62443: where the standards stop | Liscere</title>
+  <meta name="description" content="What the Cyber Resilience Act requires, which dates are fixed, why IEC 62443 does not cover it on its own, and what CENELEC is building to close the gap." />
+  <meta name="author" content="Liscere" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
+  <meta name="theme-color" content="#030405" />
+
+  <meta property="og:title" content="The CRA and IEC 62443: where the standards stop" />
+  <meta property="og:description" content="What the Cyber Resilience Act requires, which dates are fixed, why IEC 62443 does not cover it on its own, and what CENELEC is building to close the gap." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://liscere.com/research/gd-2026-04/" />
+  <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Liscere: industrial cybersecurity" />
+  <meta property="og:site_name" content="Liscere" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="pl_PL" />
+  <meta property="article:published_time" content="2026-11-15" />
+  <meta property="article:section" content="Guide" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The CRA and IEC 62443: where the standards stop" />
+  <meta name="twitter:description" content="What the Cyber Resilience Act requires, which dates are fixed, why IEC 62443 does not cover it on its own, and what CENELEC is building to close the gap." />
+  <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
+  <meta name="twitter:image:alt" content="Liscere: industrial cybersecurity" />
+
+  <link rel="canonical" href="https://liscere.com/research/gd-2026-04/" />
+  <link rel="alternate" hreflang="en" href="https://liscere.com/research/gd-2026-04/" />
+  <link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/gd-2026-04/" />
+  <link rel="alternate" hreflang="x-default" href="https://liscere.com/research/gd-2026-04/" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://liscere.com/research/gd-2026-04/#article",
+      "headline": "The CRA and IEC 62443: where the standards stop",
+      "name": "The CRA and IEC 62443: where the standards stop",
+      "description": "What the Cyber Resilience Act requires, which dates are fixed, why IEC 62443 does not cover it on its own, and what CENELEC is building to close the gap.",
+      "url": "https://liscere.com/research/gd-2026-04/",
+      "mainEntityOfPage": "https://liscere.com/research/gd-2026-04/",
+      "inLanguage": "en-GB",
+      "datePublished": "2026-11-15",
+      "dateModified": "2026-11-15",
+      "image": [
+        "https://liscere.com/assets/og-image.png"
+      ],
+      "author": {
+        "@id": "https://liscere.com/#org"
+      },
+      "publisher": {
+        "@id": "https://liscere.com/#org"
+      },
+      "isPartOf": {
+        "@type": "CreativeWorkSeries",
+        "name": "Liscere Guides",
+        "url": "https://liscere.com/research.html#guides"
+      },
+      "articleSection": "Guide",
+      "about": [
+        "Cyber Resilience Act",
+        "IEC 62443",
+        "Operational technology security",
+        "Product compliance",
+        "Standardisation"
+      ],
+      "keywords": "Cyber Resilience Act, CRA, Regulation 2024/2847, IEC 62443, EN IEC 62443-4-2, A11:2026, CENELEC TC 65X WG3, M/606, Annex I, Annex III, harmonised standards, 11 December 2027, OT security",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Regulation (EU) 2024/2847, the Cyber Resilience Act, in the Official Journal",
+          "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "European Commission, the Cyber Resilience Act policy page and summary",
+          "url": "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "European Commission, reporting obligations and the Single Reporting Platform",
+          "url": "https://digital-strategy.ec.europa.eu/en/policies/cra-reporting"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Joint Research Centre and ENISA, Cyber Resilience Act requirements and standards mapping, EUR 31892 EN (JRC137340)",
+          "url": "https://publications.jrc.ec.europa.eu/repository/handle/JRC137340"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "CEN and CENELEC, webinar of 8 September 2025, From EN IEC 62443 to CRA",
+          "url": "https://www.cencenelec.eu/media/CEN-CENELEC/Events/Webinars/2025/2025-09-08_webinar_unlocking_cra_iec62443-series-for-cra.pdf"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "CEN, CENELEC and ETSI, work programme for standardisation request M/606",
+          "url": "https://www.cencenelec.eu/media/CEN-CENELEC/News/Newsletters/2025/m_606_work_programme_final.pdf"
+        }
+      ],
+      "workTranslation": {
+        "@id": "https://liscere.com/pl/badania/gd-2026-04/#article"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://liscere.com/#org",
+      "name": "Liscere",
+      "legalName": "Liscere sp. z o.o.",
+      "url": "https://liscere.com/",
+      "logo": "https://liscere.com/assets/apple-touch-icon.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://liscere.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://liscere.com/research.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "GD-2026-04",
+          "item": "https://liscere.com/research/gd-2026-04/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://liscere.com/research/gd-2026-04/#faq",
+      "inLanguage": "en-GB",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does the Cyber Resilience Act apply to a plant?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not as an operator. The duty holder is the manufacturer of a product with digital elements, meaning whoever develops or manufactures it, or has it made, and markets it under their own name or trademark. A plant that buys and runs equipment is not a manufacturer. But a company that badges a control panel, a gateway or an application as its own becomes the manufacturer of that product, and every buyer is affected because a product without valid CE marking under the CRA cannot lawfully be placed on the market."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When does the CRA apply?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It entered into force on 10 December 2024. The chapter on notification of conformity assessment bodies applies from 11 June 2026, the reporting obligations of Article 14 from 11 September 2026, and the main obligations from 11 December 2027. Type-examination certificates issued under the earlier regime remain valid until 11 June 2028 unless they expire sooner."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is IEC 62443 enough for CRA compliance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, and that is recorded rather than assumed. The joint Joint Research Centre and ENISA analysis (EUR 31892 EN, JRC137340) states that there is not a single standard capable of covering all the requirements expressed in the act. It maps parts 3-2, 4-1, 4-2 and 2-1 against Annex I, with 4-2 matched against eight product requirements, but qualifies every 62443 entry with a scope note limiting it to industrial automation and control systems. The CRA is horizontal, so a standard scoped to industrial systems supports part of the argument and leaves a gap outside it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the CRA reporting deadlines?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For an actively exploited vulnerability: an early warning within 24 hours of becoming aware, a full notification within 72 hours, and a final report no later than 14 days after a corrective or mitigating measure is available. For a severe incident affecting the security of the product: 24 hours, 72 hours, and a final report within one month of the 72 hour submission. Reports go to the CSIRT of the Member State of the manufacturer's main establishment and to ENISA at the same time, through the CRA Single Reporting Platform."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which IEC 62443 parts are being changed for the CRA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CENELEC TC 65X WG3, working under standardisation request M/606, is adapting EN IEC 62443-4-2:2019 and EN IEC 62443-4-1:2018 through European common modifications, producing the A11:2026 amendments. EN IEC 62443-3-3 is re-used, EN IEC TS 62443-6-2 provides the evaluation approach and EN IEC TS 62443-1-5 the scheme for deriving six vertical product standards. The schedule has moved before and the drafts are not public, so the standards timeline should be treated as provisional while the regulation's dates are fixed."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="../../assets/css/fonts.css?v=1" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg?v=4" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=4" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261114-a4" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-chrome" aria-label="Site navigation">
+    <a class="site-logo" href="../../index.html" aria-label="Liscere home">
+      <img class="wordmark-svg" src="../../assets/liscere-wordmark-dark.svg?v=3" alt="Liscere" width="1040" height="216" />
+    </a>
+    <nav class="site-nav" aria-label="Pages">
+      <a href="../../index.html">Home</a>
+      <a href="../../services.html">Services</a>
+      <a href="../../about.html">About</a>
+      <a href="../../research.html" aria-current="page">Research</a>
+      <a class="lang-switch" href="../../pl/badania/gd-2026-04/" hreflang="pl" lang="pl" aria-label="Polski">PL</a>
+    </nav>
+  </header>
+
+  <main id="main-content" class="research-page article-page">
+    <article class="article">
+      <header class="article-head">
+        <p class="kicker"><a class="series-back" href="../../research.html#guides" data-back>GUIDE</a> · GD-2026-04 · 15 November 2026</p>
+
+        <h1>The CRA and IEC 62443: where the standards stop</h1>
+
+        <p class="lede">A plant that knows IEC 62443 well can still be unprepared for the Cyber Resilience Act, and the European bodies have said so in writing. The joint analysis by the Commission's Joint Research Centre and ENISA found that no single existing standard covers everything the regulation asks for, and that every 62443 part it maps carries a scope note limiting it to industrial automation and control systems. This guide sets out what the CRA requires, which dates are fixed, exactly where the 62443 series falls short of it, and what CENELEC is building to close the gap.</p>
+      </header>
+
+      <aside class="key-points" aria-labelledby="key-points-title">
+        <h2 id="key-points-title">Key points</h2>
+        <ul>
+          <li>The CRA binds the manufacturer, not the plant that operates the equipment, but a company that puts its own name on a panel, a gateway or an application becomes one.</li>
+          <li>The reporting duties of Article 14 have applied since 11 September 2026; the main obligations apply from 11 December 2027.</li>
+          <li>A joint analysis by the Joint Research Centre and ENISA found that no single standard covers all the requirements of the act, and every IEC 62443 part it maps carries a scope note limiting it to industrial systems.</li>
+          <li>CENELEC TC 65X WG3 is adapting EN IEC 62443-4-2 and 4-1 through common modifications, and deriving six vertical standards for the industrial categories of Annex III.</li>
+        </ul>
+      </aside>
+
+      <aside class="article-side" aria-label="Video and contents">
+        <div class="side-sticky">
+
+          <nav class="article-toc" aria-labelledby="toc-title">
+            <h2 id="toc-title">On this page</h2>
+            <ol>
+              <li><a href="#what-the-cra-is-and-who-it-binds">What the CRA is, and who it binds</a></li>
+              <li><a href="#the-dates-that-are-fixed">The dates that are fixed</a></li>
+              <li><a href="#why-iec-62443-is-not-a-cra-answer-on-its-own">Why IEC 62443 is not a CRA answer on its own</a></li>
+              <li><a href="#what-cenelec-is-building">What CENELEC is building</a></li>
+              <li><a href="#the-six-industrial-product-categories">The six industrial product categories</a></li>
+              <li><a href="#a-caution-about-the-calendar">A caution about the calendar</a></li>
+              <li><a href="#what-a-plant-should-do-with-this">What a plant should do with this</a></li>
+              <li><a href="#what-a-manufacturer-should-do">What a manufacturer should do</a></li>
+              <li><a href="#help">How Liscere can help</a></li>
+              <li><a href="#questions">Questions</a></li>
+              <li><a href="#sources">Sources</a></li>
+            </ol>
+          </nav>
+          <section class="side-cta" aria-labelledby="side-cta-title">
+            <h2 id="side-cta-title">Facing something similar?</h2>
+            <p>We help industrial operators find what is exposed, see what their control network is being told to do, and respond when something goes wrong.</p>
+            <a class="primary-cta" href="../../services.html#contact">Talk to us</a>
+          </section>
+        </div>
+      </aside>
+
+      <div class="article-body">
+        <h2 id="what-the-cra-is-and-who-it-binds">What the CRA is, and who it binds</h2>
+        <p>Regulation (EU) 2024/2847, the Cyber Resilience Act, sets cybersecurity requirements for products with digital elements placed on the Union market. It is product law, in the same family as the machinery and radio equipment rules, which means it works through CE marking, conformity assessment and harmonised standards rather than through operator duties.</p>
+        <p>That is the first thing to get right, because it decides whether the regulation applies at all. The duty holder is the manufacturer: in the Commission's own summary, a natural or legal person who develops or manufactures products with digital elements, or has them designed, developed or manufactured, and markets them under its own name or trademark, whether for payment, monetisation or free of charge. Importers and distributors carry their own, lighter obligations.</p>
+        <p>A plant that buys and operates equipment is not a manufacturer under the CRA, and neither is an integrator who installs someone else's products unchanged. But two things pull industrial companies into scope anyway. A company that puts its own name on a panel, a gateway or an application becomes the manufacturer of it. And every buyer inherits the consequences, because from the application date a product without a valid CE marking under the CRA cannot lawfully be placed on the market.</p>
+
+        <h2 id="the-dates-that-are-fixed">The dates that are fixed</h2>
+        <p>The regulation entered into force on 10 December 2024 and applies in stages:</p>
+        <ul>
+          <li><strong>11 June 2026:</strong> the chapter on notification of conformity assessment bodies applies, and Member States had to designate their notifying authorities.</li>
+          <li><strong>11 September 2026:</strong> the reporting obligations under Article 14 apply, and the CRA Single Reporting Platform became operational.</li>
+          <li><strong>11 December 2027:</strong> the main obligations apply. The reporting duties also reach products already made available on the market before that date.</li>
+          <li><strong>11 June 2028:</strong> EU type-examination certificates and approval decisions on cybersecurity requirements issued under the earlier regime remain valid until this date, unless they expire sooner.</li>
+        </ul>
+        <p>The reporting duties are already live, and they are tighter than the ones most industrial companies know from NIS2. For an actively exploited vulnerability: an early warning within 24 hours of becoming aware, a full notification within 72 hours, and a final report no later than 14 days after a corrective or mitigating measure is available. For a severe incident affecting the security of the product: 24 hours, 72 hours, and a final report within one month of the 72 hour submission. Reports go to the CSIRT of the Member State of the manufacturer's main establishment and to ENISA at the same time, through the Single Reporting Platform.</p>
+        <p>Note what that means for a manufacturer who also runs a plant: the CRA clock starts from awareness of a vulnerability in the product, not from an incident in the process. They are different triggers with different recipients, and they can run at once.</p>
+
+        <h2 id="why-iec-62443-is-not-a-cra-answer-on-its-own">Why IEC 62443 is not a CRA answer on its own</h2>
+        <p>This is the part that gets assumed rather than checked, and the assumption is recorded as wrong in a public document.</p>
+        <p>The Joint Research Centre and ENISA published a joint analysis mapping existing standards against the requirements of the CRA (EUR 31892 EN, JRC137340). Its conclusion is explicit: there is not a single standard capable of covering all the requirements expressed in the legislative act, harmonisation is needed, and some gaps still have to be addressed.</p>
+        <p>The 62443 series is prominent in that mapping. Parts 3-2, 4-1, 4-2 and 2-1 are mapped against Annex I of the CRA, with 4-2 matched against eight of the product requirements, which is more than most other standards manage. But every single 62443 entry in the mapping carries the same qualification: a scope note saying it applies to industrial automation and control systems.</p>
+        <p>That note is the whole problem in one line. The CRA is horizontal. It applies to products with digital elements across the market, and its requirements are written without an industrial frame. A standard whose scope is declared to be IACS can support a conformity argument inside that frame and leave a hole outside it. Deep 62443 competence is therefore necessary and not sufficient, and a supplier who answers a CRA question by producing a 62443 certificate has not answered it.</p>
+        <p>Annex I of the regulation is in two parts: Part I on the properties of the product, Part II on vulnerability handling. The second part is where the mismatch bites hardest in practice, because the vulnerability handling duties are continuous obligations on the manufacturer over the support period, not design properties that a one off assessment can close out.</p>
+
+        <h2 id="what-cenelec-is-building">What CENELEC is building</h2>
+        <p>The bridge is being built now, and it is specific enough to name. Under standardisation request M/606, CENELEC technical committee TC 65X, which covers industrial process measurement, control and automation, runs working group WG3 on cybersecurity. Its stated goals are to re-use EN IEC 62443-4-2, EN IEC 62443-3-3 and EN IEC 62443-4-1 as the secure product lifecycle, to use EN IEC TS 62443-6-2 as the basis for the evaluation approach, and EN IEC TS 62443-1-5 for deriving product specific vertical standards.</p>
+        <p>The mechanism matters as much as the list. Rather than writing new standards, the group adapts the existing ones through a European common modification, which CENELEC defines as an alteration of, addition to or deletion from the content of an international standard, approved by the national committees and forming part of the EN. In practice that produces amendments: EN IEC 62443-4-2:2019 becomes EN IEC 62443-4-2:2019/A11:2026, and EN IEC 62443-4-1:2018 becomes EN IEC 62443-4-1:2018/A11:2026.</p>
+        <p>What the 4-2 amendment adds is worth reading closely, because it describes what conformity will actually require: adapted requirements and requirement enhancements, rationales for each, new enhancements addressing the CRA's essential cybersecurity requirements, applicability criteria for every requirement, the evaluation approach from TS 62443-6-2, the expected evaluation artefacts for each requirement, and security level based acceptance criteria. The 4-1 amendment adds documentation of the intended use and security context, and aligns with the horizontal work on general principles for cyber resilience.</p>
+
+        <h2 id="the-six-industrial-product-categories">The six industrial product categories</h2>
+        <p>Six vertical standards are being derived from the draft 4-2 amendment, each matched to a category in Annex III of the CRA. For an industrial supplier these are the lines to check first, because they name the products:</p>
+        <ul>
+          <li>products with the function of a virtual private network (#20),</li>
+          <li>network management systems (#21),</li>
+          <li>security information and event management systems (#22),</li>
+          <li>physical and virtual network interfaces (#25),</li>
+          <li>routers, modems intended for connection to the internet, and switches (#27),</li>
+          <li>firewalls and intrusion detection or prevention systems, including specifically those intended for industrial use (#36).</li>
+        </ul>
+        <p>The last of those is the clearest signal that the industrial case is being treated explicitly rather than by analogy.</p>
+
+        <h2 id="a-caution-about-the-calendar">A caution about the calendar</h2>
+        <p>Everything in the preceding two sections is work in progress, and the schedule has already moved. Target dates in the CEN and CENELEC work programme have sat at 30 October 2026 for the base amendments, and the standardisation request deadlines have slipped before. The drafts are not public.</p>
+        <p>So treat the standards timeline as a moving object and the regulation's dates as fixed. Anyone who tells you a harmonised standard will certainly be available by a given month is telling you something nobody currently knows. This page carries its date for that reason and will be revised rather than quietly updated.</p>
+
+        <h2 id="what-a-plant-should-do-with-this">What a plant should do with this</h2>
+        <ol>
+          <li><strong>Separate the two questions.</strong> "Is this device 62443 capable" and "will this device be CRA compliant" are different, and the second one is the one that decides whether you can still buy it after December 2027.</li>
+          <li><strong>Ask suppliers the specific question.</strong> Not "are you CRA ready" but: which Annex III category does the product fall in, which conformity assessment route do you intend to use, and how will you handle Annex I Part II over the support period.</li>
+          <li><strong>Put the support period in the contract.</strong> The CRA's vulnerability handling duties run for a defined support period. For equipment with a twenty year service life, the gap between that period and the plant's own horizon is a commercial risk, and it is cheaper to negotiate before purchase.</li>
+          <li><strong>Check where you are the manufacturer.</strong> A control panel assembled and badged in house, an application written for internal use and then sold, a gateway re-branded for a customer: each of these can make an industrial company the duty holder.</li>
+        </ol>
+
+        <h2 id="what-a-manufacturer-should-do">What a manufacturer should do</h2>
+        <ol>
+          <li><strong>Start from the gap, not from the standard.</strong> If 62443-4-2 is already in place, the work is the delta that the A11 amendment describes: applicability criteria, evaluation artefacts, acceptance criteria per requirement.</li>
+          <li><strong>Treat Annex I Part II as a process, not a document.</strong> Coordinated disclosure, a software bill of materials, a security update channel and the ability to act on 24 hour and 72 hour clocks are operational capabilities that take months to build.</li>
+          <li><strong>Register for the reporting duty now.</strong> It has applied since 11 September 2026, through the Single Reporting Platform, and the first time it is used should not be during an incident.</li>
+        </ol>
+        <p>Liscere's OT security assessment follows the IEC 62443 method and states plainly which findings bear on the CRA and which do not, because the two frames are not the same and treating them as one is how a compliance programme ends up with a hole in it.</p>
+
+        <section class="article-related" aria-labelledby="help">
+          <h2 id="help">How Liscere can help</h2>
+          <ul class="related-links">
+            <li><a href="../../research/gd-2026-03/">IEC 62443 in practice</a><span>The parts, the zones and what the security levels actually mean.</span></li>
+            <li><a href="../../services/ot-security-assessment.html">OT and ICS security assessment</a><span>An assessment aligned with the IEC 62443 method.</span></li>
+            <li><a href="../../services/nis2-ksc-compliance.html">NIS2 readiness</a><span>Turn the directive's expectations into concrete OT controls.</span></li>
+          </ul>
+        </section>
+
+        <section class="article-faq" aria-labelledby="questions">
+          <h2 id="questions">Questions</h2>
+          <div class="faq-item">
+            <h3 class="faq-q">Does the Cyber Resilience Act apply to a plant?</h3>
+            <p class="faq-a">Not as an operator. The duty holder is the manufacturer of a product with digital elements, meaning whoever develops or manufactures it, or has it made, and markets it under their own name or trademark. A plant that buys and runs equipment is not a manufacturer. But a company that badges a control panel, a gateway or an application as its own becomes the manufacturer of that product, and every buyer is affected because a product without valid CE marking under the CRA cannot lawfully be placed on the market.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">When does the CRA apply?</h3>
+            <p class="faq-a">It entered into force on 10 December 2024. The chapter on notification of conformity assessment bodies applies from 11 June 2026, the reporting obligations of Article 14 from 11 September 2026, and the main obligations from 11 December 2027. Type-examination certificates issued under the earlier regime remain valid until 11 June 2028 unless they expire sooner.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Is IEC 62443 enough for CRA compliance?</h3>
+            <p class="faq-a">No, and that is recorded rather than assumed. The joint Joint Research Centre and ENISA analysis (EUR 31892 EN, JRC137340) states that there is not a single standard capable of covering all the requirements expressed in the act. It maps parts 3-2, 4-1, 4-2 and 2-1 against Annex I, with 4-2 matched against eight product requirements, but qualifies every 62443 entry with a scope note limiting it to industrial automation and control systems. The CRA is horizontal, so a standard scoped to industrial systems supports part of the argument and leaves a gap outside it.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">What are the CRA reporting deadlines?</h3>
+            <p class="faq-a">For an actively exploited vulnerability: an early warning within 24 hours of becoming aware, a full notification within 72 hours, and a final report no later than 14 days after a corrective or mitigating measure is available. For a severe incident affecting the security of the product: 24 hours, 72 hours, and a final report within one month of the 72 hour submission. Reports go to the CSIRT of the Member State of the manufacturer's main establishment and to ENISA at the same time, through the CRA Single Reporting Platform.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Which IEC 62443 parts are being changed for the CRA?</h3>
+            <p class="faq-a">CENELEC TC 65X WG3, working under standardisation request M/606, is adapting EN IEC 62443-4-2:2019 and EN IEC 62443-4-1:2018 through European common modifications, producing the A11:2026 amendments. EN IEC 62443-3-3 is re-used, EN IEC TS 62443-6-2 provides the evaluation approach and EN IEC TS 62443-1-5 the scheme for deriving six vertical product standards. The schedule has moved before and the drafts are not public, so the standards timeline should be treated as provisional while the regulation's dates are fixed.</p>
+          </div>
+        </section>
+
+        <section class="article-sources" aria-labelledby="sources">
+          <h2 id="sources">Sources</h2>
+          <ul>
+            <li>Regulation (EU) 2024/2847, the Cyber Resilience Act, in the Official Journal: <a href="https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng" target="_blank" rel="noopener">eur-lex.europa.eu</a></li>
+            <li>European Commission, the Cyber Resilience Act policy page and summary: <a href="https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act" target="_blank" rel="noopener">digital-strategy.ec.europa.eu</a></li>
+            <li>European Commission, reporting obligations and the Single Reporting Platform: <a href="https://digital-strategy.ec.europa.eu/en/policies/cra-reporting" target="_blank" rel="noopener">digital-strategy.ec.europa.eu/en/policies/cra-reporting</a></li>
+            <li>Joint Research Centre and ENISA, Cyber Resilience Act requirements and standards mapping, EUR 31892 EN (JRC137340): <a href="https://publications.jrc.ec.europa.eu/repository/handle/JRC137340" target="_blank" rel="noopener">publications.jrc.ec.europa.eu</a></li>
+            <li>CEN and CENELEC, webinar of 8 September 2025, From EN IEC 62443 to CRA: <a href="https://www.cencenelec.eu/media/CEN-CENELEC/Events/Webinars/2025/2025-09-08_webinar_unlocking_cra_iec62443-series-for-cra.pdf" target="_blank" rel="noopener">cencenelec.eu</a></li>
+            <li>CEN, CENELEC and ETSI, work programme for standardisation request M/606: <a href="https://www.cencenelec.eu/media/CEN-CENELEC/News/Newsletters/2025/m_606_work_programme_final.pdf" target="_blank" rel="noopener">cencenelec.eu</a></li>
+          </ul>
+        </section>
+
+        <section class="article-cite" aria-labelledby="cite-title">
+          <h2 id="cite-title" class="doc-section-head">Cite this article</h2>
+          <pre class="doc-cite">@misc{liscere_gd_2026_04,
+  author       = {{Liscere}},
+  title        = {The CRA and IEC 62443: where the standards stop},
+  howpublished = {Liscere Guides GD-2026-04},
+  year         = {2026},
+  month        = nov,
+  url          = {https://liscere.com/research/gd-2026-04/}
+}</pre>
+        </section>
+
+        <p class="article-back"><a href="../../research.html" data-back>&#8592; All research</a></p>
+      </div>
+    </article>
+
+    <p class="research-foot"><a href="../../index.html">Home</a> · <a href="../../services.html">Services</a> · <a href="../../about.html">About</a> · <a href="../../faq.html">FAQ</a> · <a href="../../research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="../../privacy.html">Privacy</a> · <a href="../../legal.html">Legal</a> · <a href="../../terms.html">Terms</a><br />Based in Poland, working across Europe and worldwide.<br />© 2026 Liscere sp. z o.o.</p>
+  </main>
+
+  <script src="../../assets/js/nav.js?v=2" defer></script>
+  <script src="../../assets/js/site.js?v=4" defer></script>
+  <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3280d901c4be4657ba0562ac10e607b7"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

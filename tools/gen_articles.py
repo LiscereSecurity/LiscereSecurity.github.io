@@ -944,7 +944,74 @@ GD_2026_03 = dict(
     ),
 )
 
-ARTICLES = [GD_2026_01, GD_2026_02, GD_2026_03, FN_2026_01, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
+GD_2026_04 = dict(
+    id="gd-2026-04", series="guides", date="2026-11-15", month_bib="nov", og_image="assets/og-image.png",
+    en=dict(
+        title="The CRA and IEC 62443: where the standards stop | Liscere",
+        description="What the Cyber Resilience Act requires, which dates are fixed, why IEC 62443 does not cover it on its own, and what CENELEC is building to close the gap.",
+        og_image_alt="Liscere: industrial cybersecurity",
+        about=["Cyber Resilience Act", "IEC 62443", "Operational technology security", "Product compliance", "Standardisation"],
+        keywords="Cyber Resilience Act, CRA, Regulation 2024/2847, IEC 62443, EN IEC 62443-4-2, A11:2026, CENELEC TC 65X WG3, M/606, Annex I, Annex III, harmonised standards, 11 December 2027, OT security",
+        contact="../../services.html#contact",
+        key_points=[
+            "The CRA binds the manufacturer, not the plant that operates the equipment, but a company that puts its own name on a panel, a gateway or an application becomes one.",
+            "The reporting duties of Article 14 have applied since 11 September 2026; the main obligations apply from 11 December 2027.",
+            "A joint analysis by the Joint Research Centre and ENISA found that no single standard covers all the requirements of the act, and every IEC 62443 part it maps carries a scope note limiting it to industrial systems.",
+            "CENELEC TC 65X WG3 is adapting EN IEC 62443-4-2 and 4-1 through common modifications, and deriving six vertical standards for the industrial categories of Annex III.",
+        ],
+        related=[
+            ("research/gd-2026-03/", "IEC 62443 in practice", "The parts, the zones and what the security levels actually mean."),
+            ("services/ot-security-assessment.html", "OT and ICS security assessment", "An assessment aligned with the IEC 62443 method."),
+            ("services/nis2-ksc-compliance.html", "NIS2 readiness", "Turn the directive's expectations into concrete OT controls."),
+        ],
+        faq=[
+            ("Does the Cyber Resilience Act apply to a plant?",
+             "Not as an operator. The duty holder is the manufacturer of a product with digital elements, meaning whoever develops or manufactures it, or has it made, and markets it under their own name or trademark. A plant that buys and runs equipment is not a manufacturer. But a company that badges a control panel, a gateway or an application as its own becomes the manufacturer of that product, and every buyer is affected because a product without valid CE marking under the CRA cannot lawfully be placed on the market."),
+            ("When does the CRA apply?",
+             "It entered into force on 10 December 2024. The chapter on notification of conformity assessment bodies applies from 11 June 2026, the reporting obligations of Article 14 from 11 September 2026, and the main obligations from 11 December 2027. Type-examination certificates issued under the earlier regime remain valid until 11 June 2028 unless they expire sooner."),
+            ("Is IEC 62443 enough for CRA compliance?",
+             "No, and that is recorded rather than assumed. The joint Joint Research Centre and ENISA analysis (EUR 31892 EN, JRC137340) states that there is not a single standard capable of covering all the requirements expressed in the act. It maps parts 3-2, 4-1, 4-2 and 2-1 against Annex I, with 4-2 matched against eight product requirements, but qualifies every 62443 entry with a scope note limiting it to industrial automation and control systems. The CRA is horizontal, so a standard scoped to industrial systems supports part of the argument and leaves a gap outside it."),
+            ("What are the CRA reporting deadlines?",
+             "For an actively exploited vulnerability: an early warning within 24 hours of becoming aware, a full notification within 72 hours, and a final report no later than 14 days after a corrective or mitigating measure is available. For a severe incident affecting the security of the product: 24 hours, 72 hours, and a final report within one month of the 72 hour submission. Reports go to the CSIRT of the Member State of the manufacturer's main establishment and to ENISA at the same time, through the CRA Single Reporting Platform."),
+            ("Which IEC 62443 parts are being changed for the CRA?",
+             "CENELEC TC 65X WG3, working under standardisation request M/606, is adapting EN IEC 62443-4-2:2019 and EN IEC 62443-4-1:2018 through European common modifications, producing the A11:2026 amendments. EN IEC 62443-3-3 is re-used, EN IEC TS 62443-6-2 provides the evaluation approach and EN IEC TS 62443-1-5 the scheme for deriving six vertical product standards. The schedule has moved before and the drafts are not public, so the standards timeline should be treated as provisional while the regulation's dates are fixed."),
+        ],
+    ),
+    pl=dict(
+        title="CRA i IEC 62443: gdzie kończą się normy | Liscere",
+        description="Czego wymaga rozporządzenie o cyberodporności, które terminy są pewne, dlaczego sama IEC 62443 nie wystarcza i co buduje CENELEC, aby zamknąć tę lukę.",
+        og_image_alt="Liscere: cyberbezpieczeństwo przemysłowe",
+        about=["Cyber Resilience Act", "IEC 62443", "Bezpieczeństwo OT", "Zgodność produktowa", "Normalizacja"],
+        keywords="Cyber Resilience Act, CRA, rozporządzenie 2024/2847, IEC 62443, EN IEC 62443-4-2, A11:2026, CENELEC TC 65X WG3, M/606, załącznik I, załącznik III, normy zharmonizowane, 11 grudnia 2027, bezpieczeństwo OT",
+        contact="../../../pl/uslugi.html#contact",
+        key_points=[
+            "CRA wiąże producenta, a nie zakład eksploatujący urządzenia, ale firma, która umieszcza własną nazwę na szafie, bramce lub aplikacji, sama staje się producentem.",
+            "Obowiązki zgłoszeniowe z artykułu 14 obowiązują od 11 września 2026 roku, a główne obowiązki od 11 grudnia 2027 roku.",
+            "Wspólna analiza Wspólnego Centrum Badawczego i ENISA stwierdza, że żadna pojedyncza norma nie pokrywa wszystkich wymagań aktu, a każda zmapowana część IEC 62443 ma notę ograniczającą zakres do systemów przemysłowych.",
+            "CENELEC TC 65X WG3 dostosowuje EN IEC 62443-4-2 i 4-1 przez modyfikacje wspólne oraz wyprowadza sześć norm wertykalnych dla przemysłowych kategorii z załącznika III.",
+        ],
+        related=[
+            ("pl/badania/gd-2026-03/", "IEC 62443 w praktyce", "Części, strefy i to, co naprawdę znaczą poziomy bezpieczeństwa."),
+            ("pl/uslugi/audyt-bezpieczenstwa-ot.html", "Audyt bezpieczeństwa OT i ICS", "Audyt prowadzony zgodnie z metodyką IEC 62443."),
+            ("pl/uslugi/nis2-ksc.html", "Gotowość do NIS2 i KSC", "Obowiązki, audyt i plan działań z perspektywą OT."),
+        ],
+        faq=[
+            ("Czy Cyber Resilience Act dotyczy zakładu?",
+             "Nie jako operatora. Zobowiązanym jest producent produktu z elementami cyfrowymi, czyli ten, kto go opracowuje lub wytwarza albo zleca wytworzenie i wprowadza na rynek pod własną nazwą lub znakiem towarowym. Zakład, który kupuje i eksploatuje urządzenia, nie jest producentem. Firma, która oznacza szafę sterowniczą, bramkę lub aplikację własną marką, staje się jednak producentem tego produktu, a skutki dotyczą każdego kupującego, bo produkt bez ważnego oznakowania CE zgodnie z CRA nie może być legalnie wprowadzony na rynek."),
+            ("Od kiedy obowiązuje CRA?",
+             "Rozporządzenie weszło w życie 10 grudnia 2024 roku. Rozdział o notyfikacji jednostek oceniających zgodność stosuje się od 11 czerwca 2026 roku, obowiązki zgłoszeniowe z artykułu 14 od 11 września 2026 roku, a główne obowiązki od 11 grudnia 2027 roku. Certyfikaty badania typu wydane w poprzednim reżimie zachowują ważność do 11 czerwca 2028 roku, chyba że wygasną wcześniej."),
+            ("Czy IEC 62443 wystarczy do zgodności z CRA?",
+             "Nie, i nie jest to domysł, lecz zapis. Wspólna analiza Wspólnego Centrum Badawczego i ENISA (EUR 31892 EN, JRC137340) stwierdza, że nie istnieje pojedyncza norma zdolna pokryć wszystkie wymagania wyrażone w akcie. Mapuje części 3-2, 4-1, 4-2 i 2-1 na załącznik I, przy czym 4-2 odpowiada ośmiu wymaganiom produktowym, ale każdy wpis dotyczący 62443 opatruje notą ograniczającą zakres do przemysłowych systemów automatyki i sterowania. CRA jest regulacją horyzontalną, więc norma o zakresie przemysłowym wspiera część argumentacji i zostawia lukę poza nią."),
+            ("Jakie są terminy zgłoszeniowe w CRA?",
+             "Dla aktywnie wykorzystywanej podatności: wczesne ostrzeżenie w ciągu 24 godzin od powzięcia wiedzy, pełne zgłoszenie w ciągu 72 godzin i sprawozdanie końcowe nie później niż 14 dni po udostępnieniu środka naprawczego lub ograniczającego. Dla poważnego incydentu wpływającego na bezpieczeństwo produktu: 24 godziny, 72 godziny i sprawozdanie końcowe w ciągu miesiąca od zgłoszenia 72 godzinnego. Zgłoszenia trafiają do CSIRT państwa głównej siedziby producenta i równocześnie do ENISA, przez jednolitą platformę zgłoszeniową CRA."),
+            ("Które części IEC 62443 są zmieniane pod CRA?",
+             "CENELEC TC 65X WG3, pracująca w ramach wniosku normalizacyjnego M/606, dostosowuje EN IEC 62443-4-2:2019 i EN IEC 62443-4-1:2018 przez europejskie modyfikacje wspólne, tworząc zmiany A11:2026. EN IEC 62443-3-3 jest wykorzystywana ponownie, EN IEC TS 62443-6-2 dostarcza podejścia do oceny, a EN IEC TS 62443-1-5 schematu wyprowadzania sześciu norm wertykalnych. Harmonogram już się przesuwał, a projekty nie są publiczne, więc terminy norm należy traktować jako wstępne, podczas gdy daty rozporządzenia są pewne."),
+        ],
+    ),
+)
+
+
+ARTICLES = [GD_2026_01, GD_2026_02, GD_2026_03, GD_2026_04, FN_2026_01, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
             LTR_2026_01, LTR_2026_02, LTR_2026_03, LTR_2026_04, LTR_2026_05]
 
 if __name__ == "__main__":
