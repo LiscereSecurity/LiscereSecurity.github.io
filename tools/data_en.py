@@ -20,12 +20,12 @@ PAGES = [
   who="Manufacturing plants, utilities, energy, water and transport operators, and the integrators and machine builders that serve them. Any site where a control system runs a physical process.",
   why="Most OT networks were built to run, not to resist attacks. Controllers accept commands from anyone on the network, and remote access often reaches further than anyone thinks. An assessment finds those gaps first.",
   faq=[
-   ("What does the assessment cover?","Controllers, operator stations and engineering workstations (vulnerabilities, configuration and firmware), the network architecture and segmentation between IT and OT, remote access for staff, vendors and integrators, and whether systems can be restored after an incident. Penetration testing is included on agreed systems."),
+   ("What does the audit cover?","Controllers, operator stations and engineering workstations (vulnerabilities, configuration and firmware), the network architecture and segmentation between IT and OT, remote access for staff, vendors and integrators, and whether systems can be restored after an incident. Penetration testing is included on agreed systems."),
    ("Will the assessment disrupt production?","No. On live OT networks we observe rather than probe: nothing is scanned, injected or changed while the process is running. Penetration testing runs only on systems and in time windows agreed with your team."),
    ("Which systems and vendors are covered?","Industrial control systems from the major vendors, including Siemens, Rockwell Automation (Allen-Bradley), Schneider Electric, ABB, Beckhoff, Omron and Mitsubishi Electric, as well as systems built on CODESYS, and the SCADA, HMI and network equipment around them."),
    ("What is delivered at the end?","A report in plain language with every finding ranked by its risk to the process, the evidence attached and a practical roadmap of what to fix first and what can wait. The method is aligned with IEC 62443."),
    ("Does the assessment help with NIS2?","Yes. NIS2 requires risk analysis and security measures proportionate to the risk. The assessment provides the technical evidence for the OT side, and it can be combined with a full NIS2 readiness assessment."),
-   ("How long does it take?","Typically a few weeks for a single site, depending on its size and the scope agreed in a short first call. Scope and price are fixed up front."),
+   ("How long does it take?","Typically a few weeks for a single site, depending on its size and the scope agreed in a short first call. Scope and price are fixed up front, and shaped around the plant rather than sold as a fixed package."),
   ]),
  dict(slug="ot-visibility-monitoring", service="OT visibility and monitoring", crumb="OT visibility and monitoring",
   title="OT Asset Inventory and Network Monitoring | Liscere",
@@ -80,7 +80,7 @@ PAGES = [
   desc="Industrial automation projects built secure: PLC and HMI programming, hardware and commissioning on Siemens, Rockwell, Schneider, Beckhoff and CODESYS.",
   stype="Industrial automation engineering, PLC and HMI programming and commissioning",
   h1="Automation projects, built secure from the first line of code.",
-  what="Complete automation projects for machines and processes: analysis of the requirements, PLC and HMI software, hardware selection and supply when needed, and commissioning on site. Security is part of the design, not added at the end.",
+  what="Complete automation projects for machines and processes: analysis of the requirements, PLC and HMI software, hardware selection and supply when needed, integration and commissioning on site. Security is part of the design, not added at the end.",
   who="Manufacturers, machine builders, system integrators and plant operators that need a new automation system, an extension of an existing line or extra engineering capacity for a project.",
   why="Automation decides how safely and efficiently a plant runs for years. Systems designed without security become the weak points that later need costly fixes. Building them right from the start costs less.",
   faq=[
@@ -96,7 +96,7 @@ PAGES = [
   desc="PLC and HMI software reviewed for faults, risks and security gaps, then improved or migrated from legacy platforms such as Siemens S5, S7-300 and PLC-5.",
   stype="PLC and HMI software review, automation modernisation and legacy migration",
   h1="Make the automation you already have reliable and secure.",
-  what="An analysis of existing PLC and HMI software to find faults, undocumented logic, risks and security gaps, followed by the improvements needed or a migration from legacy platforms to current ones, planned around production.",
+  what="An analysis of existing PLC and HMI software to find faults, undocumented logic, risks and security gaps, followed by the retrofit itself: the improvements needed or a migration from legacy platforms to current ones, planned around production.",
   who="Plants running automation written years ago, often by people or companies no longer around, on platforms reaching end of life or with software nobody fully understands any more.",
   why="Old automation keeps running until it does not. Spare parts disappear, knowledge leaves with people, and legacy controllers lack basic protections. A review shows what is at risk before it fails.",
   faq=[
@@ -112,7 +112,7 @@ PAGES = [
   desc="Practical training for operators and engineers: OT hardware, industrial software, protocols and networks, automation and cybersecurity, tailored to each team.",
   stype="Industrial cybersecurity and automation training",
   h1="Practical training for the people who run the plant.",
-  what="Practical training in industrial automation and cybersecurity: how controllers and other OT hardware work, industrial software, protocols and networks, how OT differs from IT, and how to keep systems secure day to day.",
+  what="Practical training and workshops in industrial automation and cybersecurity: how controllers and other OT hardware work, industrial software, protocols and networks, how OT differs from IT, and how to keep systems secure day to day.",
   who="Operators, maintenance teams, automation engineers and IT staff who work with OT, from teams starting out to experienced engineers who want to add security to their work.",
   why="Many OT incidents start with people: a shared password, an unknown USB stick, a remote connection left open. Teams that understand their systems make fewer mistakes and spot problems sooner.",
   faq=[

@@ -16,7 +16,7 @@ PL = {
   desc="Audyt bezpieczeństwa OT i ICS: podatności, architektura sieci, dostęp zdalny i testy penetracyjne, z oceną ryzyka dla procesu. Zgodnie z IEC 62443.",
   stype="Audyt bezpieczeństwa systemów OT i ICS oraz testy penetracyjne",
   h1="Znajdź słabe punkty swojego OT, zanim zrobi to atakujący.",
-  what="Uporządkowany przegląd sterowników, stacji operatorskich, dostępu zdalnego i łączących je sieci. Wykrywa podatności i luki w zabezpieczeniach, ocenia je według ryzyka dla procesu i obejmuje testy penetracyjne na uzgodnionych systemach.",
+  what="Uporządkowana ocena bezpieczeństwa sterowników, stacji operatorskich, dostępu zdalnego i łączących je sieci. Wykrywa podatności i luki w zabezpieczeniach, szereguje je według ryzyka dla procesu i obejmuje testy penetracyjne na uzgodnionych systemach.",
   who="Zakłady produkcyjne, energetyka, wodociągi, transport i inne przedsiębiorstwa infrastruktury, a także integratorzy i producenci maszyn, którzy je obsługują. Każdy obiekt, w którym system sterowania prowadzi proces fizyczny.",
   why="Większość sieci OT zbudowano po to, by działały, a nie by odpierały ataki. Sterowniki przyjmują polecenia od każdego w sieci, a dostęp zdalny często sięga dalej, niż ktokolwiek przypuszcza. Audyt znajduje te luki jako pierwszy.",
   faq=[
@@ -25,7 +25,7 @@ PL = {
    ("Jakie systemy i jacy producenci są objęci?","Systemy sterowania głównych producentów, w tym Siemens, Rockwell Automation (Allen-Bradley), Schneider Electric, ABB, Beckhoff, Omron i Mitsubishi Electric, a także systemy oparte na CODESYS oraz otaczające je systemy SCADA, HMI i urządzenia sieciowe."),
    ("Co klient otrzymuje na koniec?","Raport napisany prostym językiem, w którym każde ustalenie jest ocenione według ryzyka dla procesu, z dołączonymi dowodami i praktycznym planem: co naprawić najpierw, a co może poczekać. Metodyka jest zgodna z IEC 62443."),
    ("Czy audyt pomaga spełnić wymagania NIS2?","Tak. NIS2 wymaga analizy ryzyka i środków bezpieczeństwa proporcjonalnych do ryzyka. Audyt dostarcza dowodów technicznych dla części OT i można go połączyć z pełną oceną gotowości do NIS2 i ustawy o KSC."),
-   ("Ile to trwa?","Zwykle kilka tygodni dla jednego zakładu, w zależności od jego wielkości i zakresu uzgodnionego podczas krótkiej pierwszej rozmowy. Zakres i cena są ustalane z góry."),
+   ("Ile to trwa?","Zwykle kilka tygodni dla jednego zakładu, w zależności od jego wielkości i zakresu uzgodnionego podczas krótkiej pierwszej rozmowy. Zakres i cena są ustalane z góry i układane pod konkretny zakład, a nie sprzedawane jako gotowy pakiet."),
   ]),
  "ot-visibility-monitoring": dict(pl="widocznosc-i-monitoring-ot",
   crumb="Widoczność i monitoring OT",
@@ -84,7 +84,7 @@ PL = {
   desc="Projekty automatyki przemysłowej z myślą o bezpieczeństwie: programowanie PLC i HMI, sprzęt i uruchomienie na Siemens, Rockwell, Schneider, Beckhoff i CODESYS.",
   stype="Inżynieria automatyki przemysłowej, programowanie PLC i HMI oraz uruchomienia",
   h1="Projekty automatyki, bezpieczne od pierwszej linii kodu.",
-  what="Kompletne projekty automatyki maszyn i procesów: analiza wymagań, oprogramowanie PLC i HMI, dobór sprzętu z organizacją dostawy, gdy jest potrzebna, oraz uruchomienie na miejscu. Bezpieczeństwo jest częścią projektu, a nie dodatkiem na końcu.",
+  what="Kompletne projekty automatyki maszyn i procesów: analiza wymagań, oprogramowanie PLC i HMI, dobór sprzętu z organizacją dostawy, gdy jest potrzebna, integracja oraz uruchomienie na miejscu. Bezpieczeństwo jest częścią projektu, a nie dodatkiem na końcu.",
   who="Zakłady produkcyjne, producenci maszyn, integratorzy systemów i operatorzy obiektów, którzy potrzebują nowego systemu automatyki, rozbudowy istniejącej linii lub dodatkowych mocy inżynierskich w projekcie.",
   why="Automatyka na lata decyduje o tym, jak bezpiecznie i wydajnie pracuje zakład. Systemy zaprojektowane bez myśli o bezpieczeństwie stają się słabymi punktami, które później wymagają kosztownych poprawek. Zrobienie tego dobrze od początku kosztuje mniej.",
   faq=[
@@ -101,7 +101,7 @@ PL = {
   desc="Przegląd oprogramowania PLC i HMI pod kątem błędów, ryzyk i luk bezpieczeństwa, a następnie poprawa lub migracja ze starszych platform, np. Siemens S5 i S7-300.",
   stype="Przegląd oprogramowania PLC i HMI, modernizacja automatyki i migracja starszych systemów",
   h1="Niech istniejąca automatyka będzie niezawodna i bezpieczna.",
-  what="Analiza istniejącego oprogramowania PLC i HMI w celu znalezienia błędów, nieudokumentowanej logiki, ryzyk i luk bezpieczeństwa, a następnie niezbędne usprawnienia lub migracja ze starszych platform na obecne, zaplanowana wokół produkcji.",
+  what="Analiza istniejącego oprogramowania PLC i HMI w celu znalezienia błędów, nieudokumentowanej logiki, ryzyk i luk bezpieczeństwa, a następnie sam retrofit: niezbędne usprawnienia lub migracja ze starszych, przestarzałych platform na obecne, zaplanowana wokół produkcji.",
   who="Zakłady z automatyką napisaną przed laty, często przez osoby lub firmy, których już nie ma, na platformach kończących cykl życia lub z oprogramowaniem, którego nikt już w pełni nie rozumie.",
   why="Stara automatyka działa, dopóki nie przestanie. Części zamienne znikają, wiedza odchodzi z ludźmi, a starsze sterowniki nie mają podstawowych zabezpieczeń. Przegląd pokazuje, co jest zagrożone, zanim nastąpi awaria.",
   faq=[
@@ -118,7 +118,7 @@ PL = {
   desc="Praktyczne szkolenia dla operatorów i inżynierów: sprzęt OT, oprogramowanie przemysłowe, protokoły i sieci, automatyka i cyberbezpieczeństwo.",
   stype="Szkolenia z cyberbezpieczeństwa przemysłowego i automatyki",
   h1="Praktyczne szkolenia dla ludzi, którzy prowadzą zakład.",
-  what="Praktyczne szkolenia z automatyki przemysłowej i cyberbezpieczeństwa: jak działają sterowniki i inny sprzęt OT, oprogramowanie przemysłowe, protokoły i sieci, czym OT różni się od IT i jak na co dzień utrzymywać systemy w bezpieczeństwie.",
+  what="Praktyczne szkolenia i warsztaty z automatyki przemysłowej i cyberbezpieczeństwa: jak działają sterowniki i inny sprzęt OT, oprogramowanie przemysłowe, protokoły i sieci, czym OT różni się od IT i jak na co dzień utrzymywać systemy w bezpieczeństwie.",
   who="Operatorzy, służby utrzymania ruchu, inżynierowie automatyki i pracownicy IT pracujący z OT, od zespołów, które dopiero zaczynają, po doświadczonych inżynierów, którzy chcą włączyć bezpieczeństwo do swojej pracy.",
   why="Wiele incydentów w OT zaczyna się od ludzi: wspólnego hasła, nieznanego pendrive'a, pozostawionego otwartego połączenia zdalnego. Zespoły, które rozumieją swoje systemy, popełniają mniej błędów i szybciej zauważają problemy.",
   faq=[
