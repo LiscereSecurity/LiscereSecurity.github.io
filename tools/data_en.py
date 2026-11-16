@@ -19,6 +19,16 @@ PAGES = [
   what="A structured review of controllers, operator stations, remote access and the networks between them. It uncovers vulnerabilities and security gaps, ranks them by their risk to the process and includes penetration testing on agreed systems.",
   who="Manufacturing plants, utilities, energy, water and transport operators, and the integrators and machine builders that serve them. Any site where a control system runs a physical process.",
   why="Most OT networks were built to run, not to resist attacks. Controllers accept commands from anyone on the network, and remote access often reaches further than anyone thinks. An assessment finds those gaps first.",
+  scope=[
+   "An inventory of the controllers, operator stations, engineering workstations and network devices we find, with firmware where the traffic reveals it.",
+   "A review of the network architecture and of the segmentation between IT and OT, against the zone and conduit model of IEC 62443.",
+   "An assessment of remote access for staff, vendors and integrators, and of how far it actually reaches.",
+   "Penetration testing on the systems and in the time windows agreed with your team.",
+   "A written report, in English or Polish, with every finding ranked by its risk to the process and the evidence attached.",
+   "A roadmap separating what to fix first, what can wait and what needs its own project.",
+   "A closing session with your engineers, and with management if you want one.",
+  ],
+  scope_note="Most clients call this an OT security audit. Others call it a vulnerability assessment, a gap analysis, an ICS penetration test or simply a security review. The names differ and the work is the same, so describe what you need in your own words. A single site typically takes a few weeks, depending on its size. Scope is agreed in a short first call and fixed before we start, and every engagement is shaped around the plant in front of us rather than sold as a fixed package.",
   faq=[
    ("What does the assessment cover?","Controllers, operator stations and engineering workstations (vulnerabilities, configuration and firmware), the network architecture and segmentation between IT and OT, remote access for staff, vendors and integrators, and whether systems can be restored after an incident. Penetration testing is included on agreed systems."),
    ("Will the assessment disrupt production?","No. On live OT networks we observe rather than probe: nothing is scanned, injected or changed while the process is running. Penetration testing runs only on systems and in time windows agreed with your team."),

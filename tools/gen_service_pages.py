@@ -10,7 +10,7 @@ SITE = "https://liscere.com/"
 AUTO = {"automation-projects", "automation-modernisation", "industrial-training"}
 
 UI = {
- "en": dict(lang="en-GB", ogloc="en_GB", skip="Skip to content", navlabel="Site navigation", pages="Pages",
+ "en": dict(sk="SCOPE AND DELIVERY", sh="What the engagement covers", lang="en-GB", ogloc="en_GB", skip="Skip to content", navlabel="Site navigation", pages="Pages",
    home="Home", reach="Based in Poland, working across Europe and worldwide.", services="Services", about="About", research="Research", faq="FAQ", privacy="Privacy", legal="Legal", terms="Terms", enlink="",
    privacy_page="privacy.html", legal_page="legal.html", terms_page="terms.html",
    logo_label="Liscere home", what="What it is", who="Who it is for", why="Why it is needed",
@@ -22,7 +22,7 @@ UI = {
    general="General enquiry", message="Message", ph="Describe what you need in a few lines.",
    consent='I agree that Liscere sp. z o.o. may process the data in this form to answer my enquiry, as described in the <a href="{root}privacy.html">privacy notice</a>.',
    send="Send message", back_label="Back to services", switch="PL", switch_label="Polski", switch_lang="pl"),
- "pl": dict(lang="pl-PL", ogloc="pl_PL", skip="Przejdź do treści", navlabel="Nawigacja", pages="Strony",
+ "pl": dict(sk="ZAKRES I PRZEBIEG", sh="Co obejmuje usługa", lang="pl-PL", ogloc="pl_PL", skip="Przejdź do treści", navlabel="Nawigacja", pages="Strony",
    home="Start", reach="Siedziba w Polsce, działamy w całej Europie i na świecie.", services="Usługi", about="O nas", research="Badania", faq="FAQ", privacy="Prywatność", legal="Dane spółki", terms="Warunki korzystania", enlink=' hreflang="en"',
    privacy_page="prywatnosc.html", legal_page="dane-spolki.html", terms_page="warunki.html",
    logo_label="Liscere, strona główna", what="Czym jest", who="Dla kogo", why="Dlaczego jest potrzebny",
@@ -105,6 +105,30 @@ def guides_block(slug, lang, L):
         '\n        </div>'
         '\n      </div>'
         '\n    </section>\n')
+
+def scope_block(d, L):
+    """Deliverables, duration and the note that scope is shaped per client.
+       Renders only for services that define a scope; reuses .key-points, so no new CSS."""
+    if not d.get("scope"):
+        return ""
+    items = "\n".join('            <li>' + esc(i) + '</li>' for i in d["scope"])
+    return (
+        '\n    <section class="section" id="scope">'
+        '\n      <div class="faq-layout">'
+        '\n        <div>'
+        '\n          <p class="kicker">' + L["sk"] + '</p>'
+        '\n          <h2>' + L["sh"] + '</h2>'
+        '\n        </div>'
+        '\n        <div>'
+        '\n          <div class="key-points">'
+        '\n          <ul>\n' + items +
+        '\n          </ul>'
+        '\n          </div>'
+        '\n          <p class="section-side">' + esc(d["scope_note"]) + '</p>'
+        '\n        </div>'
+        '\n      </div>'
+        '\n    </section>\n')
+
 
 def render(p, lang):
     L = UI[lang]
@@ -227,7 +251,7 @@ def render(p, lang):
       </div>
     </section>
 
-    <section class="section" id="faq">
+{scope_block(d, L)}    <section class="section" id="faq">
       <div class="faq-layout">
         <div>
           <p class="kicker">{L['qk']}</p>

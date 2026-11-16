@@ -19,6 +19,16 @@ PL = {
   what="Uporządkowany przegląd sterowników, stacji operatorskich, dostępu zdalnego i łączących je sieci. Wykrywa podatności i luki w zabezpieczeniach, ocenia je według ryzyka dla procesu i obejmuje testy penetracyjne na uzgodnionych systemach.",
   who="Zakłady produkcyjne, energetyka, wodociągi, transport i inne przedsiębiorstwa infrastruktury, a także integratorzy i producenci maszyn, którzy je obsługują. Każdy obiekt, w którym system sterowania prowadzi proces fizyczny.",
   why="Większość sieci OT zbudowano po to, by działały, a nie by odpierały ataki. Sterowniki przyjmują polecenia od każdego w sieci, a dostęp zdalny często sięga dalej, niż ktokolwiek przypuszcza. Audyt znajduje te luki jako pierwszy.",
+  scope=[
+   "Inwentaryzacja sterowników, stacji operatorskich, stacji inżynierskich i urządzeń sieciowych, które znajdziemy, wraz z wersjami firmware tam, gdzie ujawnia je ruch sieciowy.",
+   "Przegląd architektury sieci i segmentacji między IT a OT, odniesiony do modelu stref i kanałów z normy IEC 62443.",
+   "Ocena zdalnego dostępu dla pracowników, dostawców i integratorów oraz tego, jak daleko ten dostęp faktycznie sięga.",
+   "Testy penetracyjne na systemach i w oknach czasowych uzgodnionych z Twoim zespołem.",
+   "Raport pisemny, po polsku lub po angielsku, w którym każde ustalenie jest uszeregowane według ryzyka dla procesu i poparte dowodami.",
+   "Plan działań rozdzielający to, co naprawić najpierw, to, co może poczekać, i to, co wymaga osobnego projektu.",
+   "Spotkanie zamykające z Twoimi inżynierami, a jeśli chcesz, także z zarządem.",
+  ],
+  scope_note="Jedni nazywają to audytem bezpieczeństwa OT, inni oceną bezpieczeństwa, analizą luk, testami penetracyjnymi ICS albo po prostu przeglądem. Nazwy się różnią, a praca jest ta sama, więc opisz swoją potrzebę własnymi słowami. Pojedynczy zakład zajmuje zwykle kilka tygodni, zależnie od wielkości. Zakres ustalamy na krótkiej pierwszej rozmowie i zamykamy przed startem, a każde zlecenie układamy pod konkretny zakład, zamiast sprzedawać gotowy pakiet.",
   faq=[
    ("Co obejmuje audyt?","Sterowniki, stacje operatorskie i stacje inżynierskie (podatności, konfiguracja i firmware), architekturę sieci i segmentację między IT a OT, dostęp zdalny dla pracowników, dostawców i integratorów oraz możliwość odtworzenia systemów po incydencie. Na uzgodnionych systemach wykonujemy testy penetracyjne."),
    ("Czy audyt zakłóci produkcję?","Nie. W działających sieciach OT obserwujemy, zamiast sondować: podczas pracy procesu nic nie jest skanowane, wstrzykiwane ani zmieniane. Testy penetracyjne prowadzimy wyłącznie na systemach i w oknach czasowych uzgodnionych z zespołem zakładu."),
