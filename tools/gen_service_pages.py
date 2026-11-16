@@ -64,9 +64,17 @@ GUIDES = {
         "pl": ("badania/gd-2026-03/", "IEC 62443 w praktyce",
                "Części serii, strefy i kanały oraz znaczenie poziomów SL-T, SL-C i SL-A."),
     },
+    "gd-2026-04": {
+        "en": ("research/gd-2026-04/", "The CRA and IEC 62443",
+               "Which dates are fixed, and where the 62443 series stops short of the regulation."),
+        "pl": ("badania/gd-2026-04/", "CRA i IEC 62443",
+               "Które terminy są pewne i w którym miejscu seria 62443 nie wystarcza."),
+    },
 }
 
 PAGE_GUIDES = {
+    "cra-readiness": ["gd-2026-04", "gd-2026-03"],
+    "zgodnosc-z-cra": ["gd-2026-04", "gd-2026-03"],
     "ot-security-assessment": ["gd-2026-03", "gd-2026-01"],
     "audyt-bezpieczenstwa-ot": ["gd-2026-03", "gd-2026-01"],
     "ot-visibility-monitoring": ["gd-2026-03", "gd-2026-01"],

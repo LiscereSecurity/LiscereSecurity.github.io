@@ -107,7 +107,7 @@
   </url>
   <url>
     <loc>https://liscere.com/pl/uslugi.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services.html"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services.html"/>
@@ -156,10 +156,17 @@
   </url>
   <url>
     <loc>https://liscere.com/pl/uslugi/widocznosc-i-monitoring-ot.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-visibility-monitoring.html"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/widocznosc-i-monitoring-ot.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-visibility-monitoring.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/uslugi/zgodnosc-z-cra.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/cra-readiness.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/zgodnosc-z-cra.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/cra-readiness.html"/>
   </url>
   <url>
     <loc>https://liscere.com/pl/warunki.html</loc>
@@ -259,7 +266,7 @@
   </url>
   <url>
     <loc>https://liscere.com/services.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services.html"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services.html"/>
@@ -277,6 +284,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/automation-projects.html"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/projekty-automatyki.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/automation-projects.html"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/services/cra-readiness.html</loc>
+    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/cra-readiness.html"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/zgodnosc-z-cra.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/cra-readiness.html"/>
   </url>
   <url>
     <loc>https://liscere.com/services/industrial-training.html</loc>
@@ -308,7 +322,7 @@
   </url>
   <url>
     <loc>https://liscere.com/services/ot-visibility-monitoring.html</loc>
-    <lastmod>2026-11-13</lastmod>
+    <lastmod>2026-11-16</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/services/ot-visibility-monitoring.html"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/uslugi/widocznosc-i-monitoring-ot.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/services/ot-visibility-monitoring.html"/>
