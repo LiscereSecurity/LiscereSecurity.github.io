@@ -23,7 +23,7 @@ PL = {
    ("Co obejmuje audyt?","Sterowniki, stacje operatorskie i stacje inżynierskie (podatności, konfiguracja i firmware), architekturę sieci i segmentację między IT a OT, dostęp zdalny dla pracowników, dostawców i integratorów oraz możliwość odtworzenia systemów po incydencie. Na uzgodnionych systemach wykonujemy testy penetracyjne."),
    ("Czy audyt zakłóci produkcję?","Nie. W działających sieciach OT obserwujemy, zamiast sondować: podczas pracy procesu nic nie jest skanowane, wstrzykiwane ani zmieniane. Testy penetracyjne prowadzimy wyłącznie na systemach i w oknach czasowych uzgodnionych z zespołem zakładu."),
    ("Jakie systemy i jacy producenci są objęci?","Systemy sterowania głównych producentów, w tym Siemens, Rockwell Automation (Allen-Bradley), Schneider Electric, ABB, Beckhoff, Omron i Mitsubishi Electric, a także systemy oparte na CODESYS oraz otaczające je systemy SCADA, HMI i urządzenia sieciowe."),
-   ("Co klient otrzymuje na koniec?","Raport napisany prostym językiem, w którym każde ustalenie jest ocenione według ryzyka dla procesu, z dołączonymi dowodami i praktycznym planem: co naprawić najpierw, a co może poczekać. Metodyka jest zgodna z IEC 62443."),
+   ("Co klient otrzymuje na koniec?","Raport napisany prostym językiem, w którym każde ustalenie jest ocenione według ryzyka dla procesu, z dołączonymi dowodami i praktycznym planem: co naprawić najpierw, a co może poczekać. Metodyka opiera się na podejściu do oceny ryzyka z IEC 62443."),
    ("Czy audyt pomaga spełnić wymagania NIS2?","Tak. NIS2 wymaga analizy ryzyka i środków bezpieczeństwa proporcjonalnych do ryzyka. Audyt dostarcza dowodów technicznych dla części OT i można go połączyć z pełną oceną gotowości do NIS2 i ustawy o KSC."),
    ("Ile to trwa?","Zwykle kilka tygodni dla jednego zakładu, w zależności od jego wielkości i zakresu uzgodnionego podczas krótkiej pierwszej rozmowy. Zakres i cena są ustalane z góry i układane pod konkretny zakład, a nie sprzedawane jako gotowy pakiet."),
   ]),
@@ -54,7 +54,7 @@ PL = {
   who="Średnie i duże przedsiębiorstwa z osiemnastu sektorów objętych NIS2, takich jak energetyka, wodociągi, transport, chemia, żywność i produkcja, a także ich dostawcy.",
   why="NIS2 wprowadza surowe obowiązki w zakresie zarządzania ryzykiem, zgłaszania incydentów i odpowiedzialności kierownictwa, z karami do 10 milionów euro lub 2% światowego obrotu. Większość projektów zgodności pomija część OT.",
   faq=[
-   ("Czy moja firma jest objęta NIS2?","Zakresem objęte są średnie i duże organizacje z sektorów wymienionych w załącznikach I i II dyrektywy, w tym energetyka, transport, ochrona zdrowia, woda, infrastruktura cyfrowa, chemia, żywność, gospodarka odpadami oraz produkcja wyrobów medycznych, elektroniki, maszyn i pojazdów. Od dostawców podmiotów objętych przepisami coraz częściej również wymaga się dowodów."),
+   ("Czy moja firma jest objęta NIS2 i czy musi znaleźć się w wykazie?","Zakresem objęte są średnie i duże organizacje z sektorów wymienionych w załącznikach I i II dyrektywy, w tym energetyka, transport, ochrona zdrowia, woda, infrastruktura cyfrowa, chemia, żywność, gospodarka odpadami oraz produkcja wyrobów medycznych, elektroniki, maszyn i pojazdów. Od dostawców podmiotów objętych przepisami coraz częściej również wymaga się dowodów."),
    ("Jakie są kluczowe daty?","NIS2 weszła w życie 16 stycznia 2023 r. Państwa członkowskie miały czas do 17 października 2024 r. na wdrożenie jej do prawa krajowego i do 17 kwietnia 2025 r. na identyfikację objętych podmiotów. Obowiązki zaczynają obowiązywać wraz z przepisami krajowymi; w Polsce znowelizowana ustawa o KSC wymaga zgodności do 3 kwietnia 2027 r."),
    ("Czego wymaga NIS2?","Środków zarządzania ryzykiem (polityki, obsługa incydentów, ciągłość działania, bezpieczeństwo łańcucha dostaw i bezpieczne utrzymanie systemów), zgłaszania incydentów w ciągu 24 godzin, 72 godzin i jednego miesiąca oraz odpowiedzialności organów zarządzających, które muszą zatwierdzać środki, uczestniczyć w szkoleniach i mogą ponosić odpowiedzialność."),
    ("Co daje ocena gotowości?","Analizę luk dla każdego obowiązku, inwentaryzację sieci sterowania jako dowód, procedurę reagowania na incydenty w OT oraz pakiet gotowości do audytu z dokumentami i zapisami uporządkowanymi tak, jak zażąda ich organ nadzoru."),
@@ -67,7 +67,7 @@ PL = {
   desc="Plan reagowania na incydenty OT: kto decyduje o zatrzymaniu linii, jak izolować bez utraty widoku, jak odtworzyć systemy i terminowo zgłosić incydent.",
   stype="Planowanie reagowania na incydenty w środowiskach przemysłowych",
   h1="Wiedz, co robić w pierwszej godzinie incydentu w OT.",
-  what="Plan reagowania przygotowany dla obiektu przemysłowego: role i decyzje, izolowanie systemów bez utraty kontroli nad procesem, odtwarzanie sterowników i stacji operatorskich oraz terminowe zgłaszanie. Sprawdzany z zespołem w ćwiczeniu sztabowym.",
+  what="Plan reagowania przygotowany dla obiektu przemysłowego: role i decyzje, izolowanie systemów bez utraty kontroli nad procesem, zabezpieczanie dowodów kryminalistycznych przed jakimkolwiek restartem, odtwarzanie sterowników i stacji operatorskich oraz terminowe zgłaszanie. Sprawdzany z zespołem w ćwiczeniu sztabowym.",
   who="Operatorzy przemysłowi i infrastruktury krytycznej, zwłaszcza podmioty objęte NIS2, oraz każdy obiekt, w którym istnieje plan reagowania dla IT, ale nie mówi on nic o hali produkcyjnej.",
   why="Większość planów reagowania jest pisana dla IT. W zakładzie wyłączenie systemu może być groźniejsze niż sam atak. Decyzje muszą być jasne przed incydentem, a nie w jego trakcie.",
   faq=[
@@ -84,7 +84,7 @@ PL = {
   desc="Projekty automatyki przemysłowej z myślą o bezpieczeństwie: programowanie PLC i HMI, sprzęt i uruchomienie na Siemens, Rockwell, Schneider, Beckhoff i CODESYS.",
   stype="Inżynieria automatyki przemysłowej, programowanie PLC i HMI oraz uruchomienia",
   h1="Projekty automatyki, bezpieczne od pierwszej linii kodu.",
-  what="Kompletne projekty automatyki maszyn i procesów: analiza wymagań, oprogramowanie PLC i HMI, dobór sprzętu z organizacją dostawy, gdy jest potrzebna, integracja oraz uruchomienie na miejscu. Bezpieczeństwo jest częścią projektu, a nie dodatkiem na końcu.",
+  what="Kompletne projekty automatyki maszyn i procesów: analiza wymagań, oprogramowanie PLC, HMI i SCADA, dobór sprzętu z organizacją dostawy, gdy jest potrzebna, integracja oraz uruchomienie na miejscu. Bezpieczeństwo jest częścią projektu, a nie dodatkiem na końcu.",
   who="Zakłady produkcyjne, producenci maszyn, integratorzy systemów i operatorzy obiektów, którzy potrzebują nowego systemu automatyki, rozbudowy istniejącej linii lub dodatkowych mocy inżynierskich w projekcie.",
   why="Automatyka na lata decyduje o tym, jak bezpiecznie i wydajnie pracuje zakład. Systemy zaprojektowane bez myśli o bezpieczeństwie stają się słabymi punktami, które później wymagają kosztownych poprawek. Zrobienie tego dobrze od początku kosztuje mniej.",
   faq=[
