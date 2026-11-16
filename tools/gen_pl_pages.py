@@ -131,6 +131,7 @@ CARDS = {
  "ot-security-assessment": ("Audyt", "Przegląd sterowników, stacji operatorskich, dostępu zdalnego i sieci, który wykrywa podatności i luki. Z testami penetracyjnymi uzgodnionych systemów."),
  "ot-visibility-monitoring": ("Widoczność", "Pełna inwentaryzacja zasobów OT i mapa komunikacji w sieci sterowania, z opcjonalnym pilotażem naszego frameworku."),
  "nis2-ksc-compliance": ("Zgodność", "Czego NIS2 i ustawa o KSC wymagają od zakładu: co ma zastosowanie, czego brakuje i jakich dowodów oczekują audytorzy, z uwzględnieniem OT."),
+ "cra-readiness": ("CRA", "Czy CRA dotyczy Twoich produktów, do której kategorii z załącznika III należą, jaka jest luka wobec załącznika I i co oznaczają obowiązki zgłoszeniowe."),
  "ot-incident-response": ("Gotowość", "Plan dopasowany do zakładu: kto decyduje o zatrzymaniu linii, jak izolować bez utraty widoku i jak zgłosić incydent na czas."),
  "automation-projects": ("Projekty", "Od analizy po uruchomienie na miejscu: oprogramowanie PLC i HMI oraz sprzęt, gdy jest potrzebny, na Siemens, Rockwell, Schneider, Beckhoff, CODESYS i innych."),
  "automation-modernisation": ("Istniejące systemy", "Istniejące oprogramowanie PLC i HMI sprawdzane pod kątem błędów, ryzyk i luk bezpieczeństwa, a potem ulepszane lub migrowane ze starszych platform."),
@@ -138,7 +139,7 @@ CARDS = {
 }
 FEATURED = {"ot-visibility-monitoring", "automation-projects"}
 IDS = {"ot-security-assessment": "ot-ics-assessment", "ot-visibility-monitoring": "ot-visibility", "nis2-ksc-compliance": "nis2-ksc",
-       "ot-incident-response": "incident-response", "automation-projects": "automation-projects", "automation-modernisation": "modernisation",
+       "cra-readiness": "cra", "ot-incident-response": "incident-response", "automation-projects": "automation-projects", "automation-modernisation": "modernisation",
        "industrial-training": "training"}
 NAME_BY_SLUG = {s: n for n, s in SERVICES}
 
@@ -154,7 +155,7 @@ def card(slug):
 """
 
 def uslugi():
-    sec = ["ot-security-assessment", "ot-visibility-monitoring", "nis2-ksc-compliance", "ot-incident-response"]
+    sec = ["ot-security-assessment", "ot-visibility-monitoring", "nis2-ksc-compliance", "cra-readiness", "ot-incident-response"]
     aut = ["automation-projects", "automation-modernisation", "industrial-training"]
     body = f"""
     <section class="section hero">
