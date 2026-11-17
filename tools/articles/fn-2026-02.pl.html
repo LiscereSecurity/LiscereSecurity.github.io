@@ -1,0 +1,56 @@
+<p class="kicker">FIELD NOTES · FN-2026-02 · 17 listopada 2026</p>
+
+<h1>Załatane, niezałatane, bez wsparcia: ataki na chłodnie wróciły w listopadzie</h1>
+
+<p class="lede">Trzy tygodnie po kampanii wymierzonej we francuskie supermarkety atakujący znów dotarli do sterowników chłodniczych, tym razem w firmach spożywczych w Wielkiej Brytanii i Belgii. Wykorzystane podatności nie były nowe. CISA opisała je w lutym, a producent opublikował poprawkę. Urządzenia nadal były dostępne z internetu, nadal pracowały na starym oprogramowaniu układowym, a w jednej linii produktowej nigdy nie będą pracowały na innym.</p>
+
+<h2>Co się stało</h2>
+<ul>
+  <li><strong>Druga fala.</strong> We wczesnych godzinach rannych w poniedziałek 2 listopada 2026 zaatakowano sterowniki chłodnicze w trzech brytyjskich firmach mięsnych, członkach Association of Independent Meat Suppliers, oraz w Langridge Organic, hurtowni owoców i warzyw. W tym samym czasie sprawami zajmowała się belgijska agencja cyberbezpieczeństwa.</li>
+  <li><strong>Urządzenia.</strong> Organizacja branżowa podała, że jej członkowie zostali zaatakowani przez podatne sterowniki nadrzędne Copeland XWEB. W rozesłanej przez nią informacji wskazano oprogramowanie układowe w wersji 1.12.1 i wcześniejszych oraz opisano błędy obejścia uwierzytelniania, które pozwalają przejąć kontrolę bez hasła.</li>
+  <li><strong>Skala strat jest sporna.</strong> Doniesienia mówiły o zepsutym towarze, ale organizacja branżowa oświadczyła, że żaden z dotkniętych członków nie stracił mięsa, a hurtownia stwierdziła, że jej zespół zareagował, zanim cokolwiek przepadło. Obie wersje mogą być prawdziwe: taki atak da się przetrwać, jeżeli ktoś patrzy o trzeciej nad ranem.</li>
+  <li><strong>Brak atrybucji.</strong> Nikt nie przyznał się do listopadowej fali, a brytyjskie władze nikomu jej nie przypisały. Rzecznik strony belgijskiej powiedział, że ustalenie sprawców może nigdy nie być możliwe. To kontrast wobec października, gdy Francja wskazała grupę wiązaną z irańskim Korpusem Strażników Rewolucji.</li>
+  <li><strong>Ocena urzędowa.</strong> Brytyjskie National Cyber Security Centre oceniło skutki w skali kraju jako minimalne i podało, że jego zespół przez całą noc kontaktował się z firmami, których systemy były wystawione na zewnątrz.</li>
+  <li><strong>Producent.</strong> Copeland oświadczył, że część rozwiązań monitorujących XWEB jest dotknięta zgłoszoną podatnością, i że ponownie przekazał zalecane procedury aktualizacji i zabezpieczeń.</li>
+</ul>
+
+<h2>Poprawka nie była nowa</h2>
+<p>To jest ta część, przy której warto się zatrzymać. 26 lutego 2026, osiem miesięcy przed listopadowymi atakami, CISA opublikowała alert ICSA-26-057-10 dotyczący sterowników Copeland XWEB i XWEB Pro w wersji 1.12.1 i wcześniejszych. Wymieniono w nim 23 identyfikatory podatności. Najpoważniejsza, CVE-2026-21718, ma ocenę CVSS v3.1 równą 10.0 za wykonanie kodu bez uwierzytelnienia, czyli najwyższą, jaką ta skala daje. CISA odnotowała, że producent udostępnił poprawkę.</p>
+<p>W informacji rozesłanej brytyjskim dostawcom mięsa w listopadzie napisano, że aktualizacja jest dostępna od sierpnia. Publicznie podawane daty różnią się i nie udało nam się ich uzgodnić. Wniosek jest ten sam w obu wariantach: poprawka istniała miesiącami przed atakiem, a sterowniki i tak zostały zaatakowane.</p>
+<p>Nic tu nie zależało od wyrafinowanej techniki ani od nieznanego błędu. Zależało od aktualizacji, której nie wgrano na urządzenie dostępne z internetu.</p>
+
+<h2>Linia, która nie zostanie naprawiona</h2>
+<p>Firma VulnCheck opublikowała 13 listopada 2026 analizę opisującą 14 kolejnych podatności, od CVE-2026-124002 do CVE-2026-124015, w innej linii produktowej: Copeland XWEB EVO. Według tego opisu jedna z nich to nieuwierzytelnione żądanie wykonujące przekazany parametr z uprawnieniami roota, a druga łączy wstrzyknięcie polecenia wykonywane jeszcze przed sprawdzeniem hasła z interpreterem z bitem setuid, co również prowadzi do roota. Opisano też wbudowane hasło administratora oraz dzienne poświadczenia wyliczane z adresu MAC urządzenia i daty.</p>
+<p>VulnCheck podaje, że biuletyn Copeland z marca 2026 ogłosił koniec wsparcia programowego dla rodziny XWEB EVO, bez poprawek po 16 marca 2026. Firma informuje, że jej własne czujniki zarejestrowały skanowanie pod kątem jednej z tych podatności mniej więcej dwie godziny po pojawieniu się wpisu w krajowej bazie podatności, i liczy od jednego do dwóch tysięcy systemów EVO dostępnych z internetu wobec około stu urządzeń wspieranej linii Pro.</p>
+<p>Nie udało nam się potwierdzić tych liczb, daty końca wsparcia ani czasów eksploatacji w drugim, niezależnym źródle, i mówimy to wprost, zamiast powtarzać je jako ustalone. Sama VulnCheck zaznacza, że obserwowane skanowanie wygląda na oportunistyczne, a nie na część kampanii z października. Fakt strukturalny nie wymaga jednak potwierdzenia: tam, gdzie linia produktowa straciła wsparcie, łatanie przestaje być odpowiedzią, a jedyne, co zostaje, to miejsce urządzenia w sieci i monitoring.</p>
+
+<h2>Dlaczego poprawka nie dotarła do sterownika</h2>
+<p>Nasuwa się pytanie, dlaczego urządzenie z opublikowaną poprawką nadal było wystawione na zewnątrz w listopadzie. Z naszego doświadczenia rzadko chodzi o zaniedbanie. Chodzi o to, czyje ono jest.</p>
+<p>Sterownik chłodniczy zwykle nie figuruje w żadnej informatycznej ewidencji zasobów. Przyjechał razem z instalacją chłodniczą, jest utrzymywany w ramach umowy serwisowej na chłodnictwo, a zdalne połączenie istnieje, bo serwis chłodniczy musi widzieć alarmy bez dojazdu na obiekt. Dział IT nie wie, że to urządzenie istnieje. Serwis chłodniczy czyta komunikaty producentów sprężarek, a nie CISA. Ostrzeżenie o podatności i człowiek z kluczem nigdy się nie spotykają.</p>
+<p>Ta sama luka ciągnie się przez automatykę budynkową, systemy ważenia i dozowania, linie pakujące, monitoring warunków środowiskowych i sterowanie ściekami. To zwyczajny stan zakładu przemysłowego, a nie wyjątkowa wpadka. To także powód, dla którego inwentaryzacja kończąca się na granicy IT daje złudne poczucie kompletności.</p>
+<p>Produkcja, przetwórstwo i dystrybucja żywności należą do sektorów objętych NIS2, a w Polsce znowelizowana ustawa o krajowym systemie cyberbezpieczeństwa, obowiązująca od 3 kwietnia 2026, obejmuje również systemy OT. Obowiązku zarządzania ryzykiem w systemach, których nikt nie spisał, nie da się wypełnić.</p>
+
+<h2>Co zrobić w tym tygodniu</h2>
+<ul>
+  <li><strong>Sprawdźcie, co jest dostępne z zewnątrz.</strong> Nie to, co powinno być dostępne. Przeszukajcie własne adresy publiczne pod kątem interfejsów sterowników, łącznie z tymi zainstalowanymi przez podwykonawców.</li>
+  <li><strong>Zadajcie serwisom chłodnictwa i instalacji budynkowych trzy pytania.</strong> Które wasze urządzenia są podłączone do internetu, jakie mają oprogramowanie układowe i kto wgrywa na nie aktualizacje bezpieczeństwa.</li>
+  <li><strong>Usuńcie ekspozycję, zanim zaplanujecie łatanie.</strong> Pierwsze zalecenie CERT-FR z października brzmiało: odłączyć dotknięte sterowniki od internetu i przywrócić zdalny dostęp wyłącznie przez bezpieczny VPN. To obowiązuje niezależnie od tego, czy aktualizacja istnieje.</li>
+  <li><strong>Spiszcie urządzenia bez wsparcia producenta.</strong> Dla nich planem jest wymiana albo odizolowanie, z konkretną datą, a nie poprawka.</li>
+  <li><strong>Sprawdźcie, czy ktoś patrzy w nocy.</strong> Obie fale ruszały nad ranem. Nic nie straciły te firmy, w których człowiek zdążył zareagować.</li>
+</ul>
+
+<h2>Gdzie wchodzi Liscere</h2>
+<p>Audyt bezpieczeństwa OT i ICS znajduje urządzenia dostępne z zewnątrz oraz te, których nikt nie spisał, w tym sprzęt objęty umową serwisową, a nie nadzorem IT. Pracujemy od strony zakładu, bo tam ten sprzęt naprawdę stoi, i czytamy dokumentację sterownika, zamiast zakładać, że zachowuje się jak serwer.</p>
+<p>Tam, gdzie uczciwą odpowiedzią dla urządzenia bez wsparcia jest wymiana, mówimy o modernizacji automatyki, co też robimy: etapowy retrofit, który utrzymuje proces w ruchu, a nie wymiana, która go zatrzymuje.</p>
+<p>Jeżeli prowadzicie chłodnictwo, automatykę budynkową albo przemysłowe systemy sterowania i nie macie pewności, co jest dostępne z zewnątrz, <a href="mailto:hello@liscere.com">porozmawiajmy</a>.</p>
+
+<p class="tagline">Poprawka, której nie wgrano, nie jest poprawką.</p>
+
+<h2>Źródła</h2>
+<ol class="sources">
+  <li>CISA, alert ICSA-26-057-10, „Copeland XWEB and XWEB Pro”, 26 lutego 2026: <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-057-10">cisa.gov</a></li>
+  <li>CERT-FR, alert CERTFR-2026-ALE-012, 12 października 2026, aktualizacje z 13 i 16 października: <a href="https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/">cert.ssi.gouv.fr</a></li>
+  <li>The Record, Alexander Martin, „British businesses caught in Europe-wide supermarket fridge attacks”, 3 listopada 2026: <a href="https://therecord.media/british-businesses-caught-in-europe-wide-supermarket-fridge-attacks">therecord.media</a></li>
+  <li>VulnCheck, Valentin Lobstein, „Code of the Day: Unauthenticated Root in Copeland XWEB EVO”, 13 listopada 2026: <a href="https://vulncheck.com/blog/copeland-xweb-evo-unauthenticated-root">vulncheck.com</a></li>
+  <li>Liscere, Field Note FN-2026-01, „Autoryzowane polecenia, zepsuta żywność: cyberatak na chłodnie supermarketów z października 2026”, 12 listopada 2026: <a href="/pl/badania/fn-2026-01/">liscere.com</a></li>
+</ol>

@@ -1,0 +1,56 @@
+<p class="kicker">FIELD NOTES · FN-2026-02 · 17 November 2026</p>
+
+<h1>Patched, unpatched, unsupported: the refrigeration attacks came back in November</h1>
+
+<p class="lede">Three weeks after the French supermarket campaign, attackers reached refrigeration controllers again, this time at food businesses in the United Kingdom and Belgium. The vulnerabilities they used were not new. A CISA advisory had named them in February, and the manufacturer had published a fix. The equipment was still reachable from the internet, still running the old firmware, and in one product line it will never run anything else.</p>
+
+<h2>What happened</h2>
+<ul>
+  <li><strong>The second wave.</strong> In the early hours of Monday 2 November 2026, refrigeration controllers were attacked at three British meat businesses, all members of the Association of Independent Meat Suppliers, and at Langridge Organic, a fruit and vegetable wholesaler. Belgium's cyber security agency was handling cases at the same time.</li>
+  <li><strong>The equipment.</strong> The trade body said its members were attacked through vulnerable Copeland XWEB supervisory controllers. A security note it circulated named firmware version 1.12.1 and earlier, and described authentication bypass flaws that let an attacker take control without a password.</li>
+  <li><strong>The damage is disputed.</strong> Reports said stock had spoiled, but the trade body said none of its affected members lost meat, and the wholesaler said its own team intervened before anything was lost. Both statements can be true: these attacks are survivable if somebody is watching at three in the morning.</li>
+  <li><strong>No attribution.</strong> Nobody claimed the November wave, and British authorities have not attributed it. A Belgian spokesperson said it may never be possible to identify who was behind it. This is a contrast with October, when France named a group it links to Iran's Revolutionary Guard.</li>
+  <li><strong>The official read.</strong> The UK National Cyber Security Centre said the national impact was minimal, and said its team worked through the night to contact businesses whose systems were exposed.</li>
+  <li><strong>The manufacturer.</strong> Copeland said certain XWEB monitoring solutions are affected by the reported vulnerability, and that it had re-communicated its recommended patching and security protocols.</li>
+</ul>
+
+<h2>The fix was not new</h2>
+<p>This is the part worth sitting with. On 26 February 2026, eight months before the November attacks, CISA published advisory ICSA-26-057-10 covering Copeland XWEB and XWEB Pro controllers at version 1.12.1 and earlier. It listed 23 vulnerability identifiers. The most severe, CVE-2026-21718, carries a CVSS v3.1 base score of 10.0 for pre-authenticated code execution, which is the highest score the scale produces. CISA recorded that the manufacturer had provided a fix.</p>
+<p>The security note circulated to British meat suppliers in November described an update as available since August. The dates given in public differ, and we have not reconciled them. The point survives either way: a correction for these flaws existed for months before the controllers were attacked, and the controllers were attacked anyway.</p>
+<p>Nothing here turned on a clever technique or an unknown flaw. It turned on a patch that had not been applied to a device that could be reached from the internet.</p>
+
+<h2>The line that will not be fixed</h2>
+<p>The security firm VulnCheck published research on 13 November 2026 describing 14 further vulnerabilities, CVE-2026-124002 through CVE-2026-124015, in a different product line, the Copeland XWEB EVO. By its account one of them is an unauthenticated request that executes a parameter as root, and another chains a command injection that runs before the password is checked with a setuid interpreter to reach root. It also describes a backdoor administrator password and daily credentials derived from the device's MAC address and the date.</p>
+<p>VulnCheck states that a Copeland bulletin from March 2026 declared the XWEB EVO family end of software support, with no fixes after 16 March 2026. It reports that its own sensors saw scanning for one of these flaws begin roughly two hours after the entry appeared in the national vulnerability database, and it counts between one and two thousand EVO systems reachable from the internet, against roughly a hundred of the supported Pro line.</p>
+<p>We have not been able to confirm those counts, the end of support date, or the exploitation timings against a second independent source, and we say so rather than repeat them as settled. VulnCheck itself notes that the scanning it saw looks opportunistic rather than part of the October campaign. But the structural fact needs no confirmation: where a product line is out of support, patching stops being the answer, and the only remaining controls are network position and monitoring.</p>
+
+<h2>Why the patch did not reach the controller</h2>
+<p>The obvious question is why equipment with a published fix was still exposed in November. In our experience the answer is rarely negligence. It is ownership.</p>
+<p>A refrigeration controller is usually not on anyone's IT asset register. It arrived with the refrigeration plant, it is maintained under the refrigeration service contract, and the remote connection exists because the refrigeration contractor needs to see alarms without driving to the site. The IT department does not know the device exists. The refrigeration contractor reads advisories from compressor manufacturers, not from CISA. The vulnerability notice and the person with a spanner never meet.</p>
+<p>The same gap runs through building management, weighing and batching systems, packaging lines, environmental monitoring and effluent control. It is the ordinary condition of an industrial estate, not an unusual failure. It is also why an asset inventory that stops at the IT boundary gives a false sense of completeness.</p>
+<p>Food production, processing and distribution are sectors covered by NIS2, and in Poland the amended national cyber security act, in force since 3 April 2026, reaches operational technology as well. An obligation to manage risk in systems nobody has listed is an obligation that cannot be met.</p>
+
+<h2>What to do this week</h2>
+<ul>
+  <li><strong>Find out what is reachable.</strong> Not what should be reachable. Search for your own public addresses and look for controller interfaces, including those installed by contractors.</li>
+  <li><strong>Ask your refrigeration and building services contractors three questions.</strong> What equipment of yours is connected to the internet, what firmware is on it, and who applies its security updates.</li>
+  <li><strong>Remove the exposure before planning the patch.</strong> CERT-FR's first recommendation in October was to take the affected controllers off the internet and restore remote access only through a secure VPN. That holds whether or not an update exists.</li>
+  <li><strong>List the equipment that is out of support.</strong> For those devices the plan is replacement or isolation, on a date, not a patch.</li>
+  <li><strong>Check that somebody is watching at night.</strong> Both November waves ran in the early hours. The businesses that lost nothing were the ones where a person acted in time.</li>
+</ul>
+
+<h2>Where Liscere fits</h2>
+<p>An OT and ICS security assessment finds the equipment that is reachable and the equipment nobody has listed, including the devices sitting under a service contract rather than under IT. We work from the plant side, which is where this equipment actually lives, and we read the controller documentation rather than assuming it behaves like a server.</p>
+<p>Where replacement is the honest answer for an unsupported device, that is an automation modernisation job, and we do that too: a staged retrofit that keeps the process running rather than a rip and replace that stops it.</p>
+<p>If you run refrigeration, building automation or industrial control systems and you are not certain what is reachable from outside, <a href="mailto:hello@liscere.com">talk to us</a>.</p>
+
+<p class="tagline">A fix you have not applied is not a fix.</p>
+
+<h2>Sources</h2>
+<ol class="sources">
+  <li>CISA, advisory ICSA-26-057-10, "Copeland XWEB and XWEB Pro", 26 February 2026: <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-057-10">cisa.gov</a></li>
+  <li>CERT-FR, alert CERTFR-2026-ALE-012, 12 October 2026, updated 13 and 16 October: <a href="https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/">cert.ssi.gouv.fr</a></li>
+  <li>The Record, Alexander Martin, "British businesses caught in Europe-wide supermarket fridge attacks", 3 November 2026: <a href="https://therecord.media/british-businesses-caught-in-europe-wide-supermarket-fridge-attacks">therecord.media</a></li>
+  <li>VulnCheck, Valentin Lobstein, "Code of the Day: Unauthenticated Root in Copeland XWEB EVO", 13 November 2026: <a href="https://vulncheck.com/blog/copeland-xweb-evo-unauthenticated-root">vulncheck.com</a></li>
+  <li>Liscere, Field Note FN-2026-01, "Authorised commands, spoiled food: the October 2026 supermarket refrigeration attack", 12 November 2026: <a href="/research/fn-2026-01/">liscere.com</a></li>
+</ol>

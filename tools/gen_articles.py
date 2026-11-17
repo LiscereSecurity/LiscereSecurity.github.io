@@ -525,6 +525,74 @@ FN_2026_01 = dict(
 )
 
 
+FN_2026_02 = dict(
+    id="fn-2026-02", date="2026-11-17", month_bib="nov",
+    og_image="assets/og-image.png",
+    en=dict(
+        title="Refrigeration Attacks Return: a Fix Existed Since February | Liscere",
+        description="Attackers hit refrigeration controllers in the UK and Belgium in November. CISA named the flaws in February and a fix existed. What that tells OT operators.",
+        og_image_alt="Liscere logo on a dark background",
+        about=["Operational technology security", "Industrial control systems", "Refrigeration controllers", "Vulnerability management", "Cold chain", "Critical infrastructure"],
+        keywords="Copeland XWEB, refrigeration controllers, November 2026, cold chain attack, OT security, ICS, end of support, asset inventory, NIS2, patching, CVE-2026-21718",
+        contact="../../services.html#contact",
+        key_points=[
+            "On 2 November 2026 refrigeration controllers were attacked at British meat businesses and a produce wholesaler, with Belgian cases at the same time. Nobody claimed it and no government has attributed it.",
+            "The flaws were not new. CISA advisory ICSA-26-057-10 of 26 February 2026 covered the same controllers at firmware 1.12.1 and earlier, listed 23 vulnerabilities including one scored 10.0, and recorded that a fix was available.",
+            "A second product line, the Copeland XWEB EVO, is reported to be out of software support, which means no patch is coming and only network position and monitoring remain.",
+            "Refrigeration controllers rarely appear on an IT asset register. They arrive with the plant, sit under a service contract, and the advisory never reaches the person who could act on it.",
+        ],
+        related=[
+            ("services/ot-security-assessment.html", "OT and ICS security assessment", "Find what is reachable and what nobody has listed."),
+            ("services/automation-modernisation.html", "Automation modernisation and retrofit", "Replace unsupported equipment without stopping the process."),
+            ("services/nis2-ksc-compliance.html", "NIS2 and KSC readiness", "Obligations, audit and an action plan with an OT perspective."),
+        ],
+        faq=[
+            ("What happened in the November 2026 refrigeration attacks?",
+             "In the early hours of Monday 2 November 2026, refrigeration controllers were attacked at three British meat businesses and a fruit and vegetable wholesaler, while Belgium's cyber security agency handled cases at the same time. The trade body involved said the entry point was vulnerable Copeland XWEB supervisory controllers running firmware 1.12.1 or earlier."),
+            ("Was there a patch available?",
+             "Yes. CISA published advisory ICSA-26-057-10 on 26 February 2026 for Copeland XWEB and XWEB Pro at version 1.12.1 and earlier, listing 23 vulnerability identifiers, and recorded that the manufacturer had provided a fix. A security note circulated to British suppliers in November instead described an update available since August. The public dates differ, but a correction existed months before the attacks either way."),
+            ("Did anyone lose stock?",
+             "Accounts differ. Reporting said stock had spoiled, while the trade body said none of its affected members lost meat and the wholesaler said its team intervened in time. Both can be true, and the difference appears to be whether somebody was watching during the night."),
+            ("Why was equipment with a published fix still exposed?",
+             "Usually because of ownership rather than negligence. A refrigeration controller arrives with the plant, is maintained under the refrigeration service contract, and is connected so the contractor can see alarms remotely. It is not on the IT asset register, and the contractor follows equipment manufacturers rather than security advisories, so the notice and the person who could act on it never meet."),
+            ("Does this affect companies in Poland?",
+             "It can affect anyone with controllers reachable from the internet: cold stores, warehouses, processing plants and building automation. Food production, processing and distribution are sectors covered by NIS2, and the amended Polish national cyber security act, in force since 3 April 2026, reaches operational technology as well."),
+        ],
+    ),
+    pl=dict(
+        title="Ataki na chłodnie wróciły: poprawka istniała od lutego | Liscere",
+        description="W listopadzie zaatakowano sterowniki chłodnicze w Wielkiej Brytanii i Belgii. CISA opisała te błędy w lutym, a poprawka istniała. Co to mówi operatorom OT.",
+        og_image_alt="Logo Liscere na ciemnym tle",
+        about=["Cyberbezpieczeństwo OT", "Przemysłowe systemy sterowania", "Sterowniki chłodnicze", "Zarządzanie podatnościami", "Łańcuch chłodniczy", "Infrastruktura krytyczna"],
+        keywords="Copeland XWEB, sterowniki chłodnicze, listopad 2026, atak na łańcuch chłodniczy, cyberbezpieczeństwo OT, ICS, koniec wsparcia, inwentaryzacja zasobów, NIS2, KSC, aktualizacje",
+        contact="../../uslugi.html#contact",
+        key_points=[
+            "2 listopada 2026 zaatakowano sterowniki chłodnicze w brytyjskich firmach mięsnych i hurtowni warzyw, a w tym samym czasie sprawami zajmowała się Belgia. Nikt się nie przyznał i żaden rząd nikomu tego nie przypisał.",
+            "Błędy nie były nowe. Alert CISA ICSA-26-057-10 z 26 lutego 2026 obejmował te same sterowniki w wersji 1.12.1 i wcześniejszych, wymieniał 23 podatności, w tym jedną z oceną 10.0, i odnotowywał dostępną poprawkę.",
+            "Druga linia produktowa, Copeland XWEB EVO, według doniesień straciła wsparcie programowe. Poprawki nie będzie, zostaje miejsce urządzenia w sieci i monitoring.",
+            "Sterowniki chłodnicze rzadko figurują w ewidencji zasobów IT. Przyjeżdżają z instalacją, są objęte umową serwisową, a ostrzeżenie nigdy nie dociera do osoby, która mogłaby zareagować.",
+        ],
+        related=[
+            ("pl/uslugi/audyt-bezpieczenstwa-ot.html", "Audyt bezpieczeństwa OT i ICS", "Sprawdzamy, co jest dostępne z zewnątrz i czego nikt nie spisał."),
+            ("pl/uslugi/modernizacja-automatyki.html", "Modernizacja automatyki i retrofit", "Wymiana urządzeń bez wsparcia bez zatrzymywania procesu."),
+            ("pl/uslugi/nis2-ksc.html", "Gotowość do NIS2 i KSC", "Obowiązki, audyt i plan działań z perspektywą OT."),
+        ],
+        faq=[
+            ("Co się stało podczas listopadowych ataków na chłodnie w 2026 roku?",
+             "We wczesnych godzinach rannych w poniedziałek 2 listopada 2026 zaatakowano sterowniki chłodnicze w trzech brytyjskich firmach mięsnych i w hurtowni owoców i warzyw, a w tym samym czasie sprawami zajmowała się belgijska agencja cyberbezpieczeństwa. Organizacja branżowa podała, że drogą wejścia były podatne sterowniki nadrzędne Copeland XWEB w wersji 1.12.1 lub wcześniejszej."),
+            ("Czy poprawka była dostępna?",
+             "Tak. CISA opublikowała 26 lutego 2026 alert ICSA-26-057-10 dla Copeland XWEB i XWEB Pro w wersji 1.12.1 i wcześniejszych, wymieniła 23 identyfikatory podatności i odnotowała, że producent udostępnił poprawkę. W informacji rozesłanej brytyjskim dostawcom w listopadzie napisano natomiast, że aktualizacja jest dostępna od sierpnia. Publiczne daty się różnią, ale w obu wariantach poprawka istniała miesiącami przed atakiem."),
+            ("Czy ktoś stracił towar?",
+             "Relacje się różnią. Doniesienia mówiły o zepsutym towarze, a organizacja branżowa oświadczyła, że żaden z dotkniętych członków nie stracił mięsa, i hurtownia stwierdziła, że jej zespół zdążył zareagować. Obie wersje mogą być prawdziwe, a różnica polega na tym, czy ktoś patrzył w nocy."),
+            ("Dlaczego urządzenie z opublikowaną poprawką nadal było wystawione na zewnątrz?",
+             "Zwykle nie chodzi o zaniedbanie, tylko o to, czyje ono jest. Sterownik chłodniczy przyjeżdża z instalacją, jest utrzymywany w ramach umowy serwisowej na chłodnictwo i jest podłączony, żeby serwis widział alarmy zdalnie. Nie figuruje w ewidencji zasobów IT, a serwis śledzi producentów urządzeń, a nie alerty bezpieczeństwa, więc ostrzeżenie i osoba zdolna zareagować nigdy się nie spotykają."),
+            ("Czy to dotyczy firm w Polsce?",
+             "Może dotyczyć każdego, kto ma sterowniki dostępne z internetu: chłodnie, magazyny, zakłady przetwórcze i automatykę budynkową. Produkcja, przetwórstwo i dystrybucja żywności należą do sektorów objętych NIS2, a znowelizowana ustawa o krajowym systemie cyberbezpieczeństwa, obowiązująca od 3 kwietnia 2026, obejmuje także systemy OT."),
+        ],
+    ),
+)
+
+
 CC_BY = '<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener license">CC BY 4.0</a>'
 SALMAZO = {"@type": "Person", "name": "Bruno Salmazo", "@id": "https://orcid.org/0009-0000-4410-3616",
            "identifier": "https://orcid.org/0009-0000-4410-3616", "sameAs": "https://orcid.org/0009-0000-4410-3616"}
@@ -1011,7 +1079,7 @@ GD_2026_04 = dict(
 )
 
 
-ARTICLES = [GD_2026_01, GD_2026_02, GD_2026_03, GD_2026_04, FN_2026_01, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
+ARTICLES = [GD_2026_01, GD_2026_02, GD_2026_03, GD_2026_04, FN_2026_01, FN_2026_02, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
             LTR_2026_01, LTR_2026_02, LTR_2026_03, LTR_2026_04, LTR_2026_05]
 
 if __name__ == "__main__":
