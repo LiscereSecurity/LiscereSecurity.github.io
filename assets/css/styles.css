@@ -3478,6 +3478,16 @@ html.article-view {
   color: var(--muted);
 }
 
+.article .edition-note {
+  margin: 2.2rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
 .article .tagline {
   margin: 1.4rem 0 0.4rem;
   font-family: var(--font-display);

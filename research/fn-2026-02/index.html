@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en-GB" class="past-hero article-view">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://formspree.io https://cloudflareinsights.com; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Refrigeration Attacks Return: a Fix Existed Since February | Liscere</title>
+  <meta name="description" content="Attackers hit refrigeration controllers in the UK and Belgium in November. CISA named the flaws in February and a fix existed. What that tells OT operators." />
+  <meta name="author" content="Liscere" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
+  <meta name="theme-color" content="#030405" />
+
+  <meta property="og:title" content="Patched, unpatched, unsupported: the refrigeration attacks came back in November" />
+  <meta property="og:description" content="Attackers hit refrigeration controllers in the UK and Belgium in November. CISA named the flaws in February and a fix existed. What that tells OT operators." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://liscere.com/research/fn-2026-02/" />
+  <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Liscere logo on a dark background" />
+  <meta property="og:site_name" content="Liscere" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="pl_PL" />
+  <meta property="article:published_time" content="2026-11-17" />
+  <meta property="article:section" content="Field Notes" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Patched, unpatched, unsupported: the refrigeration attacks came back in November" />
+  <meta name="twitter:description" content="Attackers hit refrigeration controllers in the UK and Belgium in November. CISA named the flaws in February and a fix existed. What that tells OT operators." />
+  <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
+  <meta name="twitter:image:alt" content="Liscere logo on a dark background" />
+
+  <link rel="canonical" href="https://liscere.com/research/fn-2026-02/" />
+  <link rel="alternate" hreflang="en" href="https://liscere.com/research/fn-2026-02/" />
+  <link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/fn-2026-02/" />
+  <link rel="alternate" hreflang="x-default" href="https://liscere.com/research/fn-2026-02/" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://liscere.com/research/fn-2026-02/#article",
+      "headline": "Patched, unpatched, unsupported: the refrigeration attacks came back in November",
+      "name": "Patched, unpatched, unsupported: the refrigeration attacks came back in November",
+      "description": "Attackers hit refrigeration controllers in the UK and Belgium in November. CISA named the flaws in February and a fix existed. What that tells OT operators.",
+      "url": "https://liscere.com/research/fn-2026-02/",
+      "mainEntityOfPage": "https://liscere.com/research/fn-2026-02/",
+      "inLanguage": "en-GB",
+      "datePublished": "2026-11-17",
+      "dateModified": "2026-11-17",
+      "image": [
+        "https://liscere.com/assets/og-image.png"
+      ],
+      "author": {
+        "@id": "https://liscere.com/#org"
+      },
+      "publisher": {
+        "@id": "https://liscere.com/#org"
+      },
+      "isPartOf": {
+        "@type": "CreativeWorkSeries",
+        "name": "Liscere Field Notes",
+        "url": "https://liscere.com/research.html#fieldnotes"
+      },
+      "articleSection": "Field Notes",
+      "about": [
+        "Operational technology security",
+        "Industrial control systems",
+        "Refrigeration controllers",
+        "Vulnerability management",
+        "Cold chain",
+        "Critical infrastructure"
+      ],
+      "keywords": "Copeland XWEB, refrigeration controllers, November 2026, cold chain attack, OT security, ICS, end of support, asset inventory, NIS2, patching, CVE-2026-21718",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "CISA, advisory ICSA-26-057-10, \"Copeland XWEB and XWEB Pro\", 26 February 2026",
+          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-057-10"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "CERT-FR, alert CERTFR-2026-ALE-012, 12 October 2026, updated 13 and 16 October",
+          "url": "https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "The Record, Alexander Martin, \"British businesses caught in Europe-wide supermarket fridge attacks\", 3 November 2026",
+          "url": "https://therecord.media/british-businesses-caught-in-europe-wide-supermarket-fridge-attacks"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "VulnCheck, Valentin Lobstein, \"Code of the Day: Unauthenticated Root in Copeland XWEB EVO\", 13 November 2026",
+          "url": "https://vulncheck.com/blog/copeland-xweb-evo-unauthenticated-root"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Liscere, Field Note FN-2026-01, \"Authorised commands, spoiled food: the October 2026 supermarket refrigeration attack\", 12 November 2026",
+          "url": "https://liscere.com/research/fn-2026-01/"
+        }
+      ],
+      "workTranslation": {
+        "@id": "https://liscere.com/pl/badania/fn-2026-02/#article"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://liscere.com/#org",
+      "name": "Liscere",
+      "legalName": "Liscere sp. z o.o.",
+      "url": "https://liscere.com/",
+      "logo": "https://liscere.com/assets/apple-touch-icon.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://liscere.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research",
+          "item": "https://liscere.com/research.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "FN-2026-02",
+          "item": "https://liscere.com/research/fn-2026-02/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://liscere.com/research/fn-2026-02/#faq",
+      "inLanguage": "en-GB",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What happened in the November 2026 refrigeration attacks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In the early hours of Monday 2 November 2026, refrigeration controllers were attacked at three British meat businesses and a fruit and vegetable wholesaler, while Belgium's cyber security agency handled cases at the same time. The trade body involved said the entry point was vulnerable Copeland XWEB supervisory controllers running firmware 1.12.1 or earlier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was there a patch available?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. CISA published advisory ICSA-26-057-10 on 26 February 2026 for Copeland XWEB and XWEB Pro at version 1.12.1 and earlier, listing 23 vulnerability identifiers, and recorded that the manufacturer had provided a fix. A security note circulated to British suppliers in November instead described an update available since August. The public dates differ, but a correction existed months before the attacks either way."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Did anyone lose stock?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Accounts differ. Reporting said stock had spoiled, while the trade body said none of its affected members lost meat and the wholesaler said its team intervened in time. Both can be true, and the difference appears to be whether somebody was watching during the night."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why was equipment with a published fix still exposed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually because of ownership rather than negligence. A refrigeration controller arrives with the plant, is maintained under the refrigeration service contract, and is connected so the contractor can see alarms remotely. It is not on the IT asset register, and the contractor follows equipment manufacturers rather than security advisories, so the notice and the person who could act on it never meet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my business affected if it is not a supermarket?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can affect anyone with controllers reachable from the internet: cold stores, warehouses, processing plants, laboratories and building automation. The pattern is not specific to retail or to refrigeration. Food production, processing and distribution are sectors covered by NIS2 across the EU, and the duty to manage risk does not exempt equipment the IT department has never catalogued."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="../../assets/css/fonts.css?v=1" />
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg?v=4" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png?v=4" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png?v=4" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../../assets/favicon-48.png?v=4" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/apple-touch-icon.png?v=4" />
+  <link rel="stylesheet" href="../../assets/css/styles.css?v=20261117-a1" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-chrome" aria-label="Site navigation">
+    <a class="site-logo" href="../../index.html" aria-label="Liscere home">
+      <img class="wordmark-svg" src="../../assets/liscere-wordmark-dark.svg?v=3" alt="Liscere" width="1040" height="216" />
+    </a>
+    <nav class="site-nav" aria-label="Pages">
+      <a href="../../index.html">Home</a>
+      <a href="../../services.html">Services</a>
+      <a href="../../about.html">About</a>
+      <a href="../../research.html" aria-current="page">Research</a>
+      <a class="lang-switch" href="../../pl/badania/fn-2026-02/" hreflang="pl" lang="pl" aria-label="Polski">PL</a>
+    </nav>
+  </header>
+
+  <main id="main-content" class="research-page article-page">
+    <article class="article">
+      <header class="article-head">
+        <p class="kicker"><a class="series-back" href="../../research.html#fieldnotes" data-back>FIELD NOTES</a> · FN-2026-02 · 17 November 2026</p>
+
+        <h1>Patched, unpatched, unsupported: the refrigeration attacks came back in November</h1>
+
+        <p class="lede">Three weeks after the French supermarket campaign, attackers reached refrigeration controllers again, this time at food businesses in the United Kingdom and Belgium. The vulnerabilities they used were not new. A CISA advisory had named them in February, and the manufacturer had published a fix. The equipment was still reachable from the internet, still running the old firmware, and in one product line it will never run anything else.</p>
+      </header>
+
+      <aside class="key-points" aria-labelledby="key-points-title">
+        <h2 id="key-points-title">Key points</h2>
+        <ul>
+          <li>On 2 November 2026 refrigeration controllers were attacked at British meat businesses and a produce wholesaler, with Belgian cases at the same time. Nobody claimed it and no government has attributed it.</li>
+          <li>The flaws were not new. CISA advisory ICSA-26-057-10 of 26 February 2026 covered the same controllers at firmware 1.12.1 and earlier, listed 23 vulnerabilities including one scored 10.0, and recorded that a fix was available.</li>
+          <li>A second product line, the Copeland XWEB EVO, is reported to be out of software support, which means no patch is coming and only network position and monitoring remain.</li>
+          <li>The number that decides the outcome is not the CVE count but how many code paths touch attacker input before the credential check. On these controllers that number is not zero.</li>
+        </ul>
+      </aside>
+
+      <aside class="article-side" aria-label="Video and contents">
+        <div class="side-sticky">
+
+          <nav class="article-toc" aria-labelledby="toc-title">
+            <h2 id="toc-title">On this page</h2>
+            <ol>
+              <li><a href="#what-happened">What happened</a></li>
+              <li><a href="#the-fix-was-not-new">The fix was not new</a></li>
+              <li><a href="#the-line-that-will-not-be-fixed">The line that will not be fixed</a></li>
+              <li><a href="#our-analysis">Our analysis</a></li>
+              <li><a href="#help">How Liscere can help</a></li>
+              <li><a href="#questions">Questions</a></li>
+              <li><a href="#sources">Sources</a></li>
+            </ol>
+          </nav>
+          <section class="side-cta" aria-labelledby="side-cta-title">
+            <h2 id="side-cta-title">Facing something similar?</h2>
+            <p>We help industrial operators find what is exposed, see what their control network is being told to do, and respond when something goes wrong.</p>
+            <a class="primary-cta" href="../../services.html#contact">Talk to us</a>
+          </section>
+        </div>
+      </aside>
+
+      <div class="article-body">
+        <h2 id="what-happened">What happened</h2>
+        <ul>
+          <li><strong>The second wave.</strong> In the early hours of Monday 2 November 2026, refrigeration controllers were attacked at three British meat businesses, all members of the Association of Independent Meat Suppliers, and at Langridge Organic, a fruit and vegetable wholesaler. Belgium's cyber security agency was handling cases at the same time.</li>
+          <li><strong>The equipment.</strong> The trade body said its members were attacked through vulnerable Copeland XWEB supervisory controllers. A security note it circulated named firmware version 1.12.1 and earlier, and described authentication bypass flaws that let an attacker take control without a password.</li>
+          <li><strong>The damage is disputed.</strong> Reports said stock had spoiled, but the trade body said none of its affected members lost meat, and the wholesaler said its own team intervened before anything was lost. Both statements can be true: these attacks are survivable if somebody is watching at three in the morning.</li>
+          <li><strong>No attribution.</strong> Nobody claimed the November wave, and British authorities have not attributed it. A Belgian spokesperson said it may never be possible to identify who was behind it. This is a contrast with October, when France named a group it links to Iran's Revolutionary Guard.</li>
+          <li><strong>The official read.</strong> The UK National Cyber Security Centre said the national impact was minimal, and said its team worked through the night to contact businesses whose systems were exposed.</li>
+          <li><strong>The manufacturer.</strong> Copeland said certain XWEB monitoring solutions are affected by the reported vulnerability, and that it had re-communicated its recommended patching and security protocols.</li>
+        </ul>
+
+        <h2 id="the-fix-was-not-new">The fix was not new</h2>
+        <p>On 26 February 2026, eight months before the November attacks, CISA published advisory ICSA-26-057-10 covering Copeland XWEB and XWEB Pro controllers at version 1.12.1 and earlier. It listed 23 vulnerability identifiers. The most severe, CVE-2026-21718, carries a CVSS v3.1 base score of 10.0 for pre-authenticated code execution, which is the highest score the scale produces. CISA recorded that the manufacturer had provided a fix.</p>
+        <p>The security note circulated to British meat suppliers in November described an update as available since August. The dates given in public differ, and we have not reconciled them. The point survives either way: a correction for these flaws existed for months before the controllers were attacked, and the controllers were attacked anyway.</p>
+
+        <h2 id="the-line-that-will-not-be-fixed">The line that will not be fixed</h2>
+        <p>The security firm VulnCheck published research on 13 November 2026 describing 14 further vulnerabilities, CVE-2026-124002 through CVE-2026-124015, in a different product line, the Copeland XWEB EVO. By its account one of them is an unauthenticated request that executes a parameter as root, and another chains a command injection that runs before the password is checked with a setuid interpreter to reach root. It also describes a backdoor administrator password and daily credentials derived from the device's MAC address and the date.</p>
+        <p>VulnCheck states that a Copeland bulletin from March 2026 declared the XWEB EVO family end of software support, with no fixes after 16 March 2026, and counts between one and two thousand EVO systems reachable from the internet against roughly a hundred of the supported Pro line. We have not confirmed those counts or that date against a second independent source, and we say so rather than repeat them as settled.</p>
+
+        <h2 id="our-analysis">Our analysis</h2>
+        <p>The 23 identifiers in the February advisory are not the useful number. Most of them score 8.0 and need a valid session, which puts them after the interesting part of the problem. The ones that decide anything are the three that need nothing: CVE-2026-21718 at 10.0 for pre-authenticated code execution, CVE-2026-24663 at 9.0 for unauthenticated remote execution through a library installation path, and CVE-2026-25085 at 8.6 for authentication bypass. When we assess a controller, that is the count we write down. How many entry points touch attacker-controlled input before anyone checks a credential? Everything on the far side of that check is a second question, and a smaller one.</p>
+
+        <p>The EVO research shows the same shape with less ambiguity. VulnCheck describes a command injection in the username field of <code>login.lua</code>, which means the field is handled before the password is compared, and a CGI endpoint, <code>xwconsole.cgi</code>, that executes a request parameter as root with no session at all. Those read less like two bugs than like one decision: a web layer given the run of the device, because on a box of this size there was nobody else to give it to.</p>
+
+        <p>The credential scheme is what we would put at the top of a report. Three of the identifiers cover passwords computed from the device's MAC address and the current date, sitting next to a hardcoded administrator password. Embedded equipment picks these up for understandable reasons, usually so an engineer can recover a unit after a customer loses the password, and they are worse than a weak password because there is nothing to change. A MAC address is broadcast in every frame on the segment, it is often printed in the device's own web interface, and it can frequently be derived from the serial number. The date is not a secret under any definition. Work out the derivation once and you hold a valid credential for every unit in the family, on every future day. Advice that begins "change the default password" has nothing to act on.</p>
+
+        <p>The escalation tells you more than the entry did. The chain reaches <code>www-data</code> through the login injection and then root through a Lua interpreter carrying the setuid bit. Nobody sets that bit by accident. It is what remains after someone separated privileges, found the web layer still needed to do something privileged, and widened the permission rather than narrowing the action. For us that settles a practical question. On this device there is no meaningful distance between "the web interface was compromised" and "the controller was compromised", so any control that depends on the web process being unprivileged can be struck off the plan before it is written.</p>
+
+        <p>Then there are the scores themselves. A 10.0 on a refrigeration supervisor and a 10.0 on an internet-facing web server give the same number for different events, because CVSS measures the component and has no axis for the process behind it. The sharper problem runs the other way. An attacker holding a valid session needs no vulnerability at all: writing a setpoint is the function the device was bought for, it would score nothing, and it is how the October campaign did its damage. That is why IEC 62443-3-2 assesses consequence against the process and its tolerable risk rather than against the asset, and why a severity figure belongs in that assessment as an input rather than in a report as a conclusion.</p>
+
+        <p>What holds all of it together is where the box sits. A supervisor of this class exists to bridge an HTTP interface for people and a field bus down to the case controllers, and that bridge is the vulnerability class; the individual CVEs are only the week's way in. Take the HTTP side and you have field write capability immediately, because nothing further needs exploiting to do what the device does for a living. In the language of IEC 62443-3-3 it is a conduit endpoint between zones of very different trust, which is why FR 1 and FR 5 land on it hardest, and why it ought to be the best protected box on the site rather than the one nobody has logged. It also answers the EVO question. Where no fix is coming, what remains is its own zone, a VPN terminated outside it, a separate credential path, watching what gets written to the field, and a date for replacement. Those are compensating controls in the 62443 sense, and they are worth writing down and assessing as such rather than carrying as intentions.</p>
+
+        <p class="edition-note">This Field Note is published in English and in Polish. The two editions are not translations of each other: the Polish one carries additional analysis of the obligations under the Polish national cyber security act, while this one treats the question at European scale.</p>
+
+        <p class="tagline">A fix you have not applied is not a fix.</p>
+
+        <section class="article-related" aria-labelledby="help">
+          <h2 id="help">How Liscere can help</h2>
+          <ul class="related-links">
+            <li><a href="../../services/ot-security-assessment.html">OT and ICS security assessment</a><span>Find what is reachable and what nobody has listed.</span></li>
+            <li><a href="../../services/automation-modernisation.html">Automation modernisation and retrofit</a><span>Replace unsupported equipment without stopping the process.</span></li>
+            <li><a href="../../services/nis2-ksc-compliance.html">NIS2 and KSC readiness</a><span>Obligations, audit and an action plan with an OT perspective.</span></li>
+          </ul>
+        </section>
+
+        <section class="article-faq" aria-labelledby="questions">
+          <h2 id="questions">Questions</h2>
+          <div class="faq-item">
+            <h3 class="faq-q">What happened in the November 2026 refrigeration attacks?</h3>
+            <p class="faq-a">In the early hours of Monday 2 November 2026, refrigeration controllers were attacked at three British meat businesses and a fruit and vegetable wholesaler, while Belgium's cyber security agency handled cases at the same time. The trade body involved said the entry point was vulnerable Copeland XWEB supervisory controllers running firmware 1.12.1 or earlier.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Was there a patch available?</h3>
+            <p class="faq-a">Yes. CISA published advisory ICSA-26-057-10 on 26 February 2026 for Copeland XWEB and XWEB Pro at version 1.12.1 and earlier, listing 23 vulnerability identifiers, and recorded that the manufacturer had provided a fix. A security note circulated to British suppliers in November instead described an update available since August. The public dates differ, but a correction existed months before the attacks either way.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Did anyone lose stock?</h3>
+            <p class="faq-a">Accounts differ. Reporting said stock had spoiled, while the trade body said none of its affected members lost meat and the wholesaler said its team intervened in time. Both can be true, and the difference appears to be whether somebody was watching during the night.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Why was equipment with a published fix still exposed?</h3>
+            <p class="faq-a">Usually because of ownership rather than negligence. A refrigeration controller arrives with the plant, is maintained under the refrigeration service contract, and is connected so the contractor can see alarms remotely. It is not on the IT asset register, and the contractor follows equipment manufacturers rather than security advisories, so the notice and the person who could act on it never meet.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Is my business affected if it is not a supermarket?</h3>
+            <p class="faq-a">It can affect anyone with controllers reachable from the internet: cold stores, warehouses, processing plants, laboratories and building automation. The pattern is not specific to retail or to refrigeration. Food production, processing and distribution are sectors covered by NIS2 across the EU, and the duty to manage risk does not exempt equipment the IT department has never catalogued.</p>
+          </div>
+        </section>
+
+        <section class="article-sources" aria-labelledby="sources">
+          <h2 id="sources">Sources</h2>
+          <ol class="sources">
+            <li>CISA, advisory ICSA-26-057-10, "Copeland XWEB and XWEB Pro", 26 February 2026: <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-057-10">cisa.gov</a></li>
+            <li>CERT-FR, alert CERTFR-2026-ALE-012, 12 October 2026, updated 13 and 16 October: <a href="https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/">cert.ssi.gouv.fr</a></li>
+            <li>The Record, Alexander Martin, "British businesses caught in Europe-wide supermarket fridge attacks", 3 November 2026: <a href="https://therecord.media/british-businesses-caught-in-europe-wide-supermarket-fridge-attacks">therecord.media</a></li>
+            <li>VulnCheck, Valentin Lobstein, "Code of the Day: Unauthenticated Root in Copeland XWEB EVO", 13 November 2026: <a href="https://vulncheck.com/blog/copeland-xweb-evo-unauthenticated-root">vulncheck.com</a></li>
+            <li>Liscere, Field Note FN-2026-01, "Authorised commands, spoiled food: the October 2026 supermarket refrigeration attack", 12 November 2026: <a href="/research/fn-2026-01/">liscere.com</a></li>
+          </ol>
+        </section>
+
+        <section class="article-cite" aria-labelledby="cite-title">
+          <h2 id="cite-title" class="doc-section-head">Cite this article</h2>
+          <pre class="doc-cite">@misc{liscere_fn_2026_02,
+  author       = {{Liscere}},
+  title        = {Patched, unpatched, unsupported: the refrigeration attacks came back in November},
+  howpublished = {Liscere Field Notes FN-2026-02},
+  year         = {2026},
+  month        = nov,
+  url          = {https://liscere.com/research/fn-2026-02/}
+}</pre>
+        </section>
+
+        <p class="article-back"><a href="../../research.html" data-back>&#8592; All research</a></p>
+      </div>
+    </article>
+
+    <p class="research-foot"><a href="../../index.html">Home</a> · <a href="../../services.html">Services</a> · <a href="../../about.html">About</a> · <a href="../../faq.html">FAQ</a> · <a href="../../research.html">Research</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="../../privacy.html">Privacy</a> · <a href="../../legal.html">Legal</a> · <a href="../../terms.html">Terms</a><br />Based in Poland, working across Europe and worldwide.<br />© 2026 Liscere sp. z o.o.</p>
+  </main>
+
+  <script src="../../assets/js/nav.js?v=2" defer></script>
+  <script src="../../assets/js/site.js?v=4" defer></script>
+  <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3280d901c4be4657ba0562ac10e607b7"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
