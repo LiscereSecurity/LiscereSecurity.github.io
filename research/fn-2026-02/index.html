@@ -177,10 +177,10 @@
         },
         {
           "@type": "Question",
-          "name": "Does this affect companies in Poland?",
+          "name": "Is my business affected if it is not a supermarket?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "It can affect anyone with controllers reachable from the internet: cold stores, warehouses, processing plants and building automation. Food production, processing and distribution are sectors covered by NIS2, and the amended Polish national cyber security act, in force since 3 April 2026, reaches operational technology as well."
+            "text": "It can affect anyone with controllers reachable from the internet: cold stores, warehouses, processing plants, laboratories and building automation. The pattern is not specific to retail or to refrigeration. Food production, processing and distribution are sectors covered by NIS2 across the EU, and the duty to manage risk does not exempt equipment the IT department has never catalogued."
           }
         }
       ]
@@ -229,7 +229,7 @@
           <li>On 2 November 2026 refrigeration controllers were attacked at British meat businesses and a produce wholesaler, with Belgian cases at the same time. Nobody claimed it and no government has attributed it.</li>
           <li>The flaws were not new. CISA advisory ICSA-26-057-10 of 26 February 2026 covered the same controllers at firmware 1.12.1 and earlier, listed 23 vulnerabilities including one scored 10.0, and recorded that a fix was available.</li>
           <li>A second product line, the Copeland XWEB EVO, is reported to be out of software support, which means no patch is coming and only network position and monitoring remain.</li>
-          <li>Refrigeration controllers rarely appear on an IT asset register. They arrive with the plant, sit under a service contract, and the advisory never reaches the person who could act on it.</li>
+          <li>Our analysis: the useful lesson is not to patch faster. Patch latency on this class of equipment runs to quarters, so the control that would have stopped both waves is that the device should not have been reachable at all.</li>
         </ul>
       </aside>
 
@@ -242,9 +242,7 @@
               <li><a href="#what-happened">What happened</a></li>
               <li><a href="#the-fix-was-not-new">The fix was not new</a></li>
               <li><a href="#the-line-that-will-not-be-fixed">The line that will not be fixed</a></li>
-              <li><a href="#why-the-patch-did-not-reach-the-controller">Why the patch did not reach the controller</a></li>
-              <li><a href="#what-to-do-this-week">What to do this week</a></li>
-              <li><a href="#where-liscere-fits">Where Liscere fits</a></li>
+              <li><a href="#our-analysis">Our analysis</a></li>
               <li><a href="#help">How Liscere can help</a></li>
               <li><a href="#questions">Questions</a></li>
               <li><a href="#sources">Sources</a></li>
@@ -270,34 +268,25 @@
         </ul>
 
         <h2 id="the-fix-was-not-new">The fix was not new</h2>
-        <p>This is the part worth sitting with. On 26 February 2026, eight months before the November attacks, CISA published advisory ICSA-26-057-10 covering Copeland XWEB and XWEB Pro controllers at version 1.12.1 and earlier. It listed 23 vulnerability identifiers. The most severe, CVE-2026-21718, carries a CVSS v3.1 base score of 10.0 for pre-authenticated code execution, which is the highest score the scale produces. CISA recorded that the manufacturer had provided a fix.</p>
+        <p>On 26 February 2026, eight months before the November attacks, CISA published advisory ICSA-26-057-10 covering Copeland XWEB and XWEB Pro controllers at version 1.12.1 and earlier. It listed 23 vulnerability identifiers. The most severe, CVE-2026-21718, carries a CVSS v3.1 base score of 10.0 for pre-authenticated code execution, which is the highest score the scale produces. CISA recorded that the manufacturer had provided a fix.</p>
         <p>The security note circulated to British meat suppliers in November described an update as available since August. The dates given in public differ, and we have not reconciled them. The point survives either way: a correction for these flaws existed for months before the controllers were attacked, and the controllers were attacked anyway.</p>
-        <p>Nothing here turned on a clever technique or an unknown flaw. It turned on a patch that had not been applied to a device that could be reached from the internet.</p>
 
         <h2 id="the-line-that-will-not-be-fixed">The line that will not be fixed</h2>
         <p>The security firm VulnCheck published research on 13 November 2026 describing 14 further vulnerabilities, CVE-2026-124002 through CVE-2026-124015, in a different product line, the Copeland XWEB EVO. By its account one of them is an unauthenticated request that executes a parameter as root, and another chains a command injection that runs before the password is checked with a setuid interpreter to reach root. It also describes a backdoor administrator password and daily credentials derived from the device's MAC address and the date.</p>
-        <p>VulnCheck states that a Copeland bulletin from March 2026 declared the XWEB EVO family end of software support, with no fixes after 16 March 2026. It reports that its own sensors saw scanning for one of these flaws begin roughly two hours after the entry appeared in the national vulnerability database, and it counts between one and two thousand EVO systems reachable from the internet, against roughly a hundred of the supported Pro line.</p>
-        <p>We have not been able to confirm those counts, the end of support date, or the exploitation timings against a second independent source, and we say so rather than repeat them as settled. VulnCheck itself notes that the scanning it saw looks opportunistic rather than part of the October campaign. But the structural fact needs no confirmation: where a product line is out of support, patching stops being the answer, and the only remaining controls are network position and monitoring.</p>
+        <p>VulnCheck states that a Copeland bulletin from March 2026 declared the XWEB EVO family end of software support, with no fixes after 16 March 2026, and counts between one and two thousand EVO systems reachable from the internet against roughly a hundred of the supported Pro line. We have not confirmed those counts or that date against a second independent source, and we say so rather than repeat them as settled.</p>
 
-        <h2 id="why-the-patch-did-not-reach-the-controller">Why the patch did not reach the controller</h2>
-        <p>The obvious question is why equipment with a published fix was still exposed in November. In our experience the answer is rarely negligence. It is ownership.</p>
-        <p>A refrigeration controller is usually not on anyone's IT asset register. It arrived with the refrigeration plant, it is maintained under the refrigeration service contract, and the remote connection exists because the refrigeration contractor needs to see alarms without driving to the site. The IT department does not know the device exists. The refrigeration contractor reads advisories from compressor manufacturers, not from CISA. The vulnerability notice and the person with a spanner never meet.</p>
-        <p>The same gap runs through building management, weighing and batching systems, packaging lines, environmental monitoring and effluent control. It is the ordinary condition of an industrial estate, not an unusual failure. It is also why an asset inventory that stops at the IT boundary gives a false sense of completeness.</p>
-        <p>Food production, processing and distribution are sectors covered by NIS2, and in Poland the amended national cyber security act, in force since 3 April 2026, reaches operational technology as well. An obligation to manage risk in systems nobody has listed is an obligation that cannot be met.</p>
+        <h2 id="our-analysis">Our analysis</h2>
+        <p>Five things in this case are worth saying plainly, because we have not seen them said elsewhere.</p>
 
-        <h2 id="what-to-do-this-week">What to do this week</h2>
-        <ul>
-          <li><strong>Find out what is reachable.</strong> Not what should be reachable. Search for your own public addresses and look for controller interfaces, including those installed by contractors.</li>
-          <li><strong>Ask your refrigeration and building services contractors three questions.</strong> What equipment of yours is connected to the internet, what firmware is on it, and who applies its security updates.</li>
-          <li><strong>Remove the exposure before planning the patch.</strong> CERT-FR's first recommendation in October was to take the affected controllers off the internet and restore remote access only through a secure VPN. That holds whether or not an update exists.</li>
-          <li><strong>List the equipment that is out of support.</strong> For those devices the plan is replacement or isolation, on a date, not a patch.</li>
-          <li><strong>Check that somebody is watching at night.</strong> Both November waves ran in the early hours. The businesses that lost nothing were the ones where a person acted in time.</li>
-        </ul>
+        <p><strong>Refrigeration is an unusually good target, and the reason is physics rather than software.</strong> Thermal mass makes the attack slow and quiet. An attacker does not need to hold access, only to change a setpoint and leave; the cold store does the rest over several hours while nobody is on site. Alarm thresholds on this equipment are generally tuned to detect a failing compressor, not an operator command that is formally valid, so the temperature can drift a long way inside the band the alarm considers normal. Defrost makes it worse, because a long defrost is the one condition where rising temperature is expected and alarms are routinely suppressed. And the damage lands in inventory, not in the plant: afterwards there is no broken equipment to examine, only warm food and a controller that will tell you it did exactly what it was asked.</p>
 
-        <h2 id="where-liscere-fits">Where Liscere fits</h2>
-        <p>An OT and ICS security assessment finds the equipment that is reachable and the equipment nobody has listed, including the devices sitting under a service contract rather than under IT. We work from the plant side, which is where this equipment actually lives, and we read the controller documentation rather than assuming it behaves like a server.</p>
-        <p>Where replacement is the honest answer for an unsupported device, that is an automation modernisation job, and we do that too: a staged retrofit that keeps the process running rather than a rip and replace that stops it.</p>
-        <p>If you run refrigeration, building automation or industrial control systems and you are not certain what is reachable from outside, <a href="mailto:hello@liscere.com">talk to us</a>.</p>
+        <p><strong>"Patch faster" is the wrong lesson, and repeating it will not help anyone.</strong> Updating a supervisory controller is not updating a server. It frequently needs a site visit, a window when the process can tolerate a restart, a contractor with the right credentials and, in regulated food environments, a change record. Honest patch latency on this class of equipment is measured in quarters, not days. A fix published in February reaching a cold store by November is not an outlier; it is close to the normal rate. If that is true, then an estate strategy built on patching promptly is a strategy built on something that does not happen. The control that would have prevented both waves is the cheap one and the boring one: the controller should not have been reachable from the internet at all. CERT-FR said this first in October, and it remains the only recommendation that works regardless of firmware version, vendor or support status.</p>
+
+        <p><strong>End of support means something different in a food plant than in an office.</strong> A supervisory controller is not replaced because it has a CVE. It is replaced when the refrigeration plant around it is replaced, and that is a capital cycle of fifteen years or more. So telling an operator to migrate off an unsupported line is, in practice, telling them to do nothing for a decade. The useful engineering answer is to accept that the device stays and to design around it: put it behind a boundary it cannot be reached through, give it a separate credential path, watch what is sent to it, and write down the date on which it goes rather than leaving replacement as an aspiration. That is less satisfying than a migration plan, and it is what actually happens.</p>
+
+        <p><strong>The second wave may not be the same adversary, and that is the uncomfortable part.</strong> October was attributed to a state-linked group. November was claimed by nobody, and VulnCheck characterises the scanning it observed as opportunistic. The pattern we would expect, and which this is consistent with, is an aftershock: once a capable actor demonstrates publicly that a sector's controllers are reachable and that a specific product family is the way in, the method becomes common knowledge and the follow-on does not need the original skill or the original motive. For an operator this inverts the usual comfort. A firm that concluded in October that it was too small to interest a state is precisely the firm the aftershock finds.</p>
+
+        <p><strong>The obligation exists whether or not anyone has listed the device.</strong> Food production, processing and distribution are sectors covered by NIS2, and the duty to manage risk does not come with an exemption for equipment the IT department has never seen. Yet a refrigeration controller is rarely on an IT asset register at all. It arrived with the plant, it is maintained under the refrigeration service contract, and the remote connection exists because the contractor needs to see alarms without driving to site. IT does not know the device exists; the contractor follows compressor manufacturers rather than security advisories. The notice and the person who could act on it never meet. The same gap runs through building management, weighing and batching, packaging lines and effluent control, and it is why an inventory that stops at the IT boundary gives a false sense of completeness. Under an audit, equipment missing from the inventory is harder to defend than a known vulnerability that was assessed and accepted.</p>
 
         <p class="tagline">A fix you have not applied is not a fix.</p>
 
@@ -329,8 +318,8 @@
             <p class="faq-a">Usually because of ownership rather than negligence. A refrigeration controller arrives with the plant, is maintained under the refrigeration service contract, and is connected so the contractor can see alarms remotely. It is not on the IT asset register, and the contractor follows equipment manufacturers rather than security advisories, so the notice and the person who could act on it never meet.</p>
           </div>
           <div class="faq-item">
-            <h3 class="faq-q">Does this affect companies in Poland?</h3>
-            <p class="faq-a">It can affect anyone with controllers reachable from the internet: cold stores, warehouses, processing plants and building automation. Food production, processing and distribution are sectors covered by NIS2, and the amended Polish national cyber security act, in force since 3 April 2026, reaches operational technology as well.</p>
+            <h3 class="faq-q">Is my business affected if it is not a supermarket?</h3>
+            <p class="faq-a">It can affect anyone with controllers reachable from the internet: cold stores, warehouses, processing plants, laboratories and building automation. The pattern is not specific to retail or to refrigeration. Food production, processing and distribution are sectors covered by NIS2 across the EU, and the duty to manage risk does not exempt equipment the IT department has never catalogued.</p>
           </div>
         </section>
 
