@@ -173,8 +173,8 @@ rep("Together, they form the layer that industrial security is missing.", "Razem
 # ---------- 06 evidence
 rep('<p class="kicker">Built on evidence</p>', '<p class="kicker">Oparte na dowodach</p>')
 rep("Built from research.<br />Tested in controlled OT scenarios.", "Zbudowane na badaniach.<br />Sprawdzone w laboratorium OT.")
-rep("Liscere publishes its own technical reports, archived with a DOI so they can be cited and checked, and tests its work against real controllers rather than against assumptions.",
-    "Liscere publikuje własne raporty techniczne, archiwizowane z numerem DOI, aby można je było cytować i sprawdzić, a swoją pracę testujemy na rzeczywistych sterownikach, a nie na założeniach.")
+rep("Everything we claim is tested on real controllers in our own laboratory, and we publish the method so it can be checked rather than taken on trust.",
+    "Wszystko, co twierdzimy, sprawdzamy na rzeczywistych sterownikach we własnym laboratorium, a metodę publikujemy, żeby dało się ją zweryfikować, a nie przyjmować na słowo.")
 rep("We help operators with OT security services and secure automation engineering, and we welcome research partners and real industrial scenarios to test the framework. Write to hello@liscere.com.",
     "Wspieramy operatorów usługami bezpieczeństwa OT i bezpieczną automatyką oraz zapraszamy partnerów badawczych do testowania frameworku. Napisz na hello@liscere.com.")
 rep('>Our services</a>', '>Nasze usługi</a>')
