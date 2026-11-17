@@ -21,11 +21,6 @@
   <li><strong>Atrybucja.</strong> 9 listopada Francja publicznie przypisała operację grupie, którą łączy z irańskim Korpusem Strażników Rewolucji. Teheran odrzucił te oskarżenia.</li>
 </ul>
 
-<h2>Dlaczego to ma znaczenie nie tylko dla supermarketów</h2>
-<p>Nic w tym ataku nie wymagało awarii lodówek. Odszranianie to normalna funkcja. Zmiana nastawy to normalna czynność technika. Każde polecenie dotarło w formacie, którego sterownik oczekuje, przez interfejs, do którego obsługi został zbudowany. Rozpatrywane pojedynczo, polecenia były autoryzowane.</p>
-<p>Szkodliwymi uczynił je kontekst: odszranianie wydłużone do ośmiu godzin w środku nocy, zamrażarka, której kazano osiągnąć &plus;50 °C, ta sama zmiana wysłana do wielu szaf chłodniczych w ciągu kilku sekund. Pytanie, które pozwoliłoby je wychwycić, nie brzmi „czy to polecenie jest dozwolone?”, lecz „czy to polecenie ma sens dla tego procesu, właśnie teraz?”.</p>
-<p>Ten sam schemat dotyczy uzdatniania wody, energetyki, szpitali i fabryk. Wszędzie tam, gdzie można dotrzeć do sterownika, autoryzowane polecenie może zostać użyte przeciwko procesowi, którym ten sterownik steruje.</p>
-
 <h2>Co zaleca CERT-FR</h2>
 <ul>
   <li>Odłączyć dotknięte sterowniki od internetu.</li>
@@ -36,11 +31,24 @@
 </ul>
 <p>Najpierw trzeba usunąć ekspozycję. Monitoring jej nie zastępuje.</p>
 
-<h2>Gdzie pasuje monitoring kontekstowy</h2>
-<p>Liscere pasywnie obserwuje ruch w sieci przemysłowej z portu lustrzanego (mirror port), nie wysyłając do niej niczego. Uczy się, jak normalnie zachowuje się proces, i ocenia, czy każde polecenie nadzorcze pasuje do bieżącego stanu tego procesu. Jest zaprojektowane tak, aby sygnalizować polecenia podobne do użytych w tym ataku: nastawę daleko poza wyuczonym zakresem, odszranianie niepodobne do żadnego wcześniej zaobserwowanego, serię identycznych zmian w nocy. Następnie informuje właściwą osobę, podając powód, w chwili wysłania polecenia.</p>
-<p>Jeśli odpowiadasz za chłodnictwo, automatykę budynkową lub przemysłowe systemy sterowania i chcesz wiedzieć, co naprawdę jest wysyłane do Twojej sieci, <a href="mailto:hello@liscere.com">porozmawiaj z nami</a>.</p>
+<h2>Nasza analiza</h2>
+<p>Nazywanie tych poleceń autoryzowanymi jest trafne wobec sterownika nadrzędnego i mylące wobec wszystkiego, co jest pod nim. Logowanie webowe w sterowniku nadrzędnym to jedyne miejsce w tym łańcuchu, w którym istnieje poświadczenie. Protokoły obiektowe, którymi takie sterowniki mówią w dół, a wśród nich Modbus, nie niosą ani tożsamości, ani sesji, ani kontroli integralności: zapis do rejestru to kod funkcji i wartość, przyjmowane od tego, kto je wyśle. W miejscu, w którym powstała szkoda, nie było więc żadnej decyzji autoryzacyjnej do obejścia. Kto minie warstwę webową, nie podszywa się pod proces, tylko nim jest.</p>
+
+<p>Rozrzut między producentami to szczegół, którego nie pominęlibyśmy. CERT-FR wymienił Copeland i Dixell, a następnie zaktualizował alert o dwie rodziny Danfoss. Jedna kampania sięgająca w dwie noce sterowników różnych producentów to nie jest wykorzystywanie wady produktu; błąd w oprogramowaniu jednego dostawcy nie przenosi się do urządzeń drugiego. Dotknięte instalacje łączył sposób wystawienia na zewnątrz, a nie dostawca. Ma to znaczenie dla każdego, kto czyta alerty producentów, żeby ustalić, czy go to dotyczy, bo oznacza, że alert jest złym dokumentem na początek. Właściwe pytanie brzmi: co z mojego sprzętu odpowiada w publicznym internecie.</p>
+
+<p>Odszranianie nie było przypadkowym wyborem funkcji. To jedyny stan, w którym sama logika sterowania spodziewa się wzrostu temperatury, dlatego odszranianie rutynowo blokuje albo opóźnia alarm wysokiej temperatury. Atakujący, który wydłuża cykl z godziny do ośmiu, jak podano, nie musi pokonywać strategii alarmowej; wycisza ją za niego własna obsługa wyjątków w zakładzie. Każdy monitoring oparty na stanie alarmów dziedziczy tę ślepotę z samej swojej konstrukcji.</p>
+
+<p>Dalej sama nastawa. Zmiana celu zamrażarki z &minus;22 °C na 150 °C mówi, że sterownik nie zastosował żadnej granicy wiarygodności do wartości, której nigdy nie mógłby osiągnąć. W większości tego sprzętu wartość inżynierska to skalowana liczba całkowita zapisywana wprost do rejestru, a ograniczenia istnieją w głowie technika, nie w urządzeniu, bo rejestr zaprojektowano dla kogoś, kto wie, co ta liczba znaczy. Kontrola zakresu w samym sterowniku jest najtańszym zabezpieczeniem w całym tym incydencie, nie wymaga sieci, licencji ani projektu, i prawie zawsze jej nie ma.</p>
+
+<p>Sygnałem, który był dostępny i niewykorzystany, było tempo. Kilka nastaw zmienianych na sekundę w jednym sklepie i ta sama zmiana wysłana do wielu szaf w ciągu kilku sekund to cechy ruchu, a nie pojedynczej wiadomości. Każdy zapis z osobna był poprawny i przeszedłby każdą regułę badającą treść, i właśnie dlatego myślenie sygnaturowe nie ma tu nic do zaoferowania: nie ma złośliwego ładunku do dopasowania, jest tylko sekwencja, której żaden technik by nie wykonał. Tempo i rozrzut da się obserwować bez rozumienia semantyki protokołu, co czyni ich brak w tych instalacjach luką w oprzyrządowaniu, a nie w wiedzy.</p>
+
+<p>Jedno zdanie alertu CERT-FR zasługuje na więcej uwagi, niż dostało: w przypadku przejętych urządzeń bez wsparcia producenta nie należy polegać wyłącznie na przywróceniu ustawień fabrycznych. Reset przywraca konfigurację. Nie wgrywa na nowo oprogramowania układowego, a w sprzęcie w tym wieku granica między jednym a drugim nie przebiega tam, gdzie zakłada administrator. Jeżeli urządzenie było osiągalne, pozbawione wsparcia i jest teraz podejrzane, uczciwe stanowisko brzmi: jego integralności nie da się ustalić na podstawie jego samego.</p>
+
+<p>Na koniec uwaga lokalna. Produkcja, przetwórstwo i dystrybucja żywności należą do sektorów objętych NIS2, a znowelizowana ustawa o krajowym systemie cyberbezpieczeństwa, obowiązująca od 3 kwietnia 2026, obejmuje także systemy OT. Sterowniki chłodnicze, automatyka budynkowa i magazyny mieszczą się w tym zakresie niezależnie od tego, czy ktokolwiek wpisał je do ewidencji zasobów.</p>
 
 <p class="tagline">Autoryzowane nie zawsze znaczy właściwe.</p>
+
+<p class="edition-note">Ta notatka ukazuje się po angielsku i po polsku. Wydania nie są swoimi tłumaczeniami: polskie zawiera dodatkowy materiał o obowiązkach wynikających z NIS2 i z ustawy o krajowym systemie cyberbezpieczeństwa.</p>
 
 <h2>Źródła</h2>
 <ol class="sources">
