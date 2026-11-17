@@ -17,7 +17,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 ROOT_DIR = os.path.dirname(HERE)
 SITE = "https://liscere.com/"
-CSS_V = "20261114-a4"
+CSS_V = "20261117-a1"
 ORG = {"@id": SITE + "#org"}
 
 CSP = ("<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; script-src 'self' "
@@ -539,7 +539,7 @@ FN_2026_02 = dict(
             "On 2 November 2026 refrigeration controllers were attacked at British meat businesses and a produce wholesaler, with Belgian cases at the same time. Nobody claimed it and no government has attributed it.",
             "The flaws were not new. CISA advisory ICSA-26-057-10 of 26 February 2026 covered the same controllers at firmware 1.12.1 and earlier, listed 23 vulnerabilities including one scored 10.0, and recorded that a fix was available.",
             "A second product line, the Copeland XWEB EVO, is reported to be out of software support, which means no patch is coming and only network position and monitoring remain.",
-            "Our analysis: the useful lesson is not to patch faster. Patch latency on this class of equipment runs to quarters, so the control that would have stopped both waves is that the device should not have been reachable at all.",
+            "Our analysis: the number that decides the outcome is not the CVE count but how many code paths run attacker input before the credential check, and on these controllers that number is not zero.",
         ],
         related=[
             ("services/ot-security-assessment.html", "OT and ICS security assessment", "Find what is reachable and what nobody has listed."),
@@ -570,7 +570,7 @@ FN_2026_02 = dict(
             "2 listopada 2026 zaatakowano sterowniki chłodnicze w brytyjskich firmach mięsnych i hurtowni warzyw, a w tym samym czasie sprawami zajmowała się Belgia. Nikt się nie przyznał i żaden rząd nikomu tego nie przypisał.",
             "Błędy nie były nowe. Alert CISA ICSA-26-057-10 z 26 lutego 2026 obejmował te same sterowniki w wersji 1.12.1 i wcześniejszych, wymieniał 23 podatności, w tym jedną z oceną 10.0, i odnotowywał dostępną poprawkę.",
             "Druga linia produktowa, Copeland XWEB EVO, według doniesień straciła wsparcie programowe. Poprawki nie będzie, zostaje miejsce urządzenia w sieci i monitoring.",
-            "Nasza analiza: użyteczną lekcją nie jest szybsze łatanie. Czas wgrania poprawki w tej klasie urządzeń liczy się w kwartałach, więc zabezpieczeniem, które powstrzymałoby obie fale, jest to, że sterownik w ogóle nie powinien być osiągalny.",
+            "Nasza analiza: o wyniku decyduje nie liczba CVE, lecz to, ile ścieżek kodu przetwarza dane atakującego przed sprawdzeniem poświadczeń, a w tych sterownikach nie jest to zero.",
         ],
         related=[
             ("pl/uslugi/audyt-bezpieczenstwa-ot.html", "Audyt bezpieczeństwa OT i ICS", "Sprawdzamy, co jest dostępne z zewnątrz i czego nikt nie spisał."),
