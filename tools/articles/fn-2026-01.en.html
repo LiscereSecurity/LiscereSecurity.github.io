@@ -21,11 +21,6 @@
   <li><strong>Attribution.</strong> On 9 November France publicly attributed the operation to a group it links to Iran's Revolutionary Guard. Tehran rejected the accusation.</li>
 </ul>
 
-<h2>Why this matters beyond supermarkets</h2>
-<p>Nothing in this attack required the fridges to malfunction. Defrost is a normal function. Changing a setpoint is a normal action for a technician. Every command arrived in the format the controller expects, through the interface it was built to accept. Seen one by one, the commands were authorised.</p>
-<p>What made them harmful was context: a defrost stretched to eight hours in the middle of the night, a freezer asked to reach &plus;50 °C, the same change pushed to many cabinets within seconds. The question that would have caught them is not "is this command allowed?" but "does this command make sense for this process, right now?"</p>
-<p>The same pattern applies to water treatment, energy, hospitals and factories. Wherever a controller can be reached, an authorised command can be used against the process it controls.</p>
-
 <h2>What CERT-FR recommends</h2>
 <ul>
   <li>Take the affected controllers off the internet.</li>
@@ -36,11 +31,22 @@
 </ul>
 <p>Removing exposure comes first. Monitoring does not replace it.</p>
 
-<h2>Where contextual monitoring fits</h2>
-<p>Liscere watches industrial network traffic passively, from a mirror port, without sending anything onto the network. It learns how a process normally behaves and judges whether each supervisory command fits the current state of that process. It is designed to flag commands like the ones used here: a setpoint far outside the learned range, a defrost unlike any seen before, a burst of identical changes at night. It then tells the right person, with the reason, at the moment the command is sent.</p>
-<p>If you run refrigeration, building automation or industrial control systems and want to know what your network is actually being told to do, <a href="mailto:hello@liscere.com">talk to us</a>.</p>
+<h2>Our analysis</h2>
+<p>Calling these commands authorised is accurate about the supervisor and misleading about everything below it. The web login on a supervisory controller is the only place in this chain where a credential exists. The field protocols those supervisors speak downward, Modbus among them, carry no identity, no session and no integrity check: a write to a holding register is a function code and a value, accepted from whoever sends it. So there was never an authorisation decision to subvert at the point where the damage happened. Once an attacker is past the web layer they are not impersonating the process, they are the process.</p>
+
+<p>The multi-vendor spread is the detail we would not pass over. CERT-FR named Copeland and Dixell, then updated the alert to add two Danfoss families. One campaign reaching controllers from different manufacturers across two nights is not a product defect being exploited; a bug in one vendor's firmware does not travel to another's. What the affected estates had in common was the exposure pattern, not the supplier. That matters for anyone reading vendor advisories to decide whether they are affected, because it means the advisory is the wrong document to read first. The right question is what of yours answers on the public internet.</p>
+
+<p>Defrost was not an incidental choice of function. It is the one state in which the control logic itself expects temperature to rise, which is why defrost routinely inhibits or delays the high-temperature alarm. An attacker extending a cycle from one hour to eight, as reported, does not have to defeat the alarm strategy; the plant's own exception handling suppresses it for them. Any monitoring built on alarm state inherits that blindness by construction.</p>
+
+<p>Then the setpoint itself. A freezer target moved from &minus;22 °C to 150 °C tells you the controller applied no plausibility bound to a value it could never reach. In almost all of this equipment the engineering value is a scaled integer written straight to a register, with limits that exist in the technician's head rather than in the device, because the register was designed for someone who knows what the number means. A range check at the controller is the cheapest control anywhere in this incident, it needs no network, no licence and no project, and it is nearly always absent.</p>
+
+<p>The signal that was available and unused was rate. Several settings altered per second at one store, and the same change pushed to many cabinets within seconds, are properties of the traffic rather than of any single message. Every individual write was valid and would pass any rule that inspects content, which is the reason signature-based thinking has nothing to offer here: there is no malicious payload to match, only a sequence that no technician would produce. Rate and fan-out can be observed without understanding the protocol semantics at all, which makes their absence from these estates a gap in instrumentation rather than in knowledge.</p>
+
+<p>One line in the CERT-FR alert deserves more attention than it got: for compromised end of life devices, do not rely on a factory reset alone. A reset restores configuration. It does not reflash firmware, and on equipment of this age the boundary between the two is not where an administrator assumes it is. If a device was reachable, unsupported and is now suspect, the honest position is that its integrity cannot be established from the device itself.</p>
 
 <p class="tagline">Authorised is not always appropriate.</p>
+
+<p class="edition-note">This Field Note is published in English and in Polish. The two editions are not translations of each other: the Polish one carries additional material on the obligations under NIS2 and the Polish national cyber security act.</p>
 
 <h2>Sources</h2>
 <ol class="sources">
