@@ -12,7 +12,9 @@ from urllib.parse import urlparse, unquote
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SITE = "https://liscere.com/"
-SKIP = {".git", ".github", "tools", "node_modules"}
+# Working directories that are gitignored and never deployed: the radar briefs, the LinkedIn
+# post sources and the prospecting notes. They are not site pages and must not be audited.
+SKIP = {".git", ".github", "tools", "node_modules", "radar", "linkedin", "prospects"}
 errors, warns = [], []
 
 

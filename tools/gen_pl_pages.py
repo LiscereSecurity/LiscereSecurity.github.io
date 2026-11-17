@@ -328,6 +328,9 @@ def faq():
 # ---------------------------------------------------------------- Badania (research index)
 # Field Notes have Polish versions; reports are in English (marked "po angielsku").
 BADANIA = [
+    ("guides", "./badania/gd-2026-05/", "GD-2026-05 · Poradnik · listopad 2026", "Co trzeba mieć do kwietnia 2027",
+     "Termin na wniosek o wpis minął 3 października. Art. 33 daje 12 miesięcy na obowiązki z rozdziału 3, czyli do 3 kwietnia 2027, a art. 35 mówi, że kary mogą być nałożone dopiero po kwietniu 2028. Czego wymaga art. 8 w zakładzie, punkt po punkcie.",
+     False, "Czytaj poradnik"),
     ("guides", "./badania/gd-2026-04/", "GD-2026-04 · Poradnik · listopad 2026", "CRA i IEC 62443",
      "Dobra znajomość IEC 62443 to nie to samo co gotowość na rozporządzenie o cyberodporności, i instytucje europejskie zapisały to wprost. Które terminy są pewne, dlaczego żadna pojedyncza norma nie pokrywa aktu, co znaczy nota o zakresie przemysłowym przy każdej zmapowanej części serii i co buduje teraz CENELEC, żeby tę lukę zamknąć.",
      False, "Czytaj poradnik"),

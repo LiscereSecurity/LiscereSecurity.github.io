@@ -1,0 +1,41 @@
+<p class="kicker">GUIDE · GD-2026-05 · 17 November 2026</p>
+
+<h1>The directive did not set your deadline: how national transposition fixes the real clock</h1>
+
+<p class="lede">NIS2 told member states what to require. It did not tell your plant when. The dates that bind an operator come from the national act, and they vary by country, by entity type and by obligation. Poland's transposition is now in force and fully dated, which makes it a useful worked example of what to look for in your own: when the obligations actually bite, when the first audit lands, when a penalty first becomes possible, and which requirements mean something different on a production line than in an office.</p>
+
+<h2>What the Polish timetable looks like</h2>
+<p>The amending act was published on 2 March 2026 and, under its article 49, entered into force one month later, on 3 April 2026.</p>
+<p>Article 33(1) gives entities that met the criteria on that date twelve months to perform the obligations of chapter 3, so <strong>3 April 2027</strong>. Article 33(2) gives essential entities twenty four months for the first audit, so <strong>3 April 2028</strong>. Registration in the national list closed on 3 October 2026, a date set not by the act but by a ministerial schedule the act requires.</p>
+<p>Article 35 is the one most commentary leaves out: the financial penalties cannot be imposed for the first time until two years after entry into force, which is again April 2028. There is a real deadline four and a half months away and a separate, later date at which it becomes expensive. Confusing the two produces either panic or complacency, and neither buys any security.</p>
+<p>The lesson generalises. Three dates matter in any member state and they are rarely the same: when the obligations become enforceable, when the first audit is due, and when sanctions become available. Ask for all three.</p>
+
+<h2>The scope sentence is the one to read twice</h2>
+<p>Poland's article 8(1) requires an information security management system "in the information system used in the <strong>processes affecting the provision of the service</strong> by that entity".</p>
+<p>That phrasing settles an argument that is still open in a lot of plants. Scope follows the service, not the department. If stopping the line stops the service, the line is in scope, and so are the PLCs, operator stations, historian, field network and engineering workstation that run it, whether or not anybody has put them on an asset register.</p>
+<p>Equivalent wording appears across transpositions because it comes from the directive's own framing. It is worth finding the exact sentence in your national text, because it is the sentence that decides whether an auditor accepts "that equipment belongs to the maintenance contractor" as an answer.</p>
+
+<h2>Three requirements that do not mean what an IT reader assumes</h2>
+
+<p><strong>Updates are not a mandate to patch everything.</strong> The Polish text requires regular software updates "in accordance with the manufacturer's recommendations, taking into account an analysis of the update's impact on the security of the service provided and the criticality level of individual updates".</p>
+<p>Read closely, that is not an instruction to patch promptly. It is an instruction to be able to show that criticality and impact were assessed, and that deferring an update was a decision rather than an omission. This matters because prompt patching of a supervisory controller is frequently not achievable: it needs a site visit, a window where the process tolerates a restart, a contractor with credentials and, in regulated environments, a change record. Honest patch latency on this class of equipment runs to quarters. A documented impact assessment plus a compensating control is defensible in front of an auditor. An empty update register is not, and neither is a policy promising a patch window nobody has ever used.</p>
+
+<p><strong>Cutting network traffic is explicitly permitted.</strong> The same article requires immediate action on discovering a vulnerability, "including the temporary limitation of inbound network traffic to the infrastructure", while taking into account the effect of that limitation on the availability of services.</p>
+<p>Disconnection is named in the statute as a legitimate response rather than tolerated as a last resort. The practical consequence is that you need to know, in advance and by testing, what happens to the process when remote access is cut: which alarms stop arriving, which contractor can no longer see the plant, what runs unattended. A decision taken at three in the morning without that knowledge is usually a decision to do nothing.</p>
+
+<p><strong>Supply chain means the maintenance contractor, not the software vendor.</strong> The requirement covers the security and continuity of ICT products, services and processes on which service provision depends, "taking into account the relationship between the direct supplier of hardware or software and the entity", and the following paragraph requires considering vulnerabilities associated with that supplier and the general quality of their products and processes.</p>
+<p>In a plant the hardest link is rarely the office software vendor. It is the firm with remote access to the refrigeration plant, the boiler house or the packing line. That equipment arrived with the installation, is maintained under a service contract and is unknown to the IT department. The obligation reaches that relationship whether or not the service contract mentions it.</p>
+
+<h2>Where to start, with a deadline in months</h2>
+<p>Inventory first, because every other requirement depends on it and none of them can be evidenced without it. Include equipment that sits under service contracts rather than under IT. Then establish what of yours answers from the internet, as opposed to what should. Then assess risk from the process rather than the device: the question is what happens to the service, not whether a controller has a known flaw. Only then choose controls, because only then does proportionality have anything to rest on.</p>
+<p>Document as you go. An audit under these regimes does not test whether you are secure. It tests whether you can show why you did what you did.</p>
+
+<p class="edition-note">This guide is published in English and in Polish. The two editions are not translations of each other: the Polish one walks through the Polish act article by article, while this one treats the Polish timetable as a worked example of how national transposition, rather than the directive, sets the real deadline.</p>
+
+<h2>Sources</h2>
+<ol class="sources">
+  <li>Act of 23 January 2026 amending the act on the national cyber security system and certain other acts, Journal of Laws 2026 item 252: <a href="https://dziennikustaw.gov.pl/DU/2026/252">dziennikustaw.gov.pl</a>. Provisions cited: article 8 (as enacted by article 1 point 16), articles 33, 34(3), 35 and 49.</li>
+  <li>Directive (EU) 2022/2555 (NIS2): <a href="https://eur-lex.europa.eu/eli/dir/2022/2555/oj">eur-lex.europa.eu</a></li>
+  <li>Liscere, GD-2026-01, "NIS2 and the Polish KSC act: who is covered and by when": <a href="/research/gd-2026-01/">liscere.com</a></li>
+  <li>Liscere, FN-2026-02, on the November refrigeration attacks and why patching faster is the wrong lesson: <a href="/research/fn-2026-02/">liscere.com</a></li>
+</ol>

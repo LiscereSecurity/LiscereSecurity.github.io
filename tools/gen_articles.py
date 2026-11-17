@@ -525,6 +525,73 @@ FN_2026_01 = dict(
 )
 
 
+GD_2026_05 = dict(
+    id="gd-2026-05", series="guides", date="2026-11-17", month_bib="nov", og_image="assets/og-image.png",
+    en=dict(
+        title="NIS2 Deadlines Come From National Law, Not the Directive | Liscere",
+        description="NIS2 said what to require, not when. Poland's act is dated: obligations April 2027, audit and penalties 2028. What to check in your own transposition.",
+        og_image_alt="Liscere: industrial cybersecurity",
+        about=["NIS2", "Operational technology security", "Regulatory compliance", "Industrial control systems", "Supply chain security"],
+        keywords="NIS2 deadline, national transposition, Poland KSC act, Dz.U. 2026 poz. 252, article 8, information security management system, OT scope, patch management, supply chain, first audit, penalties",
+        contact="../../services.html#contact",
+        key_points=[
+            "The directive set no date for an operator. Three dates come from the national act and are rarely the same: when obligations become enforceable, when the first audit is due, and when penalties become available.",
+            "In Poland those are 3 April 2027 for the chapter 3 obligations, 3 April 2028 for the first audit of essential entities, and 3 April 2028 before any financial penalty can be imposed.",
+            "The scope sentence decides whether OT is included. Poland ties the management system to the information system used in the processes affecting provision of the service, so if stopping the line stops the service, the line is in scope.",
+            "Three requirements read differently on a plant than in an office: updates demand a documented impact and criticality assessment rather than prompt patching, cutting inbound traffic is explicitly permitted, and the hardest supply chain link is the maintenance contractor with remote access.",
+        ],
+        related=[
+            ("research/gd-2026-01/", "NIS2 and the Polish KSC act", "Who is covered, what is required and by when."),
+            ("services/nis2-ksc-compliance.html", "NIS2 and KSC readiness", "Obligations, audit and an action plan with an OT perspective."),
+            ("services/ot-security-assessment.html", "OT and ICS security assessment", "Find what is reachable and what nobody has listed."),
+        ],
+        faq=[
+            ("Does NIS2 itself give my company a deadline?",
+             "No. The directive required member states to transpose it, and the dates that bind an operator come from the national act. They differ by country, by entity type and by obligation, so the useful question is not when NIS2 applies but what three dates your national law sets: when the obligations become enforceable, when the first audit is due, and when sanctions first become available."),
+            ("What are the Polish dates?",
+             "The amending act was published on 2 March 2026 and entered into force on 3 April 2026 under its article 49. Article 33(1) gives entities twelve months for the chapter 3 obligations, so 3 April 2027. Article 33(2) gives essential entities twenty four months for the first audit, so 3 April 2028. Article 35 provides that financial penalties cannot be imposed for the first time until two years after entry into force, again April 2028. Registration in the national list closed on 3 October 2026, a date set by a ministerial schedule rather than by the act."),
+            ("Are industrial control systems in scope?",
+             "Where the scope sentence ties the obligation to the service, yes. The Polish act requires the management system in the information system used in the processes affecting the provision of the service, which means scope follows the service rather than the department. If stopping the production line stops the service, the line is in scope, along with the controllers, operator stations, historian, field network and engineering workstation that run it."),
+            ("Does the law require us to patch promptly?",
+             "The Polish text requires updates in accordance with the manufacturer's recommendations, taking into account an analysis of the update's impact on the security of the service and the criticality of individual updates. That is a requirement to assess and record, not to patch immediately, which matters because prompt patching of a supervisory controller is often not achievable. A documented impact assessment plus a compensating control is defensible; an empty update register is not."),
+            ("Who counts as the supply chain for a plant?",
+             "Not primarily the office software vendor. The obligation covers ICT products, services and processes on which the service depends, taking into account the relationship between the direct supplier of hardware or software and the entity. In a plant the hardest link is usually the firm with remote access to refrigeration, the boiler house or a packing line, equipment that arrived with the installation, sits under a service contract and is unknown to the IT department."),
+        ],
+    ),
+    pl=dict(
+        title="Ustawa o KSC: co trzeba mieć w zakładzie do kwietnia 2027 | Liscere",
+        description="Art. 33 daje 12 miesięcy na obowiązki z rozdziału 3, czyli do 3 kwietnia 2027. Czego wymaga art. 8 w zakładzie i kiedy naprawdę grożą kary.",
+        og_image_alt="Liscere: cyberbezpieczeństwo przemysłowe",
+        about=["NIS2", "Ustawa o KSC", "Cyberbezpieczeństwo OT", "Przemysłowe systemy sterowania", "Zgodność z przepisami"],
+        keywords="ustawa o KSC, wykaz podmiotów kluczowych, art. 8, system zarządzania bezpieczeństwem informacji, 3 kwietnia 2027, audyt art. 15, kary art. 35, OT, sterowniki PLC, łańcuch dostaw, Dz.U. 2026 poz. 252",
+        contact="../../uslugi.html#contact",
+        key_points=[
+            "Art. 33 ust. 1: podmioty, które spełniały przesłanki w dniu wejścia w życie, realizują obowiązki z rozdziału 3 w terminie 12 miesięcy, czyli do 3 kwietnia 2027.",
+            "Art. 35: kary pieniężne mogą być po raz pierwszy nałożone dopiero po upływie 2 lat od wejścia w życie, czyli nie wcześniej niż 3 kwietnia 2028.",
+            "Art. 8 ust. 1 obejmuje system informacyjny wykorzystywany w procesach wpływających na świadczenie usługi. Jeżeli zatrzymanie linii zatrzymuje usługę, linia jest w zakresie.",
+            "Trzy wymogi znaczą w zakładzie co innego niż w biurze: aktualizacje wymagają analizy wpływu i krytyczności, a nie natychmiastowego łatania; czasowe ograniczenie ruchu jest wprost dopuszczone; a najtrudniejszym ogniwem łańcucha dostaw jest firma serwisowa ze zdalnym dostępem.",
+        ],
+        related=[
+            ("pl/badania/gd-2026-01/", "NIS2 i ustawa o KSC", "Kogo dotyczy, co trzeba mieć i do kiedy."),
+            ("pl/uslugi/nis2-ksc.html", "Gotowość do NIS2 i KSC", "Obowiązki, audyt i plan działań z perspektywą OT."),
+            ("pl/uslugi/audyt-bezpieczenstwa-ot.html", "Audyt bezpieczeństwa OT i ICS", "Sprawdzamy, co jest dostępne z zewnątrz i czego nikt nie spisał."),
+        ],
+        faq=[
+            ("Do kiedy trzeba wdrożyć obowiązki z ustawy o KSC?",
+             "Art. 33 ust. 1 stanowi, że podmioty, które w dniu wejścia w życie nowelizacji spełniały przesłanki uznania ich za podmiot kluczowy albo ważny, realizują obowiązki określone w rozdziale 3 w terminie 12 miesięcy od dnia wejścia w życie. Nowelizacja weszła w życie 3 kwietnia 2026, więc termin przypada na 3 kwietnia 2027. Pierwszy audyt z art. 15 ust. 1 podmioty kluczowe przeprowadzają w terminie 24 miesięcy, czyli do 3 kwietnia 2028."),
+            ("Czy grożą już kary za brak wpisu do wykazu?",
+             "Art. 35 stanowi, że kary pieniężne z art. 73 ust. 1–4, art. 73a–73c i art. 76b mogą być po raz pierwszy nałożone po upływie 2 lat od dnia wejścia w życie ustawy, czyli nie wcześniej niż 3 kwietnia 2028. Nie zwalnia to z obowiązku złożenia wniosku, bo terminy pozostałych obowiązków i tak biegną, ale oznacza, że ostrzeżenia o natychmiastowych karach są niezgodne z treścią ustawy."),
+            ("Czy ustawa obejmuje sterowniki i systemy sterowania?",
+             "Tak, jeżeli biorą udział w świadczeniu usługi. Art. 8 ust. 1 wymaga systemu zarządzania bezpieczeństwem informacji w systemie informacyjnym wykorzystywanym w procesach wpływających na świadczenie usługi przez podmiot. Zakres wyznacza więc usługa, a nie granica działu IT. Sterowniki PLC, panele HMI, stacje SCADA, historian, sieć obiektowa i stacja inżynierska są objęte niezależnie od tego, czy figurują w ewidencji zasobów."),
+            ("Czy trzeba łatać wszystko na bieżąco?",
+             "Nie w takim brzmieniu. Art. 8 ust. 1 pkt 5 lit. b wymaga regularnych aktualizacji stosownie do zaleceń producenta, z uwzględnieniem analizy wpływu aktualizacji na bezpieczeństwo świadczonej usługi oraz poziomu krytyczności poszczególnych aktualizacji. To wymóg oceny i udokumentowania, a nie natychmiastowego łatania, co ma znaczenie, bo aktualizacja sterownika nadrzędnego wymaga wyjazdu, okna postojowego i serwisanta. Udokumentowana analiza wraz z zabezpieczeniem kompensującym broni się przy audycie; pusty rejestr nie."),
+            ("Czy wolno odciąć zdalny dostęp po wykryciu podatności?",
+             "Art. 8 ust. 1 pkt 5 lit. d wprost wymienia czasowe ograniczenie ruchu sieciowego przychodzącego do infrastruktury jako działanie podejmowane niezwłocznie po stwierdzeniu podatności, z uwzględnieniem skutków takiego ograniczenia dla dostępności usług. W praktyce trzeba wcześniej wiedzieć i przećwiczyć, co stanie się z procesem po odcięciu: które alarmy przestaną docierać i co pozostanie bez nadzoru."),
+        ],
+    ),
+)
+
+
 FN_2026_02 = dict(
     id="fn-2026-02", date="2026-11-17", month_bib="nov",
     og_image="assets/og-image.png",
@@ -1079,7 +1146,7 @@ GD_2026_04 = dict(
 )
 
 
-ARTICLES = [GD_2026_01, GD_2026_02, GD_2026_03, GD_2026_04, FN_2026_01, FN_2026_02, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
+ARTICLES = [GD_2026_01, GD_2026_02, GD_2026_03, GD_2026_04, GD_2026_05, FN_2026_01, FN_2026_02, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
             LTR_2026_01, LTR_2026_02, LTR_2026_03, LTR_2026_04, LTR_2026_05]
 
 if __name__ == "__main__":
