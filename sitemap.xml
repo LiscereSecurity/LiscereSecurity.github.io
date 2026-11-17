@@ -85,6 +85,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research/gd-2026-04/"/>
   </url>
   <url>
+    <loc>https://liscere.com/pl/badania/gd-2026-05/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research/gd-2026-05/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/gd-2026-05/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research/gd-2026-05/"/>
+  </url>
+  <url>
     <loc>https://liscere.com/pl/dane-spolki.html</loc>
     <lastmod>2026-11-15</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/legal.html"/>
@@ -237,6 +244,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research/gd-2026-04/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/gd-2026-04/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research/gd-2026-04/"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/research/gd-2026-05/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research/gd-2026-05/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/gd-2026-05/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research/gd-2026-05/"/>
   </url>
   <url>
     <loc>https://liscere.com/research/lb-2026-01/</loc>
