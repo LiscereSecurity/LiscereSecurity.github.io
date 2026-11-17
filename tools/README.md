@@ -43,3 +43,29 @@ Tell Bing and the other IndexNow search engines about changed pages:
     python3 tools/indexnow.py https://liscere.com/services.html
 
 The key file `<key>.txt` at the site root proves ownership; do not delete it.
+
+## OT radar (daily reading, not publishing)
+
+    python3 tools/radar.py              # items from the last 2 days
+    python3 tools/radar.py --days 7     # wider window, e.g. after a break
+    python3 tools/radar.py --all        # ignore what was already reported
+
+Reads seven feeds that answered when tested on 17 November 2026: CISA ICS advisories, Siemens
+ProductCERT (its ATOM feed; the RSS one is deprecated), CERT Polska, Industrial Cyber,
+SecurityWeek ICS/OT, The Record and BleepingComputer. Dragos, Claroty and Nozomi publish no feed.
+
+Topical feeds pass whole; general feeds must match a keyword. Keywords ending in `*` are stems, so
+Polish inflection is covered by one entry. Everything else matches on whole words, which is why
+`port` no longer fires inside `support`. CISA writes a two-digit year in `pubDate`, so `%y` is tried
+before `%Y`; without that every advisory came through undated and the date window did nothing.
+
+Output goes to `radar/YYYY-MM-DD.md`, which is gitignored and never deployed. `radar/seen.json`
+stops an item being reported twice, which also means a second run on the same day finds nothing;
+in that case the existing brief is kept rather than overwritten with an empty one. **Nothing here publishes anything.** Deciding what becomes a
+Field Note is a human decision, on purpose: an automated pipeline would eventually call an IT
+ransomware case an OT incident in public, and Google's scaled content abuse policy targets exactly
+the pattern of a site posting generated articles daily.
+
+Run daily by the scheduled task `radar-ot-liscere` (sidebar, Scheduled), which runs this script,
+judges each item and writes `radar/YYYY-MM-DD-veredito.md`. Scheduled tasks only run while the
+desktop app is open; a missed run fires at next launch.
