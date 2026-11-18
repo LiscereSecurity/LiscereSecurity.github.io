@@ -146,6 +146,27 @@ for d, ps in descs.items():
     if len(ps) > 1: E(",".join(ps), f"duplicate description")
 for u in in_sitemap:
     if url_to_file(u) not in ALL: E("sitemap.xml", f"URL without file: {u}")
+# Index pages list articles newest first. Hand-maintained order drifts every time something is
+# published, and the drift is invisible until somebody looks at the page, so check it here.
+# Only entries with a full date are compared: the older ones carry month precision and their
+# relative order is deliberate.
+sys.path.insert(0, os.path.join(ROOT, "tools"))
+try:
+    import gen_articles as _ga
+    _dates = {a["id"]: a.get("date", "") for a in _ga.ARTICLES}
+    for _idx, _pat in (("research.html", r'href="\./research/([a-z0-9-]+)/"'),
+                       ("pl/badania.html", r'href="\./badania/([a-z0-9-]+)/"')):
+        _f = os.path.join(ROOT, _idx)
+        if not os.path.exists(_f):
+            continue
+        _ids = re.findall(_pat, open(_f, encoding="utf-8").read())
+        _seq = [(i, _dates.get(i, "")) for i in _ids if len(_dates.get(i, "")) == 10]
+        for (_a, _da), (_b, _db) in zip(_seq, _seq[1:]):
+            if _db > _da:
+                E(_idx, f"{_b} ({_db}) is listed after {_a} ({_da}); newest should come first")
+except ImportError:
+    W("tools/audit.py", "could not import gen_articles to check index order")
+
 robots = open(os.path.join(ROOT, "robots.txt")).read()
 if "Sitemap: https://liscere.com/sitemap.xml" not in robots: E("robots.txt", "no Sitemap line")
 
