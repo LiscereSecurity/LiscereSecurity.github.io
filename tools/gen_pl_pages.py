@@ -328,9 +328,15 @@ def faq():
 # ---------------------------------------------------------------- Badania (research index)
 # Field Notes have Polish versions; reports are in English (marked "po angielsku").
 BADANIA = [
+    ("fieldnotes", "./badania/fn-2026-03/", "FN-2026-03 · Field Notes · listopad 2026", "Aktualizacja była incydentem",
+     "Wstrzymanie ruchu lotniczego w USA i awaria niejawnej sieci NSA zostały publicznie odczytane jako skoordynowany atak. Oba zdarzenia wskazują na planowaną konserwację, a jedno z nich wciąż nie ma ustalonej przyczyny. Czego ustawa o KSC wymaga w ciągu 24 i 72 godzin od operatora, który nie wie jeszcze, czy to była awaria, czy atak.",
+     False, "Czytaj artykuł"),
     ("guides", "./badania/gd-2026-05/", "GD-2026-05 · Poradnik · listopad 2026", "Co trzeba mieć do kwietnia 2027",
      "Termin na wniosek o wpis minął 3 października. Art. 33 daje 12 miesięcy na obowiązki z rozdziału 3, czyli do 3 kwietnia 2027, a art. 35 mówi, że kary mogą być nałożone dopiero po kwietniu 2028. Czego wymaga art. 8 w zakładzie, punkt po punkcie.",
      False, "Czytaj poradnik"),
+    ("fieldnotes", "./badania/fn-2026-02/", "FN-2026-02 · Field Notes · listopad 2026", "Ataki na chłodnie, listopad 2026",
+     "Trzy tygodnie po Francji kampania dosięgła firm spożywczych w Wielkiej Brytanii i Belgii. Błędy nie były nowe: CISA opisała je w lutym, a poprawka istniała. Nasza analiza techniczna: klasy podatności, dlaczego CVSS myli na sterowniku nadrzędnym i co robić, gdy linia produktowa nie dostanie już poprawek.",
+     False, "Czytaj artykuł"),
     ("guides", "./badania/gd-2026-04/", "GD-2026-04 · Poradnik · listopad 2026", "CRA i IEC 62443",
      "Dobra znajomość IEC 62443 to nie to samo co gotowość na rozporządzenie o cyberodporności, i instytucje europejskie zapisały to wprost. Które terminy są pewne, dlaczego żadna pojedyncza norma nie pokrywa aktu, co znaczy nota o zakresie przemysłowym przy każdej zmapowanej części serii i co buduje teraz CENELEC, żeby tę lukę zamknąć.",
      False, "Czytaj poradnik"),
@@ -343,12 +349,6 @@ BADANIA = [
     ("guides", "./badania/gd-2026-01/", "GD-2026-01 · Poradnik · listopad 2026", "NIS2 i ustawa o KSC",
      "Kogo dotyczą przepisy, co trzeba mieć i do kiedy. Sektory i progi wielkości z dyrektywy, polskie daty, które łatwo pomylić, obowiązki, kary oraz część pomijana w większości projektów zgodności: sterowniki, stacje operatorskie i sieci sterujące procesem fizycznym.",
      False, "Czytaj poradnik"),
-    ("fieldnotes", "./badania/fn-2026-03/", "FN-2026-03 · Field Notes · listopad 2026", "Aktualizacja była incydentem",
-     "Wstrzymanie ruchu lotniczego w USA i awaria niejawnej sieci NSA zostały publicznie odczytane jako skoordynowany atak. Oba zdarzenia wskazują na planowaną konserwację, a jedno z nich wciąż nie ma ustalonej przyczyny. Czego ustawa o KSC wymaga w ciągu 24 i 72 godzin od operatora, który nie wie jeszcze, czy to była awaria, czy atak.",
-     False, "Czytaj artykuł"),
-    ("fieldnotes", "./badania/fn-2026-02/", "FN-2026-02 · Field Notes · listopad 2026", "Ataki na chłodnie, listopad 2026",
-     "Trzy tygodnie po Francji kampania dosięgła firm spożywczych w Wielkiej Brytanii i Belgii. Błędy nie były nowe: CISA opisała je w lutym, a poprawka istniała. Nasza analiza techniczna: klasy podatności, dlaczego CVSS myli na sterowniku nadrzędnym i co robić, gdy linia produktowa nie dostanie już poprawek.",
-     False, "Czytaj artykuł"),
     ("fieldnotes", "./badania/fn-2026-01/", "FN-2026-01 · Field Notes · listopad 2026", "Atak na chłodnie supermarketów",
      "W październiku 2026 atakujący dostali się do sterowników chłodniczych około 700 supermarketów we Francji i za pomocą cykli odszraniania oraz nastaw temperatury ogrzali w nocy lodówki i zamrażarki. Nic nie zostało zepsute: każde polecenie było autoryzowane. Co się stało, co zaleca CERT-FR i dlaczego kontekst jest pytaniem, które pozwoliłoby to wychwycić. Z dwuminutowym filmem.",
      False, "Czytaj artykuł"),
