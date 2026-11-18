@@ -664,6 +664,73 @@ CC_BY = '<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" 
 SALMAZO = {"@type": "Person", "name": "Bruno Salmazo", "@id": "https://orcid.org/0009-0000-4410-3616",
            "identifier": "https://orcid.org/0009-0000-4410-3616", "sameAs": "https://orcid.org/0009-0000-4410-3616"}
 
+FN_2026_03 = dict(
+    id="fn-2026-03", date="2026-11-18", month_bib="nov",
+    og_image="assets/og-image.png",
+    en=dict(
+        title="The Update Was the Incident: Fault or Attack? | Liscere",
+        description="A US air traffic shutdown and an NSA network outage were read as an attack. Both point to planned maintenance. What that means for industrial operators.",
+        og_image_alt="Liscere logo on a dark background",
+        about=["Operational technology security", "Industrial control systems", "Incident response", "Change management", "Detection and monitoring", "Critical infrastructure"],
+        keywords="FAA ground stop, NSA Net outage, maintenance window, change control, fault or attack, incident reporting, NIS2, KSC, OT monitoring, root cause",
+        contact="../../services.html#contact",
+        key_points=[
+            "The FAA halted departures across the United States after a communications failure that affected communications and radar feeds at 17 of the country's 22 en route air traffic control centres. The White House said there was no indication of a nefarious act.",
+            "Both of the week's largest outages point at planned maintenance. The FAA failure came during a programme to replace ageing telecommunications equipment, and the NSA described a temporary degradation during scheduled routine maintenance.",
+            "The FAA has not established a definitive root cause. Under the Polish national cyber security act an operator has 24 hours to say whether an incident was caused by unlawful or bad faith action, if such an assessment is possible, and 72 hours to describe its causes.",
+            "A maintenance window is a detection blind spot, because during it every anomaly already has an explanation. Monitoring should be raised during planned work rather than reduced, and the people making the change should not be the only ones watching it.",
+        ],
+        related=[
+            ("services/ot-security-assessment.html", "OT and ICS security assessment", "Find what is reachable and what nobody has listed."),
+            ("services/automation-modernisation.html", "Automation modernisation and retrofit", "Replace unsupported equipment without stopping the process."),
+            ("services/nis2-ksc-compliance.html", "NIS2 and KSC readiness", "Obligations, audit and an action plan with an OT perspective."),
+        ],
+        faq=[
+            ("What caused the November 2026 FAA ground stop?",
+             "The FAA has not established a definitive root cause. Transportation Secretary Sean Duffy said upgrade work on an old telecommunications system could be a cause, and that the contractor L3Harris was switching telecommunications lines from old copper wire to fibre in at least one remote location. The FAA paused installation of Juniper routers while it investigates whether the failure came from defective equipment or from an installation or configuration error."),
+            ("Was it a cyberattack?",
+             "Officials said there was no indication of one and the FBI was brought in to confirm the systems had not been hacked. That is better founded than the claims of a coordinated attack that circulated at the same time, but it is not the same as knowing: an investigation that cannot yet say what caused a failure is not in a position to have exhausted what did not."),
+            ("What does an American air traffic failure have to do with industrial control systems?",
+             "The shape of the problem is identical. At the packet level a device re-registering in a loop and a crude denial of service attempt look the same, and what separates them is context the network cannot supply. The first question in triage is what changed, which is why a change record functions as a detection control rather than as administration."),
+            ("How quickly does Polish law require an incident to be reported?",
+             "The amended national cyber security act requires an early warning to the sector CSIRT without delay and no later than 24 hours from detection, a full notification within 72 hours, a periodic report on request, and a final report within a month of the notification. The early warning must state whether the incident was caused by unlawful or bad faith action, if such an assessment is possible, and the 72 hour notification must describe its causes."),
+            ("What should an operator do differently during planned maintenance?",
+             "Raise monitoring rather than reduce it, and separate the people performing the change from the people watching it. During a maintenance window every anomaly has a ready explanation, which is precisely why an adversary who knows the change calendar does not need an exploit that beats the defences on an ordinary day."),
+        ],
+    ),
+    pl=dict(
+        title="Aktualizacja była incydentem: awaria czy atak? | Liscere",
+        description="Wstrzymanie ruchu lotniczego w USA i awaria sieci NSA zostały odczytane jako atak. Oba wskazują na konserwację. Co z tego wynika dla operatora OT.",
+        og_image_alt="Logo Liscere na ciemnym tle",
+        about=["Bezpieczeństwo OT", "Przemysłowe systemy sterowania", "Obsługa incydentów", "Zarządzanie zmianą", "Monitorowanie i detekcja", "Infrastruktura krytyczna"],
+        keywords="FAA, NSA Net, okno serwisowe, rejestr zmian, awaria czy atak, zgłoszenie incydentu, 24 godziny, 72 godziny, NIS2, KSC, monitorowanie OT",
+        contact="../../uslugi.html#contact",
+        key_points=[
+            "Amerykański urząd lotnictwa wstrzymał starty w całym kraju po awarii łączności, która dotknęła łączność i obraz radarowy w 17 z 22 ośrodków kontroli obszaru. Biały Dom oświadczył, że nic nie wskazuje na działanie o złym zamiarze.",
+            "Obie największe awarie tego tygodnia wskazują na planowaną konserwację. Awaria FAA wydarzyła się podczas programu wymiany przestarzałego sprzętu telekomunikacyjnego, a NSA opisała czasowe pogorszenie działania podczas zaplanowanej rutynowej konserwacji.",
+            "FAA nie ustaliła ostatecznej przyczyny. Ustawa o krajowym systemie cyberbezpieczeństwa daje operatorowi 24 godziny na wczesne ostrzeżenie, w tym na wskazanie, czy incydent wywołano działaniem bezprawnym lub w złej wierze, jeżeli taka ocena jest możliwa, oraz 72 godziny na opis przyczyn.",
+            "Okno serwisowe jest martwym polem detekcji, bo w jego trakcie każda anomalia ma gotowe wyjaśnienie. Monitorowanie należy w tym czasie podnosić, a nie ograniczać, a osoby wykonujące zmianę nie powinny być jedynymi, które ją obserwują.",
+        ],
+        related=[
+            ("pl/uslugi/audyt-bezpieczenstwa-ot.html", "Audyt bezpieczeństwa OT i ICS", "Sprawdzamy, co jest dostępne z zewnątrz i czego nikt nie spisał."),
+            ("pl/uslugi/modernizacja-automatyki.html", "Modernizacja automatyki i retrofit", "Wymiana urządzeń bez wsparcia bez zatrzymywania procesu."),
+            ("pl/uslugi/nis2-ksc.html", "Gotowość do NIS2 i KSC", "Obowiązki, audyt i plan działań z perspektywą OT."),
+        ],
+        faq=[
+            ("Co spowodowało listopadowe wstrzymanie ruchu lotniczego w USA?",
+             "FAA nie ustaliła ostatecznej przyczyny. Sekretarz transportu Sean Duffy wskazał, że przyczyną mogły być prace modernizacyjne na starym systemie telekomunikacyjnym, a wykonawca L3Harris przełączał łącza ze starej linii miedzianej na światłowód w co najmniej jednej zdalnej lokalizacji. FAA wstrzymała instalację routerów Juniper na czas ustalenia, czy awaria wynikła z wadliwego sprzętu, czy z błędu instalacji lub konfiguracji."),
+            ("Czy to był cyberatak?",
+             "Przedstawiciele władz oświadczyli, że nic na to nie wskazuje, a do potwierdzenia, że systemów nie zhakowano, włączono FBI. Jest to znacznie lepiej uzasadnione niż krążące w tym samym czasie tezy o skoordynowanym ataku, ale nie jest tym samym co wiedza: dochodzenie, które nie potrafi jeszcze powiedzieć, co wywołało awarię, nie jest w stanie wykluczyć wszystkiego, co jej nie wywołało."),
+            ("Co awaria amerykańskiego lotnictwa ma wspólnego z systemami sterowania?",
+             "Kształt problemu jest identyczny. Na poziomie pakietów urządzenie rejestrujące się w pętli i prymitywny atak odmowy usługi wyglądają tak samo, a rozróżnia je kontekst, którego sieć nie dostarczy. Pierwsze pytanie przy segregacji zdarzeń brzmi: co się zmieniło. Dlatego rejestr zmian działa jako środek detekcyjny, a nie jako papierologia."),
+            ("W jakim czasie ustawa wymaga zgłoszenia incydentu?",
+             "Znowelizowana ustawa o KSC wymaga wczesnego ostrzeżenia do właściwego CSIRT sektorowego niezwłocznie, nie później niż w ciągu 24 godzin od wykrycia, zgłoszenia incydentu poważnego w ciągu 72 godzin, sprawozdania okresowego na wniosek CSIRT oraz sprawozdania końcowego w ciągu miesiąca od zgłoszenia. Wczesne ostrzeżenie wskazuje, czy incydent wywołano działaniem bezprawnym lub w złej wierze, jeżeli taka ocena jest możliwa, a zgłoszenie siedemdziesięciodwugodzinne zawiera opis przyczyn."),
+            ("Co operator powinien robić inaczej podczas planowanych prac?",
+             "Podnosić monitorowanie zamiast je ograniczać i rozdzielić osoby wykonujące zmianę od osób, które ją obserwują. W oknie serwisowym każda anomalia ma gotowe wyjaśnienie i właśnie dlatego przeciwnik znający kalendarz zmian nie potrzebuje exploita pokonującego zabezpieczenia w zwykły dzień."),
+        ],
+    ),
+)
+
 LB_2026_01 = dict(
     id="lb-2026-01", series="landscape", langs=("en",), date="2026-06-23", modified="2026-10-07",
     og_image="assets/og-image.png", pdf="assets/papers/liscere-ot-threat-landscape.pdf", version="1.1",
@@ -1146,7 +1213,7 @@ GD_2026_04 = dict(
 )
 
 
-ARTICLES = [GD_2026_01, GD_2026_02, GD_2026_03, GD_2026_04, GD_2026_05, FN_2026_01, FN_2026_02, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
+ARTICLES = [GD_2026_01, GD_2026_02, GD_2026_03, GD_2026_04, GD_2026_05, FN_2026_01, FN_2026_02, FN_2026_03, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
             LTR_2026_01, LTR_2026_02, LTR_2026_03, LTR_2026_04, LTR_2026_05]
 
 if __name__ == "__main__":

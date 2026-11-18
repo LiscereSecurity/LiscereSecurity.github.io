@@ -51,11 +51,44 @@ GENERIC_OT = ["ot security", "it/ot", "it-ot", "ics", "industrial control", "ope
 POLISH = ["przemyslow*", "sterownik*", "automatyk*", "infrastruktur* krytyczn*", "energetyk*",
           "wodociag*", "elektrowni*", "szpital*", "kolej*", "rafineri*", "fabryk*", "zaklad*"]
 
+# A second tier. These stories rarely name a PLC, so the OT keywords above miss them, but they
+# are what decides how an operator's board thinks about risk: state actors, infrastructure-wide
+# failures, and the platform flaws that end up inside SCADA without anyone having chosen them.
+# They are kept apart from the advisories rather than mixed in, because they are context, not work.
+CONTEXT = ["volt typhoon", "salt typhoon", "sandworm", "nation-state", "nation state",
+           "state-sponsored", "state-backed", "state group", "state hackers",
+           "pre-positioning", "prepositioning", "apt", "espionage", "cyberwar*", "sabotage",
+           "nsa", "cisa", "fbi", "classified network", "government network",
+           "power outage", "blackout", "grid failure", "ground stop", "air traffic",
+           "undersea cable", "subsea cable", "gps jamming", "gps spoofing",
+           "log4shell", "log4j", "java4shell", "node.js", "nodejs", "openssl",
+           "actively exploited", "zero-day", "zero day", "known exploited",
+           "supply chain attack", "supply-chain attack"]
+
+# Court reporting is not operational news. An extradition or a sentencing changes nothing on a
+# plant floor, and these headlines were crowding out the ones that do.
+# Deliberately not here: "fined", "lawsuit", "penalty". A regulator fining an operator is
+# exactly our subject, so those headlines must survive.
+NOISE = ["extradited", "extradition", "sentenced", "pleads guilty", "pleaded guilty",
+         "arrested", "indicted", "convicted", "court clears", "jailed", "charges filed"]
+
+
+def build(keys):
+    """Whole-word matchers. A trailing * means a stem, so manufactur* also hits manufacturing."""
+    out = []
+    for k in keys:
+        if k.endswith("*"):
+            rx = r"(?<![\w-])" + re.escape(k[:-1]).replace(r"\ ", r"\s+")
+        else:
+            rx = r"(?<![\w-])" + re.escape(k).replace(r"\ ", r"\s+") + r"(?![\w-])"
+        out.append((k.replace("*", ""), re.compile(rx)))
+    return out
+
+
 KEYWORDS = VENDORS + PRODUCTS + SECTORS + REGULATION + GENERIC_OT + POLISH
-MATCHERS = [(k.replace("*", ""),
-             re.compile(r"(?<![\w-])" + re.escape(k[:-1]).replace(r"\ ", r"\s+") if k.endswith("*")
-                        else r"(?<![\w-])" + re.escape(k).replace(r"\ ", r"\s+") + r"(?![\w-])"))
-            for k in KEYWORDS]
+MATCHERS = build(KEYWORDS)
+CONTEXT_MATCHERS = build(CONTEXT)
+NOISE_RX = re.compile("|".join(re.escape(n) for n in NOISE))
 
 PL_MAP = str.maketrans("ąćęłńóśźżĄĆĘŁŃÓŚŹŻ", "acelnoszzACELNOSZZ")
 
@@ -120,6 +153,11 @@ def matches(item):
     return sorted({label for label, rx in MATCHERS if rx.search(hay)})
 
 
+def context_matches(item):
+    hay = fold(item["title"] + " " + item["summary"])
+    return sorted({label for label, rx in CONTEXT_MATCHERS if rx.search(hay)})
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--days", type=int, default=2)
@@ -152,8 +190,15 @@ def main():
             if key in titles:
                 continue
             it["tags"] = matches(it)
-            if not it["topical"] and not it["tags"]:
+            it["ctx"] = context_matches(it)
+            if not it["topical"] and not it["tags"] and not it["ctx"]:
                 continue
+            # Applied whatever the tags say: a court story that happens to mention hospitals
+            # was being kept as a healthcare item, and crowding out the real ones.
+            if not it["topical"] and NOISE_RX.search(fold(it["title"])):
+                continue
+            if not it["topical"] and not it["tags"]:
+                it["kind"] = "context"
             titles.add(key)
             items.append(it)
             kept += 1
@@ -170,7 +215,8 @@ def main():
         print(f"  = nothing new; keeping the existing {os.path.basename(path)}", file=sys.stderr)
         print(path)
         return
-    groups = [("Advisories", "advisory"), ("Poland", "poland"), ("News", "news")]
+    groups = [("Advisories", "advisory"), ("Poland", "poland"), ("News", "news"),
+              ("Context", "context")]
     lines = [f"# OT radar, {today}", ""]
     if not items:
         lines += ["Nothing new in the window. That happens; it is not a failure.", ""]
@@ -183,8 +229,9 @@ def main():
             when = i["date"].strftime("%d %b") if i["date"] else "undated"
             lines.append(f"- **{i['title']}**  ")
             lines.append(f"  {i['source']}, {when} — <{i['link']}>  ")
-            if i["tags"]:
-                lines.append(f"  tags: {', '.join(i['tags'][:8])}")
+            shown = i["tags"] or i.get("ctx") or []
+            if shown:
+                lines.append(f"  tags: {', '.join(shown[:8])}")
             lines.append("")
     lines += ["---", "",
               f"{len(items)} items. Window {args.days} day(s). "
