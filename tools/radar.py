@@ -17,6 +17,14 @@ OUT_DIR = os.path.join(ROOT, "radar")
 STATE = os.path.join(OUT_DIR, "seen.json")
 ATOM = "{http://www.w3.org/2005/Atom}"
 
+# Not an RSS feed: a JSON aggregator of ransomware leak sites, read through its clearnet API.
+# One call per run, because the unauthenticated tier allows one request per minute. It returns
+# every Polish victim ever listed, so the date window below is what makes it a daily item.
+# We never store the description field: it is the criminals' own post, and the ones we sampled
+# carried unredacted personal data of the victims' clients.
+LEAKS_NAME = "Ransomware.live"
+LEAKS_URL = "https://api.ransomware.live/v2/countryvictims/PL"
+
 # topical=True  -> the whole feed is about industrial control systems, keep everything
 # topical=False -> a general security feed, keep only what matches a keyword
 SOURCES = [
@@ -106,9 +114,17 @@ def parse_date(s):
     if not s:
         return None
     s = s.strip()
+    # The leak API answers in ISO 8601 with microseconds and an offset
+    # ("2026-11-19T06:44:34.639183+00:00"), which no strptime format below covers.
+    try:
+        d = dt.datetime.fromisoformat(s.replace("Z", "+00:00"))
+        return d if d.tzinfo else d.replace(tzinfo=dt.timezone.utc)
+    except ValueError:
+        pass
     # CISA writes a two-digit year ("Thu, 12 Nov 26"), so %y is tried before %Y.
     for fmt in ("%a, %d %b %y %H:%M:%S %z", "%a, %d %b %Y %H:%M:%S %z", "%a, %d %b %Y %H:%M:%S %Z",
-                "%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M:%SZ", "%Y-%m-%dT%H:%M:%S.%fZ", "%Y-%m-%d"):
+                "%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M:%SZ", "%Y-%m-%dT%H:%M:%S.%fZ", "%Y-%m-%d",
+                "%Y-%m-%d %H:%M:%S.%f", "%Y-%m-%d %H:%M:%S"):
         try:
             d = dt.datetime.strptime(s.replace("GMT", "+0000"), fmt)
             return d.replace(tzinfo=d.tzinfo or dt.timezone.utc)
@@ -147,6 +163,53 @@ def read_feed(name, url, topical, kind):
     return out
 
 
+def read_leaks():
+    """Polish victims named on ransomware leak sites. Same dict shape as a feed item.
+
+    The API answers with a list on success and with {"message": ...} when it rate-limits, so a
+    throttled run has to look like an empty source rather than an exception: the other sources
+    must still produce a brief.
+    """
+    try:
+        data = json.loads(fetch(LEAKS_URL))
+    except Exception as e:
+        print(f"  ! {LEAKS_NAME}: {type(e).__name__} {str(e)[:60]}", file=sys.stderr)
+        return []
+    if not isinstance(data, list):
+        note = data.get("message") if isinstance(data, dict) else "unexpected response"
+        print(f"  ! {LEAKS_NAME}: {note}", file=sys.stderr)
+        return []
+
+    def pick(v, *keys):
+        for k in keys:
+            if v.get(k):
+                return str(v[k]).strip()
+        return ""
+
+    out = []
+    for v in data:
+        if not isinstance(v, dict):
+            continue
+        victim = pick(v, "post_title", "victim")
+        if not victim:
+            continue
+        group = pick(v, "group_name", "group") or "unnamed group"
+        sector = pick(v, "activity")
+        # The claim URL is usually an onion address on the group's own leak site. It is the
+        # primary source, so it earns its place in an internal brief, but it is never fetched
+        # and nothing here invites opening it.
+        claim = pick(v, "post_url", "claim_url", "url")
+        title = f"{victim} listed by {group}"
+        if sector:
+            title += f" ({sector})"
+        out.append({"title": title, "link": claim,
+                    "id": f"leak:PL:{group.lower()}:{victim.lower()}"[:160],
+                    "summary": "", "date": parse_date(pick(v, "discovered", "published", "attackdate")),
+                    "source": LEAKS_NAME, "topical": True, "kind": "leaks",
+                    "tags": [t for t in (sector.lower(), "poland") if t]})
+    return out
+
+
 def matches(item):
     """Keywords found in an item, used both to filter general feeds and to tag everything."""
     hay = fold(item["title"] + " " + item["summary"])
@@ -174,22 +237,28 @@ def main():
     titles = set()
 
     print("Reading feeds:", file=sys.stderr)
-    for name, url, topical, kind in SOURCES:
-        got = read_feed(name, url, topical, kind)
+    work = [(name, read_feed(name, url, topical, kind)) for name, url, topical, kind in SOURCES]
+    work.append((LEAKS_NAME, read_leaks()))
+    for name, got in work:
         kept = 0
         for it in got:
-            if not it["title"] or not it["link"]:
+            if not it["title"]:
+                continue
+            # Leak items carry an id of their own: a group can relist the same victim under a
+            # new URL, and the claim URL is sometimes missing altogether.
+            it.setdefault("id", it["link"])
+            if not it["id"]:
                 continue
             if it["date"] and it["date"] < cutoff:
                 dropped_old += 1
                 continue
-            if it["link"] in seen:
+            if it["id"] in seen:
                 dropped_seen += 1
                 continue
             key = fold(it["title"])[:90]
             if key in titles:
                 continue
-            it["tags"] = matches(it)
+            it.setdefault("tags", matches(it))
             it["ctx"] = context_matches(it)
             if not it["topical"] and not it["tags"] and not it["ctx"]:
                 continue
@@ -216,7 +285,7 @@ def main():
         print(path)
         return
     groups = [("Advisories", "advisory"), ("Poland", "poland"), ("News", "news"),
-              ("Context", "context")]
+              ("Leaks", "leaks"), ("Context", "context")]
     lines = [f"# OT radar, {today}", ""]
     if not items:
         lines += ["Nothing new in the window. That happens; it is not a failure.", ""]
@@ -228,7 +297,8 @@ def main():
         for i in chunk:
             when = i["date"].strftime("%d %b") if i["date"] else "undated"
             lines.append(f"- **{i['title']}**  ")
-            lines.append(f"  {i['source']}, {when} — <{i['link']}>  ")
+            where = f"<{i['link']}>" if i["link"] else "no public claim URL"
+            lines.append(f"  {i['source']}, {when} — {where}  ")
             shown = i["tags"] or i.get("ctx") or []
             if shown:
                 lines.append(f"  tags: {', '.join(shown[:8])}")
@@ -239,7 +309,7 @@ def main():
     open(path, "w", encoding="utf-8").write("\n".join(lines))
 
     if not args.all:
-        json.dump({"links": sorted(seen | {i["link"] for i in items})[-4000:]},
+        json.dump({"links": sorted(seen | {i["id"] for i in items})[-4000:]},
                   open(STATE, "w"), indent=0)
     print(path)
 
