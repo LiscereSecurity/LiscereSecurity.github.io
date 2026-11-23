@@ -12,6 +12,8 @@ import json
 import os
 import re
 import sys
+from datetime import datetime, time
+from zoneinfo import ZoneInfo
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -19,6 +21,16 @@ ROOT_DIR = os.path.dirname(HERE)
 SITE = "https://liscere.com/"
 CSS_V = "20261117-a1"
 ORG = {"@id": SITE + "#org"}
+
+
+def upload_datetime(d):
+    """VideoObject.uploadDate needs a full ISO 8601 datetime with a time zone.
+
+    A bare YYYY-MM-DD is accepted for datePublished but Search Console reports
+    it as invalid and as missing a time zone for videos, so widen it here.
+    """
+    midmorning = datetime.combine(datetime.strptime(d, "%Y-%m-%d").date(), time(9, 0))
+    return midmorning.replace(tzinfo=ZoneInfo("Europe/Warsaw")).isoformat()
 
 CSP = ("<meta http-equiv=\"Content-Security-Policy\" content=\"default-src 'self'; script-src 'self' "
        "https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; "
@@ -334,7 +346,7 @@ def build(art, lang):
         graph_article["video"] = {"@id": URL + "#video"}
         graph.append({"@type": "VideoObject", "@id": URL + "#video", "name": a["video_name"],
                       "description": a["video_description"], "thumbnailUrl": [SITE + art["poster"], SITE + art["og_image"]],
-                      "uploadDate": art["date"], "duration": v["duration"], "contentUrl": SITE + v["src"],
+                      "uploadDate": upload_datetime(art["date"]), "duration": v["duration"], "contentUrl": SITE + v["src"],
                       "encodingFormat": "video/mp4", "inLanguage": "en-GB", "publisher": ORG})
     graph += [
         {"@type": "Organization", "@id": SITE + "#org", "name": "Liscere", "legalName": "Liscere sp. z o.o.",
