@@ -37,7 +37,7 @@
   </url>
   <url>
     <loc>https://liscere.com/pl/badania.html</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research.html"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research.html"/>
@@ -62,6 +62,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research/fn-2026-03/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/fn-2026-03/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research/fn-2026-03/"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/pl/badania/fn-2026-04/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research/fn-2026-04/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/fn-2026-04/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research/fn-2026-04/"/>
   </url>
   <url>
     <loc>https://liscere.com/pl/badania/gd-2026-01/</loc>
@@ -205,7 +212,7 @@
   </url>
   <url>
     <loc>https://liscere.com/research.html</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research.html"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research.html"/>
@@ -230,6 +237,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research/fn-2026-03/"/>
     <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/fn-2026-03/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research/fn-2026-03/"/>
+  </url>
+  <url>
+    <loc>https://liscere.com/research/fn-2026-04/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://liscere.com/research/fn-2026-04/"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/fn-2026-04/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://liscere.com/research/fn-2026-04/"/>
   </url>
   <url>
     <loc>https://liscere.com/research/gd-2026-01/</loc>

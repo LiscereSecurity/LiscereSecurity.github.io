@@ -1,0 +1,60 @@
+<p class="kicker">FIELD NOTES · FN-2026-04 · 25 listopada 2026</p>
+
+<h1>Poprawki nie ma, a wraz z nią zniknie pewien wybór</h1>
+
+<p class="lede">24 listopada CISA opublikowała alert dotyczący sterowników chłodniczych używanych w handlu spożywczym. Podatność nie wymaga hasła, poprawki jeszcze nie ma, a ta, która nadejdzie, odbierze klientom możliwość, którą mają dzisiaj. To ostatnie jest tu najciekawsze, bo oznacza, że sama ta możliwość była wadą.</p>
+
+<h2>Co mówi alert</h2>
+<ul>
+  <li><strong>Urządzenia.</strong> Sterowniki Danfoss serii AK-SM 8xxA w wersji oprogramowania 5.4.0 i wcześniejszych. CISA podaje sektor jako Commercial Facilities, zasięg wdrożeń jako ogólnoświatowy, a siedzibę producenta w Danii.</li>
+  <li><strong>Podatność.</strong> CVE-2026-129713, przepełnienie bufora na stosie (CWE-121) w nieuwierzytelnionej obsłudze CGI. Dociera do niej spreparowane żądanie POST po HTTP lub HTTPS. CVSS v3.1 ocenia ją na 9.8, wektor AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H; CVSS v4.0 na 9.3.</li>
+  <li><strong>Poświadczenia nie są potrzebne.</strong> Alert stwierdza wprost, że wykorzystanie podatności nie wymaga uwierzytelnienia.</li>
+  <li><strong>Co to realnie robi.</strong> Uszkodzenie pamięci i restart serwera WWW, a w ostrożnym sformułowaniu samego alertu hipotetycznie możliwe wykonanie dowolnego kodu z uprawnieniami serwera WWW. Dwa pierwsze skutki są stwierdzone, trzeci nie.</li>
+  <li><strong>Poprawki dziś nie ma.</strong> Danfoss zapowiada, że podatność zostanie usunięta w przyszłym wydaniu oprogramowania AK-SM 800A, w wersji 5.5.x. Daty nie podano.</li>
+  <li><strong>Zgłaszający.</strong> Carlo Meijer z Midnight Blue zgłosił podatność do CISA.</li>
+  <li><strong>Nie odnotowano wykorzystania.</strong> CISA podaje, że nie zgłoszono jej żadnego publicznie znanego wykorzystania wymierzonego konkretnie w tę podatność.</li>
+</ul>
+
+<h2>Zalecenia tymczasowe wskazują konkretne ustawienie</h2>
+
+<p>Do czasu wydania poprawki Danfoss prosi operatorów, aby nie wystawiali sterowników do internetu ani nie nadawali im publicznych adresów IP, aby dostęp zdalny prowadzić wyłącznie przez VPN lub równoważną chronioną architekturę, aby stosować silne i unikalne hasła oraz aby skonfigurować wszystkie dotknięte urządzenia do pracy w trybie Strict Mode.</p>
+
+<p>I dalej pada zdanie warte przeczytania dwa razy. Danfoss zapowiada, że w przyszłych wydaniach odbierze użytkownikom możliwość wyłączenia trybu Strict Mode.</p>
+
+<p>Zestawmy jedno z drugim, a obraz problemu układa się bez żadnej wiedzy poufnej. Zabezpieczenie już istnieje. Jest dostępne na zainstalowanej bazie, dzisiaj, bez kosztu i bez aktualizacji. Da się je wyłączyć, a producent doszedł do wniosku, że sama możliwość wyłączenia była błędem na tyle poważnym, że warto go naprawić w oprogramowaniu.</p>
+
+<p>Pytanie, które operator powinien sobie zadać w tym tygodniu, nie brzmi więc, czy sterownik jest załatany, bo załatany być nie może. Brzmi: czy tryb Strict Mode jest włączony, a jeżeli nie, to kto go wyłączył i co przestało działać, kiedy był włączony.</p>
+
+<h2>Czego alert nie mówi</h2>
+
+<p>Nie łączy tej podatności z atakami na europejski handel spożywczy z października i listopada. My również tego nie zrobimy. Danfoss rzeczywiście oświadczył, że w listopadowych przypadkach w grę wchodziło jego oprogramowanie i że dotknięci klienci nie wgrali aktualizacji, a ten alert pojawił się trzy tygodnie później dla tej samej rodziny produktów, i obie te rzeczy mogą być prawdziwe bez związku przyczynowego. CISA pisze, że nie zgłoszono jej wykorzystania tego CVE, i to zdanie dźwiga w tym dokumencie najwięcej.</p>
+
+<p>Nie udało nam się też przeczytać samego alertu Danfossa. Strona zwraca nam 403, więc wszystko, co przypisujemy tu Danfossowi, podajemy w brzmieniu zreferowanym przez CISA. Wolimy to powiedzieć, niż przedstawiać lekturę z drugiej ręki jako własną.</p>
+
+<h2>Nasza analiza</h2>
+
+<p>Nieuwierzytelniona obsługa CGI na sterowniku nadrzędnym instalacji chłodniczej to to samo ustalenie, które opisaliśmy w listopadzie, tyle że u innego producenta. Taki sterownik istnieje po to, by łączyć interfejs WWW dla ludzi z magistralą obiektową schodzącą do sterowników mebli chłodniczych. Cokolwiek dociera do strony WWW bez poświadczeń, przekroczyło już jedyną granicę, która miała znaczenie, a przypisana temu ocena punktowa jest przy tym szczegółem.</p>
+
+<p>Restart zasługuje na więcej uwagi, niż zwykle dostaje. Serwer WWW, który da się zrestartować nieuwierzytelnionym żądaniem, to odmowa dostępu do ścieżki zarządzania, a na tej klasie urządzeń ścieżka zarządzania jest jednocześnie ścieżką monitorowania. Operator, który ją traci, nie traci chłodzenia, ale traci możliwość zobaczenia, że z chłodzeniem dzieje się coś złego. Dla atakującego to już jest coś warte, nawet jeżeli do wykonania kodu nigdy nie dojdzie.</p>
+
+<p>Opcjonalne zabezpieczenie to ta część, którą opisalibyśmy klientowi. Ustawienia bezpieczeństwa, które da się przełączyć, bywają przełączane, i nie przez tę osobę, która ponosi ryzyko. Na tej klasie urządzeń przełącza je zwykle firma serwisująca chłodnictwo podczas uruchomienia, bo coś w ścieżce zdalnego dostępu nie działało z włączoną ochroną, a robotę trzeba było skończyć tego popołudnia. Nikt tego nie zapisuje. Ustawienie przeżywa potem każdy kolejny przegląd serwisowy, bo nikt nie wie, że cokolwiek zmieniono. Decyzja Danfossa o usunięciu tej opcji jest słuszna i jednocześnie mówi, co działo się w terenie.</p>
+
+<h2>Co z tego wynika po stronie KSC</h2>
+
+<p>Znowelizowana ustawa o krajowym systemie cyberbezpieczeństwa umiejscawia system zarządzania bezpieczeństwem w systemie informacyjnym wykorzystywanym w procesach wpływających na świadczenie usługi. W zakładzie przetwórstwa spożywczego, w chłodni składowej i w magazynie dystrybucyjnym sterownik chłodniczy jest w tym zakresie, niezależnie od tego, czy figuruje w ewidencji zasobów IT, bo zatrzymanie chłodzenia zatrzymuje usługę. Produkcja, przetwórstwo i dystrybucja żywności są sektorami objętymi NIS2, a obowiązki z rozdziału 3 stają się wymagalne 3 kwietnia 2027.</p>
+
+<p>Praktyczny skutek jest taki, że brak poprawki niczego nie zawiesza. Obowiązek dotyczy zarządzania ryzykiem, a nie wyłącznie aktualizowania. Jeżeli poprawki nie ma, to udokumentowane środki zastępcze, czyli pozycja sieciowa, VPN, włączony tryb Strict Mode i termin wymiany, są tym, co się przedstawia, i są wystarczające, o ile zostały zapisane i ocenione, a nie jedynie wykonane.</p>
+
+<p>Zostaje więc konkretna praca, która nie wymaga poprawki ani nas. Znaleźć sterowniki. Ustalić, czy każdy z nich jest osiągalny z zewnątrz i skąd. Odczytać na każdym stan trybu Strict Mode, nie zamierzony, tylko faktyczny. Zapisać to, co się znajdzie, razem z informacją, kto utrzymuje urządzenie i na podstawie jakiej umowy, bo to jest to pole, które zostanie puste, i to ono tłumaczy resztę.</p>
+
+<p class="edition-note">Ta notatka ukazuje się po angielsku i po polsku. Obie wersje nie są swoimi tłumaczeniami: ta zestawia alert z obowiązkami wynikającymi z ustawy o KSC, a angielska ujmuje rzecz w skali europejskiej.</p>
+
+<p class="tagline">Zabezpieczenie, które da się wyłączyć, to zabezpieczenie, które ktoś już wyłączył.</p>
+
+<h2>Źródła</h2>
+<ol class="sources">
+  <li>CISA, alert ICSA-26-328-03, „Danfoss AK-SM 8xxA Series", 24 listopada 2026: <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-328-03">cisa.gov</a></li>
+  <li>Danfoss, oprogramowanie i zalecenia bezpieczeństwa dla AK-SM 800A: <a href="https://www.danfoss.com/en/service-and-support/downloads/dcs/adap-kool-software/ak-sm-800a/">danfoss.com</a></li>
+  <li>Liscere, Field Note FN-2026-02, „Załatane, niezałatane, bez wsparcia: ataki na chłodnie wróciły w listopadzie", 17 listopada 2026: <a href="/pl/badania/fn-2026-02/">liscere.com</a></li>
+  <li>Liscere, Field Note FN-2026-01, „Autoryzowane polecenia, zepsuta żywność: cyberatak na chłodnie supermarketów w październiku 2026", 12 listopada 2026: <a href="/pl/badania/fn-2026-01/">liscere.com</a></li>
+</ol>

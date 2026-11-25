@@ -328,6 +328,9 @@ def faq():
 # ---------------------------------------------------------------- Badania (research index)
 # Field Notes have Polish versions; reports are in English (marked "po angielsku").
 BADANIA = [
+    ("fieldnotes", "./badania/fn-2026-04/", "FN-2026-04 · Field Notes · listopad 2026", "Poprawki nie ma, a opcja zniknie",
+     "CISA opisała podatność w sterownikach chłodniczych Danfoss, której wykorzystanie nie wymaga hasła, a poprawki jeszcze nie ma. Ta, która nadejdzie, odbierze też klientowi możliwość wyłączenia zabezpieczenia, które już jest na zainstalowanej bazie. Co to mówi o samym ustawieniu i co operator może sprawdzić w tym tygodniu, nie czekając na nic.",
+     False, "Czytaj artykuł"),
     ("fieldnotes", "./badania/fn-2026-03/", "FN-2026-03 · Field Notes · listopad 2026", "Aktualizacja była incydentem",
      "Wstrzymanie ruchu lotniczego w USA i awaria niejawnej sieci NSA zostały publicznie odczytane jako skoordynowany atak. Oba zdarzenia wskazują na planowaną konserwację, a jedno z nich wciąż nie ma ustalonej przyczyny. Czego ustawa o KSC wymaga w ciągu 24 i 72 godzin od operatora, który nie wie jeszcze, czy to była awaria, czy atak.",
      False, "Czytaj artykuł"),
