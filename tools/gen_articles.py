@@ -612,10 +612,10 @@ FN_2026_02 = dict(
         description="Attackers hit refrigeration controllers in the UK and Belgium in November. CISA named the flaws in February and a fix existed. What that tells OT operators.",
         og_image_alt="Liscere logo on a dark background",
         about=["Operational technology security", "Industrial control systems", "Refrigeration controllers", "Vulnerability management", "Cold chain", "Critical infrastructure"],
-        keywords="Copeland XWEB, refrigeration controllers, November 2026, cold chain attack, OT security, ICS, end of support, asset inventory, NIS2, patching, CVE-2026-21718",
+        keywords="Copeland XWEB, Danfoss, refrigeration controllers, November 2026, cold chain attack, OT security, ICS, end of support, asset inventory, NIS2, patching, CVE-2026-21718",
         contact="../../services.html#contact",
         key_points=[
-            "On 2 November 2026 refrigeration controllers were attacked at British meat businesses and a produce wholesaler, with Belgian cases at the same time. Nobody claimed it and no government has attributed it.",
+            "On 2 November 2026 refrigeration controllers were attacked at British meat businesses and a produce wholesaler, and across several other European countries the same night. Nobody claimed it and no government has attributed it.",
             "The flaws were not new. CISA advisory ICSA-26-057-10 of 26 February 2026 covered the same controllers at firmware 1.12.1 and earlier, listed 23 vulnerabilities including one scored 10.0, and recorded that a fix was available.",
             "A second product line, the Copeland XWEB EVO, is reported to be out of software support, which means no patch is coming and only network position and monitoring remain.",
             "The number that decides the outcome is not the CVE count but how many code paths touch attacker input before the credential check. On these controllers that number is not zero.",
@@ -627,7 +627,7 @@ FN_2026_02 = dict(
         ],
         faq=[
             ("What happened in the November 2026 refrigeration attacks?",
-             "In the early hours of Monday 2 November 2026, refrigeration controllers were attacked at three British meat businesses and a fruit and vegetable wholesaler, while Belgium's cyber security agency handled cases at the same time. The trade body involved said the entry point was vulnerable Copeland XWEB supervisory controllers running firmware 1.12.1 or earlier."),
+             "In the early hours of Monday 2 November 2026, refrigeration controllers were attacked at three British meat businesses and a fruit and vegetable wholesaler, while Belgium's cyber security agency handled cases at the same time. The trade body involved said the entry point for its members was vulnerable Copeland XWEB supervisory controllers running firmware 1.12.1 or earlier. The same night reached several other European countries, and Danfoss said its own software was involved in cases there, so Copeland was not the only product line affected."),
             ("Was there a patch available?",
              "Yes. CISA published advisory ICSA-26-057-10 on 26 February 2026 for Copeland XWEB and XWEB Pro at version 1.12.1 and earlier, listing 23 vulnerability identifiers, and recorded that the manufacturer had provided a fix. A security note circulated to British suppliers in November instead described an update available since August. The public dates differ, but a correction existed months before the attacks either way."),
             ("Did anyone lose stock?",
@@ -643,10 +643,10 @@ FN_2026_02 = dict(
         description="W listopadzie zaatakowano sterowniki chłodnicze w Wielkiej Brytanii i Belgii. CISA opisała te błędy w lutym, a poprawka istniała. Co to mówi operatorom OT.",
         og_image_alt="Logo Liscere na ciemnym tle",
         about=["Cyberbezpieczeństwo OT", "Przemysłowe systemy sterowania", "Sterowniki chłodnicze", "Zarządzanie podatnościami", "Łańcuch chłodniczy", "Infrastruktura krytyczna"],
-        keywords="Copeland XWEB, sterowniki chłodnicze, listopad 2026, atak na łańcuch chłodniczy, cyberbezpieczeństwo OT, ICS, koniec wsparcia, inwentaryzacja zasobów, NIS2, KSC, aktualizacje",
+        keywords="Copeland XWEB, Danfoss, sterowniki chłodnicze, listopad 2026, atak na łańcuch chłodniczy, cyberbezpieczeństwo OT, ICS, koniec wsparcia, inwentaryzacja zasobów, NIS2, KSC, aktualizacje",
         contact="../../uslugi.html#contact",
         key_points=[
-            "2 listopada 2026 zaatakowano sterowniki chłodnicze w brytyjskich firmach mięsnych i hurtowni warzyw, a w tym samym czasie sprawami zajmowała się Belgia. Nikt się nie przyznał i żaden rząd nikomu tego nie przypisał.",
+            "2 listopada 2026 zaatakowano sterowniki chłodnicze w brytyjskich firmach mięsnych i hurtowni warzyw, a tej samej nocy także w kilku innych krajach Europy. Nikt się nie przyznał i żaden rząd nikomu tego nie przypisał.",
             "Błędy nie były nowe. Alert CISA ICSA-26-057-10 z 26 lutego 2026 obejmował te same sterowniki w wersji 1.12.1 i wcześniejszych, wymieniał 23 podatności, w tym jedną z oceną 10.0, i odnotowywał dostępną poprawkę.",
             "Druga linia produktowa, Copeland XWEB EVO, według doniesień straciła wsparcie programowe. Poprawki nie będzie, zostaje miejsce urządzenia w sieci i monitoring.",
             "O wyniku decyduje nie liczba CVE, lecz to, ile ścieżek kodu dotyka danych atakującego przed sprawdzeniem poświadczeń. W tych sterownikach nie jest to zero.",
@@ -658,7 +658,7 @@ FN_2026_02 = dict(
         ],
         faq=[
             ("Co się stało podczas listopadowych ataków na chłodnie w 2026 roku?",
-             "We wczesnych godzinach rannych w poniedziałek 2 listopada 2026 zaatakowano sterowniki chłodnicze w trzech brytyjskich firmach mięsnych i w hurtowni owoców i warzyw, a w tym samym czasie sprawami zajmowała się belgijska agencja cyberbezpieczeństwa. Organizacja branżowa podała, że drogą wejścia były podatne sterowniki nadrzędne Copeland XWEB w wersji 1.12.1 lub wcześniejszej."),
+             "We wczesnych godzinach rannych w poniedziałek 2 listopada 2026 zaatakowano sterowniki chłodnicze w trzech brytyjskich firmach mięsnych i w hurtowni owoców i warzyw, a w tym samym czasie sprawami zajmowała się belgijska agencja cyberbezpieczeństwa. Organizacja branżowa podała, że drogą wejścia u jej członków były podatne sterowniki nadrzędne Copeland XWEB w wersji 1.12.1 lub wcześniejszej. Tej samej nocy ucierpiało kilka innych krajów Europy, a Danfoss oświadczył, że w tamtejszych przypadkach w grę wchodziło jego oprogramowanie, więc Copeland nie był jedyną dotkniętą linią produktową."),
             ("Czy poprawka była dostępna?",
              "Tak. CISA opublikowała 26 lutego 2026 alert ICSA-26-057-10 dla Copeland XWEB i XWEB Pro w wersji 1.12.1 i wcześniejszych, wymieniła 23 identyfikatory podatności i odnotowała, że producent udostępnił poprawkę. W informacji rozesłanej brytyjskim dostawcom w listopadzie napisano natomiast, że aktualizacja jest dostępna od sierpnia. Publiczne daty się różnią, ale w obu wariantach poprawka istniała miesiącami przed atakiem."),
             ("Czy ktoś stracił towar?",

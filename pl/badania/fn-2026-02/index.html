@@ -75,7 +75,7 @@
         "Łańcuch chłodniczy",
         "Infrastruktura krytyczna"
       ],
-      "keywords": "Copeland XWEB, sterowniki chłodnicze, listopad 2026, atak na łańcuch chłodniczy, cyberbezpieczeństwo OT, ICS, koniec wsparcia, inwentaryzacja zasobów, NIS2, KSC, aktualizacje",
+      "keywords": "Copeland XWEB, Danfoss, sterowniki chłodnicze, listopad 2026, atak na łańcuch chłodniczy, cyberbezpieczeństwo OT, ICS, koniec wsparcia, inwentaryzacja zasobów, NIS2, KSC, aktualizacje",
       "citation": [
         {
           "@type": "CreativeWork",
@@ -91,6 +91,16 @@
           "@type": "CreativeWork",
           "name": "The Record, Alexander Martin, „British businesses caught in Europe-wide supermarket fridge attacks”, 3 listopada 2026",
           "url": "https://therecord.media/british-businesses-caught-in-europe-wide-supermarket-fridge-attacks"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Euronews, \"Cyberattacks hit supermarket fridges and freezers in Europe, Belgium launches investigation\", 2 November 2026",
+          "url": "https://www.euronews.com/2026/11/02/cyberattack-hits-belgian-supermarket-fridges-and-freezers"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "BleepingComputer, \"Hackers disrupt refrigeration systems at European supermarkets\", 2 November 2026",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-disrupt-refrigeration-systems-at-european-supermarkets/"
         },
         {
           "@type": "CreativeWork",
@@ -148,7 +158,7 @@
           "name": "Co się stało podczas listopadowych ataków na chłodnie w 2026 roku?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "We wczesnych godzinach rannych w poniedziałek 2 listopada 2026 zaatakowano sterowniki chłodnicze w trzech brytyjskich firmach mięsnych i w hurtowni owoców i warzyw, a w tym samym czasie sprawami zajmowała się belgijska agencja cyberbezpieczeństwa. Organizacja branżowa podała, że drogą wejścia były podatne sterowniki nadrzędne Copeland XWEB w wersji 1.12.1 lub wcześniejszej."
+            "text": "We wczesnych godzinach rannych w poniedziałek 2 listopada 2026 zaatakowano sterowniki chłodnicze w trzech brytyjskich firmach mięsnych i w hurtowni owoców i warzyw, a w tym samym czasie sprawami zajmowała się belgijska agencja cyberbezpieczeństwa. Organizacja branżowa podała, że drogą wejścia u jej członków były podatne sterowniki nadrzędne Copeland XWEB w wersji 1.12.1 lub wcześniejszej. Tej samej nocy ucierpiało kilka innych krajów Europy, a Danfoss oświadczył, że w tamtejszych przypadkach w grę wchodziło jego oprogramowanie, więc Copeland nie był jedyną dotkniętą linią produktową."
           }
         },
         {
@@ -226,7 +236,7 @@
       <aside class="key-points" aria-labelledby="key-points-title">
         <h2 id="key-points-title">Najważniejsze punkty</h2>
         <ul>
-          <li>2 listopada 2026 zaatakowano sterowniki chłodnicze w brytyjskich firmach mięsnych i hurtowni warzyw, a w tym samym czasie sprawami zajmowała się Belgia. Nikt się nie przyznał i żaden rząd nikomu tego nie przypisał.</li>
+          <li>2 listopada 2026 zaatakowano sterowniki chłodnicze w brytyjskich firmach mięsnych i hurtowni warzyw, a tej samej nocy także w kilku innych krajach Europy. Nikt się nie przyznał i żaden rząd nikomu tego nie przypisał.</li>
           <li>Błędy nie były nowe. Alert CISA ICSA-26-057-10 z 26 lutego 2026 obejmował te same sterowniki w wersji 1.12.1 i wcześniejszych, wymieniał 23 podatności, w tym jedną z oceną 10.0, i odnotowywał dostępną poprawkę.</li>
           <li>Druga linia produktowa, Copeland XWEB EVO, według doniesień straciła wsparcie programowe. Poprawki nie będzie, zostaje miejsce urządzenia w sieci i monitoring.</li>
           <li>O wyniku decyduje nie liczba CVE, lecz to, ile ścieżek kodu dotyka danych atakującego przed sprawdzeniem poświadczeń. W tych sterownikach nie jest to zero.</li>
@@ -260,6 +270,8 @@
         <h2 id="co-sie-stalo">Co się stało</h2>
         <ul>
           <li><strong>Druga fala.</strong> We wczesnych godzinach rannych w poniedziałek 2 listopada 2026 zaatakowano sterowniki chłodnicze w trzech brytyjskich firmach mięsnych, członkach Association of Independent Meat Suppliers, oraz w Langridge Organic, hurtowni owoców i warzyw. W tym samym czasie sprawami zajmowała się belgijska agencja cyberbezpieczeństwa.</li>
+          <li><strong>Szersza fala.</strong> Późniejsze doniesienia objęły tę samą noc w kilku krajach: Belgii, Holandii, Szwecji, Luksemburgu i Estonii, a w zależności od źródła także w Finlandii albo Irlandii. Liczby się nie zgadzają. Pisano o ponad 115 sklepach, Ahold Delhaize mówił o kilkudziesięciu własnych, a belgijska firma chłodnicza Sabcobel o około dwudziestu spośród setek utrzymywanych przez siebie instalacji. Nie potrafimy tych liczb pogodzić i nie wybieramy żadnej z nich.</li>
+          <li><strong>Drugi producent.</strong> Danfoss oświadczył, że w grę wchodziło jego oprogramowanie i że dotknięci zostali klienci, którzy nie wgrali aktualizacji. Sabcobel, który utrzymuje systemy dla belgijskiej sieci handlowej, podał, że mechanizm był taki sam jak w październikowym ataku we Francji. Przypadki brytyjskie wskazują na Copeland, belgijskie już nie, a pierwotna wersja tej notatki tego nie mówiła.</li>
           <li><strong>Urządzenia.</strong> Organizacja branżowa podała, że jej członkowie zostali zaatakowani przez podatne sterowniki nadrzędne Copeland XWEB. W rozesłanej przez nią informacji wskazano oprogramowanie układowe w wersji 1.12.1 i wcześniejszych oraz opisano błędy obejścia uwierzytelniania, które pozwalają przejąć kontrolę bez hasła.</li>
           <li><strong>Skala strat jest sporna.</strong> Doniesienia mówiły o zepsutym towarze, ale organizacja branżowa oświadczyła, że żaden z dotkniętych członków nie stracił mięsa, a hurtownia stwierdziła, że jej zespół zareagował, zanim cokolwiek przepadło. Obie wersje mogą być prawdziwe: taki atak da się przetrwać, jeżeli ktoś patrzy o trzeciej nad ranem.</li>
           <li><strong>Brak atrybucji.</strong> Nikt nie przyznał się do listopadowej fali, a brytyjskie władze nikomu jej nie przypisały. Rzecznik strony belgijskiej powiedział, że ustalenie sprawców może nigdy nie być możliwe. To kontrast wobec października, gdy Francja wskazała grupę wiązaną z irańskim Korpusem Strażników Rewolucji.</li>
@@ -294,6 +306,8 @@
 
         <p class="tagline">Poprawka, której nie wgrano, nie jest poprawką.</p>
 
+        <p class="edition-note"><strong>Aktualizacja z 25 listopada 2026.</strong> Powyżej dodano dwa punkty. W pierwotnej wersji ta notatka opisywała drugą falę przez pryzmat przypadków brytyjskich i podawała jedynie, że Belgia zajmowała się wtedy swoimi sprawami, co zaniżało zasięg tamtej nocy i całkowicie pomijało Danfossa. Niczego z pierwotnej treści nie wycofano.</p>
+
         <section class="article-related" aria-labelledby="help">
           <h2 id="help">Jak Liscere może pomóc</h2>
           <ul class="related-links">
@@ -307,7 +321,7 @@
           <h2 id="questions">Pytania</h2>
           <div class="faq-item">
             <h3 class="faq-q">Co się stało podczas listopadowych ataków na chłodnie w 2026 roku?</h3>
-            <p class="faq-a">We wczesnych godzinach rannych w poniedziałek 2 listopada 2026 zaatakowano sterowniki chłodnicze w trzech brytyjskich firmach mięsnych i w hurtowni owoców i warzyw, a w tym samym czasie sprawami zajmowała się belgijska agencja cyberbezpieczeństwa. Organizacja branżowa podała, że drogą wejścia były podatne sterowniki nadrzędne Copeland XWEB w wersji 1.12.1 lub wcześniejszej.</p>
+            <p class="faq-a">We wczesnych godzinach rannych w poniedziałek 2 listopada 2026 zaatakowano sterowniki chłodnicze w trzech brytyjskich firmach mięsnych i w hurtowni owoców i warzyw, a w tym samym czasie sprawami zajmowała się belgijska agencja cyberbezpieczeństwa. Organizacja branżowa podała, że drogą wejścia u jej członków były podatne sterowniki nadrzędne Copeland XWEB w wersji 1.12.1 lub wcześniejszej. Tej samej nocy ucierpiało kilka innych krajów Europy, a Danfoss oświadczył, że w tamtejszych przypadkach w grę wchodziło jego oprogramowanie, więc Copeland nie był jedyną dotkniętą linią produktową.</p>
           </div>
           <div class="faq-item">
             <h3 class="faq-q">Czy poprawka była dostępna?</h3>
@@ -333,6 +347,8 @@
             <li>CISA, alert ICSA-26-057-10, „Copeland XWEB and XWEB Pro”, 26 lutego 2026: <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-057-10">cisa.gov</a></li>
             <li>CERT-FR, alert CERTFR-2026-ALE-012, 12 października 2026, aktualizacje z 13 i 16 października: <a href="https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/">cert.ssi.gouv.fr</a></li>
             <li>The Record, Alexander Martin, „British businesses caught in Europe-wide supermarket fridge attacks”, 3 listopada 2026: <a href="https://therecord.media/british-businesses-caught-in-europe-wide-supermarket-fridge-attacks">therecord.media</a></li>
+            <li>Euronews, "Cyberattacks hit supermarket fridges and freezers in Europe, Belgium launches investigation", 2 November 2026: <a href="https://www.euronews.com/2026/11/02/cyberattack-hits-belgian-supermarket-fridges-and-freezers">euronews.com</a></li>
+            <li>BleepingComputer, "Hackers disrupt refrigeration systems at European supermarkets", 2 November 2026: <a href="https://www.bleepingcomputer.com/news/security/hackers-disrupt-refrigeration-systems-at-european-supermarkets/">bleepingcomputer.com</a></li>
             <li>VulnCheck, Valentin Lobstein, „Code of the Day: Unauthenticated Root in Copeland XWEB EVO”, 13 listopada 2026: <a href="https://vulncheck.com/blog/copeland-xweb-evo-unauthenticated-root">vulncheck.com</a></li>
             <li>Liscere, Field Note FN-2026-01, „Autoryzowane polecenia, zepsuta żywność: cyberatak na chłodnie supermarketów z października 2026”, 12 listopada 2026: <a href="/pl/badania/fn-2026-01/">liscere.com</a></li>
           </ol>
