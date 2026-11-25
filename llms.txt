@@ -66,6 +66,7 @@ Liscere welcomes research partners, OT and process engineers, machine builders, 
 - LinkedIn: https://www.linkedin.com/company/liscere
 - GitHub: https://github.com/LiscereSecurity
 - Crunchbase: https://www.crunchbase.com/organization/liscere
+- ALEO (Polish business register, operated by ING): https://aleo.com/pl/firma/liscere-spolka-z-ograniczona-odpowiedzialnoscia
 - Wikidata: https://www.wikidata.org/wiki/Q141017853
 - Zenodo (the reports, with DOIs): https://zenodo.org/communities/liscere/
 
