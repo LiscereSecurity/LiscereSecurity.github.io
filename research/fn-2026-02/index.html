@@ -75,7 +75,7 @@
         "Cold chain",
         "Critical infrastructure"
       ],
-      "keywords": "Copeland XWEB, refrigeration controllers, November 2026, cold chain attack, OT security, ICS, end of support, asset inventory, NIS2, patching, CVE-2026-21718",
+      "keywords": "Copeland XWEB, Danfoss, refrigeration controllers, November 2026, cold chain attack, OT security, ICS, end of support, asset inventory, NIS2, patching, CVE-2026-21718",
       "citation": [
         {
           "@type": "CreativeWork",
@@ -91,6 +91,16 @@
           "@type": "CreativeWork",
           "name": "The Record, Alexander Martin, \"British businesses caught in Europe-wide supermarket fridge attacks\", 3 November 2026",
           "url": "https://therecord.media/british-businesses-caught-in-europe-wide-supermarket-fridge-attacks"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Euronews, \"Cyberattacks hit supermarket fridges and freezers in Europe, Belgium launches investigation\", 2 November 2026",
+          "url": "https://www.euronews.com/2026/11/02/cyberattack-hits-belgian-supermarket-fridges-and-freezers"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "BleepingComputer, \"Hackers disrupt refrigeration systems at European supermarkets\", 2 November 2026",
+          "url": "https://www.bleepingcomputer.com/news/security/hackers-disrupt-refrigeration-systems-at-european-supermarkets/"
         },
         {
           "@type": "CreativeWork",
@@ -148,7 +158,7 @@
           "name": "What happened in the November 2026 refrigeration attacks?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "In the early hours of Monday 2 November 2026, refrigeration controllers were attacked at three British meat businesses and a fruit and vegetable wholesaler, while Belgium's cyber security agency handled cases at the same time. The trade body involved said the entry point was vulnerable Copeland XWEB supervisory controllers running firmware 1.12.1 or earlier."
+            "text": "In the early hours of Monday 2 November 2026, refrigeration controllers were attacked at three British meat businesses and a fruit and vegetable wholesaler, while Belgium's cyber security agency handled cases at the same time. The trade body involved said the entry point for its members was vulnerable Copeland XWEB supervisory controllers running firmware 1.12.1 or earlier. The same night reached several other European countries, and Danfoss said its own software was involved in cases there, so Copeland was not the only product line affected."
           }
         },
         {
@@ -226,7 +236,7 @@
       <aside class="key-points" aria-labelledby="key-points-title">
         <h2 id="key-points-title">Key points</h2>
         <ul>
-          <li>On 2 November 2026 refrigeration controllers were attacked at British meat businesses and a produce wholesaler, with Belgian cases at the same time. Nobody claimed it and no government has attributed it.</li>
+          <li>On 2 November 2026 refrigeration controllers were attacked at British meat businesses and a produce wholesaler, and across several other European countries the same night. Nobody claimed it and no government has attributed it.</li>
           <li>The flaws were not new. CISA advisory ICSA-26-057-10 of 26 February 2026 covered the same controllers at firmware 1.12.1 and earlier, listed 23 vulnerabilities including one scored 10.0, and recorded that a fix was available.</li>
           <li>A second product line, the Copeland XWEB EVO, is reported to be out of software support, which means no patch is coming and only network position and monitoring remain.</li>
           <li>The number that decides the outcome is not the CVE count but how many code paths touch attacker input before the credential check. On these controllers that number is not zero.</li>
@@ -260,6 +270,8 @@
         <h2 id="what-happened">What happened</h2>
         <ul>
           <li><strong>The second wave.</strong> In the early hours of Monday 2 November 2026, refrigeration controllers were attacked at three British meat businesses, all members of the Association of Independent Meat Suppliers, and at Langridge Organic, a fruit and vegetable wholesaler. Belgium's cyber security agency was handling cases at the same time.</li>
+          <li><strong>The wider wave.</strong> Reporting that followed put the same night across several countries, naming Belgium, the Netherlands, Sweden, Luxembourg and Estonia, with Finland or Ireland depending on the outlet. The counts do not agree. More than 115 stores has been reported, Ahold Delhaize said several dozen of its own, and the Belgian refrigeration firm Sabcobel put it at around twenty of the hundreds of installations it maintains. We cannot reconcile those figures and we are not picking one.</li>
+          <li><strong>A second manufacturer.</strong> Danfoss said its software was involved and that the customers affected were those who had not applied an update. Sabcobel, which maintains the systems for a Belgian retailer, said the mechanism matched the October attack in France. The British cases point at Copeland; the Belgian ones do not, and the note as first published did not say so.</li>
           <li><strong>The equipment.</strong> The trade body said its members were attacked through vulnerable Copeland XWEB supervisory controllers. A security note it circulated named firmware version 1.12.1 and earlier, and described authentication bypass flaws that let an attacker take control without a password.</li>
           <li><strong>The damage is disputed.</strong> Reports said stock had spoiled, but the trade body said none of its affected members lost meat, and the wholesaler said its own team intervened before anything was lost. Both statements can be true: these attacks are survivable if somebody is watching at three in the morning.</li>
           <li><strong>No attribution.</strong> Nobody claimed the November wave, and British authorities have not attributed it. A Belgian spokesperson said it may never be possible to identify who was behind it. This is a contrast with October, when France named a group it links to Iran's Revolutionary Guard.</li>
@@ -292,6 +304,8 @@
 
         <p class="tagline">A fix you have not applied is not a fix.</p>
 
+        <p class="edition-note"><strong>Updated 25 November 2026.</strong> Two bullets were added above. As first published this note described the second wave through the British cases and said only that Belgium was handling cases at the same time, which understated how far the night reached and left out Danfoss entirely. Nothing in the original was withdrawn.</p>
+
         <section class="article-related" aria-labelledby="help">
           <h2 id="help">How Liscere can help</h2>
           <ul class="related-links">
@@ -305,7 +319,7 @@
           <h2 id="questions">Questions</h2>
           <div class="faq-item">
             <h3 class="faq-q">What happened in the November 2026 refrigeration attacks?</h3>
-            <p class="faq-a">In the early hours of Monday 2 November 2026, refrigeration controllers were attacked at three British meat businesses and a fruit and vegetable wholesaler, while Belgium's cyber security agency handled cases at the same time. The trade body involved said the entry point was vulnerable Copeland XWEB supervisory controllers running firmware 1.12.1 or earlier.</p>
+            <p class="faq-a">In the early hours of Monday 2 November 2026, refrigeration controllers were attacked at three British meat businesses and a fruit and vegetable wholesaler, while Belgium's cyber security agency handled cases at the same time. The trade body involved said the entry point for its members was vulnerable Copeland XWEB supervisory controllers running firmware 1.12.1 or earlier. The same night reached several other European countries, and Danfoss said its own software was involved in cases there, so Copeland was not the only product line affected.</p>
           </div>
           <div class="faq-item">
             <h3 class="faq-q">Was there a patch available?</h3>
@@ -331,6 +345,8 @@
             <li>CISA, advisory ICSA-26-057-10, "Copeland XWEB and XWEB Pro", 26 February 2026: <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-057-10">cisa.gov</a></li>
             <li>CERT-FR, alert CERTFR-2026-ALE-012, 12 October 2026, updated 13 and 16 October: <a href="https://www.cert.ssi.gouv.fr/alerte/CERTFR-2026-ALE-012/">cert.ssi.gouv.fr</a></li>
             <li>The Record, Alexander Martin, "British businesses caught in Europe-wide supermarket fridge attacks", 3 November 2026: <a href="https://therecord.media/british-businesses-caught-in-europe-wide-supermarket-fridge-attacks">therecord.media</a></li>
+            <li>Euronews, "Cyberattacks hit supermarket fridges and freezers in Europe, Belgium launches investigation", 2 November 2026: <a href="https://www.euronews.com/2026/11/02/cyberattack-hits-belgian-supermarket-fridges-and-freezers">euronews.com</a></li>
+            <li>BleepingComputer, "Hackers disrupt refrigeration systems at European supermarkets", 2 November 2026: <a href="https://www.bleepingcomputer.com/news/security/hackers-disrupt-refrigeration-systems-at-european-supermarkets/">bleepingcomputer.com</a></li>
             <li>VulnCheck, Valentin Lobstein, "Code of the Day: Unauthenticated Root in Copeland XWEB EVO", 13 November 2026: <a href="https://vulncheck.com/blog/copeland-xweb-evo-unauthenticated-root">vulncheck.com</a></li>
             <li>Liscere, Field Note FN-2026-01, "Authorised commands, spoiled food: the October 2026 supermarket refrigeration attack", 12 November 2026: <a href="/research/fn-2026-01/">liscere.com</a></li>
           </ol>
