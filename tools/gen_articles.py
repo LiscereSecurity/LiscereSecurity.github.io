@@ -743,6 +743,73 @@ FN_2026_03 = dict(
     ),
 )
 
+FN_2026_04 = dict(
+    id="fn-2026-04", date="2026-11-25", month_bib="nov",
+    og_image="assets/og-image.png",
+    en=dict(
+        title="Danfoss Refrigeration Flaw: No Patch, One Setting | Liscere",
+        description="CISA advisory ICSA-26-328-03 covers an unauthenticated 9.8 in Danfoss AK-SM 8xxA controllers. No fix yet, and the fix will remove a customer option.",
+        og_image_alt="Liscere logo on a dark background",
+        about=["Operational technology security", "Industrial control systems", "Refrigeration controllers", "Vulnerability management", "Cold chain", "Secure by default"],
+        keywords="Danfoss AK-SM 800A, CVE-2026-129713, ICSA-26-328-03, Strict Mode, refrigeration controllers, unauthenticated CGI, OT security, ICS, secure by default, NIS2",
+        contact="../../services.html#contact",
+        key_points=[
+            "CISA advisory ICSA-26-328-03 of 24 November 2026 covers Danfoss AK-SM 8xxA controllers at software version 5.4.0 and earlier. CVE-2026-129713 scores 9.8 on CVSS v3.1 and 9.3 on CVSS v4.0.",
+            "The flaw is a stack-based buffer overflow in an unauthenticated CGI handler, reached by a crafted HTTP or HTTPS POST. The advisory states that authentication is not required to exploit it.",
+            "There is no fix. Danfoss says it will come in an upcoming 5.5.x release, with no date, and that it will also remove the ability for users to disable Strict Mode.",
+            "The protection already exists on the installed base and can be switched off today, which makes the question for this week whether Strict Mode is on rather than whether the controller is patched.",
+        ],
+        related=[
+            ("services/ot-visibility-monitoring.html", "OT visibility and monitoring", "See what your control network is actually being told to do."),
+            ("services/ot-security-assessment.html", "OT and ICS security assessment", "Find what is reachable and what nobody has listed."),
+            ("services/nis2-ksc-compliance.html", "NIS2 and KSC readiness", "Obligations, audit and an action plan with an OT perspective."),
+        ],
+        faq=[
+            ("What is CVE-2026-129713?",
+             "A stack-based buffer overflow, CWE-121, in an unauthenticated CGI handler of the Danfoss AK-SM 8xxA series refrigeration controller at software version 5.4.0 and earlier. A crafted HTTP or HTTPS POST request causes memory corruption and a restart of the web server, and the advisory describes arbitrary code execution with web server privileges as hypothetically potential rather than as demonstrated."),
+            ("Is there a patch?",
+             "Not yet. Danfoss says the vulnerability will be addressed in an upcoming AK-SM 800A software release, version 5.5.x, and gives no date. Until then the response is network position and configuration: keep the controllers off the public internet and off public IP addresses, reach them only through a VPN or equivalent protected architecture, use strong unique passwords, and run every affected device in Strict Mode."),
+            ("What is Strict Mode and why does it matter here?",
+             "It is a hardening mode already present on the installed base, available today without any update. Danfoss asks operators to enable it as the interim mitigation, and says it will remove the ability for users to disable it in future releases. A protection that ships switchable tends to get switched, usually during commissioning and usually by a service contractor, and nobody records it. Reading the actual state on each device is work that needs no patch."),
+            ("Was this vulnerability used in the supermarket refrigeration attacks?",
+             "There is no basis for saying so. CISA states that no known public exploitation specifically targeting this vulnerability has been reported to it, and the advisory does not connect it to the October or November incidents. Danfoss did say its software was involved in the November cases and that the customers affected had not applied an update, but that is a separate statement about a separate matter."),
+            ("Does the absence of a patch suspend the NIS2 and KSC obligations?",
+             "No. The duty is to manage risk rather than only to apply updates. Where no fix exists, documented compensating controls are what an operator presents: network position, remote access through a VPN, the hardening mode enabled, and a replacement date. They count when they have been written down and assessed, not merely performed."),
+        ],
+    ),
+    pl=dict(
+        title="Luka w sterownikach Danfoss: bez poprawki, jedno ustawienie | Liscere",
+        description="Alert CISA ICSA-26-328-03 opisuje nieuwierzytelnioną podatność 9.8 w sterownikach Danfoss AK-SM 8xxA. Poprawki nie ma, a ta przyszła odbierze pewną opcję.",
+        og_image_alt="Logo Liscere na ciemnym tle",
+        about=["Cyberbezpieczeństwo OT", "Przemysłowe systemy sterowania", "Sterowniki chłodnicze", "Zarządzanie podatnościami", "Łańcuch chłodniczy", "Bezpieczne domyślnie"],
+        keywords="Danfoss AK-SM 800A, CVE-2026-129713, ICSA-26-328-03, Strict Mode, sterowniki chłodnicze, nieuwierzytelnione CGI, cyberbezpieczeństwo OT, ICS, KSC, NIS2",
+        contact="../../uslugi.html#contact",
+        key_points=[
+            "Alert CISA ICSA-26-328-03 z 24 listopada 2026 obejmuje sterowniki Danfoss AK-SM 8xxA w wersji 5.4.0 i wcześniejszych. CVE-2026-129713 ma ocenę 9.8 w CVSS v3.1 i 9.3 w CVSS v4.0.",
+            "Podatność to przepełnienie bufora na stosie w nieuwierzytelnionej obsłudze CGI, osiągalnej spreparowanym żądaniem POST po HTTP lub HTTPS. Alert stwierdza, że wykorzystanie nie wymaga uwierzytelnienia.",
+            "Poprawki nie ma. Danfoss zapowiada ją w przyszłym wydaniu 5.5.x, bez daty, i zapowiada też odebranie użytkownikom możliwości wyłączenia trybu Strict Mode.",
+            "Zabezpieczenie już jest na zainstalowanej bazie i dzisiaj da się je wyłączyć, więc pytaniem na ten tydzień nie jest, czy sterownik jest załatany, tylko czy tryb Strict Mode jest włączony.",
+        ],
+        related=[
+            ("pl/uslugi/widocznosc-i-monitoring-ot.html", "Widoczność i monitoring OT", "Widać, co naprawdę dzieje się w sieci sterowania."),
+            ("pl/uslugi/audyt-bezpieczenstwa-ot.html", "Audyt bezpieczeństwa OT i ICS", "Sprawdzamy, co jest dostępne z zewnątrz i czego nikt nie spisał."),
+            ("pl/uslugi/nis2-ksc.html", "Gotowość do NIS2 i KSC", "Obowiązki, audyt i plan działań z perspektywą OT."),
+        ],
+        faq=[
+            ("Czym jest CVE-2026-129713?",
+             "To przepełnienie bufora na stosie, CWE-121, w nieuwierzytelnionej obsłudze CGI w sterowniku chłodniczym Danfoss serii AK-SM 8xxA w wersji 5.4.0 i wcześniejszych. Spreparowane żądanie POST po HTTP lub HTTPS powoduje uszkodzenie pamięci i restart serwera WWW, a wykonanie dowolnego kodu z uprawnieniami serwera WWW alert opisuje jako hipotetycznie możliwe, a nie jako wykazane."),
+            ("Czy jest poprawka?",
+             "Jeszcze nie. Danfoss zapowiada usunięcie podatności w przyszłym wydaniu oprogramowania AK-SM 800A w wersji 5.5.x i nie podaje daty. Do tego czasu odpowiedzią jest pozycja sieciowa i konfiguracja: nie wystawiać sterowników do internetu ani nie nadawać im publicznych adresów IP, dostęp zdalny prowadzić wyłącznie przez VPN lub równoważną chronioną architekturę, stosować silne i unikalne hasła oraz uruchomić każde dotknięte urządzenie w trybie Strict Mode."),
+            ("Czym jest tryb Strict Mode i dlaczego ma tu znaczenie?",
+             "To tryb podwyższonego bezpieczeństwa obecny już na zainstalowanej bazie, dostępny dziś bez żadnej aktualizacji. Danfoss prosi operatorów o jego włączenie jako środek tymczasowy i zapowiada, że w przyszłych wydaniach odbierze użytkownikom możliwość jego wyłączenia. Zabezpieczenie, które da się przełączyć, bywa przełączane, zwykle podczas uruchomienia i zwykle przez firmę serwisową, i nikt tego nie zapisuje. Odczytanie faktycznego stanu na każdym urządzeniu to praca, która nie wymaga poprawki."),
+            ("Czy tę podatność wykorzystano w atakach na chłodnie w supermarketach?",
+             "Nie ma podstaw, żeby tak twierdzić. CISA podaje, że nie zgłoszono jej żadnego publicznie znanego wykorzystania wymierzonego konkretnie w tę podatność, a alert nie łączy jej z incydentami z października ani listopada. Danfoss rzeczywiście oświadczył, że w listopadowych przypadkach w grę wchodziło jego oprogramowanie i że dotknięci klienci nie wgrali aktualizacji, ale to osobne stwierdzenie w osobnej sprawie."),
+            ("Czy brak poprawki zawiesza obowiązki z NIS2 i KSC?",
+             "Nie. Obowiązek dotyczy zarządzania ryzykiem, a nie wyłącznie wgrywania aktualizacji. Tam, gdzie poprawki nie ma, operator przedstawia udokumentowane środki zastępcze: pozycję sieciową, dostęp zdalny przez VPN, włączony tryb podwyższonego bezpieczeństwa i termin wymiany. Liczą się wtedy, gdy zostały zapisane i ocenione, a nie jedynie wykonane."),
+        ],
+    ),
+)
+
 LB_2026_01 = dict(
     id="lb-2026-01", series="landscape", langs=("en",), date="2026-06-23", modified="2026-10-07",
     og_image="assets/og-image.png", pdf="assets/papers/liscere-ot-threat-landscape.pdf", version="1.1",
@@ -1225,7 +1292,7 @@ GD_2026_04 = dict(
 )
 
 
-ARTICLES = [GD_2026_01, GD_2026_02, GD_2026_03, GD_2026_04, GD_2026_05, FN_2026_01, FN_2026_02, FN_2026_03, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
+ARTICLES = [GD_2026_01, GD_2026_02, GD_2026_03, GD_2026_04, GD_2026_05, FN_2026_01, FN_2026_02, FN_2026_03, FN_2026_04, LB_2026_01, LB_2026_02, LB_2026_03, LB_2026_04, LB_2026_05,
             LTR_2026_01, LTR_2026_02, LTR_2026_03, LTR_2026_04, LTR_2026_05]
 
 if __name__ == "__main__":

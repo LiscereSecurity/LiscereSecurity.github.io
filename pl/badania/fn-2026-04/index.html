@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="pl-PL" class="past-hero article-view">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; media-src 'self'; connect-src 'self' https://formspree.io https://cloudflareinsights.com; object-src 'self'; frame-src 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luka w sterownikach Danfoss: bez poprawki, jedno ustawienie | Liscere</title>
+  <meta name="description" content="Alert CISA ICSA-26-328-03 opisuje nieuwierzytelnioną podatność 9.8 w sterownikach Danfoss AK-SM 8xxA. Poprawki nie ma, a ta przyszła odbierze pewną opcję." />
+  <meta name="author" content="Liscere" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-video-preview:-1" />
+  <meta name="theme-color" content="#030405" />
+
+  <meta property="og:title" content="Poprawki nie ma, a wraz z nią zniknie pewien wybór" />
+  <meta property="og:description" content="Alert CISA ICSA-26-328-03 opisuje nieuwierzytelnioną podatność 9.8 w sterownikach Danfoss AK-SM 8xxA. Poprawki nie ma, a ta przyszła odbierze pewną opcję." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://liscere.com/pl/badania/fn-2026-04/" />
+  <meta property="og:image" content="https://liscere.com/assets/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Logo Liscere na ciemnym tle" />
+  <meta property="og:site_name" content="Liscere" />
+  <meta property="og:locale" content="pl_PL" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="article:published_time" content="2026-11-25" />
+  <meta property="article:section" content="Field Notes" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Poprawki nie ma, a wraz z nią zniknie pewien wybór" />
+  <meta name="twitter:description" content="Alert CISA ICSA-26-328-03 opisuje nieuwierzytelnioną podatność 9.8 w sterownikach Danfoss AK-SM 8xxA. Poprawki nie ma, a ta przyszła odbierze pewną opcję." />
+  <meta name="twitter:image" content="https://liscere.com/assets/og-image.png" />
+  <meta name="twitter:image:alt" content="Logo Liscere na ciemnym tle" />
+
+  <link rel="canonical" href="https://liscere.com/pl/badania/fn-2026-04/" />
+  <link rel="alternate" hreflang="en" href="https://liscere.com/research/fn-2026-04/" />
+  <link rel="alternate" hreflang="pl" href="https://liscere.com/pl/badania/fn-2026-04/" />
+  <link rel="alternate" hreflang="x-default" href="https://liscere.com/research/fn-2026-04/" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://liscere.com/pl/badania/fn-2026-04/#article",
+      "headline": "Poprawki nie ma, a wraz z nią zniknie pewien wybór",
+      "name": "Poprawki nie ma, a wraz z nią zniknie pewien wybór",
+      "description": "Alert CISA ICSA-26-328-03 opisuje nieuwierzytelnioną podatność 9.8 w sterownikach Danfoss AK-SM 8xxA. Poprawki nie ma, a ta przyszła odbierze pewną opcję.",
+      "url": "https://liscere.com/pl/badania/fn-2026-04/",
+      "mainEntityOfPage": "https://liscere.com/pl/badania/fn-2026-04/",
+      "inLanguage": "pl-PL",
+      "datePublished": "2026-11-25",
+      "dateModified": "2026-11-25",
+      "image": [
+        "https://liscere.com/assets/og-image.png"
+      ],
+      "author": {
+        "@id": "https://liscere.com/#org"
+      },
+      "publisher": {
+        "@id": "https://liscere.com/#org"
+      },
+      "isPartOf": {
+        "@type": "CreativeWorkSeries",
+        "name": "Liscere Field Notes",
+        "url": "https://liscere.com/research.html#fieldnotes"
+      },
+      "articleSection": "Field Notes",
+      "about": [
+        "Cyberbezpieczeństwo OT",
+        "Przemysłowe systemy sterowania",
+        "Sterowniki chłodnicze",
+        "Zarządzanie podatnościami",
+        "Łańcuch chłodniczy",
+        "Bezpieczne domyślnie"
+      ],
+      "keywords": "Danfoss AK-SM 800A, CVE-2026-129713, ICSA-26-328-03, Strict Mode, sterowniki chłodnicze, nieuwierzytelnione CGI, cyberbezpieczeństwo OT, ICS, KSC, NIS2",
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "CISA, alert ICSA-26-328-03, „Danfoss AK-SM 8xxA Series\", 24 listopada 2026",
+          "url": "https://www.cisa.gov/news-events/ics-advisories/icsa-26-328-03"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Danfoss, oprogramowanie i zalecenia bezpieczeństwa dla AK-SM 800A",
+          "url": "https://www.danfoss.com/en/service-and-support/downloads/dcs/adap-kool-software/ak-sm-800a/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Liscere, Field Note FN-2026-02, „Załatane, niezałatane, bez wsparcia: ataki na chłodnie wróciły w listopadzie\", 17 listopada 2026",
+          "url": "https://liscere.com/pl/badania/fn-2026-02/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Liscere, Field Note FN-2026-01, „Autoryzowane polecenia, zepsuta żywność: cyberatak na chłodnie supermarketów w październiku 2026\", 12 listopada 2026",
+          "url": "https://liscere.com/pl/badania/fn-2026-01/"
+        }
+      ],
+      "translationOfWork": {
+        "@id": "https://liscere.com/research/fn-2026-04/#article"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://liscere.com/#org",
+      "name": "Liscere",
+      "legalName": "Liscere sp. z o.o.",
+      "url": "https://liscere.com/",
+      "logo": "https://liscere.com/assets/apple-touch-icon.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Start",
+          "item": "https://liscere.com/pl/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Badania",
+          "item": "https://liscere.com/pl/badania.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "FN-2026-04",
+          "item": "https://liscere.com/pl/badania/fn-2026-04/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://liscere.com/pl/badania/fn-2026-04/#faq",
+      "inLanguage": "pl-PL",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Czym jest CVE-2026-129713?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To przepełnienie bufora na stosie, CWE-121, w nieuwierzytelnionej obsłudze CGI w sterowniku chłodniczym Danfoss serii AK-SM 8xxA w wersji 5.4.0 i wcześniejszych. Spreparowane żądanie POST po HTTP lub HTTPS powoduje uszkodzenie pamięci i restart serwera WWW, a wykonanie dowolnego kodu z uprawnieniami serwera WWW alert opisuje jako hipotetycznie możliwe, a nie jako wykazane."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy jest poprawka?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Jeszcze nie. Danfoss zapowiada usunięcie podatności w przyszłym wydaniu oprogramowania AK-SM 800A w wersji 5.5.x i nie podaje daty. Do tego czasu odpowiedzią jest pozycja sieciowa i konfiguracja: nie wystawiać sterowników do internetu ani nie nadawać im publicznych adresów IP, dostęp zdalny prowadzić wyłącznie przez VPN lub równoważną chronioną architekturę, stosować silne i unikalne hasła oraz uruchomić każde dotknięte urządzenie w trybie Strict Mode."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czym jest tryb Strict Mode i dlaczego ma tu znaczenie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To tryb podwyższonego bezpieczeństwa obecny już na zainstalowanej bazie, dostępny dziś bez żadnej aktualizacji. Danfoss prosi operatorów o jego włączenie jako środek tymczasowy i zapowiada, że w przyszłych wydaniach odbierze użytkownikom możliwość jego wyłączenia. Zabezpieczenie, które da się przełączyć, bywa przełączane, zwykle podczas uruchomienia i zwykle przez firmę serwisową, i nikt tego nie zapisuje. Odczytanie faktycznego stanu na każdym urządzeniu to praca, która nie wymaga poprawki."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy tę podatność wykorzystano w atakach na chłodnie w supermarketach?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nie ma podstaw, żeby tak twierdzić. CISA podaje, że nie zgłoszono jej żadnego publicznie znanego wykorzystania wymierzonego konkretnie w tę podatność, a alert nie łączy jej z incydentami z października ani listopada. Danfoss rzeczywiście oświadczył, że w listopadowych przypadkach w grę wchodziło jego oprogramowanie i że dotknięci klienci nie wgrali aktualizacji, ale to osobne stwierdzenie w osobnej sprawie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Czy brak poprawki zawiesza obowiązki z NIS2 i KSC?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nie. Obowiązek dotyczy zarządzania ryzykiem, a nie wyłącznie wgrywania aktualizacji. Tam, gdzie poprawki nie ma, operator przedstawia udokumentowane środki zastępcze: pozycję sieciową, dostęp zdalny przez VPN, włączony tryb podwyższonego bezpieczeństwa i termin wymiany. Liczą się wtedy, gdy zostały zapisane i ocenione, a nie jedynie wykonane."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
+  <link rel="stylesheet" href="../../../assets/css/fonts.css?v=1" />
+  <link rel="icon" type="image/svg+xml" href="../../../assets/favicon.svg?v=4" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon-32.png?v=4" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/favicon-16.png?v=4" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../../../assets/favicon-48.png?v=4" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/apple-touch-icon.png?v=4" />
+  <link rel="stylesheet" href="../../../assets/css/styles.css?v=20261117-a1" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Przejdź do treści</a>
+
+  <header class="site-chrome" aria-label="Nawigacja">
+    <a class="site-logo" href="../../../pl/index.html" aria-label="Liscere, strona główna">
+      <img class="wordmark-svg" src="../../../assets/liscere-wordmark-dark.svg?v=3" alt="Liscere" width="1040" height="216" />
+    </a>
+    <nav class="site-nav" aria-label="Strony">
+      <a href="../../../pl/index.html">Start</a>
+      <a href="../../../pl/uslugi.html">Usługi</a>
+      <a href="../../../pl/o-nas.html">O nas</a>
+      <a href="../../../pl/badania.html" aria-current="page">Badania</a>
+      <a class="lang-switch" href="../../../research/fn-2026-04/" hreflang="en" lang="en" aria-label="English">EN</a>
+    </nav>
+  </header>
+
+  <main id="main-content" class="research-page article-page">
+    <article class="article">
+      <header class="article-head">
+        <p class="kicker"><a class="series-back" href="../../../pl/badania.html#fieldnotes" data-back>FIELD NOTES</a> · FN-2026-04 · 25 listopada 2026</p>
+
+        <h1>Poprawki nie ma, a wraz z nią zniknie pewien wybór</h1>
+
+        <p class="lede">24 listopada CISA opublikowała alert dotyczący sterowników chłodniczych używanych w handlu spożywczym. Podatność nie wymaga hasła, poprawki jeszcze nie ma, a ta, która nadejdzie, odbierze klientom możliwość, którą mają dzisiaj. To ostatnie jest tu najciekawsze, bo oznacza, że sama ta możliwość była wadą.</p>
+      </header>
+
+      <aside class="key-points" aria-labelledby="key-points-title">
+        <h2 id="key-points-title">Najważniejsze punkty</h2>
+        <ul>
+          <li>Alert CISA ICSA-26-328-03 z 24 listopada 2026 obejmuje sterowniki Danfoss AK-SM 8xxA w wersji 5.4.0 i wcześniejszych. CVE-2026-129713 ma ocenę 9.8 w CVSS v3.1 i 9.3 w CVSS v4.0.</li>
+          <li>Podatność to przepełnienie bufora na stosie w nieuwierzytelnionej obsłudze CGI, osiągalnej spreparowanym żądaniem POST po HTTP lub HTTPS. Alert stwierdza, że wykorzystanie nie wymaga uwierzytelnienia.</li>
+          <li>Poprawki nie ma. Danfoss zapowiada ją w przyszłym wydaniu 5.5.x, bez daty, i zapowiada też odebranie użytkownikom możliwości wyłączenia trybu Strict Mode.</li>
+          <li>Zabezpieczenie już jest na zainstalowanej bazie i dzisiaj da się je wyłączyć, więc pytaniem na ten tydzień nie jest, czy sterownik jest załatany, tylko czy tryb Strict Mode jest włączony.</li>
+        </ul>
+      </aside>
+
+      <aside class="article-side" aria-label="Film i spis treści">
+        <div class="side-sticky">
+
+          <nav class="article-toc" aria-labelledby="toc-title">
+            <h2 id="toc-title">Na tej stronie</h2>
+            <ol>
+              <li><a href="#co-mowi-alert">Co mówi alert</a></li>
+              <li><a href="#zalecenia-tymczasowe-wskazuja-konkretne-ustawienie">Zalecenia tymczasowe wskazują konkretne ustawienie</a></li>
+              <li><a href="#czego-alert-nie-mowi">Czego alert nie mówi</a></li>
+              <li><a href="#nasza-analiza">Nasza analiza</a></li>
+              <li><a href="#co-z-tego-wynika-po-stronie-ksc">Co z tego wynika po stronie KSC</a></li>
+              <li><a href="#help">Jak Liscere może pomóc</a></li>
+              <li><a href="#questions">Pytania</a></li>
+              <li><a href="#sources">Źródła</a></li>
+            </ol>
+          </nav>
+          <section class="side-cta" aria-labelledby="side-cta-title">
+            <h2 id="side-cta-title">Podobny problem?</h2>
+            <p>Pomagamy operatorom przemysłowym sprawdzić, co jest wystawione na zewnątrz, zobaczyć, co trafia do ich sieci sterowania, i reagować, gdy coś pójdzie nie tak.</p>
+            <a class="primary-cta" href="../../uslugi.html#contact">Porozmawiaj z nami</a>
+          </section>
+        </div>
+      </aside>
+
+      <div class="article-body">
+        <h2 id="co-mowi-alert">Co mówi alert</h2>
+        <ul>
+          <li><strong>Urządzenia.</strong> Sterowniki Danfoss serii AK-SM 8xxA w wersji oprogramowania 5.4.0 i wcześniejszych. CISA podaje sektor jako Commercial Facilities, zasięg wdrożeń jako ogólnoświatowy, a siedzibę producenta w Danii.</li>
+          <li><strong>Podatność.</strong> CVE-2026-129713, przepełnienie bufora na stosie (CWE-121) w nieuwierzytelnionej obsłudze CGI. Dociera do niej spreparowane żądanie POST po HTTP lub HTTPS. CVSS v3.1 ocenia ją na 9.8, wektor AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H; CVSS v4.0 na 9.3.</li>
+          <li><strong>Poświadczenia nie są potrzebne.</strong> Alert stwierdza wprost, że wykorzystanie podatności nie wymaga uwierzytelnienia.</li>
+          <li><strong>Co to realnie robi.</strong> Uszkodzenie pamięci i restart serwera WWW, a w ostrożnym sformułowaniu samego alertu hipotetycznie możliwe wykonanie dowolnego kodu z uprawnieniami serwera WWW. Dwa pierwsze skutki są stwierdzone, trzeci nie.</li>
+          <li><strong>Poprawki dziś nie ma.</strong> Danfoss zapowiada, że podatność zostanie usunięta w przyszłym wydaniu oprogramowania AK-SM 800A, w wersji 5.5.x. Daty nie podano.</li>
+          <li><strong>Zgłaszający.</strong> Carlo Meijer z Midnight Blue zgłosił podatność do CISA.</li>
+          <li><strong>Nie odnotowano wykorzystania.</strong> CISA podaje, że nie zgłoszono jej żadnego publicznie znanego wykorzystania wymierzonego konkretnie w tę podatność.</li>
+        </ul>
+
+        <h2 id="zalecenia-tymczasowe-wskazuja-konkretne-ustawienie">Zalecenia tymczasowe wskazują konkretne ustawienie</h2>
+
+        <p>Do czasu wydania poprawki Danfoss prosi operatorów, aby nie wystawiali sterowników do internetu ani nie nadawali im publicznych adresów IP, aby dostęp zdalny prowadzić wyłącznie przez VPN lub równoważną chronioną architekturę, aby stosować silne i unikalne hasła oraz aby skonfigurować wszystkie dotknięte urządzenia do pracy w trybie Strict Mode.</p>
+
+        <p>I dalej pada zdanie warte przeczytania dwa razy. Danfoss zapowiada, że w przyszłych wydaniach odbierze użytkownikom możliwość wyłączenia trybu Strict Mode.</p>
+
+        <p>Zestawmy jedno z drugim, a obraz problemu układa się bez żadnej wiedzy poufnej. Zabezpieczenie już istnieje. Jest dostępne na zainstalowanej bazie, dzisiaj, bez kosztu i bez aktualizacji. Da się je wyłączyć, a producent doszedł do wniosku, że sama możliwość wyłączenia była błędem na tyle poważnym, że warto go naprawić w oprogramowaniu.</p>
+
+        <p>Pytanie, które operator powinien sobie zadać w tym tygodniu, nie brzmi więc, czy sterownik jest załatany, bo załatany być nie może. Brzmi: czy tryb Strict Mode jest włączony, a jeżeli nie, to kto go wyłączył i co przestało działać, kiedy był włączony.</p>
+
+        <h2 id="czego-alert-nie-mowi">Czego alert nie mówi</h2>
+
+        <p>Nie łączy tej podatności z atakami na europejski handel spożywczy z października i listopada. My również tego nie zrobimy. Danfoss rzeczywiście oświadczył, że w listopadowych przypadkach w grę wchodziło jego oprogramowanie i że dotknięci klienci nie wgrali aktualizacji, a ten alert pojawił się trzy tygodnie później dla tej samej rodziny produktów, i obie te rzeczy mogą być prawdziwe bez związku przyczynowego. CISA pisze, że nie zgłoszono jej wykorzystania tego CVE, i to zdanie dźwiga w tym dokumencie najwięcej.</p>
+
+        <p>Nie udało nam się też przeczytać samego alertu Danfossa. Strona zwraca nam 403, więc wszystko, co przypisujemy tu Danfossowi, podajemy w brzmieniu zreferowanym przez CISA. Wolimy to powiedzieć, niż przedstawiać lekturę z drugiej ręki jako własną.</p>
+
+        <h2 id="nasza-analiza">Nasza analiza</h2>
+
+        <p>Nieuwierzytelniona obsługa CGI na sterowniku nadrzędnym instalacji chłodniczej to to samo ustalenie, które opisaliśmy w listopadzie, tyle że u innego producenta. Taki sterownik istnieje po to, by łączyć interfejs WWW dla ludzi z magistralą obiektową schodzącą do sterowników mebli chłodniczych. Cokolwiek dociera do strony WWW bez poświadczeń, przekroczyło już jedyną granicę, która miała znaczenie, a przypisana temu ocena punktowa jest przy tym szczegółem.</p>
+
+        <p>Restart zasługuje na więcej uwagi, niż zwykle dostaje. Serwer WWW, który da się zrestartować nieuwierzytelnionym żądaniem, to odmowa dostępu do ścieżki zarządzania, a na tej klasie urządzeń ścieżka zarządzania jest jednocześnie ścieżką monitorowania. Operator, który ją traci, nie traci chłodzenia, ale traci możliwość zobaczenia, że z chłodzeniem dzieje się coś złego. Dla atakującego to już jest coś warte, nawet jeżeli do wykonania kodu nigdy nie dojdzie.</p>
+
+        <p>Opcjonalne zabezpieczenie to ta część, którą opisalibyśmy klientowi. Ustawienia bezpieczeństwa, które da się przełączyć, bywają przełączane, i nie przez tę osobę, która ponosi ryzyko. Na tej klasie urządzeń przełącza je zwykle firma serwisująca chłodnictwo podczas uruchomienia, bo coś w ścieżce zdalnego dostępu nie działało z włączoną ochroną, a robotę trzeba było skończyć tego popołudnia. Nikt tego nie zapisuje. Ustawienie przeżywa potem każdy kolejny przegląd serwisowy, bo nikt nie wie, że cokolwiek zmieniono. Decyzja Danfossa o usunięciu tej opcji jest słuszna i jednocześnie mówi, co działo się w terenie.</p>
+
+        <h2 id="co-z-tego-wynika-po-stronie-ksc">Co z tego wynika po stronie KSC</h2>
+
+        <p>Znowelizowana ustawa o krajowym systemie cyberbezpieczeństwa umiejscawia system zarządzania bezpieczeństwem w systemie informacyjnym wykorzystywanym w procesach wpływających na świadczenie usługi. W zakładzie przetwórstwa spożywczego, w chłodni składowej i w magazynie dystrybucyjnym sterownik chłodniczy jest w tym zakresie, niezależnie od tego, czy figuruje w ewidencji zasobów IT, bo zatrzymanie chłodzenia zatrzymuje usługę. Produkcja, przetwórstwo i dystrybucja żywności są sektorami objętymi NIS2, a obowiązki z rozdziału 3 stają się wymagalne 3 kwietnia 2027.</p>
+
+        <p>Praktyczny skutek jest taki, że brak poprawki niczego nie zawiesza. Obowiązek dotyczy zarządzania ryzykiem, a nie wyłącznie aktualizowania. Jeżeli poprawki nie ma, to udokumentowane środki zastępcze, czyli pozycja sieciowa, VPN, włączony tryb Strict Mode i termin wymiany, są tym, co się przedstawia, i są wystarczające, o ile zostały zapisane i ocenione, a nie jedynie wykonane.</p>
+
+        <p>Zostaje więc konkretna praca, która nie wymaga poprawki ani nas. Znaleźć sterowniki. Ustalić, czy każdy z nich jest osiągalny z zewnątrz i skąd. Odczytać na każdym stan trybu Strict Mode, nie zamierzony, tylko faktyczny. Zapisać to, co się znajdzie, razem z informacją, kto utrzymuje urządzenie i na podstawie jakiej umowy, bo to jest to pole, które zostanie puste, i to ono tłumaczy resztę.</p>
+
+        <p class="edition-note">Ta notatka ukazuje się po angielsku i po polsku. Obie wersje nie są swoimi tłumaczeniami: ta zestawia alert z obowiązkami wynikającymi z ustawy o KSC, a angielska ujmuje rzecz w skali europejskiej.</p>
+
+        <p class="tagline">Zabezpieczenie, które da się wyłączyć, to zabezpieczenie, które ktoś już wyłączył.</p>
+
+        <section class="article-related" aria-labelledby="help">
+          <h2 id="help">Jak Liscere może pomóc</h2>
+          <ul class="related-links">
+            <li><a href="../../../pl/uslugi/widocznosc-i-monitoring-ot.html">Widoczność i monitoring OT</a><span>Widać, co naprawdę dzieje się w sieci sterowania.</span></li>
+            <li><a href="../../../pl/uslugi/audyt-bezpieczenstwa-ot.html">Audyt bezpieczeństwa OT i ICS</a><span>Sprawdzamy, co jest dostępne z zewnątrz i czego nikt nie spisał.</span></li>
+            <li><a href="../../../pl/uslugi/nis2-ksc.html">Gotowość do NIS2 i KSC</a><span>Obowiązki, audyt i plan działań z perspektywą OT.</span></li>
+          </ul>
+        </section>
+
+        <section class="article-faq" aria-labelledby="questions">
+          <h2 id="questions">Pytania</h2>
+          <div class="faq-item">
+            <h3 class="faq-q">Czym jest CVE-2026-129713?</h3>
+            <p class="faq-a">To przepełnienie bufora na stosie, CWE-121, w nieuwierzytelnionej obsłudze CGI w sterowniku chłodniczym Danfoss serii AK-SM 8xxA w wersji 5.4.0 i wcześniejszych. Spreparowane żądanie POST po HTTP lub HTTPS powoduje uszkodzenie pamięci i restart serwera WWW, a wykonanie dowolnego kodu z uprawnieniami serwera WWW alert opisuje jako hipotetycznie możliwe, a nie jako wykazane.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Czy jest poprawka?</h3>
+            <p class="faq-a">Jeszcze nie. Danfoss zapowiada usunięcie podatności w przyszłym wydaniu oprogramowania AK-SM 800A w wersji 5.5.x i nie podaje daty. Do tego czasu odpowiedzią jest pozycja sieciowa i konfiguracja: nie wystawiać sterowników do internetu ani nie nadawać im publicznych adresów IP, dostęp zdalny prowadzić wyłącznie przez VPN lub równoważną chronioną architekturę, stosować silne i unikalne hasła oraz uruchomić każde dotknięte urządzenie w trybie Strict Mode.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Czym jest tryb Strict Mode i dlaczego ma tu znaczenie?</h3>
+            <p class="faq-a">To tryb podwyższonego bezpieczeństwa obecny już na zainstalowanej bazie, dostępny dziś bez żadnej aktualizacji. Danfoss prosi operatorów o jego włączenie jako środek tymczasowy i zapowiada, że w przyszłych wydaniach odbierze użytkownikom możliwość jego wyłączenia. Zabezpieczenie, które da się przełączyć, bywa przełączane, zwykle podczas uruchomienia i zwykle przez firmę serwisową, i nikt tego nie zapisuje. Odczytanie faktycznego stanu na każdym urządzeniu to praca, która nie wymaga poprawki.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Czy tę podatność wykorzystano w atakach na chłodnie w supermarketach?</h3>
+            <p class="faq-a">Nie ma podstaw, żeby tak twierdzić. CISA podaje, że nie zgłoszono jej żadnego publicznie znanego wykorzystania wymierzonego konkretnie w tę podatność, a alert nie łączy jej z incydentami z października ani listopada. Danfoss rzeczywiście oświadczył, że w listopadowych przypadkach w grę wchodziło jego oprogramowanie i że dotknięci klienci nie wgrali aktualizacji, ale to osobne stwierdzenie w osobnej sprawie.</p>
+          </div>
+          <div class="faq-item">
+            <h3 class="faq-q">Czy brak poprawki zawiesza obowiązki z NIS2 i KSC?</h3>
+            <p class="faq-a">Nie. Obowiązek dotyczy zarządzania ryzykiem, a nie wyłącznie wgrywania aktualizacji. Tam, gdzie poprawki nie ma, operator przedstawia udokumentowane środki zastępcze: pozycję sieciową, dostęp zdalny przez VPN, włączony tryb podwyższonego bezpieczeństwa i termin wymiany. Liczą się wtedy, gdy zostały zapisane i ocenione, a nie jedynie wykonane.</p>
+          </div>
+        </section>
+
+        <section class="article-sources" aria-labelledby="sources">
+          <h2 id="sources">Źródła</h2>
+          <ol class="sources">
+            <li>CISA, alert ICSA-26-328-03, „Danfoss AK-SM 8xxA Series", 24 listopada 2026: <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-328-03">cisa.gov</a></li>
+            <li>Danfoss, oprogramowanie i zalecenia bezpieczeństwa dla AK-SM 800A: <a href="https://www.danfoss.com/en/service-and-support/downloads/dcs/adap-kool-software/ak-sm-800a/">danfoss.com</a></li>
+            <li>Liscere, Field Note FN-2026-02, „Załatane, niezałatane, bez wsparcia: ataki na chłodnie wróciły w listopadzie", 17 listopada 2026: <a href="/pl/badania/fn-2026-02/">liscere.com</a></li>
+            <li>Liscere, Field Note FN-2026-01, „Autoryzowane polecenia, zepsuta żywność: cyberatak na chłodnie supermarketów w październiku 2026", 12 listopada 2026: <a href="/pl/badania/fn-2026-01/">liscere.com</a></li>
+          </ol>
+        </section>
+
+        <section class="article-cite" aria-labelledby="cite-title">
+          <h2 id="cite-title" class="doc-section-head">Cytowanie</h2>
+          <pre class="doc-cite">@misc{liscere_fn_2026_04_pl,
+  author       = {{Liscere}},
+  title        = {Poprawki nie ma, a wraz z nią zniknie pewien wybór},
+  howpublished = {Liscere Field Notes FN-2026-04},
+  year         = {2026},
+  month        = nov,
+  language     = {polish},
+  url          = {https://liscere.com/pl/badania/fn-2026-04/}
+}</pre>
+        </section>
+
+        <p class="article-back"><a href="../../../pl/badania.html" data-back>&#8592; Wszystkie badania</a></p>
+      </div>
+    </article>
+
+    <p class="research-foot"><a href="../../../pl/index.html">Start</a> · <a href="../../../pl/uslugi.html">Usługi</a> · <a href="../../../pl/o-nas.html">O nas</a> · <a href="../../../pl/faq.html">FAQ</a> · <a href="../../../pl/badania.html">Badania</a> · <a href="https://www.linkedin.com/company/liscere" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/LiscereSecurity" target="_blank" rel="noopener">GitHub</a> · <a href="../../../pl/prywatnosc.html">Prywatność</a> · <a href="../../../pl/dane-spolki.html">Dane spółki</a> · <a href="../../../pl/warunki.html">Warunki korzystania</a><br />Siedziba w Polsce, działamy w całej Europie i na świecie.<br />© 2026 Liscere sp. z o.o.</p>
+  </main>
+
+  <script src="../../../assets/js/nav.js?v=2" defer></script>
+  <script src="../../../assets/js/site.js?v=4" defer></script>
+  <!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3280d901c4be4657ba0562ac10e607b7"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>

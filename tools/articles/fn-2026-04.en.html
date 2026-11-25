@@ -1,0 +1,54 @@
+<p class="kicker">FIELD NOTES · FN-2026-04 · 25 November 2026</p>
+
+<h1>No patch, and a setting Danfoss has decided to stop offering</h1>
+
+<p class="lede">CISA published an advisory on 24 November for refrigeration controllers used across food retail. The flaw needs no password, there is no fix yet, and the fix when it arrives will take away a choice customers have today. That last part is the interesting one, because it says the option itself was the defect.</p>
+
+<h2>What the advisory says</h2>
+<ul>
+  <li><strong>The equipment.</strong> Danfoss AK-SM 8xxA series controllers at software version 5.4.0 and earlier. CISA records the sector as Commercial Facilities, deployment as worldwide, and the manufacturer as headquartered in Denmark.</li>
+  <li><strong>The flaw.</strong> CVE-2026-129713, a stack-based buffer overflow (CWE-121) in an unauthenticated CGI handler. A crafted HTTP or HTTPS POST request reaches it. CVSS v3.1 scores it 9.8 with the vector AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H; CVSS v4.0 scores it 9.3.</li>
+  <li><strong>No credential is needed.</strong> The advisory states plainly that authentication is not required to exploit it.</li>
+  <li><strong>What it actually does.</strong> Memory corruption and a restart of the web server, and, in the advisory's own careful phrasing, hypothetically potential arbitrary code execution with web server privileges. The first two are asserted; the third is not.</li>
+  <li><strong>No fix today.</strong> Danfoss says the vulnerability will be addressed in an upcoming AK-SM 800A software release, version 5.5.x. No date is given.</li>
+  <li><strong>The researcher.</strong> Carlo Meijer of Midnight Blue reported it to CISA.</li>
+  <li><strong>Nothing is known to be exploited.</strong> CISA states that no known public exploitation specifically targeting this vulnerability has been reported to it.</li>
+</ul>
+
+<h2>The interim advice names the setting</h2>
+
+<p>Until the release exists, Danfoss asks operators to keep the controllers off the public internet and off public IP addresses, to reach them only through a VPN or equivalent protected architecture, to use strong unique passwords, and to configure all affected devices to operate in Strict Mode.</p>
+
+<p>Then comes the sentence worth reading twice. Danfoss says it will remove the ability for users to disable Strict Mode in future releases.</p>
+
+<p>Put the two together and the shape of the problem is clear without any inside knowledge. The protection exists already. It is available on the installed base, today, at no cost and with no update. It can be switched off, and the vendor has concluded that being able to switch it off was a mistake worth correcting in software.</p>
+
+<p>So the question an operator should be asking this week is not whether the controller is patched, because it cannot be. It is whether Strict Mode is on, and if it is not, who turned it off and what stopped working when it was on.</p>
+
+<h2>What the advisory does not say</h2>
+
+<p>It does not connect this vulnerability to the attacks on European food retailers in October and November. Neither will we. Danfoss did say its software was involved in the November cases and that the customers affected had not applied an update, and this advisory arrived three weeks later for the same product family, and both of those things can be true without the one causing the other. CISA says no exploitation of this CVE has been reported to it, and that sentence is the most load-bearing one in the document.</p>
+
+<p>We also could not read the Danfoss advisory itself. The page returns 403 to us, so everything attributed to Danfoss above is as CISA reproduces it. We would rather say that than present a second-hand reading as a first-hand one.</p>
+
+<h2>Our analysis</h2>
+
+<p>An unauthenticated CGI handler on a refrigeration supervisor is the same finding as the one in our November note, arriving from a different manufacturer. The supervisor exists to bridge a web interface for people and a field bus down to the case controllers. Anything that reaches the web side without a credential has already crossed the only boundary that mattered, and the severity number attached to it is a detail by comparison.</p>
+
+<p>The restart deserves more attention than it usually gets. A web server that can be made to restart from an unauthenticated request is a denial of the management path, and on this class of device the management path is also the monitoring path. An operator who loses it does not lose cooling, but does lose the ability to see that cooling is in trouble. That is worth something to an attacker even if the code execution never materialises.</p>
+
+<p>The optional control is the part we would write up for a client. Security settings that ship switchable tend to get switched, and not by the person who owns the risk. On this class of equipment the switching is usually done by a refrigeration contractor during commissioning, because something in the remote access path did not work with the protection on and the job had to be finished that afternoon. Nobody records it. The setting then survives every subsequent service visit, because nobody knows it was ever changed. Danfoss removing the option is the right correction, and it also tells you what has been happening in the field.</p>
+
+<p>Which leaves a concrete piece of work that does not need a patch and does not need us. Find the controllers. Establish whether each one is reachable from outside, and from where. Read the Strict Mode state on each, not the intended state but the actual one. Write down what you find, including who maintains the device and under which contract, because that is the field that will be blank and it is the one that explains the rest.</p>
+
+<p class="edition-note">This Field Note is published in English and in Polish. The two editions are not translations of each other: the Polish one sets the advisory against the reporting duties in the Polish national cyber security act, while this one treats the question at European scale.</p>
+
+<p class="tagline">A protection you can switch off is a protection somebody has switched off.</p>
+
+<h2>Sources</h2>
+<ol class="sources">
+  <li>CISA, advisory ICSA-26-328-03, "Danfoss AK-SM 8xxA Series", 24 November 2026: <a href="https://www.cisa.gov/news-events/ics-advisories/icsa-26-328-03">cisa.gov</a></li>
+  <li>Danfoss, AK-SM 800A software and security guidance: <a href="https://www.danfoss.com/en/service-and-support/downloads/dcs/adap-kool-software/ak-sm-800a/">danfoss.com</a></li>
+  <li>Liscere, Field Note FN-2026-02, "Patched, unpatched, unsupported: the refrigeration attacks came back in November", 17 November 2026: <a href="/research/fn-2026-02/">liscere.com</a></li>
+  <li>Liscere, Field Note FN-2026-01, "Authorised commands, spoiled food: the October 2026 supermarket refrigeration attack", 12 November 2026: <a href="/research/fn-2026-01/">liscere.com</a></li>
+</ol>
